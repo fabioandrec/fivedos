@@ -1,0 +1,121 @@
+^U BROWSE
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+    ^B @ nTop, nLeft LISTBOX [ oLbx ] ;
+    ^B        [ FIELDS | COLUMNS Flds,... ] ;
+    ^B        [ SIZE nWidth, nHeight ] ;
+    ^B        [ ALIAS cAlias ] ;
+    ^B        [ SELECT nInd ] ;
+    ^B        [ FOR uValTop [ TO uValBottom ] ] ;
+    ^B        [ FIELDSIZES | SIZES | COLSIZES aColSizes,... ] ;
+    ^B        [ HEAD | HEADER | HEADERS aHeaders,... ] ;
+    ^B        [ [ OF ] WINDOW | DIALOG oWnd ] ;
+    ^B        [ ON CHANGE | ON CLICK uChange ] ;
+    ^B        [ ON [ LEFT ] DBLCLICK uLDblClick ] ;
+    ^B        [ ON RIGHT CLICK uRClick ] ;
+    ^B        [ FONT oFont ] ;
+    ^B        [ CURSOR oCursor ] ;
+    ^B        [ COLOR cColors ] ;
+    ^B        [ LABEL | PROMPT cLabel ] ;
+    ^B        [ MESSAGE cMsg ] ;
+    ^B        [ update: UPDATE ] ;
+    ^B        [ LOGICLEN uLen ] ;
+    ^B        [ FREEZE nColFreeze ] ;
+
+        Genera un Listbox con un Browse y lo salva en oLBX
+
+     ^B @ nRow, nCol LISTBOX [ oLbx ]  BROWSE oBrowse  ;
+     ^B        [ SIZE nWidth, nHeight ]       ;
+     ^B        [ LOGICLEN uLen ]                ;
+     ^B        [ LABEL, PROMPT cLabel ] ;
+     ^B        [ MESSAGE cMsg ]                 ;
+     ^B        [ COLOR, COLORS cColors ] ;
+     ^B        [ OF, WINDOW, DIALOG oWnd ] ;
+     ^B        [ ON CHANGE, ON CLICK uChange ] ;
+     ^B        [ ON [ LEFT ] DBLCLICK uLDblClick ] ;
+     ^B        [ ON RIGHT CLICK uRClick ] ;
+
+    Genera un listbox conteniendo el browse oBrowse.
+    oBrouse es un Browse standard de Clipper.
+
+   ^A1CVea BROWSE.CH, Sintaxis alternativa para la creaci¢n de Browses.^N
+
+    ^B[ FIELDS | COLUMNS Flds,... ]
+        Enumera los Campos o expresiones que se presentar n en las
+        columnas del Browse
+
+    ^B[ SIZE nWidth, nHeight ]
+        Establece el Ancho y Alto del ListBox
+
+    ^B[ ALIAS cAlias ]
+        Establece el Alias que regur  el  desplazamiento del browse
+
+    ^B[ SELECT nInd ]
+        Determina el orden en los indices ( si hay ) que se seguir 
+
+    ^B[ FOR uValTop [ TO uValBottom ] ]
+        Establece los valores superior e inferior del rango de la base
+        de datos visible
+
+    ^B[ FIELDSIZES | SIZES | COLSIZES aColSizes,... ]
+        S¢lo para compatibilidad con FiveWin
+
+    ^B[ HEAD | HEADER | HEADERS aHeaders,... ]
+        Determina las cabeceras de cada columna
+
+    ^B[ [ OF ] WINDOW | DIALOG oWnd ]
+        Pertenece a la ventana ...
+
+    ^B[ ON CHANGE | ON CLICK uChange ]
+        Se ejecutara uChange cada vez que se cambie el puntero en la
+        base de datos, ya sea con los cursores, con el rat¢n.
+
+    ^B[ ON [ LEFT ] DBLCLICK uLDblClick ]
+        Se ejecutar  uLDblClick si se pulsa <Enter> o se hace un doble
+        click sobre un registro ( linea ).
+
+    ^B[ ON RIGHT CLICK uRClick ]
+        se ejecutar  uRClick si se pulsa el bot¢n derecho del rat¢n
+        sobre una l¡nea.
+
+    ^B[ FONT oFont ]
+        S¢lo para compatibilidad con FiveWin
+
+    ^B[ CURSOR oCursor ]
+        S¢lo para compatibilidad con FiveWin
+
+    ^B[ COLOR cColors ]
+        Determina los colores de presentaci¢n, seg£n el esquema:
+
+        "<Color Normal>,<Color Focus>,<Color no Focus>"
+
+        Siendo los colores simples cadesas de determinaci¢n de
+        color seg£n el esquema xbase, por ejemplo:
+
+                "b/n,b+/r,b/r"
+
+        Nota: El color de la etiqueta o t¡tulo del listbox lo
+        determina la ventana ( ver Window )
+
+    ^B[ LABEL | PROMPT cLabel ]
+        Determina el T¡tulo del ListBox
+
+    ^B[ MESSAGE cMsg ]
+        Mensaje que se presenta en la barra de mensajes.
+
+    ^B[ update: UPDATE ]
+        S¢lo para compatibilidad con FiveWin
+
+    ^B[ LOGICLEN uLen ]
+        Funci¢n que determina la longitud l¢gica activa
+        dentro de la base de datos por la base de datos.
+
+        Es decir, si en una base de datos de 100 registros
+        la zona a visualizar comprende s¢lo 10, este es el
+        valor que ha de entregar el logiclen.
+
+    ^B[ FREEZE nColFreeze ]
+        Columna que se deja fija, desde la Izquierda, en los
+        desplazamientos horizontales.
+
+!seealso: Column.ngo:Column Browse.ngh:Browse.ch

@@ -1,0 +1,45 @@
+^U BITMAP
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B    @ <nRow>, <nCol> BITMAP [<oBmp>] ;
+^B        [ SIZE <nWidth>, <nHeight> ] ;
+^B        [ <resource: RESOURCE, NAME, RESNAME> <cResName> ] ;
+^B        [ <file: FILE, FILENAME, DISK> <cBmpFile> ] ;
+^B        [ <wnd: OF, WINDOW, DIALOG> <oWnd> ] ;
+
+^B    <nRow>, <nCol>
+        File ya columna en la que aparecer  el BitMap
+
+^B    [<oBmp>]
+        Variable a la que se asignar  el objeto TBitMap
+
+^B    [ SIZE <nWidth>, <nHeight> ]
+        Ancho y altura del BitMap.
+
+^B    [ <resource: RESOURCE, NAME, RESNAME> <cResName> ]
+        Para compatibilidad con FiveWin.
+
+^B    [ <file: FILE, FILENAME, DISK> <cBmpFile> ]
+        Nombre del fichero BitMap.
+
+^B    [ <wnd: OF, WINDOW, DIALOG> <oWnd> ]
+        Objeto ventana al que pertenece el BitMap.
+
+^B    Ejemplo:
+
+        Function oNewWnd()
+            Local oWnd
+
+            CREATE WINDOW oWnd ;
+                FROM 5, 5 TO 25, 40 ;
+                TITLE "Ejemplo de ventana"
+
+            SET MESSAGE OF oWnd F2VERSION + FDCOPYRIGHT
+
+            @  5,  5 BITMAP oBitMap ;
+                SIZE 10, 20 ;
+                FILE "Info.BMP" ;
+                OF oWnd
+
+        [...]
+

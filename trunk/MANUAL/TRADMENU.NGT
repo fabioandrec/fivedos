@@ -1,0 +1,123 @@
+!short: CLASE ^BTRadMenu^B                                                              
+'------------------------------------------------------------------------------'
+    Clase que hereda de TCtrlMenu para soporte de RadioMen£.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:bSetGet^B          Codeblock tipo bSetGet para editar la variable.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:ChangeFocus^B      M‚todo usado para cambiar el elemento seleccionado.         ^B
+'------------------------------------------------------------------------------'
+^U ChangeFocus
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ChangeFocus( nCtrl ) -> NIL
+
+^B Descripci¢n:^B
+    M‚todo usado para cambiar el elemento seleccionado actual.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Click^B            Manaja las pulsaciones del rat¢n.                           ^B
+'------------------------------------------------------------------------------'
+^U Click
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Click( nMRow, nMCol ) -> NIL
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones del rat¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Es el constructor de la clase.                              ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nRow, nCol, acItems, bSetGet, oWnd, cLabel, cMessage,
+         cColor, bWhen, bValid, bChanged, cFile1, cFile2 ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros.
+
+    ^BnRow    ^B    Fila donde se situa el objeto.
+    ^BnCol    ^B    Columna donde se situa el objeto.
+    ^BacItems ^B    Array con los elementos del men£.
+    ^BbSetGet ^B    Codeblock tipo bSetGet para la edici¢n de la variable.
+    ^BoWnd    ^B    Referencia a la ventana en la que se inserta el men£.
+    ^BcLabel  ^B    Etiqueta que aparece en la parte superior.
+    ^BcMessage^B    Mensaje que aparece cuando se selecciona.
+    ^BcColor  ^B    Cadena de caracteres con los colores a usar.
+    ^BbWhen   ^B    Codeblock de prevalidaci¢n.
+    ^BbValid  ^B    Codeblock de postvalidaci¢n.
+    ^BbChanged^B    Codeblock que se evalua cuando se ha cambiado de elemento.
+    ^BcFile1  ^B    Bitmap para representar el elemento seleccionado.
+    ^BcFile2  ^B    Bitmap para representar el elemento no seleccionado.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Redefine^B         Constructor desde recursos.                                 ^B
+'------------------------------------------------------------------------------'
+^U Redefine
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Redefine( cMessage, cColor, nHelpId, bSetGet, acItems,
+                        cLabel, bWhen, bValid, bChanged ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor desde recurso. Recibe los siguientes par metros:
+
+    ^BcMessage^B    Mensaje que aparece cuando se selecciona.
+    ^BcColor  ^B    Cadena de caracteres con los colores a usar.
+    ^BnHelpId ^B    Identificativo de contexto de ayuda.
+    ^BbSetGet ^B    Codeblock tipo bSetGet para la edici¢n de la variable.
+    ^BacItems ^B    Array con los elementos del men£.
+    ^BcLabel  ^B    Etiqueta que aparece en la parte superior.
+    ^BbWhen   ^B    Codeblock de prevalidaci¢n.
+    ^BbValid  ^B    Codeblock de postvalidaci¢n.
+    ^BbChanged^B    Codeblock que se evalua cuando se ha cambiado de elemento.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        Para asignar los colores.                                   ^B
+'------------------------------------------------------------------------------'
+^U SetColors
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetColors( cColor ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna los colores a partir de la cadena de caracteres ^BcColor.^B En ‚sta
+    se codifican los cuatro colores que se utilizan que son:
+
+    1.- Color usado por el texto normal.
+    2.- Color usado por el elemento seleccionado cuando tiene focus.
+    3.- Color usado por la letra resaltada.
+    4.- Color usado por el elemento seleccionado cuando no tiene focus.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

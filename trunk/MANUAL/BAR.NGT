@@ -1,0 +1,58 @@
+^U BUTTON BAR
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+    ^BDEFINE BUTTONBAR <oBar> OF <oWindow>
+    ^BDEFINE BUTTONBAR <oBar> DIALOG <oWindow>
+    ^BDEFINE BUTTONBAR <oBar> WINDOW <oWindow>
+
+    Se crea una Barra de Botones, devolviendo el objeto a la variable
+    ^BoBar^N, asociandola al objeto Ventana ^BoWindow^N. El objeto Ventana
+    ha de ser preexistente.
+
+    ^BDEFINE BUTTON ;
+         ^B[ FILE | FILENAME | DISK <cFile>] ;
+         ^B[ PROMPT | LABEL <cLabel> ];
+         ^B[ ACTION | EXEC <uAction> ];
+         ^B[ COLOR <cColors> ] ;
+         ^B[ MEWSSAGE <cMessage> ] ;
+         ^B[ GROUP ] ;
+         ^BOF <oBar>
+
+    Se a¤ade un bot¢n a la barra definida en ^BoBar^N ( ha de existir
+    previamente).
+
+    ^BcFile^N       Fichero del disco con la definici¢n de un bipmap de uno
+                o m s caracteres. Si se acompa¤a de texto el bitmap se
+                situar  a la Izquierda de este.
+
+    ^BcLabel^N      Texto que contendr  el bot¢n.
+
+    ^BuAction^N     Acci¢n que lanzar  al ser "pulsado".
+
+    ^BcColors^N     Colores del bot¢n en formato "Contenido,Bordes",
+                 siguiendo la nomebclatura usual en Clipper:
+                        Frente/Fondo.
+
+    ^BcMensage^N    Mensaje que se visualizar  al seleccionar el bot¢n o
+                al pasar el rat¢n sobre ‚l.
+
+    ^BGROUP^N       Determina si un boton inicia un nuevo grupo en la barra.
+
+
+
+ ^BEjemplo^N
+
+    Function oCreaVentana()
+        local oWnd
+        local oBar
+
+        DEFINE WINDOW oWnd FROM  5, 5 TO 20, 75
+
+        DEFINE BUTTONBAR oBar OF oWnd
+
+        DEFINE BUTTON FILE "info.bmp" ACTION goinfo()
+
+        DEFINE BUTTON FILE "exit.bmp" PROMPT "Salir" ACTION oWnd:eXit()
+
+    [ .... ]
+!seealso: ButtonBa.ngo:BUTTON

@@ -1,0 +1,80 @@
+^U BUTTON
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+ Formato:
+
+ ^B  @ nRow, nCol BUTTON [ <oBtn>  PROMPT | LABEL> ] <cText>
+ ^B             [ SIZE nWidth, nHeight ]
+ ^B             [ COLOR cColors ]
+ ^B             [ MESSAGE cMsg ]
+ ^B             [ ACTION uAction ]
+ ^B             [ DESIGN ]
+ ^B             [ UPDATE ]
+ ^B             [ DEFAULT ]
+ ^B             [ HELP, HELPID, HELP ID ]
+ ^B             [ FONT ]
+ ^B             [ PIXEL ]
+ ^B             [ WHILE PRESSED uAction ]
+ ^B             [ OF, WINDOW, DIALOG oWnd ]
+ ^B             [ VALID uValidFunc ]
+ ^B             [ WHEN uWhenFunc ]
+ ^B             [ FILE cBmp [, cBmp2 ] ] ^N
+
+ Decripcion:
+
+ ^B@ nRow, nCol BUTTON [ <oBtn>  PROMPT | LABEL> ] <cText>^N
+      Situa en la Posicion nRow, nCol el BUTTON , con el texto cText y lo
+      retorna en la variable oBtn. El texto, que puede no existir, puede
+      contener varias lineas, separadas estas por el simbolo ^B;^N ( punto y
+      coma ) y estar n centradas.
+
+                Nota: Una HotKey en la Etiqueta se indica precediendo el
+                caracter con el simbolo ^B&^N.
+
+
+ ^B[ SIZE nWidth, nHeight ]
+      Establece el tama¤o del boton
+
+ ^B[ COLOR cColors ]
+      Establece el color , es de tipo caracter. Por Ejemplo 'w/b+,w/b'
+
+ ^B[ MESSAGE cMsg ]
+      Establece el mensaje que presentar  en raton al pasar sobre ‚l.
+
+ ^B[ ACTION uAction ]
+      Acci¢n que se desarroyar  al pulsarlo.
+
+ ^B[ DESIGN ]
+      Establece modo dise¤o ( s¢lo para el ide o similar ... )
+
+ ^B[ UPDATE, DEFAULT, HELP, HELPID, HELP ID,FONT, PIXEL ]
+      No son usadas, s¢lo para compatibilidad con FiveWin
+
+ ^B[ OF, WINDOW, DIALOG oWnd ]
+     Establece la pertenencia a la ventana oWnd ( en caso de no establecerese
+     esta pertenencia, no se visualizar  el bot¢n, posible causa de problenas)
+
+ ^B[ WHILE PRESSED uAction ]
+     Asigna a la situaci¢n "estar pulsado" una acci¢n, esta se repetir 
+     mientras el button est‚ en esta situaci¢n.
+
+ ^B[ VALID uValidFunc ]
+     Determina que expresion se usar  para determinar la validacion
+     del button.
+
+ ^B[ WHEN uWhenFunc ]
+     Indica la expresi¢n que se usar  para prevalidar el button.
+
+ ^B[ FILE cBmp[ , cBmp2 ] ] ^N
+     Establece el Bitmap que aparecer  en el bot¢n, este formar  parte del
+     texto, siempre a la inquierda de este ( si es que se incluye texto).
+     El segundo Bitmap, en caso de existir, se presentar  al pulsar el bot¢n,
+     haciendo efectos de animaci¢n.
+
+
+ ^BEjemplo^N
+
+        @ 10,10 BUTTON oBtn PROMPT ' Unidad a:' FILE floppy_a.bmp;
+                        ACTION MyAction()
+
+

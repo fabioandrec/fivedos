@@ -1,0 +1,14 @@
+//makepath[.ch]="..\include;."
+//makepath[.prg]="."
+chpath=c:\clipper5\include;..\..\include
+
+.prg.obj :
+    clipper $< -n -b -w /I$(chpath)
+
+Test.obj    : Test.prg
+
+Test.exe    : Test.obj
+    set lib=c:\clipper5\lib;..\..\lib
+    RTLink FI Test LIB Fivedos
+
+

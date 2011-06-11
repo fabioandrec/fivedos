@@ -1,0 +1,154 @@
+makepath[.ch]="..\include"
+makepath[.prg]="..\samples"
+
+.ch.ngh:
+   c:\clipper5\ng\ngc\ngc $<
+   ren c:\clipper5\source\fdos\include\$*.ngo $*.ngh
+   move c:\clipper5\source\fdos\include\$*.ngh .\
+
+.prg.ngp:
+    c:\clipper5\ng\ngc\ngc $<
+    ren c:\clipper5\source\fdos\samples\$*.ngo $*.ngp
+    move c:\clipper5\source\fdos\samples\$*.ngp .\
+
+.ngt.ngo:
+   c:\clipper5\ng\ngc\ngc $<
+
+bar.ngo      : Bar.ngt
+Intro.ngo    : Intro.ngt
+5d.ngo       : 5d.ngt
+xbase.ngo    : Xbase.ngt
+button.ngo   : Button.ngt
+browse.ngo   : Browse.ngt
+checkbox.ngo : Checkbox.ngt
+header.ngo   : Header.ngt
+combo.ngo    : Combo.ngt
+gets.ngo     : Gets.ngt
+buttonba.ngo : Buttonba.ngt
+menu.ngo     : Menu.ngt
+radio.ngo    : Radio.ngt
+say.ngo      : Say.ngt
+dist.ngo     : Dist.ngt
+install.ngo  : Install.ngt
+index.ngo    : Index.ngt
+xbasesin.ngo : Xbasesin.ngt
+oopmenu.ngo  : Oopmenu.ngt
+oopbasis.ngo : Oopbasis.ngt
+oopsint.ngo  : Oopsint.ngt
+ooptree.ngo  : Ooptree.ngt
+news.ngo     : News.ngt
+Window.ngo   : Window.ngt
+
+WhatIsFd.ngo : WhatIsFd.ngt
+Arquitec.ngo : Arquitec.ngt
+Compilac.ngo : Compilac.ngt
+Enlazado.ngo : Enlazado.ngt
+xBaseCmd.ngo : xBaseCmd.ngt
+Function.ngo : Function.ngt
+Tutorial.ngo : Tutorial.ngt
+Timer.ngo    : Timer.ngt
+BitMap.ngo   : BitMap.ngt
+Column.ngo   : Column.ngt
+Database.ngo : Database.ngt
+Label.ngo    : Label.ngt
+Meter.ngo    : Meter.ngt
+Scrollba.ngo : Scrollba.ngt
+logo.ngo     : logo.ngt
+Register.ngo : Register.ngt
+
+TBitMap.ngo  : TBitmap.ngt
+TBmp.ngo     : TBmp.ngt
+TBtnBar.ngo  : TBtnBar.ngt
+TBtnBmp.ngo  : TBtnBmp.ngt
+TButton.ngo  : TButton.ngt
+TCheckbo.ngo : TCheckbo.ngt
+TChkmenu.ngo : TChkmenu.ngt
+TCombobo.ngo : TCombobo.ngt
+TControl.ngo : TControl.ngt
+TCtrbrow.ngo : TCtrbrow.ngt
+TCtrlmen.ngo : TCtrlmen.ngt
+TDatabas.ngo : TDatabas.ngt
+TFile.ngo    : TFile.ngt
+TGet.ngo     : TGet.ngt
+TImer.ngo    : TImer.ngt
+TInifile.ngo : TInifile.ngt
+TLabel.ngo   : TLabel.ngt
+TListbox.ngo : TListbox.ngt
+TMemo.ngo    : TMemo.ngt
+TMenu.ngo    : TMenu.ngt
+TMenubar.ngo : TMenubar.ngt
+TMenubox.ngo : TMenubox.ngt
+TMenuIte.ngo : TMenuIte.ngt
+TMeter.ngo   : TMeter.ngt
+TRadio.ngo   : TRadio.ngt
+TRadmenu.ngo : TRadmenu.ngt
+TSay.ngo     : TSay.ngt
+TScrollb.ngo : TScrollb.ngt
+TView.ngo    : TView.ngt
+TWindow.ngo  : TWindow.ngt
+TWorkAre.ngo : TWorkAre.ngt
+
+Tutor10.ngp  : Tutor10.prg
+Tutor11.ngp  : Tutor11.prg
+Tutor01.ngp  : Tutor01.prg
+Tutor18.ngp  : Tutor18.prg
+Tutor07.ngp  : Tutor07.prg
+Tutor13.ngp  : Tutor13.prg
+Tutor14.ngp  : Tutor14.prg
+Tutor16.ngp  : Tutor16.prg
+Tutor02.ngp  : Tutor02.prg
+Tutor03.ngp  : Tutor03.prg
+Tutor04.ngp  : Tutor04.prg
+Tutor05.ngp  : Tutor05.prg
+Tutor06.ngp  : Tutor06.prg
+Tutor_rc.ngp : Tutor_rc.prg
+Tutor08.ngp  : Tutor08.prg
+Tutor09.ngp  : Tutor09.prg
+Tutor15.ngp  : Tutor15.prg
+Tutor17.ngp  : Tutor17.prg
+Tutordb.ngp  : Tutordb.prg
+Tutor12.ngp  : Tutor12.prg
+
+browse.ngh   : Browse.ch
+database.ngh : Database.ch
+dbm.ngh      : Dbm.ch
+dbms.ngh     : Dbms.ch
+dialog.ngh   : Dialog.ch
+fivedos.ngh  : Fivedos.ch
+icons.ngh    : Icons.ch
+menubld.ngh  : Menubld.ch
+obendcls.ngh : Obendcls.ch
+objects.ngh  : Objects.ch
+redefine.ngh : Redefine.ch
+sysstr.ngh   : Sysstr.ch
+syscolor.ngh : SysColor.ch
+tree.ngh     : Tree.ch
+window.ngh   : Window.ch
+
+fd.ng : Intro.ngo 5d.ngo xbase.ngo bar.ngo button.ngo browse.ngo \
+        browse.ngh database.ngh dbm.ngh dbms.ngh dialog.ngh \
+        fivedos.ngh icons.ngh menubld.ngh obendcls.ngh \
+        redefine.ngh sysstr.ngh syscolor.ngh tree.ngh window.ngh header.ngo\
+        checkbox.ngo combo.ngo gets.ngo buttonba.ngo menu.ngo \
+        radio.ngo say.ngo dist.ngo Timer.ngo Window.ngo \
+        install.ngo index.ngo xbasesin.ngo oopmenu.ngo \
+        oopbasis.ngo oopsint.ngo fd.mnu ooptree.ngo \
+        WhatIsFd.ngo Arquitec.ngo Compilac.ngo Enlazado.ngo \
+        xBaseCmd.ngo Function.ngo Tutorial.ngo BitMap.ngo \
+        Column.ngo Database.ngo Label.ngo TView.ngo \
+        Meter.ngo ScrollBa.ngo TWindow.ngo TBmp.ngo \
+        TBitMap.ngo TBtnBar.ngo TBtnBmp.ngo TButton.ngo \
+        TCheckbo.ngo TChkmenu.ngo TCombobo.ngo TControl.ngo \
+        TCtrbrow.ngo TCtrlmen.ngo TDatabas.ngo \
+        TFile.ngo TGet.ngo TImer.ngo TInifile.ngo TLabel.ngo \
+        TListbox.ngo TMemo.ngo TMenu.ngo TMenubar.ngo TMenubox.ngo \
+        TMenuIte.ngo TMeter.ngo TRadio.ngo TRadmenu.ngo TSay.ngo \
+        TScrollb.ngo logo.ngo TWorkAre.ngo Register.ngo \
+        tutor10.ngp tutor11.ngp tutor01.ngp \
+        tutor18.ngp tutor07.ngp tutor13.ngp tutor14.ngp \
+        tutor16.ngp tutor02.ngp tutor03.ngp tutor04.ngp \
+        tutor05.ngp tutor06.ngp tutor_rc.ngp tutor08.ngp \
+        tutor09.ngp tutor15.ngp tutor17.ngp tutordb.ngp \
+        tutor12.ngp
+   c:\clipper5\ng\ngc\ngml Fd.mnu
+

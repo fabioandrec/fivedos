@@ -1,0 +1,129 @@
+!short: CLASE ^BTIniFile^B                                                              
+'------------------------------------------------------------------------------'
+    Clase para el manejo de ficheros INI. Hay que saber distinguir entre las
+    distintas partes de un fichero ini que son:
+
+    ^Bþ Secci¢n   ^B: El nombre de la secci¢n se identifica por que va encerradas
+                  entre corchetes. Una secci¢n se extiende desde la l¡nea
+                  donde se define hasta el comienzo de la siguiente secci¢n.
+
+    ^Bþ Entrada   ^B: Una entrada es el texto que aparece a la izquierda del
+                  signo '=' y que le da nombre a la entrada.
+
+    ^Bþ Valor     ^B: El texto que aparece a la derecha del signo '='.
+
+    Por Ejemplo:
+
+    [Secci¢n]
+    entrada1=Nombre
+    entrada2=Primer Apellido
+    entrada3=Segundo Apellido
+
+    [Otra Secci¢n]
+    ...
+
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:aLines^B           Array que contiene todas las l¡neas del fichero.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cFileName^B        Nombre del fichero.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nFoundAt^B         L¡nea donde se ha encontrado la entrada.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cValue^B           Valor de la entrada actual.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cSection^B         Nombre de la secci¢n actual.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cEntry^B           Nombre de la entrada actual.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:cGet^B             Para obtener el valor de una entrada.                       ^B
+'------------------------------------------------------------------------------'
+^U cGet
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cGet( cSection, cEntry, cDefault ) -> cValue
+
+^B Descripci¢n:^B
+    Da el valor de la entrada ^BcEntry^B en la secci¢n ^BcSection.^B En caso de que
+    no se encuentre se a¤ade la entrada d ndole el valor ^BcDefault.^B
+
+^B Retorno:^B
+    Devuelve una cadena de caracteres.
+
+'------------------------------------------------------------------------------'
+!short:nSections^B        Cuantas secciones hay en el fichero.                        ^B
+'------------------------------------------------------------------------------'
+^U nSections
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nSections() -> nSections
+
+^B Descripci¢n:^B
+    Cuenta la secciones que existen en el fichero.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:Save^B             Salva el fichero a disco.                                   ^B
+'------------------------------------------------------------------------------'
+^U Save
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Save() -> NIL
+
+^B Descripci¢n:^B
+    Salva el contenido de ^B::aLines^B en un fichero con nombre ^B::cFileName.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Set^B              Da valor a una entrada de una secci¢n.                      ^B
+'------------------------------------------------------------------------------'
+^U Set
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Set( cSection, cEntry, cValue ) -> NIL
+
+^B Descripci¢n:^B
+    Da el valor ^BcValue^B a la entrada ^BcEntry^B en la secci¢n ^BcSection.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Use^B              Es el constructor de la clase.                              ^B
+'----------------------------------------------------------------------------'
+^U Use
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Use( cIniFile ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructo de la clase. Se le pasa el nombre del fichero que se
+    desea tratar y si existe el fichero se lee las l¡neas en ^B::aLines.^B
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'

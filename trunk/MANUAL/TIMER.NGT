@@ -1,0 +1,50 @@
+^U TIMER
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B    DEFINE TIMER <nTimerHandle>
+^B        INTERVAL  <nMiliSeconds>
+^B        ACTION    <uAction>
+^B        [ OF, WINDOW, DIALOG oWnd ]
+
+
+        Define un timer que ejecutar  <uAction> cada <nMiliSeconds>
+    milisegundos; asignando un Identificador de timer num‚rico a la
+    variable <nTimerHandle>.
+
+
+    ^B[ OF, WINDOW, DIALOG oWnd ]
+        es opcional y solo sirve para compatibilizar FiveWin.
+
+
+^B    ACTIVATE TIMER <nTimerHandle>
+
+    Activa el timer que especifica <nTimerHandle>.
+
+^B    DEACTIVATE TIMER <nTimerHandle>
+
+    Desactiva el timer que especifica <nTimerHandle>.
+
+^B    RELEASE TIMER <nTimerHandle>
+
+    Quita el timer <nTimerHandle> de la cola de timers.
+
+
+    ^BEjemplo^N
+
+    Function Prueba()
+        Local hTimerClock
+        [...]
+
+        DEFINE TIMER hTimerClock ;
+            INTERVAL 1000 ;
+            ACTION DrawTime()
+
+        ACTIVATE TIMER hTimerClock
+
+        [...]
+
+        DEACTIVATE TIMER hTimerClock
+        RELEASE TIMER hTimerClock
+
+    Return NIL
+

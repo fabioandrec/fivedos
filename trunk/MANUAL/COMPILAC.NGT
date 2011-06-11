@@ -1,0 +1,19 @@
+^U Compilaci줻.
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   Para compilar sus aplicaciones con FiveDos, use Clipper normalmente:
+
+   CLIPPER Test /n/w  ( Se asume que los ficheros *.Ch de Fivedos se
+   encuentran en la via se쨅lada por la variable de entorno SET INCLUDE )
+
+   O indic쟮dolo :
+
+   CLIPPER  Test /n /w /i..\INCLUDE
+
+   La Mayor죂 de las aplicaciones Fivedos necesitan especificar :
+
+   #include "FiveDos.ch"
+
+   al principio de sus ficheros de programas (*.prg), para ampiar la sintaxis
+   de Clipper a la de FiveDos.
+

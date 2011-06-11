@@ -1,0 +1,51 @@
+[Columns to view]
+1=1
+2=2
+3=3
+4=4
+5=5
+6=6
+
+[Columns headers]
+1=NOMBRE
+2=DIRECCION
+3=TELEFONO
+4=EDAD
+5=PRODUCTOS
+6=NIVEL
+
+[Columns pictures]
+1=
+2=
+3=
+4=
+5=
+6=
+
+[Columns width]
+1=287
+2=357
+3=91
+4=35
+5=77
+6=42
+
+[Index files]
+Active index=<None>
+
+[Report]
+Title=
+SubTotal=
+File=
+Exit=1
+Page break=.F.
+
+[Filters]
+Scope=.F.
+Top Scope=
+Bot Scope=
+Filter=.F.
+Filter expression=
+
+[Locate]
+Expression=

@@ -1,0 +1,5 @@
+EXOSPACE PACKAGE INT10,MOUSE
+file extend
+lib fivedos, 501_520
+MOD objtb from fivedos.lib
+

@@ -1,0 +1,996 @@
+!Short: CLASE ^BTWorkArea ( Area de Trabajo ). Descripci¢n y uso.
+!Short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!Short:     Objects PREdefine la clase ^BTWorkArea^N. Esta clase sirve para
+!Short:   enlazar un area de trabajo y poder mandar mensajes a un area, de
+!Short:   la misma manera que si estuvieramos usando el operador ^B->^N. Su
+!Short:   ventaja principal radica en que puedes editar registros sin usar
+!Short:   m s variables que la contenedora del objeto TWorkArea, ya que se
+!Short:   puede editar todo el registro sobre un buffer temporal, permitiendo
+!Short:   validar la edici¢n completa de un registro.
+!Short:
+!Short:   ^BEjemplo:^N
+!Short:
+!Short:   Una de las caracter¡sticas m s importantes de esta clase es su capacidad
+!Short:   de permitir la edici¢n sobre buffer sin obligar al programador a usar
+!Short:   complejas estructuras de captura de datos y su correspondiente codificaci¢n.
+!Short:   En este ejemplo vamos a codificar una captura de datos con validaci¢n con y
+!Short:   sin objeto TWorkArea.
+!Short:
+!Short:   Primero ^Bsin WorkArea^N. Una ejemplo de edici¢n simple:                      
+// -------------------------------------------------------------------------- //
+
+function EditClient( oLbx )
+
+   // Notese la gran cantidad de variables necesarias para su posterior
+   // validaci¢n.
+   local nNivel
+   local cName
+   local cAddress
+   local cPhone
+   local nAge
+
+   local oDlg
+   local lSave := .f.
+
+   // y la cantidad de codigo necesario para su inicializacion
+   cName    = Clientes->Nombre
+   cAddress = Clientes->Direccion
+   cPhone   = Clientes->Telefono
+   nAge     = Clientes->Edad
+   nNivel   = max( 1, Clientes->Nivel )
+
+   DEFINE DIALOG oDlg FROM 8, 2 TO 25, 65 ;
+      TITLE If( lAppend, "Nuevo Cliente", "Modifique Cliente" )
+
+   @ 1,  1 SAY "&Nombre:" OF oDlg
+   @ 1,  6 GET cName OF oDlg
+   @ 2,  1 SAY OemToAnsi( "&Direcci¢n:" ) OF oDlg
+   @ 2,  6 GET cAddress OF oDlg
+
+   @ 3,  1 TO 7, 8 LABEL "&Productos" OF oDlg
+
+   @ 3,  9 TO 7, 17 LABEL "&Nivel" OF oDlg
+   @ 4,  9 RADIO nNivel PROMPT "&Inicial", "A&vanzado", "&Experto" OF oDlg
+
+   @ 4, 16 SAY OemToAnsi( "&Tel‚fono:" ) OF oDlg
+   @ 4, 21 GET cPhone OF oDlg SIZE 60, 11 PICTURE "@R 99-999-9999999"
+
+   @ 6, 16 SAY OemToAnsi( "&Edad:" ) OF oDlg
+   @ 6, 21 GET nAge OF oDlg SIZE 20, 11
+
+   @ 9,  9 BUTTON "&Aceptar"  OF oDlg SIZE 50, 12 ACTION ( lSave := .t. , oDlg:End() )
+   @ 9, 19 BUTTON "&Cancelar" OF oDlg SIZE 50, 12 ACTION oDlg:End()
+
+   ACTIVATE DIALOG oDlg CENTERED
+
+   if lSave .and. !empty( cName )
+
+      // Para guardar los datos...
+      Clientes->Nombre     := cName
+      Clientes->Direccion  := cAddress
+      Clientes->Nivel      := nNivel
+      Clientes->Telefono   := cPhone
+      Clientes->Edad       := nAge
+
+      oLbx:Refresh()
+
+   endif
+
+return nil
+
+// -------------------------------------------------------------------------- //
+
+!Short:   y despu‚s el mismo c¢digo ^Busando un objeto TWorkArea^N.                     
+
+// -------------------------------------------------------------------------- //
+
+static function EditClient( oLbx )
+   // Solo una variable es necesaria.
+   local oWK   := TWorkArea():New()
+
+   local oDlg
+   local lSave := .f.
+
+   // Con una sola instrucci¢n cargamos el registro en un buffer.
+   oWK:SetBuffer( .t. ) // oWK:Load() Autom tico
+
+   oWK:Nivel = max( 1, oWK:Nivel )
+
+   DEFINE DIALOG oDlg FROM 8, 2 TO 25, 65 ;
+      TITLE If( lAppend, "Nuevo Cliente", "Modifique Cliente" )
+
+   @ 1,  1 SAY "&Nombre:" OF oDlg
+   @ 1,  6 GET oWK:Nombre OF oDlg
+   @ 2,  1 SAY OemToAnsi( "&Direcci¢n:" ) OF oDlg
+   @ 2,  6 GET oWK:Direccion OF oDlg
+
+   @ 3,  1 TO 7, 8 LABEL "&Productos" OF oDlg
+
+   @ 3,  9 TO 7, 17 LABEL "&Nivel" OF oDlg
+   @ 4,  9 RADIO oWK:Nivel PROMPT "&Inicial", "A&vanzado", "&Experto" OF oDlg
+
+   @ 4, 16 SAY OemToAnsi( "&Tel‚fono:" ) OF oDlg
+   @ 4, 21 GET oWK:Telefono OF oDlg SIZE 60, 11 PICTURE "@R 99-999-9999999"
+
+   @ 6, 16 SAY OemToAnsi( "&Edad:" ) OF oDlg
+   @ 6, 21 GET oWK:Edad OF oDlg SIZE 20, 11
+
+   @ 9,  9 BUTTON "&Aceptar"  OF oDlg SIZE 50, 12 ACTION ( lSave := .t. , oDlg:End() )
+   @ 9, 19 BUTTON "&Cancelar" OF oDlg SIZE 50, 12 ACTION oDlg:End()
+
+   ACTIVATE DIALOG oDlg CENTERED
+
+   if lSave .and. !empty( oWK:Nombre )
+
+      // Con una sola instrucci¢n guardamos el buffer de edici¢n.
+      oWK:Save()
+
+      oLbx:Refresh()          // We want the ListBox to be repainted
+
+   endif
+
+return nil
+
+// -------------------------------------------------------------------------- //
+
+!Short:
+!Short:   Todos los metodos de TWorkArea son mas o menos equivalentes a funciones
+!Short:   de manejo de bases de datos y estan referidos al area/dbf enlazada por
+!Short:   el objeto TWorkArea.
+!Short:
+!Short:   ^UM‚todos exportados de la Clase TWorkArea^N:
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:aBuffer^B          Array que contiene los datos del registro actual.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lBuffer^B          Indica si se usa o no el buffer de datos.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nArea^B            N£mero de area usada por el objeto.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:AddIndex^B         A¤ade un nuevo ¡ndice.                                      ^B
+'------------------------------------------------------------------------------'
+^U AddIndex
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    AddIndex( cIndexFile ) -> NIL
+
+^B Descripci¢n:^B
+    A¤ade ¡ndices a la lista de ¡ndices. ^BcFile^B es el nombre del fichero del
+    ¡ndice.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbSetIndex().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Append^B           A¤ade un nuevo registro.                                    ^B
+'------------------------------------------------------------------------------'
+^U Append
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Append() -> NIL
+
+^B Descripci¢n:^B
+    A¤ade un nuevo registro.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbAppend().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Blank^B            Vac¡a el array de datos.                                    ^B
+'------------------------------------------------------------------------------'
+^U Blank
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Blank() -> NIL
+
+^B Descripci¢n:^B
+    Vac¡a el array de datos.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Bof^B              Indica si se ha llegado o no al principio de la base.       ^B
+'------------------------------------------------------------------------------'
+^U Bof
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Bof() -> lBof
+
+^B Descripci¢n:^B
+    Indica si se ha llegado o no al principio de la base de datos.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n Bof().
+
+'------------------------------------------------------------------------------'
+!short:ClearRelation^B    Borra todas las relaciones activas.                         ^B
+'------------------------------------------------------------------------------'
+^U ClearRelation
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ClearRelation() -> NIL
+
+^B Descripci¢n:^B
+    Borra todas las relaciones activas.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbClearRelation().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Close^B            Cierra la base de datos.                                    ^B
+'------------------------------------------------------------------------------'
+^U Close
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Close() -> NIL
+
+^B Descripci¢n:^B
+    Cierra la base de datos.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbCloseArea().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:CloseIndex^B       Limpia la lista de ¡ndices.                                 ^B
+'------------------------------------------------------------------------------'
+^U CloseIndex
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    CloseIndex() -> NIL
+
+^B Descripci¢n:^B
+    Limpia la lista de ¡ndices actual.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbClearIndex().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Commit^B           Fuerza un volcado a disco de los buffers pendientes.        ^B
+'------------------------------------------------------------------------------'
+^U Commit
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Commit() -> NIL
+
+^B Descripci¢n:^B
+    Fuerza un volcado a disco de los buffers pendientes.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbCommit().
+
+^B Retorno:^B
+    Devuelve NIL
+
+'------------------------------------------------------------------------------'
+!short:Create^B           Crea un nuevo fichero de base de datos.                     ^B
+'------------------------------------------------------------------------------'
+^U Create
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Create( cFile, aStruct, cDriver ) -> NIL
+
+^B Descripci¢n:^B
+    Crea un nuevo fichero de base de datos con nombre ^BcFile^B a partir de la
+    estructura ^BaStruct.^B ^BcDriver^B especifica el controlador de bases de datos
+    que se va a utilizar.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbCreate().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:CreateIndex^B      Crea un nuevo ¡ndice.                                       ^B
+'------------------------------------------------------------------------------'
+^U CreateIndex
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    CreateIndex( cFile, cKey, bKey, lUnique ) -> NIL
+
+^B Descripci¢n:^B
+    Crea un nuevo ¡ndice. ^BcFile^B es el nombre del fichero, ^BcKey^B es la
+    expresi¢n de indexaci¢n, ^BbKey^B es la expesi¢n ya compilada como codeblock y
+    ^BlUnique^B indica si se va a crear un indice con claves unicas o no.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbCreateIndex().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:DbEval^B           Evalua un codeblock por cada registro de la base de datos.  ^B
+'------------------------------------------------------------------------------'
+^U DbEval
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    DbEval( bBlock, bFor, bWhile, nNext, nRecord, lRest ) -> NIL
+
+^B Descripci¢n:^B
+    Evalua el codeblock ^BbBlock^B por cada registro de la base de datos que
+    cumpla ^BbFor^B y mientras ^BbWhile^B devuelve .T.. ^BnNext^B indica el n£mero de
+    registros que se desea procesar mientras que ^BnRecord^B especifica el
+    £nico registro que se desea procesar.
+    ^BlRest^B especifica si se desea procesar a partir del registro actual y
+    hasta el final o si de desea procesar comenzando desde del principio
+    todos los registros.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbEval().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Delete^B           Marca el registro actual como borrado.                      ^B
+'------------------------------------------------------------------------------'
+^U Delete
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Delete() -> NIL
+
+^B Descripci¢n:^B
+    Marca el registro actual como borrado.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbDelete().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:DeleteIndex^B      Suprime los indices activos.                                ^B
+'------------------------------------------------------------------------------'
+^U DeleteIndex
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    DeleteIndex() -> NIL
+
+^B Descripci¢n:^B
+    Suprime los indices activos.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbClearIndex().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Deleted^B          Indica si el registro actual ha sido borrado o no.          ^B
+'------------------------------------------------------------------------------'
+^U Deleted
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Deleted() -> lDeleted
+
+^B Descripci¢n:^B
+    Indica si el registro actual ha sido borrado o no.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:Eof^B              Determina cuando se alcanza el final de la base de datos.   ^B
+'------------------------------------------------------------------------------'
+^U Eof
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Eof() -> lEof
+
+^B Descripci¢n:^B
+    Determina cuando se alcanza el final de la base de datos.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n Eof().
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:FCount^B           Determina el n£mero de campos de la base de datos actual.   ^B
+'------------------------------------------------------------------------------'
+^U FCount
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    FCount() -> nFields
+
+^B Descripci¢n:^B
+    Determina cuantos campos tiene la base de datos actual.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n FCount().
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:FieldGet^B         Obtiene el valor de un campo del registro actual.           ^B
+'------------------------------------------------------------------------------'
+^U FieldGet
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    FieldGet( nField ) -> uData
+
+^B Descripci¢n:^B
+    Devuelve el valor del campo ^BnField^B del registro actual. Si ^B::lBuffer^B es
+    verdadero el dato se obtiene del array de datos ^B::aBuffer.^B
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n FieldGet().
+
+^B Retorno:^B
+    Devuelve el valor del campo especificado.
+
+'------------------------------------------------------------------------------'
+!short:FieldPut^B         Asigna el valor pasado a un campo determinado.              ^B
+'------------------------------------------------------------------------------'
+^U FieldPut
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    FieldPut( nField, uVal ) -> uVal
+
+^B Descripci¢n:^B
+    Asigna el valor pasado ^BuVal^B al campo del registro actual cuyo n£mero
+    ordinal es ^BnField.^B Si ^B::lBuffer^B es .T. entonces se asigna el valor
+    en el array de datos ^B::aBuffer.^B
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n FieldPut().
+
+^B Retorno:^B
+    Devuelve el valor asignado ^BuVal.^B
+
+'------------------------------------------------------------------------------'
+!short:Found^B            Determina como ha sido la £ltima operaci¢n de busqueda.     ^B
+'------------------------------------------------------------------------------'
+^U Found
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Found() -> lFound
+
+^B Descripci¢n:^B
+    Determina si la £ltima operaci¢n de busqueda ha sido satisfactoria.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n Found().
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:GoBottom^B         Desplaza el puntero de la base de datos al £ltimo registro. ^B
+'------------------------------------------------------------------------------'
+^U GoBottom
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoBottom() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el puntero de la base de datos al £ltimo registro de la base de
+    datos. Si ^B::lBuffer^B es .T. entonces se actualiza ^B::aBuffer^B llamando a
+    ^B::Load().^B
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbGoBottom().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoTo^B             Mueve el puntero de la base de datos al registro pasado.    ^B
+'------------------------------------------------------------------------------'
+^U GoTo
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Goto( nRec ) -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el puntero de la base de datos al registro ^BnRec.^B Si ^B::lBuffer^B
+    es .T. entonces se actualiza ^B::aBuffer^B llamando a ^B::Load().^B
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbGoTo().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoTop^B            Desplaza el puntero de la base de datos al primer registro. ^B
+'------------------------------------------------------------------------------'
+^U GoTop
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoTop() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el puntero de la base de datos al primer registro de la base de
+    datos. Si ^B::lBuffer^B es .T. entonces se actualiza ^B::aBuffer^B llamando a
+    ^B::Load().^B
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbGoTop().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:IndexKey^B         Determina la expresi¢n clave de un indice determinado.      ^B
+'------------------------------------------------------------------------------'
+^U IndexKey
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    IndexKey( nOrder ) -> cKey
+
+^B Descripci¢n:^B
+    Devuelve la expresi¢n clave del indice indicado en ^BnOrder.^B
+    BnOrder^B es el un n£mero que indica la posici¢n en la lista de indices
+    del indice cuya clave se busca.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n IndexKey().
+
+^B Retorno:^B
+    Devuelve una cadena de caracteres.
+
+'------------------------------------------------------------------------------'
+!short:IndexOrder^B       Devuelve la posici¢n que ocupa el indice activo en la lista.^B
+'------------------------------------------------------------------------------'
+^U IndexOrder
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    IndexOrder() -> nPos
+
+^B Descripci¢n:^B
+    Devuelve la posici¢n que ocupa el indice activo en la lista de indices
+    del area de trabajo..
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n IndexOrd().
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:LastRec^B          Determina cual es el £ltimo registro del fichero actual.    ^B
+'------------------------------------------------------------------------------'
+^U LastRec
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    LastRec() -> nRecs
+
+^B Descripci¢n:^B
+    Determina cual es el £ltimo registro de la base de datos actual.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n LastRec().
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:Load^B             Carga los datos del registro actual en el buffer ::aBuffer. ^B
+'------------------------------------------------------------------------------'
+^U Load
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Load() -> NIL
+
+^B Descripci¢n:^B
+    Carga los datos del registro actual en el buffer ^B::aBuffer.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Lock^B             Bloquea el fichero de base de datos relacionado.            ^B
+'------------------------------------------------------------------------------'
+^U Lock
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Lock() -> lBloq
+
+^B Descripci¢n:^B
+    Bloquea el fichero de base de datos actual y devuelve si la operaci¢n
+    tuvo exito o no.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n FLock().
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Constructor de la clase.                                    ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nArea ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. ^BnArea^B es el n£mero de area que se desea
+    utilizar y es opcional, su valor por defecto es el n£mero de area de
+    trabajo actual.
+
+    Nota : Este m‚todo reenlaza el objeto con una WORKAREA y al hacerlo
+           desactiva en modo buffer del objeto TWorkArea.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Pack^B             Elimina definitivamente los registros marcados para borrar. ^B
+'------------------------------------------------------------------------------'
+^U Pack
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Pack() -> NIL
+
+^B Descripci¢n:^B
+    Elimina definitivamente los registros marcados para borrar.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper el comando Pack.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ReCall^B           Quita todas las marcas de borrado de los registros.         ^B
+'------------------------------------------------------------------------------'
+^U ReCall
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Recall() -> NIL
+
+^B Descripci¢n:^B
+    Quita la marca de borrados de los registros de la base de datos.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper el comando Recall.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:RecCount^B         Determina el n£mero de registros del fichero actual.        ^B
+'------------------------------------------------------------------------------'
+^U RecCount
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    RecCount() -> nRecs
+
+^B Descripci¢n:^B
+    Determina el n£mero total de registros de la base de datos actual.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n RecCount().
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:RecLock^B          Bloquea el registro actual de la base de datos.             ^B
+'------------------------------------------------------------------------------'
+^U RecLock
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    RecLock() -> lBloq
+
+^B Descripci¢n:^B
+    Bloquea el registro actual de la base de datos y devuelve si la operaci¢n
+    tuvo exito o no.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n RLock().
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:RecNo^B            Determina cual es el registro actual de la base de datos.   ^B
+'------------------------------------------------------------------------------'
+^U RecNo
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    RecNo() -> nRec
+
+^B Descripci¢n:^B
+    Determina cual es el registro actual de la base de datos.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n RecNo().
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:Save^B             Salva el contenido de ::aBuffer en la base de datos.        ^B
+'------------------------------------------------------------------------------'
+^U Save
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Save() -> NIL
+
+^B Descripci¢n:^B
+    Salva el contenido del buffer de datos ^B::aBuffer^B en la base de datos.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Seek^B             Busca una expresi¢n en la base de datos.                    ^B
+'------------------------------------------------------------------------------'
+^U Seek
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Seek( uExp, lSoft ) -> lFound
+
+^B Descripci¢n:^B
+    Busca la expresi¢n ^BuExp^B en la base de datos. ^BlSoft^B indica si la b£squeda
+    es aproximada o no. En caso de que sea .T. y no se encuentre la
+    expresi¢n, el puntero de la base de datos se queda en el registro que m s
+    se aproxime a ^BuExp^B y en caso de que sea .F. se va al final de la base de
+    datos. Si se encuentra devuelve .T. y .F. en caso de que no.
+
+    En cualquier caso, y si ::lBuffer es .T. se carga el buffer con los
+    datos del registro actual.
+
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbSeek().
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:SetArea^B          Inicializa los datos con el area actual.                    ^B
+'------------------------------------------------------------------------------'
+^U SetArea
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetArea() -> nFields
+
+^B Descripci¢n:^B
+    Inicializa los datos con el area actual y devuelve el n£mero de campos
+    de la base de datos. Este m‚todo es del tipo HIDE y por lo tanto no
+    se puede usar.
+
+^B Retorno:^B
+    Devuelve un valor n£merico.
+
+'------------------------------------------------------------------------------'
+!short:SetBuffer^B        Cambia el flag de uso de buffer ^B::lBuffer.^B                  ^B
+'------------------------------------------------------------------------------'
+^U SetBuffer
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetBuffer( lOnOff ) -> nFields
+
+^B Descripci¢n:^B
+    Cambia el flag de uso de buffer ^B::lBuffer^B y devuelve el num‚ro de campos
+    de la base de datos.
+    En caso de que ^BlOnOff^B sea .T. se carga el buffer con los datos del
+    registro actual.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:SetOrder^B         Cambia el orden activo de la lista de ¢rdenes.              ^B
+'------------------------------------------------------------------------------'
+^U SetOrder
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetOrder( nOrder ) -> Nil
+
+^B Descripci¢n:^B
+    Cambia el indice activo al indicado por ^BnOrder.^B
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbSetOrder().
+
+^B Retorno:^B
+
+'------------------------------------------------------------------------------'
+!short:SetRelation^B      Relaciona dos  reas de trabajo.                             ^B
+'------------------------------------------------------------------------------'
+^U SetRelation
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetRelation( ncArea, cExpr ) -> NIL
+
+^B Descripci¢n:^B
+    Relaciona el area actual con el area especificada en ^BncArea^B ya sea con
+    el n£mero de area o con su expresi¢n de alias. ^BcExpr^B es la expresi¢n
+    de la relaci¢n en formato texto.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbSetRelation().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Skip^B             Salta un n£mero determinado de registros.                   ^B
+'------------------------------------------------------------------------------'
+^U Skip
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Skip( nRecords ) -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el puntero de la base de datos respecto al registro actual
+    ^BnRecords^B registros. Un valor positivo implica saltos hacia delante
+    mientras que un valor negativo implica saltos hacia atras. Si el flag
+    ^B::lBuffer^B es .T. se actualiza el buffer de datos ^B::aBuffer^B llamando a
+    ^B::Load().^B
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbSeek().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Skipper^B          Salta un n£mero de registros devolviendo cuantos ha saltado.^B
+'------------------------------------------------------------------------------'
+^U Skipper
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Skipper( nSkip ) -> nSkipped
+
+^B Descripci¢n:^B
+    Salta nSkip registros y devuelve en nSkipped el n£mero real de registros
+    saltados.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:UnLock^B           Libera todos los bloqueos.                                  ^B
+'------------------------------------------------------------------------------'
+^U UnLock
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    UnLock() -> NIL
+
+^B Descripci¢n:^B
+    Libera todos los bloqueos del area.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbUnlock() o el comando UnLock.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Use^B              Abre una base de datos.                                     ^B
+'------------------------------------------------------------------------------'
+^U Use
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Use( nArea, cDriver, cFile, cAlias, lShared, lReadOnly ) -> NIL
+
+^B Descripci¢n:^B
+    Abre una base de datos con nombre ^BcFile^B en el area ^BnArea^B usando el
+    controlador de bases de datos ^BcDriver^B y denominando el area con el
+    alias ^BcAlias.^B ^BlShared^B indica si se abre en modo compartido o exclusivo
+    y ^BlReadOnly^B si es de s¢lo lectura o si se permiten modificaciones.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n DbUseArea().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Used^B             Determina si se est  usando un fichero de base de datos.    ^B
+'------------------------------------------------------------------------------'
+^U Used
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Used() -> lUsed
+
+^B Descripci¢n:^B
+    Determina si hay alg£n fichero de bases de datos abierto.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper la funci¢n Used().
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:Zap^B              Elimina todos los registros de la base de datos asociada.   ^B
+'------------------------------------------------------------------------------'
+^U Zap
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Zap() -> NIL
+
+^B Descripci¢n:^B
+    Elimina todos los registros de la base de datos asociada.
+
+    Para mayor informaci¢n puede consultar en la documentaci¢n incluida con
+    clipper el comando Zap.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

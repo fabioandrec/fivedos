@@ -1,0 +1,202 @@
+!short: CLASE ^BTComboBox^B                                                             
+'------------------------------------------------------------------------------'
+    Clase heredada de TGet para soporte de objeto TComboBox.
+
+    Un objeto TComboBox es una combinaci¢n de un ListBox y de un objeto Get,
+    es decir, es un get que contiene una lista con los posibles textos entre
+    los cuales se puede seleccionar el texto a introducir.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:oList^B            Referencia a un objeto TListBox contenido.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lOpen^B            Indica si la ventana de selecci¢n est  abierta.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nOption^B          Elemento seleccionado de oList.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrArrow^B        Color usado para pintar la flecha de apertura.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bChanged^B         Codeblock que se ejecuta cuando se cambia de elemento.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:Click^B            Maneja las pulsaciones del rat¢n.                           ^B
+'------------------------------------------------------------------------------'
+^U Click
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Click( nMRow, nMCol ) -> NIL
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones del rat¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Close^B            Cierra la ventana en la que aparece el ListBox.             ^B
+'------------------------------------------------------------------------------'
+^U Close
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Close() -> NIL
+
+^B Descripci¢n:^B
+    Cierra la ventana en la que aparece el ListBox.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:KeyPressed^B       Maneja las pulsaciones del teclado.                         ^B
+'------------------------------------------------------------------------------'
+^U KeyPressed
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nKey
+
+^B Descripci¢n:^B
+    Procesa las pulsaciones de tecla, definiendo pues, el comportamiento del
+    objeto en lo que a respuesta a teclas se refiere. Devuelve 0 cuando se ha
+    procesado la tecla y nKey cuando no se ha procesado.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Es el constructor de la clase.                              ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nRow, nCol, nWidth, nHeight, bSetGet, acList, cLabel,
+         cMessage, cColor, cPicture, oWnd, bWhen, bValid, bChanged ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BnRow    ^B    Fila donde se situa el objeto.
+    ^BnCol    ^B    Columna donde se situa el objeto.
+    ^BnWidth  ^B    Ancho que tiene el objeto.
+    ^BnHeight ^B    Alto que tiene el objeto.
+    ^BbSetGet ^B    Codeblock para leer o asignar la variable de edici¢n.
+    ^BacList  ^B    Array con los elementos del ListBox.
+    ^BcLabel  ^B    Texto para la etiqueta que aparece a la izquierda del get.
+    ^BcMessage^B    Mensaje que aparecera cuando se selecciona el objeto.
+    ^BcColor  ^B    Cadena de caracteres con los colores a usar.
+    ^BcPicture^B    Indica como formatear y editar el objeto.
+    ^BoWnd    ^B    Referencia a la ventana donde se inserta.
+    ^BbWhen   ^B    Codeblock de prevalidaci¢n.
+    ^BbValid  ^B    Codeblock de postvalidaci¢n.
+    ^BbChanged^B    Codeblock que se evalua cada vez que se cambie de elemento.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Open^B             Abre la ventana del ListBox.                                ^B
+'------------------------------------------------------------------------------'
+^U Open
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Open() -> NIL
+
+^B Descripci¢n:^B
+    Abre la ventana del ListBox.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ReDefine^B         Constructor desde recursos.                                 ^B
+'------------------------------------------------------------------------------'
+^U ReDefine
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ReDefine( cMessage, cColor, nHelpId, bSetGet, acList,
+              cLabel, cPicture, bWhen, bValid, bChanged ) -> Self
+
+^B Descripci¢n:^B
+    Constructor desde recursos. Recibe los siguientes par metros:
+
+    ^BcMessage^B    Mensaje que aparecera cuando se selecciona el objeto.
+    ^BcColor  ^B    Cadena de caracteres con los colores a usar.
+    ^BnHelpId ^B    Identificativo de contexto de ayuda.
+    ^BbSetGet ^B    Codeblock para leer o asignar la variable de edici¢n.
+    ^BacList  ^B    Array con los elementos del ListBox.
+    ^BcLabel  ^B    Texto para la etiqueta que aparece a la izquierda del get.
+    ^BcPicture^B    Indica como formatear y editar el objeto.
+    ^BbWhen   ^B    Codeblock de prevalidaci¢n.
+    ^BbValid  ^B    Codeblock de postvalidaci¢n.
+    ^BbChanged^B    Codeblock que se evalua cada vez que se cambie de elemento.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Actualiza la im gen del objeto.                             ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci¢n:^B
+    Actualiza la im gen del objeto.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        Asigna los colores a utilizar.                              ^B
+'------------------------------------------------------------------------------'
+^U SetColors
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetColors( cColor ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna los colores a partir de la cadena de caracteres ^BcColor.^B En ‚sta
+    se codifican los tres colores que se utilizan que son:
+
+    1.- Color usado por el texto normal.
+    2.- Color usado por el elemento seleccionado.
+    3.- Color usado por la flecha de apertura del ListBox.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetFocus^B         M‚todo llamado para cambiar el focus.                       ^B
+'------------------------------------------------------------------------------'
+^U SetFocus
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetFocus( lOnOff ) -> NIL
+
+^B Descripci¢n:^B
+    Este m‚todo se usa para cambiar el focus del objeto.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

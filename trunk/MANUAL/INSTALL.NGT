@@ -1,0 +1,25 @@
+^U Instalaci¢n y Configuraci¢n.
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+        El producto se entrega en varias formas, dependiendo el origen de
+        distribuci¢n:
+
+        a) BBS y sistemas afines:
+
+                Se distribuye en forma de fichero comprimido, en la
+                forma FDos+<Version>+.<Extensi¢n>, t¡picamente .ZIP
+                Por ejemplo FDOS10.ZIP
+                Su desempaquetado produce el mismo contenido que la
+                distribuci¢n en disquetes.
+
+        b) Distribuci¢n en disquetes
+
+                Contiene un Fichero INSTALL.EXE y un fichero con la
+                extensi¢n .INS, que es el contenido de la instalaci¢n.
+
+        Al ejecutar el programa INSTALL.EXE le pregunta por la via de
+        destino ( t¡picamente c:\clipper5\ ) donde se crear  un directorio
+        FIVEDOS y se situar  el contenido completo de FiveDos.
+
+        ­­ Ya puede comenzar con FiveDos !!.
+

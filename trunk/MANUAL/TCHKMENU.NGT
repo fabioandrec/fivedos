@@ -1,0 +1,104 @@
+!short: CLASE ^BTChkMenu^B                                                              
+'------------------------------------------------------------------------------'
+    Clase derivada de TCtrlMenu para m‚nus de controles tipo CheckBox.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:KeyPressed^B       Maneja las pulsaciones del teclado.                         ^B
+'------------------------------------------------------------------------------'
+^U KeyPressed
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nKey
+
+^B Descripci¢n:^B
+    Procesa las pulsaciones de tecla, definiendo pues, el comportamiento del
+    objeto en lo que a respuesta a teclas se refiere. Devuelve ^B0^B cuando se ha
+    procesado la tecla y ^BnKey^B cuando no se ha procesado.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Es el constructor de la clase.                              ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nRow, nCol, acItems, abVars, oWnd, cLabel, cMessage,
+         cColor, bWhen, bValid, bChanged , cFile1, cFile2 ) -> NIL
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BnRow    ^B    Fila donde se situa el objeto.
+    ^BnCol    ^B    Columna donde se situa el objeto.
+    ^BacItems ^B    Array con los elementos del menu.
+    ^BabVars  ^B    Array de codeblocks tipo bSetGet para la edici¢n de variables.
+    ^BoWnd    ^B    Referencia a la ventana a la que pertenece.
+    ^BcLabel  ^B    Texto que aparecer  en la parte superior.
+    ^BcMessage^B    Mensaje que aparecer  cuando se seleccione.
+    ^BcColor  ^B    Cadena de caracteres con los colorea a utilizar.
+    ^BbWhen   ^B    Codeblock de prevalidaci¢n.
+    ^BbValid  ^B    Codeblock de postvalidaci¢n.
+    ^BbChanged^B    Codeblock que se evalua cada vez que se cambie de elemento.
+    ^BcFile1  ^B    Bitmap usado cuando est  selecciona una opci¢n.
+    ^BcFile2  ^B    Bitmap usado cuando no est  seleccionada una opci¢n.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Redefine^B         Constructor desde recursos.                                 ^B
+'------------------------------------------------------------------------------'
+^U Redefine
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Redefine( cMessage, cColor, nHelpId, abVars, acItems,
+              cLabel, bWhen, bValid, bChanged )
+
+^B Descripci¢n:^B
+    Es el constructor usado desde recursos. Recibe los siguientes par metros:
+
+    ^BcMessage^B    Mensaje que aparecer  cuando se seleccione.
+    ^BcColor  ^B    Cadena de caracteres con los colorea a utilizar.
+    ^BnHelpId ^B    Identificativo de contexto de ayuda.
+    ^BabVars  ^B    Array de codeblocks tipo bSetGet para la edici¢n de variables.
+    ^BacItems ^B    Array con los elementos del menu.
+    ^BcLabel  ^B    Texto que aparecer  en la parte superior.
+    ^BbWhen   ^B    Codeblock de prevalidaci¢n.
+    ^BbValid  ^B    Codeblock de postvalidaci¢n.
+    ^BbChanged^B    Codeblock que se evalua cada vez que se cambie de elemento.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        Para asignar los colores.                                   ^B
+'------------------------------------------------------------------------------'
+^U SetColors
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetColors( cColor ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna los colores a partir de la cadena de caracteres ^BcColor.^B En ‚sta
+    se codifican los cuatro colores que se utilizan que son:
+
+    1.- Color usado por el texto normal.
+    2.- Color usado por el elemento seleccionado.
+    3.- Color usado por la letra r pida.
+    4.- Color usado por el elemento seleccionado cuando el objeto
+        no tiene focus.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

@@ -1,0 +1,50 @@
+!short: CLASE ^BTPage^B
+'------------------------------------------------------------------------------'
+    Clase derivada de TView para soporte de p ginas de la clase TNBook.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:aClrLabel^B        Array con los colores para las etiquetas.^B
+!short:
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:New^B              Constructor de la clase.                                    ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( oBook, bPaint, cColor ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BoBook     ^B  Referencia al objeto TNBook padre al que pertenece.
+    ^BbPain     ^B  Codeblock que se ejecutar  cuando se pinte la p gina.
+    ^BcColo     ^B  Cadena de caracteres con los colores.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:KeyPressed^B       Procesa las pulsaciones de teclas.                          ^B
+'------------------------------------------------------------------------------'
+^U KeyPressed
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nValor
+
+^B Descripci¢n:^B
+    Procesa las pulsaciones de tecla, definiendo pues, el comportamiento del
+    objeto en lo que a respuesta a teclas se refiere. Devuelve ^B0^B cuando se ha
+    procesado la tecla y ^BnKey^B cuando no se ha procesado.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'

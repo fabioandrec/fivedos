@@ -1,0 +1,1550 @@
+!short:^U Funciones de la librer¡a FiveDos
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+'-------------------------------------------------------------------------------
+!short:AllocChars()     ^B  Reserva caracteres para un recurso.                       ^N
+^U AllocChars()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    AllocChars( cRecurseID, nCars ) -> cCars
+
+^B Descripci¢n:^B
+    Crea el recurso con identificativo ^BcRecurseID^B y reserva ^BnCars^B caracteres.
+    Devuelve los caracteres reservados.
+
+^B Retorno:^B
+    Devuelve una cadena de caracteres.
+
+^B Ejemplo:^B
+
+!SeeAlso: CarRoom() ReadBitMap() ReleaseChars() SetChar()
+'-------------------------------------------------------------------------------
+!short:aStr2Arr()       ^B  Convierte una cadena de caracteres en un array.           ^N
+^U aStr2Arr()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    aStr2Arr( cList, cSep ) -> aList
+
+^B Descripci¢n:^B
+    Busca los elementos de la cadena ^BcList^B que est n separados por el caracter
+    ^BcSep^B y los inserta en el array ^BaList^B.
+
+    El valor por defecto de cSep es ','.
+
+^B Retorna:^B
+    Devuelve un array con los elementos de la lista.
+
+^B Ejemplo:^B
+
+!SeeAlso: cArr2Str()
+'-------------------------------------------------------------------------------
+!short:aSysColor()      ^B  Devuelve el array de colores por defecto.                 ^N
+^U aSysColor()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    aSysColor( nClrId ) -> aColor o nColor
+
+^B Descripci¢n:^B
+    Esta funci¢n devuelve el array de colores ^BaColor^B en caso de que no se
+    especifique o que no tenga un valor v lido ^BnClrId^B o en caso contrario
+    devuelve el valor num‚rico del color ^BnColor^B.
+
+    Para m s informaci¢n sobre los colores por defecto puede consultar
+    'SysColor.ch' en el apartado 'ficheros de cabecera'.
+
+^B Retorna:^B
+    Devuelve una referencia al array de colores o el color especificado.
+
+^B Ejemplo:^B
+
+!SeeAlso: SysColor.ngh:SysColor.CH
+'-------------------------------------------------------------------------------
+!short:aSysStr()        ^B  Devuelve el array de cadenas por defecto.                 ^N
+^U aSysStr()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    aSysStr( nStrId ) -> aSysStr o cSysStr
+
+^B Descripci¢n:^B
+    Esta funci¢n devuelve el array de cadenas ^BaSysStr^B en caso de que no se
+    especifique o que no tenga un valor v lido ^BnStrId^B o en caso contrario
+    devuelve la cadena ^BcSysStr^B.
+
+    Para m s informaci¢n sobre las cadenas por defecto puede consultar
+    'SysStr.ch' en el apartado 'ficheros de cabecera'.
+
+^B Retorna:^B
+    Devuelve una referencia al array de cadenas o la cadena especificada.
+
+^B Ejemplo:^B
+
+!SeeAlso: SysStr.ngh:SysStr.CH SysLanguage()
+'-------------------------------------------------------------------------------
+!short:bFalse()         ^B  Retorna un codeblock que devuelve .F.                     ^N
+^U bFalse()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    bFalse() -> bFalse
+
+^B Descripci¢n:^B
+    Esta funci¢n retorna un codeblock que siempre devuelve .F.
+
+^B Retorna:^B
+    Devuelve una referencia a un codeblock.
+
+^B Ejemplo:^B
+
+!SeeAlso: bTrue() bNil() bNull() blSetGet() Compila()
+'-------------------------------------------------------------------------------
+!short:blSetGet()       ^B  Crea un codeblock tipo SetGet para variables l¢gicas.     ^N
+^U blSetGet()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    blSetGet( lVar ) -> bVar
+
+^B Descripci¢n:^B
+    Esta funci¢n crea un codeblock para la edici¢n de variables l¢gicas del
+    tipo SetGet es decir si se le pasa par metro le asigna el valor pasado
+    a la variable y si no devuelve el valor de la variable.
+
+^B Retorna:^B
+    Devuelve una referencia a un codeblock.
+
+^B Ejemplo:^B
+!SeeAlso: bTrue() bFalse() bNil() bNull() Compila()
+'-------------------------------------------------------------------------------
+!short:bNil()           ^B  Retorna un codeblock que siempre devuelve NIL             ^N
+^U bNil()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    bNil() -> bNil
+
+^B Descripci¢n:^B
+    Esta funci¢n retorna un codeblock que siempre devuelve NIL.
+
+^B Retorna:^B
+    Devuelve una referencia a un codeblock.
+
+^B Ejemplo:^B
+
+!SeeAlso: bFalse() bTrue() bNull() blSetGet() Compila()
+'-------------------------------------------------------------------------------
+!short:bNull()          ^B  Retorna un codeblock que siempre devuelve "".             ^N
+^U bNull()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    bNull() -> bNull
+
+^B Descripci¢n:^B
+    Esta funci¢n retorna un codeblock que siempre devuelve "".
+
+^B Retorna:^B
+    Devuelve una referencia a un codeblock.
+
+^B Ejemplo:^B
+
+!SeeAlso: bFalse() bTrue() bNil() blSetGet() Compila()
+'-------------------------------------------------------------------------------
+!short:bTrue()          ^B  Retorna un codeblock que devuelve siempre .T.             ^N
+^U bTrue()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    bTrue() -> bTrue
+
+^B Descripci¢n:^B
+    Esta funci¢n retorna un codeblock que siempre devueleve .T. cuando se
+    evalua.
+
+^B Retorna:^B
+    Devuelve una referencia a un codeblock.
+
+^B Ejemplo:^B
+
+!SeeAlso: bFalse() bNil() bNull() blSetGet() Compila()
+'-------------------------------------------------------------------------------
+!short:Calc()           ^B  Calculadora.                                              ^N
+^U Calc()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Calc() -> NIL
+
+^B Descripci¢n:^B
+    Esta funci¢n crea una calculadora y la presenta en una ventana.
+
+^B Retorna:^B
+    Devuelve NIL.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:cAlt2Chr()       ^B  Determina de que tecla es la combinaci¢n de teclas Alt.   ^N
+^U cAlt2Chr()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cAlt2Chr( nKey ) -> cKey
+
+^B Descripci¢n:^B
+    Determina de que tecla es la combinaci¢n de teclas Alt ^BnKey^B.
+
+^B Retorna:^B
+    Devuelve un car cter con la tecla.
+
+^B Ejemplo:^B
+
+!SeeAlso: lAltChr() nAlt2Chr()
+'-------------------------------------------------------------------------------
+!short:cArr2Str()       ^B  Convierte un array en una cadena de caracteres.           ^N
+^U cArr2Str()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cArr2Str( aList, cSep ) -> cList
+
+^B Descripci¢n:^B
+    Convierte la lista tipo array ^BaList^B en la cadena de caracteres ^BcList^B con
+    todos los elementos del array separados por el caracter ^BcSep^B.
+
+    El valor por defecto de cSep es ','.
+
+^B Retorna:^B
+    Devuelve una cadena de caracteres con los elementos de la lista.
+
+^B Ejemplo:^B
+
+!SeeAlso: aStr2Arr()
+'-------------------------------------------------------------------------------
+!short:CarRoom()        ^B  Busca caracteres libres para reservar.                    ^N
+^U CarRoom()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    CarRoom( nCars ) -> cCars
+
+^B Descripci¢n:^B
+    Busca ^BnCars^B caracteres que no se hayan reservado y los marca como usados.
+
+^B Retorno:^B
+    Devuelve una cadena de caracteres.
+
+^B Ejemplo:^B
+
+!SeeAlso: AllocChars() ReadBitMap() ReleaseChars() SetChar()
+'-------------------------------------------------------------------------------
+!short:cDrive()         ^B  Devuelve la unidad por defecto.                           ^N
+^U cDrive()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cDrive() -> cDrive
+
+^B Descripci¢n:^B
+    Devuelve la unidad por defecto.
+
+^B Retorna:^B
+    Devuelve un caracter.
+
+^B Ejemplo:^B
+!SeeAlso: nDriveType() nLogDrives() ValidDrive()
+'-------------------------------------------------------------------------------
+!short:cFAcceso()       ^B  Devuelve el acceso de la cadena pasada.                   ^N
+^U cFAcceso()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cFAcceso( cPathMask ) -> cAcceso
+
+^B Descripci¢n:^B
+    Devuelve el acceso de la cadena ^BcPathMask^B.
+
+^B Retorna:^B
+    Devuelve una cadena de caracteres.
+
+^B Ejemplo:^B
+
+!SeeAlso: cFDisco() cFExt() cFFileName() cFName() cFMascara() cFSubDir()
+'-------------------------------------------------------------------------------
+!short:cFDisco()        ^B  Devuelve la unidad l¢gica de una cadena pasada.           ^N
+^U cFDisco()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cFDisco( cPathMask ) -> cUnidad
+
+^B Descripci¢n:^B
+    Devuelve la unidad l¢gica de la cadena pasada cPathMask.
+
+^B Retorna:^B
+    Devuelve un caracter.
+
+^B Ejemplo:^B
+
+!SeeAlso: cFAcceso() cFExt() cFFileName() cFName() cFMascara() cFSubDir()
+'-------------------------------------------------------------------------------
+!short:cFExt()          ^B  Devuelve la extensi¢n del fichero de la cadena pasada.    ^N
+^U cFExt()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cFExt( cPathMask ) -> cExt
+
+^B Descripci¢n:^B
+    Devuelve la extensi¢n del fichero de la cadena cPathMask. Si es un m scara
+    entonces devuelve la parte de la extensi¢n de la m scara.
+
+^B Retorna:^B
+    Devuelve una cadena de caracteres.
+
+^B Ejemplo:^B
+
+!SeeAlso: cFAcceso() cFDisco() cFFileName() cFName() cFMascara() cFSubDir()
+'-------------------------------------------------------------------------------
+!short:cFFileName()     ^B  Devuelve el nombre y la extensi¢n de la cadena pasada.    ^N
+^U cFFileName()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cFFileName( cPathMask ) -> cNombre
+
+^B Descripci¢n:^B
+    Devuelve el nombre y la extensi¢n de la cadena pasada. Si es una m scara
+    devolver  una cadena vac¡a.
+
+^B Retorna:^B
+    Devuelve una cadena de caracteres.
+
+^B Ejemplo:^B
+
+!SeeAlso: cFAcceso() cFDisco() cFExt() cFName() cFMascara() cFSubDir()
+'-------------------------------------------------------------------------------
+!short:cFMascara()      ^B  Devuelve la m scara de la cadena pasada.                  ^N
+^U cFMascara()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cFMascara( cPathMask ) -> cMascara
+
+^B Descripci¢n:^B
+    Devuelve la m scara de la cadena cpathMask. Si no tiene m scara devolver 
+    una cadena vac¡a.
+
+^B Retorna:^B
+    Devuelve una cadena de caracteres.
+
+^B Ejemplo:^B
+
+!SeeAlso: cFAcceso() cFDisco() cFExt() cFFileName() cFName() cFSubDir()
+'-------------------------------------------------------------------------------
+!short:cFName()         ^B  Devuelve el nombre de la cadena pasada.                   ^N
+^U cFName()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cFName( cPathMask ) -> cName
+
+^B Descripci¢n:^B
+    Devuelve la parte del nombre del fichero de la cadena pasada. Si es una
+    m scara devolver  la parte del nombre de la m scara.
+
+^B Retorna:^B
+    Devuelve una cadena de caracteres.
+
+^B Ejemplo:^B
+
+!SeeAlso: cFAcceso() cFDisco() cFExt() cFFileName() cFMascara() cFSubDir()
+'-------------------------------------------------------------------------------
+!short:cFSubDir()       ^B  Devuelve el subdirectorio de la cadena pasada.            ^N
+^U cFSubDir()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cFSubDir( cPathMask ) -> cSubDir
+
+^B Descripci¢n:^B
+    Devuelve el subdirectorio de la cadena ^BcPathMask^B.
+
+^B Retorna:^B
+    Devuelve una cadena de caracteres.
+
+^B Ejemplo:^B
+
+!SeeAlso: cFAcceso() cFDisco() cFExt() cFFileName() cFMascara() cFName()
+'-------------------------------------------------------------------------------
+!short:cGetFile()       ^B  Muestra una caja de di logo para seleccionar ficheros.    ^N
+^U cGetFile()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cGetFile( cFileSpec, cTitle ) -> cFileName
+
+^B Descripci¢n:^B
+    Muestra una caja de di logo para seleccionar ficheros que cumplan la
+    m scara indicada por ^BcFileSpec^B y con el t¡tulo ^BcTitle^B.
+
+    En ^BcFileSpec^B se puede especificar los tipos de archivos que se pueden
+    seleccionar y una peque¤a descripci¢n de cada tipo. En este caso, ir 
+    la descripci¢n seguida del caracter '|' y la extensi¢n y as¡ por cada
+    tipo teniendo en cuenta que entre cada tipo tambi‚n hay que poner el
+    car cter '|'.
+
+^B Retorna:^B
+    Devuelve una cadena de caracteres.
+
+^B Ejemplo:^B
+
+    Local cFile := cGetFile( " Ficheros de texto ( *.txt ) | *.txt | " + ;
+                             " Descripciones ( *.des )     | *.des ", ;
+                             "Selecciona fichero."  )
+
+'-------------------------------------------------------------------------------
+!short:cGetHotKey()     ^B  Devuelve el caracter de tecla aceleradora de una cadena.  ^N
+^U cGetHotKey()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cGetKotKey( cStr ) -> cChar
+
+^B Descripci¢n:^B
+    Devuelve el caracter de la tecla aceleradora de la cadena ^BcStr^B. Es decir,
+    devuelve el caracter que se encuentra inmediatamente seguido del caracter
+    '&'.
+
+^B Retorna:^B
+    Un caracter o una cadena vacia.
+
+^B Ejemplo:^B
+
+!SeeAlso: lIsHotKey()
+'-------------------------------------------------------------------------------
+!short:cStrBtw()        ^B  Extrae una subcadena de una lista de elementos.           ^N
+^U cStrBtw()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cStrBtw( cText, cSep, nIndex ) -> cSubText
+
+^B Descripci¢n:^B
+    Extrae la subcadena ^BcSubText^B de la lista ^BcText^B separados por el separador
+    ^BcSep^B que ocupa la posici¢n nIndex.
+
+^B Retorna:^B
+    Devuelve la cadena extraida.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:Compila()        ^B  Convierte una cadena en un codeblock.                     ^N
+^U Compila()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Compila( cExp ) -> bExp
+
+^B Descripci¢n:^B
+    Convierte la cadena ^BcExp^B en un codeblock.
+
+^B Retorna:^B
+    Devuelve un codeblock.
+
+^B Ejemplo:^B
+
+!SeeAlso: bFalse() bTrue() bNil() bNull() blSetGet()
+'-------------------------------------------------------------------------------
+!short:cValToChar()     ^B  Convierte variables de cualquier tipo a tipo cadena.      ^N
+^U cValToChar()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cValToChar( uVar ) -> cVar
+
+^B Descripci¢n:^B
+    Convierte variables de cualquier tipo a tipo cadena.
+
+^B Retorna:^B
+    Devuelve una cadena de caracteres.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:GetIcon()        ^B  Devuelve un icono para utilizar en ventanas de mensaje.   ^N
+^U GetIcon()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GetIcon( nIcon ) -> cIcon
+
+^B Descripci¢n:^B
+    Devuelve una cadena de caracteres con la im gen del icono ^BnIcon^B.
+    ^BnIcon^B puede ser uno de los siguientes valores:
+
+    ^BICO_INFO       ^B     Icono de una 'i'.
+    ^BICO_QUESTION   ^B     Icono de un '?'
+    ^BICO_HAND       ^B     Icono de una mano.
+    ^BICO_EXCLAMATION^B     Icono de un '!'
+    ^BICO_STOP       ^B     Icono de una se¤al de stop.
+
+    Cualquier otro valor devolvera un icono vacio.
+
+^B Retorna:^B
+    Devuelve una cadena de caracteres.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:I2Binary()       ^B  Convierte un n£mero en una cadena en formato binario.     ^N
+^U I2Binary()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    I2Binary( nNum ) -> cBinNum
+
+^B Descripci¢n:^B
+    Convierte un n£mero entero en una cadena de caracteres en formato binario.
+
+^B Retorna:^B
+    Devuelve una cadena de caracteres.
+
+^B Ejemplo:^B
+
+!SeeAlso: nBin2Dec()
+'-------------------------------------------------------------------------------
+!short:lAltChr()        ^B  Indica si una tecla es una combinaci¢n Alt.               ^N
+^U lAltChr()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lAltChr( nKey [ , nKeySinAlt ] ) -> lAltKey
+
+^B Descripci¢n:^B
+    Indica si la tecla ^BnKey^B es una combinaci¢n de teclas Alt y si es as¡,
+    asigna la tecla sin Alt a ^BnKeySinAlt^B. ^BnKeySinAlt^B debe pasarse por
+    referencia. El valor de la tecla devuelta se convierte a mayusculas.
+
+^B Retorna:^B
+    Devuelve un valor l¢gico.
+
+^B Ejemplo:^B
+
+!SeeAlso: cAlt2Chr() nAlt2Chr()
+'-------------------------------------------------------------------------------
+!short:lAnd()           ^B  Devuelve el and l¢gico.                                   ^N
+^U lAnd()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lAnd( nNum1, nNum2, ... ) -> lAnd
+
+^B Descripci¢n:^B
+    Devuelve el and l¢gico de los n£meros pasados.
+
+^B Retorna:^B
+    Devuelve un valor l¢gico.
+
+^B Ejemplo:^B
+
+!SeeAlso: nAnd() nOr()
+'-------------------------------------------------------------------------------
+!short:lIsCua()         ^B  Indica si la CUA y el sistema de FiveDos ya se instal¢.   ^N
+^U lIsCua()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lIsCua() -> lIsCua
+
+^B Descripci¢n:^B
+    Indica si la redefinci¢n de la CUA y el sistema de FiveDos ya se ha
+    instalado o no.
+
+    Si se ha instalado ya hay rat¢n gr fico y las ventanas de Alert ya aparecen
+    con ventanas FiveDos.
+
+^B Retorna:^B
+    Devuelve un valor l¢gico.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:lIsHotKey()      ^B  Determina si una tecla es la aceleradora de una cadena.   ^N
+^U lIsHotKey()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lIsHotKey( nKey, cText ) -> lIsHotKey
+
+^B Descripci¢n:^B
+    Determina si la tecla ^BnKey^B es la tecla aceleradora de la cadena de
+    caracteres ^BcText^B.
+
+^B Retorna:^B
+    Devuelve un valor l¢gico.
+
+^B Ejemplo:^B
+
+!SeeAlso: cGetHotkey()
+'-------------------------------------------------------------------------------
+!short:lMCenter()       ^B  Devuelve el estado del bot¢n central del rat¢n.           ^N
+^U lMCenter()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lMCenter() -> lMCenter
+
+^B Descripci¢n:^B
+    Indica el estado del bot¢n central del rat¢n. Devuelve .T. cuando est 
+    pulsado y .F. cuando no.
+
+^B Retorna:^B
+    Devuelve un valor l¢gico.
+
+^B Ejemplo:^B
+
+!SeeAlso: lMLeft() lMRight() lMPressed()
+'-------------------------------------------------------------------------------
+!short:lMLeft()         ^B  Indica el estado del bot¢n izquierdo del rat¢n.           ^N
+^U lMLeft()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lMLeft() -> lMLeft
+
+^B Descripci¢n:^B
+    Indica el estado del bot¢n izquierdo del rat¢n. Devuelve .T. cuando est 
+    pulsado y .F. cuando no.
+
+^B Retorna:^B
+    Devuelve un valor l¢gico.
+
+^B Ejemplo:^B
+
+!SeeAlso: lMCenter() lMRight() lMPressed()
+'-------------------------------------------------------------------------------
+!short:lMPressed()      ^B  Indica si est  pulsado alg£n bot¢n del rat¢n.             ^N
+^U lMPressed()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lMPressed() -> lMPressed
+
+^B Descripci¢n:^B
+    Indica el estado de los botones del rat¢n. Devuelve .T. cuando hay alguno
+    pulsado y .F. cuando no.
+
+^B Retorna:^B
+    Devuelve un valor l¢gico.
+
+^B Ejemplo:^B
+
+!SeeAlso: lMCenter() lMLeft() lMRight()
+'-------------------------------------------------------------------------------
+!short:lMRight()        ^B  Indica el estado del bot¢n derecho del rat¢n.             ^N
+^U lMRight()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lMRight() -> lMRight()
+
+^B Descripci¢n:^B
+    Indica el estado del bot¢n derecho del rat¢n. Devuelve .T. cuando est 
+    pulsado y .F. cuando no.
+
+^B Retorna:^B
+    Devuelve un valor l¢gico.
+
+^B Ejemplo:^B
+
+!SeeAlso: lMCenter() lMLeft() lMPressed()
+'-------------------------------------------------------------------------------
+!short:lMsgEnd()        ^B  Muestra una caja de di logo de confirmaci¢n para salir.   ^N
+^U lMsgEnd()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lMsgEnd() -> lEnd
+
+^B Descripci¢n:^B
+    Muestra una caja de di logo modal pidiendo confirmaci¢n para salir del
+    programa. ^BlEnd^B indica si la elecci¢n del usuario ha sido aceptar o no.
+
+    Su uso es el indicado para la clausula valid de la ventana principal de
+    la aplicaci¢n.
+
+^B Retorna:^B
+    Devuelve un valor l¢gico.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:lMsgGet()        ^B  Muestra una caja de di logo para editar una variable.     ^N
+^U lMsgGet()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lMsgGet( cTitle, cText, uValue, cPicture, bValid, lPassword ) -> lAcept
+
+^B Descripci¢n:^B
+    Muestra una caja de di logo modal con t¡tulo ^BcTitle^B y con el texto ^BcText^B
+    en la que se edita la variable ^BuValue^B usando el picture ^BcPicture^B y la
+    clausula Valid ^BbValid^B.
+
+    Si lPassword es verdadero se edita en modo password con asteriscos.
+
+    Devuelve .T. en caso de que se haya aceptado la edici¢n y .F. en caso de
+    que no.
+
+^B Retorna:^B
+    Devuelve un valor l¢gico.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:MenuBegin()      ^B  Comienza un nuevo menu.                                   ^N
+^U MenuBegin()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MenuBegin( cColors ) -> oMenu
+
+^B Descripci¢n:^B
+    Esta funci¢n es para facilitar la creaci¢n de menus. Crea un nuevo menu
+    usando los colores ^BcColors^B y devuelve su referencia. Posteriormente
+    se le a¤aden elementos de menu llamando a la funci¢n ^BMnuItem()^B y se
+    termina el menu con ^BMenuEnd()^B.
+
+^B Retorna:^B
+    Devuelve una referencia al menu creado.
+
+^B Ejemplo:^B
+
+!SeeAlso: MnuItem() MenuEnd()
+'-------------------------------------------------------------------------------
+!short:MenuEnd()        ^B  Termina un menu creado con MenuBegin().                   ^N
+^U MenuEnd()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MenuEnd() -> NIL
+
+^B Descripci¢n:^B
+    Termina el menu creado con ^BMenuBegin()^B una vez se le han a¤adido todos
+    los elementos usando la funci¢n ^BMnuItem()^B.
+
+^B Retorna:^B
+    Devuelve NIL.
+
+^B Ejemplo:^B
+!SeeAlso: MenuBegin() MnuItem()
+'-------------------------------------------------------------------------------
+!short:MnuItem()        ^B  A¤ade elementos de menu al menu creado con MenuBegin().   ^N
+^U MnuItem()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MnuItem( cItem, cMsg, bAction, lDisable, lChecked, nShortCut ) -> oItem
+
+^B Descripci¢n:^B
+    A¤ade elementos de menu al menu creado con MenuBegin(). Recibe los
+    siguientes par metros:
+
+    ^BcItem    ^B       Texto el elemento de men£.
+    ^BcMsg     ^B       Mensaje que aparece cuando se selecciona el men£.
+    ^BbAction  ^B       Acci¢n a ejecutar cuando se selecciona.
+    ^BlDisable ^B       Indica si se puede seleccionar o no.
+    ^BlChecked ^B       Indica si es del tipo checked o no.
+    ^BnShortCut^B       Tecla r pida asociada.
+
+^B Retorna:^B
+    Devuelve una referencia al elemento de menu a¤adido.
+
+^B Ejemplo:^B
+
+!SeeAlso: MenuBegin() MenuEnd()
+'-------------------------------------------------------------------------------
+!short:MInit()          ^B  Inicializa el software del rat¢n.                         ^N
+^U MInit()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MInit() -> NIL
+
+^B Descripci¢n:^B
+    Inicializa el software del rat¢n.
+
+^B Retorna:^B
+    Devuelve NIL.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:MOff()           ^B  Hace desaparecer el puntero del rat¢n.                    ^N
+^U MOff()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MOff() -> NIL
+
+^B Descripci¢n:^B
+    Hace desaparecer el puntero del rat¢n.
+
+^B Retorna:^B
+    Devuelve NIL.
+
+^B Ejemplo:^B
+
+!SeeAlso: MOn()
+'-------------------------------------------------------------------------------
+!short:MOn()            ^B  Hace aparecer el puntero del rat¢n.                       ^N
+^U MOn()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MOn() -> NIL
+
+^B Descripci¢n:^B
+    Hace aparecer el puntero del rat¢n.
+
+^B Retorna:^B
+    Devuelve NIL.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:MReset()         ^B  Resetea el software del rat¢n.                            ^N
+^U MReset()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MReset() -> NIL
+
+^B Descripci¢n:^B
+    Resetea el software del rat¢n.
+
+^B Retorna:^B
+    Devuelve NIL.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:MsgAlert()       ^B  Presenta una informaci¢n con el icono de exclamaci¢n.     ^N
+^U MsgAlert()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MsgAlert( cText, cTitle ) -> nOption
+
+^B Descripci¢n:^B
+    Presenta una caja de di logo con el icono de exclamaci¢n, con el texto
+    ^BcText^B a la derecha, con el t¡tulo ^BcTitle^B y con la £nica opci¢n
+    ^BVale^B.
+
+    Al tener una unica opci¢n esta funci¢n devuelve 1 en caso de que acepte
+    y 0 en caso de cancelar.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: nMsgAlert() nMsgBox() MsgInfo() MsgStop() MsgYesNo()
+'-------------------------------------------------------------------------------
+!short:MsgBeep()        ^B  Genera un tono de aviso.                                  ^N
+^U MsgBeep()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MsgBeep() -> NIL
+
+^B Descripci¢n:^B
+    Genera un tono de aviso.
+
+^B Retorna:^B
+    Devuelve NIL.
+
+^B Ejemplo:^B
+
+!SeeAlso: Tock()
+'-------------------------------------------------------------------------------
+!short:MsgInfo()        ^B  Presenta una informaci¢n con el icono de informaci¢n.     ^N
+^U MsgInfo()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MsgInfo( cText, cTitle ) -> nOption
+
+^B Descripci¢n:^B
+    Presenta la informaci¢n ^BcText^B en una caja de aviso con t¡tulo ^BcTitle^B
+    y usando el icono de informaci¢n.
+
+    Al tener una unica opci¢n esta funci¢n devuelve 1 en caso de que acepte
+    y 0 en caso de cancelar.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: nMsgAlert() MsgAlert() nMsgBox() MsgStop() MsgYesNo()
+'-------------------------------------------------------------------------------
+!short:MsgStop()        ^B  Presenta una informaci¢n con el icono de se¤al de Stop.   ^N
+^U MsgStop()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MsgStop( cText, cTitle ) -> nOption
+
+^B Descripci¢n:^B
+    Presenta la informaci¢n ^BcText^B en una caja de aviso con t¡tulo ^BcTitle^B y
+    usando el icono de se¤al de stop.
+
+    Al tener una unica opci¢n esta funci¢n devuelve 1 en caso de que acepte
+    y 0 en caso de cancelar.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: nMsgAlert() MsgAlert() nMsgBox() MsgInfo() MsgYesNo()
+'-------------------------------------------------------------------------------
+!short:MsgYesNo()       ^B  Presenta una caja de di logo con las opciones Si y No.    ^N
+^U MsgYesNo()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MsgYesNo( cText, cTitle ) -> lYes
+
+^B Descripci¢n:^B
+    Presenta una caja de aviso modal con las opciones ^BSi^B y ^BNo^B, con el texto
+    ^BcText^B, con el t¡tulo ^BcTitle^B y usando el icono de interrogaci¢n. Devuelve
+    TRUE si se ha seleccionado Si, FALSE si se ha seleccionado No à se halla
+    abortado la selecci¢n.
+
+^B Retorna:^B
+    Devuelve un valor l¢gico.
+
+^B Ejemplo:^B
+
+!SeeAlso: nMsgAlert() MsgAlert() nMsgBox() MsgInfo() MsgStop()
+'-------------------------------------------------------------------------------
+!short:MUpdate()        ^B  Actualiza los valores de posici¢n y los botones del rat¢n.^N
+^U MUpdate()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MUpdate() -> NIL
+
+^B Descripci¢n:^B
+    Actualiza los valores de posici¢n y de los botones del rat¢n.
+
+^B Retorna:^B
+    Devuelve NIL.
+
+^B Ejemplo:^B
+
+!SeeAlso: nMRow() nMCol() lMPressed() lMLeft() lMCenter() lMRight()
+'-------------------------------------------------------------------------------
+!short:nAlt2Chr()       ^B  Devuelve el valor numerico de la tecla pasada sin alt.    ^N
+^U nAlt2Chr()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nAlt2Chr( nKey ) -> nKeyUpperSinAlt
+
+^B Descripci¢n:^B
+    Covierte el valor numerico de la tecla pasada con alt ^BnKey^B a un valor
+    sin alt y pasada a mayusculas ^BnKeyUpperSinAlt^B.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: lAltChr() cAlt2Chr()
+'-------------------------------------------------------------------------------
+!short:nAnd()           ^B  Devuelve el and bit a bit.                                ^N
+^U nAnd()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nAnd( nNum1, nNum2, ... ) -> nNUm
+
+^B Descripci¢n:^B
+    Devuelve el and bit a bit de los n£meros pasados.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: nOr() lAnd()
+'-------------------------------------------------------------------------------
+!short:nBin2Dec()       ^B  Convierte una cadena en formato binario a un n£mero.      ^N
+^U nBin2Dec()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nBin2Dec( cCadBin ) -> nNum
+
+^B Descripci¢n:^B
+    Convierte la cadena de caracteres con formato binario ^BcCadBin^B a un n£mero
+    entero ^BnNum^B.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: I2Binary()
+'-------------------------------------------------------------------------------
+!short:nColorToN()      ^B  Convierte una cadena de color de clipper a valor num‚rico.^N
+^U nColroToN()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nColorToN( cColor ) -> nColor
+
+^B Descripci¢n:^B
+    Convierte una cadena de color de clipper en su valor num‚rico.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:nDriveType()     ^B  Devuelve el tipo de unidad.                               ^N
+^U nDriveType()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nDriveType( nDrive ) -> nDriveType
+
+^B Descripci¢n:^B
+    Devuelve el tipo de la unidad ^BnDrive^B que puede ser:
+
+    ^B0^B  Desconocido
+    ^B1^B  360K, 5.25, 40 pistas
+    ^B2^B  1.2M, 5.25, 80 pistas
+    ^B3^B  720K, 3.5 , 80 pistas
+    ^B4^B  1.4M, 3.5 , 80 pistas
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: cDrive() ValidDrive() nLogDrives()
+'-------------------------------------------------------------------------------
+!short:nLabelLen()      ^B  Devuelve la longitud de una cadena de caracteres.         ^N
+^U nLabelLen()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nLabelLen( cText ) -> nLen
+
+^B Descripci¢n:^B
+    Devuelve la l¢ngitud de una cadena de caracteres sin contar el car cter
+    '&' que sirve para identificar la tecla aceleradora.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:nLogDrives()     ^B  Devuelve el n£mero de unidades l¢gicas.                   ^N
+^U nLogDrives()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nLogDrives() -> nLogDrives
+
+^B Descripci¢n:^B
+    Devuelve el n£mero de unidades l¢gicas.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: cDrive() nDriveType() ValidDrive()
+'-------------------------------------------------------------------------------
+!short:nMCol()          ^B  Devuelve la columna actual del rat¢n.                     ^N
+^U nMCol()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nMCol() -> nMCol
+
+^B Descripci¢n:^B
+    Devuelve la columna actual del rat¢n.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: nMRow() MUpdate() lMPressed() lMLeft() lMCenter() lMRight()
+'-------------------------------------------------------------------------------
+!short:nMCursor()       ^B  Indica que tipo de cursor del rat¢n se est  usando.       ^N
+^U nMCursor()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nMCursor() -> nMCursor
+
+^B Descripci¢n:^B
+    Indica que tipo de cursor del rat¢n se est  usando actualmente que puede
+    ser uno de los siguientes valores:
+
+    ^BIDC_ARROW   ^B    T¡pica flechita de rat¢n.
+    ^BIDC_SIZEWE  ^B    Una flechita de Oeste a Este.
+    ^BIDC_SIZENS  ^B    Una flechita de Norte a Sur
+    ^BIDC_CROSS   ^B    La Rosa de los Vientos.
+    ^BIDC_HAND    ^B    Una manita apuntando.
+    ^BIDC_SIZENWSE^B    Una flechita de NorOeste a SurEste
+    ^BIDC_CLOCK   ^B    Un reloj de arena.
+
+    Para ver los valores num‚ricos de cada uno de los tipos de rat¢n consulte
+    'FiveDos.ch' en el apartado 'Ficheros de cabecera'.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: SetMCursor() FiveDos.ngh:FiveDos.CH
+'-------------------------------------------------------------------------------
+!short:nMKeyWait()      ^B  Espera la pulsaci¢n de una tecla o del rat¢n.             ^N
+^U nMKeyWait()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nMKeyWait( nSeconds, bAction ) -> nKey
+
+^B Descripci¢n:^B
+    Espera la pulsaci¢n de una tecla o del rat¢n ^BnSeconds^B y mientras se
+    pulsa se evalua el codeblock ^BbAction^B. Devuelve el valor de la tecla
+    pulsada.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:nMRow()          ^B  Devuelve la fila actual del rat¢n.                        ^N
+^U nMRow()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nMRow() -> nMRow
+
+^B Descripci¢n:^B
+    Devuelve la fila actual del rat¢n.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: nMCol() MUpdate() lMPressed() lMLeft() lMCenter() lMRight()
+'-------------------------------------------------------------------------------
+!short:nMsgAlert()      ^B  Funci¢n que presenta un panel modal. Similar a Alert().   ^N
+^U nMsgAlert()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nMsgAlert( cText, aOptions ) -> nOption
+
+^B Descripci¢n:^B
+    Funci¢n que presenta una caja de di logo modal con las opciones ^BaOptions^B y
+    con el texto ^BcText^B a la derecha del icono de exclamaci¢n.
+
+    Devuelve el n£mero ordinal de la opci¢n seleccionada o 0 en caso de
+    abortar la seleccion.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: MsgAlert() nMsgBox() MsgInfo() MsgStop() MsgYesNo()
+'-------------------------------------------------------------------------------
+!short:nMsgBox()        ^B  Presenta un panel modal con opciones.                     ^N
+^U nMsgBox()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nMsgBox( cText, cTitle, acOptions, cColors, nIcon, cClrIcon ) -> nOption
+
+^B Descripci¢n:^B
+    Presenta una caja de di logo modal con t¡tulo ^BcTitle^B y la presenta con el
+    texto ^BcText^B a la derecha del icono ^BnIcon^B y con las opciones obtenidas a
+    partir del array de opciones ^BacOptions^B. ^BcColors^B son los colores usados
+    por la caja de di logo mientras que ^BnClrIcon^B determina el color del
+    icono. Devuelve la opci¢n seleccionada por el usuario.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: nMsgAlert() MsgAlert() MsgInfo() MsgStop() MsgYesNo()
+'-------------------------------------------------------------------------------
+!short:nOr()            ^B  Devuelve el or bit a bit.                                 ^N
+^U nOr()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nOr( nNum1, nNum2, ... ) -> nNum
+
+^B Descripci¢n:^B
+    Devuelve el or bit a bit de los n£meros pasados.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: nAnd() lAnd()
+'-------------------------------------------------------------------------------
+!short:nStrColor()      ^B  Devuelve el color de una lista de colores.                ^N
+^U nStrColor()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nStrColor( cColors, nIndex ) -> cColor
+
+^B Descripci¢n:^B
+    Devuelve el color de la lista de colores ^BcColor^B que ocupa la posici¢n
+    ^BnIndex^B.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:nUpperKey()      ^B  Convierte a mayuscula el valor de tecla pasado.           ^N
+^U nUpperKey()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nUpperKey( nKey ) -> nUpperChar
+
+^B Descripci¢n:^B
+    Convierte a mayuscula el valor de la tecla ^BnKey^B.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:nValLen()        ^B  Indica la longitud de una variable para la edici¢n.       ^N
+^U nValLen()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nValLen( uValue, lPict ) -> nLen
+
+^B Descripci¢n:^B
+    Indica la longitud de la variable ^BuValue^B para la edici¢n. ^BlPict^B indica
+    si se usa picture o no.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:OemToAnsi()      ^B  Funci¢n para compatibilidad con FiveWin.                  ^N
+^U OemToAnsi()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    OemToAnsi( cText ) -> cText
+
+^B Descripci¢n:^B
+    Funci¢n para compatibilidad con FiveWin. Devuelve la referencia a la
+    cadena pasada ^BcText^B. Esta funci¢n No hace nada.
+
+^B Retorna:^B
+    Devuelve la referencia a la cadena pasada.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:PropName()       ^B  Modifica la cadena pasada para que sea un nombre correcto.^N
+^U PropName()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    PropName( cText ) -> cText
+
+^B Descripci¢n:^B
+    Modifica la cadena pasada ^BcText^B de manera que queda la primera letra en
+    may£scula y las dem s en min£scula.
+
+^B Retorno:^B
+    Devuelve una referencia a la cadena pasada.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:ReadBitmap()     ^B  Lee el archivo y redefine los caracteres.                 ^N
+^U ReadBitmap()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ReadBitMap( cBmpFile ) -> cChars
+
+^B Descripci¢n:^B
+    Lee el archivo ^BcBmpFile^B que contiene la im gen del bitmap, redefine los
+    caracteres necesarios para representarlo y los devuelve.
+
+^B Retorno:^B
+    Devuelve una cadena de caracteres.
+
+^B Ejemplo:^B
+
+!SeeAlso: AllocChars() CarRoom() ReleaseChars() SetChar()
+'-------------------------------------------------------------------------------
+!short:RegisterExe()    ^B  Funci¢n que se utiliza para liberar un ejecutable.        ^N
+^U RegisterExe()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    RegisterExe() -> NIL
+
+^B Descripci¢n:^B
+    Funci¢n que se utiliza para liberar un ejecutable. Para mayor informaci¢n
+    ver el apartado 'Registro'.
+
+^B Retorna:^B
+    Devuelve NIL.
+
+^B Ejemplo:^B
+
+!SeeAlso: Register.ngo:Registro
+'-------------------------------------------------------------------------------
+!short:ReleaseChars()   ^B  Libera los caracteres usados por un recurso.              ^N
+^U ReleaseChars()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+'------------------------------------------------------------------------------'
+^B Prototipo:^B
+    ReleaseChars( cRecurseID ) -> NIL
+
+^B Descripci¢n:^B
+    Si encuentra el recurso ^BcRecurseID^B decrementa el contador de reservas del
+    recurso y si es el £ltimo libera los caracteres usados por el recurso
+    llamando a ^BFreeCar^B.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+^B Ejemplo:^B
+
+!SeeAlso:  AllocChars() CarRoom() ReadBitMap() SetChar()
+'-------------------------------------------------------------------------------
+!short:SetChar()        ^B  Redefine un caracter determinado.                         ^N
+^U SetChar()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetChar( nChar, cDef ) -> NIL
+
+^B Descripci¢n:^B
+    Redefine el caracter especificado nChar a partir de la cadena de
+    definici¢n cDef.
+
+    Esta cadena de definici¢n debe constar de 16 caracteres necesarios para
+    la redefinici¢n de cada l¡nea de las que consta la definci¢n de un
+    caracter.
+
+^B Retorna:^B
+    Devuelve NIL.
+
+^B Ejemplo:^B
+
+!SeeAlso:  AllocChars() CarRoom() ReadBitMap() ReleaseChars()
+'-------------------------------------------------------------------------------
+!short:SetCua()         ^B  Inicia o resetea la redefinici¢n de la CUA y del rat¢n.   ^N
+^U SetCua()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetCua( lOnOff )
+
+^B Descripci¢n:^B
+    ^BlOnOff^B indica si se inicia o si se resetea la redefinic¡on de la CUA, el
+    rat¢n y el sistema de FiveDos.
+
+^B Retorna:^B
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:SetMArea()       ^B  Indica los m rgenes del area del rat¢n.                   ^N
+^U SetMArea()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetMArea( nTop, nLeft, nBottom, nRight ) -> NIL
+
+^B Descripci¢n:^B
+    Esta funci¢n asigna el area de pantalla en la que se puede desplazar el
+    rat¢n.
+
+^B Retorna:^B
+    Devuelve NIL.
+
+^B Ejemplo:^B
+
+!SeeAlso: SetMPos()
+'-------------------------------------------------------------------------------
+!short:SetMCursor()     ^B  Cambia la apariencia del puntero del rat¢n.               ^N
+^U SetMCursor()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetMCursor( nType ) -> nOldType
+
+^B Descripci¢n:^B
+    Cambia la apariencia del puntero del rat¢n a nType devolviendo el valor
+    del anterior tipo. nType puede ser uno de los siguientes valores:
+
+    ^BIDC_ARROW   ^B    T¡pica flechita de rat¢n.
+    ^BIDC_SIZEWE  ^B    Una flechita de Oeste a Este.
+    ^BIDC_SIZENS  ^B    Una flechita de Norte a Sur
+    ^BIDC_CROSS   ^B    La Rosa de los Vientos.
+    ^BIDC_HAND    ^B    Una manita apuntando.
+    ^BIDC_SIZENWSE^B    Una flechita de NorOeste a SurEste
+    ^BIDC_CLOCK   ^B    Un reloj de arena.
+
+    Para ver los valores num‚ricos de cada uno de los tipos de rat¢n consulte
+    'FiveDos.ch' en el apartado 'Ficheros de cabecera'.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: nMCursor() FiveDos.ngh:FiveDos.CH
+'-------------------------------------------------------------------------------
+!short:SetMPos()        ^B  Cambia la posici¢n del rat¢n.                             ^N
+^U SetMPos()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetMPos( nNewRow, nNewCol ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia la posici¢n del cursor del rat¢n a la especificada por ^BnNewRow^B y
+    ^BnNewCol^B.
+
+^B Retorna:^B
+    Devuelve NIL.
+
+^B Ejemplo:^B
+
+!SeeAlso: SetMArea()
+'-------------------------------------------------------------------------------
+!short:SysLanguage()    ^B  Selecciona el lenguaje para las cadenas por defecto.      ^N
+^U SysLanguage()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SysLanguage( nLanguage ) -> nOldLanguage
+
+^B Descripci¢n:^B
+    Cambia el lenguage para las cadenas por defecto a ^BnLanguage^B. Devuelve el
+    lenguage anteriormente seleccionado ^BnOldLanguage^B.
+
+    Para mayor informaci¢n sobre los lenguages aceptados vea el apartado
+    'SysStr.ch' en el apartado 'ficheros de cabecera'.
+
+^B Retorna:^B
+    Devuelve un valor num‚rico.
+
+^B Ejemplo:^B
+
+!SeeAlso: SysStr.ngh:SysStr.CH aSysStr()
+'-------------------------------------------------------------------------------
+!short:SysMenu()        ^B  Crea el men£ de sistema relacionado a una ventana.        ^N
+^U SysMenu()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SysMenu( oWnd, aColors ) -> oSysMenu
+
+^B Descripci¢n:^B
+    Crea el menu de sistema ^BoSysMenu^B con relaci¢n a la ventana ^BoWnd^B con los
+    colores ^BaColors^B. Se a¤adir n los elementos del men£ acorde con las
+    caracter¡sticas de la ventana y los colores ^BaColors^B.
+
+^B Retorna:^B
+    Devuelve una referencia al menu de sistema.
+
+^B Ejemplo:^B
+
+'-------------------------------------------------------------------------------
+!short:Tock()           ^B  Genera un tono grave y corto en el altavoz.               ^N
+^U Tock()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Tock() -> NIL
+
+^B Descripci¢n:^B
+    Genera un tono grave y corto en el altavoz.
+
+^B Retorna:^B
+    Devuelve NIL.
+
+^B Ejemplo:^B
+
+!SeeAlso: MsgBeep()
+'-------------------------------------------------------------------------------
+!short:ValidDrive()     ^B  Indica si la unidad especificada es v lida o no.          ^N
+^U ValidDrive()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ValidDrive( nDrive ) -> lValidDrive
+
+^B Descripci¢n:^B
+    Indica si la unidad ^BnDrive^B es v lida o no.
+
+^B Retorna:^B
+    Devuelve un valor l¢gico.
+
+^B Ejemplo:^B
+
+!SeeAlso: cDrive() nDriveType() nLogDrives()
+'-------------------------------------------------------------------------------
+!short:WinExec()        ^B  Para compatibilidad con FiveWin.                          ^N
+^U WinExec()
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    WinExec( uFunc ) -> NIL
+
+^B Descripci¢n:^B
+    S¢lo para compatibilidad con FiveWin. Esta funci¢n no hace nada.
+
+^B Retorna:^B
+    Devuelve NIL.
+
+^B Ejemplo:^B
+
+'-End Of Functions--------------------------------------------------------------

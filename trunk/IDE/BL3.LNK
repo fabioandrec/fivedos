@@ -1,0 +1,57 @@
+
+BLINKER INCR OFF
+
+beginarea
+   allocate \fivedos.10\lib\fivedos # pone en overlay toda la librer¡a menos
+                                    # los m¢dulos que deben estar en el root.
+endarea
+
+mod xsend           # modulos obligatorios en el root
+mod opstpeje
+mod command
+mod mstext
+mod dpmi
+
+# area de overlay para algunos m¢dulos de Clipper.lib y extend.lib
+beginarea
+   mod appinit
+   mod box
+   mod cmem
+   mod date
+   mod dbcmd0
+   mod dbcmd1
+   mod dbcmd2
+   mod dbcmd3
+   mod dbcmd4
+   mod dbcmd5
+   mod errsys0
+   mod errsys1
+   mod joinlist
+   mod lupdate
+   mod memory
+   mod run
+   mod startsym
+   mod txopen
+
+   allocate \clipper5\lib\extend
+
+   mod gete
+   mod diskspac
+   mod memoread
+   mod memowrit
+   mod memotran
+   mod memoline
+   mod mlcount
+   mod mlctopos
+   mod memoedit
+   
+
+endarea
+
+ mod tbrowse0    # los tbrowse iran mas r pidos y suaves.
+ mod tbrowse1
+ mod linelen     # idem con los memoedit().
+
+lib \clipper5\lib\clipper
+lib \clipper5\lib\terminal
+lib \clipper5\lib\dbfntx

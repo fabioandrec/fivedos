@@ -1,0 +1,29 @@
+!short:^U Ficheros de Cabecera.
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:^BBROWSE          ^BCreaci줻 de Browses.                                         
+!file: Browse.ngh
+!short:^BDATABASE        ^BUso de Bases de Datos.                                       
+!file: Database.ngh
+!short:^BDIALOG          ^BSintaxis general de Controles.                               
+!file: Dialog.ngh
+!short:^BFIVEDOS         ^BFichero de cabecera general.                                 
+!file: FiveDos.ngh
+!short:^BEVAL            ^BEvaluaci줻 de bucles dentro de codeblocks                    
+!file: Eval.ngh
+!short:^BICONS           ^BUso de Iconos.                                               
+!file: Icons.ngh
+!short:^BMENUBLD         ^BDefinici줻 de Menu.                                          
+!file: MenuBld.ngh
+!short:^BNOTEBOOK        ^BDefinici줻 de multip쟥inas.                                  
+!file: NoteBook.ngh
+!short:^BREDEFINE        ^BRedefinici줻 de recursos.                                    
+!file: Redefine.ngh
+!short:^BSYSCOLOR        ^BColores del sistema.                                         
+!file: SysColor.ngh
+!short:^BSYSSTR          ^BCadenas del sistema.                                         
+!file: SysStr.ngh
+!short:^BTREE            ^BHerramientas de ficheros.                                    
+!file: Tree.ngh
+!short:^BWINDOW          ^BSintaxis de creaci줻 de ventanas.                            
+!file: Window.ngh

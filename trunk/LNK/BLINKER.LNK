@@ -1,0 +1,7 @@
+#BLIN INCR OFF
+#MAP A,S
+# comment next lines if you don't want an extended executable
+BLIN EXEC EXTE
+file extend
+search fivedos, 501_520, blxclp53
+#lib clipper, extend, dbfntx, terminal

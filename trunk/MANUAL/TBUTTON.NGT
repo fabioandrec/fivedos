@@ -1,0 +1,261 @@
+!short: CLASE ^BTButton^B                                                               
+'------------------------------------------------------------------------------'
+    Clase derivada de TControl para dar soporte a los botones.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:bAction^B          Acci¢n que se ejecuta cuando el bot¢n se selecciona.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bWhilePressed^B    Acci¢n que se ejecuta mientras se pulse el bot¢n.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmp^B             Fichero bitmap usado cuando el bot¢n no est  pulsado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmp2^B            Fichero bitmap usado cuando el bot¢n est  puldado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmpChars^B        Car cteres usados para representar el bitmap ^BcBmp^B.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmpChars2^B       Car cteres usados para representar el bitmap ^BcBmp2^B.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cText^B            Texto a pintar en el bot¢n cuando no est  pulsado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cText2^B           Texto a pintar en el bot¢n cuando est  pulsado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cVBack^B           Estructura que contiene la zona de pantalla usada.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lPressed^B         Indica si el bot¢n est  pulsado o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:ChangeSize^B       Cambia el tama¤o del bot¢n.                                 ^B
+'------------------------------------------------------------------------------'
+^U ChangeSize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ChangeSize( nWidth, nHeight ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia el tama¤o del bot¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Click^B            Maneja las pulsaciones del rat¢n.                           ^B
+'------------------------------------------------------------------------------'
+^U Click
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Click( nMRow, nMCol ) -> NIL
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones del rat¢n sobre el bot¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Destroy^B          Es el destructor de la clase.                               ^B
+'------------------------------------------------------------------------------'
+^U Destroy
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Destroy() -> NIL
+
+^B Descripci¢n:^B
+    Es el destructor de la clase. Libera los caracteres reservados que se
+    hayan usado.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:DragOver^B         Para mover el objeto con el rat¢n.                          ^B
+'------------------------------------------------------------------------------'
+^U DragOver
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    DragOver() -> NIL
+
+^B Descripci¢n:^B
+    Se usa para mover el objeto con el rat¢n por la pantalla.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:KeyPressed^B       Procesa las pulsaciones de teclas.                          ^B
+'------------------------------------------------------------------------------'
+^U KeyPressed
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nValor
+
+^B Descripci¢n:^B
+    Procesa las pulsaciones de tecla, definiendo pues, el comportamiento del
+    objeto en lo que a respuesta a teclas se refiere. Devuelve 0 cuando se ha
+    procesado la tecla y nKey cuando no se ha procesado.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Es el constructor de la clase.                              ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nRow, nCol, cText, cColor, nWidth, nHeight, oWnd, bAction,
+         cMessage, cBmp, cBmp2, bWhilePressed, bWhen, bValid ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BnRow         ^B   Fila donde se situa el bot¢n.
+    ^BnCol         ^B   Columna donde se situa el bot¢n.
+    ^BcText        ^B   Texto que aparece en el bot¢n.
+    ^BcColor       ^B   Cadena de caracteres con los colores a usar.
+    ^BnWidth       ^B   Define el ancho del bot¢n.
+    ^BnHeight      ^B   Define el alto del bot¢n.
+    ^BoWnd         ^B   Referencia a la ventana a la que pertenece.
+    ^BbAction      ^B   Acci¢n a ejecutar cuando se selecciona el bot¢n.
+    ^BcMessage     ^B   Mensaje que se muestra cuando se selecciona el bot¢n.
+    ^BcBmp         ^B   Bitmap a mostrar cuando no est‚ pulsado el bot¢n.
+    ^BcBmp2        ^B   Bitmap a mostrar cuando el bot¢n est‚ pulsado.
+    ^BbWhilePressed^B   Codeblock que se evalua mientras se pulse el bot¢n.
+    ^BbWhen        ^B   Codeblock de prevalidaci¢n.
+    ^BbValid       ^B   Codeblock de postvalidaci¢n.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:ReDefine^B         Constructor desde recursos.                                 ^B
+'------------------------------------------------------------------------------'
+^U ReDefine
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ReDefine( cText, cMessage, cColor, nHelpId, bAction,
+              cBmp, cBmp2, bWhilePressed, bWhen, bValid ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor desde recursos. Recibe los siguientes par metros:
+
+    ^BcText        ^B   Texto que aparece en el bot¢n.
+    ^BcMessage     ^B   Mensaje que se muestra cuando se selecciona el bot¢n.
+    ^BcColor       ^B   Cadena de caracteres con los colores a usar.
+    ^BnHelpId      ^B   Identificativo de contexto de ayuda.
+    ^BbAction      ^B   Acci¢n a ejecutar cuando se selecciona el bot¢n.
+    ^BcBmp         ^B   Bitmap a mostrar cuando no est‚ pulsado el bot¢n.
+    ^BcBmp2        ^B   Bitmap a mostrar cuando el bot¢n est‚ pulsado.
+    ^BbWhilePressed^B   Codeblock que se evalua mientras se pulse el bot¢n.
+    ^BbWhen        ^B   Codeblock de prevalidaci¢n.
+    ^BbValid       ^B   Codeblock de postvalidaci¢n.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Actualiza la im gen del bot¢n.                              ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci¢n:^B
+    Actualiza la im gen del bot¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        Para seleccionar los colores a partir de la cadena pasada.  ^B
+'------------------------------------------------------------------------------'
+^U SetColors
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetColors( cColor ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna los colores a partir de la cadena de caracteres ^BcColor.^B En ‚sta
+    se codifican los cuatro colores que se utilizan que son:
+
+    1.- Color usado por la etiqueta cuando no tiene focus.
+    2.- Color usado por la etiqueta cuando tiene focus.
+    3.- Color usado por la letra resaltada cuando no tiene focus.
+    4.- Color usado por la letra resaltada cuando tiene focus.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetDesign^B        Cambia el estado de dise¤o o no.                            ^B
+'------------------------------------------------------------------------------'
+^U SetDesign
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetDesign( lDesign ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia el estado del flag ^B::lDesign^B que indica si se est  en modo dise¤o
+    o no.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetPos^B           Cambia la posici¢n del bot¢n.                               ^B
+'------------------------------------------------------------------------------'
+^U SetPos
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetPos( nRow, nCol ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia la posici¢n del bot¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:lIsOver^B          Indica si est  sobre el bot¢n o no.                         ^B
+'------------------------------------------------------------------------------'
+^U lIsOver
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lIsOver( nMRow, nMCol ) -> lIsOver
+
+^B Descripci¢n:^B
+    Nos indica si la posici¢n ^BnMRow^B, ^BnMCol^B est  sobre el bot¢n o no.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'

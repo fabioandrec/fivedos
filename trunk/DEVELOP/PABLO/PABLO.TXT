@@ -1,0 +1,69 @@
+                                                              
+    Hola Pablo te comento algunos detalles del Objects que te conviene
+conocer. Se trata de las clausulas de iniciaci¢n de datos. Lo primero
+que llama la atenci¢n es que hay dos clausulas diferentes ¨ Por qu‚ ?
+
+    Porque hay dos maneras de iniciar un dato:
+
+    a- Se inicia el dato con una constante.
+    b- Se inicia el dato con el resultado de evaluar una expresi¢n.
+
+    Objects define y almacena un array maestro con los datos obtenidos de
+las clausulas INIT y los copia en las instancias nuevas con un vulgar acopy().
+Es como si tuvieramos un patr¢n. Despu‚s de hacer esa copia Objects evalua los
+codeblocks de instanciaci¢n de datos y asigna con su retorno los datos
+correspondientes ( son las clausulas INSTANTIATE ).
+
+
+    Para que te hagas una idea mira este ejemplo.:
+
+//---------------------------------------------------------------------------//
+
+#include "Fivedos.ch"
+
+CLASS Test
+
+    DATA aTest1   INIT        Tone(938,5), { 1 }               // Pito largo
+    DATA aTest2   INSTANTIATE Tone(938,1), Tone(938,1), { 2 }  // Dos cortos
+
+ENDCLASS
+
+//---------------------------------------------------------------------------//
+
+
+    Y pruebala con este c¢digo:
+
+
+    local o1 := Test() // escucharas un pito largo y dos cortos
+    local o2 := Test() // escucharas dos pitos cortos solamente.
+
+    ? o1:aTest1[ 1 ]  // 1
+    ? o1:aTest2[ 1 ]  // 2
+
+    ? o2:aTest1[ 1 ]  // 1
+    ? o2:aTest2[ 1 ]  // 2
+
+    o2:aTest1[ 1 ] := 2  // ahora las dos instancias del dato aTest1[1] valen 2
+
+    ? o1:aTest1[ 1 ]  // 2
+    ? o2:aTest1[ 1 ]  // 2
+
+    o2:aTest2[ 1 ] := 1  // ahora solo la instancia o2 del dato aTest2[1] vale 1
+
+    ? o1:aTest2[ 1 ]  // 2
+    ? o2:aTest2[ 1 ]  // 1
+
+//---------------------------------------------------------------------------//
+
+    Esto se debe a que con la clausula INIT copias la "referencia" del array
+en los datos: todos los objetos apuntan al mismo array y el objets lo mantiene
+en memoria.
+
+    En cambio la clausula INSTANTIATE es un codeblock ( una expresi¢n ) cuyo
+resultado se asigna al dato. Piensa que el resultado de esta expresi¢n podr¡a
+ser diferente y de diferente tipo para las dintintas instancias de la clase.
+
+    En cambio cuando lo quieres es asignar un dato constante como 0 lo que
+interesa es la copia:       DATA nTest, nValue, nTemp INIT 0
+
+//---------------------------------------------------------------------------//

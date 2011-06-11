@@ -1,0 +1,114 @@
+!short: CLASE ^BTControl^B                                                              
+'------------------------------------------------------------------------------'
+    Clase derivada de TView para soporte de los controles. Un TControl es un
+    View que es portador de un TLabel para indicar su estado de Focus y su
+    HotKey.
+'------------------------------------------------------------------------------'
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short: DATOS
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:oLabel^B           Referencia al objeto TLabel asociado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:MouseMove^B        Es invocado cuando se mueve el rat줻 sobre 굃.              ^B
+'------------------------------------------------------------------------------'
+^U MouseMove
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    MouseMove( nMRow, nMCol ) -> NIL
+
+^B Descripci줻:^B
+    Este m굏odo es invocado cuando el rat줻 se mueve sobre el objeto para
+    actualizar la forma del puntero del rat줻 y el mensaje asociado.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Es el constructor de la clase.                              ^B
+'------------------------------------------------------------------------------'
+^U New
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    New( nTop, nLeft, nWidth, nHeight, cColor, cChar,
+         oWnd, cMessage, cLabel, bWhen, bValid, acLabelClrs ) -> Self
+
+^B Descripci줻:^B
+    Es el constructor de la clase. Recibe los siguientes par쟭etros:
+
+    ^BnTop       ^B     Fila donde superior del objeto.
+    ^BnLeft      ^B     Columna izquierda del objeto.
+    ^BnWidth     ^B     Ancho del objeto.
+    ^BnHeight    ^B     Alto del objeto.
+    ^BcColor     ^B     Cadena con los colores.
+    ^BcChar      ^B     Caracter usado para pintar el objeto.
+    ^BoWnd       ^B     Referencia al objeto padre.
+    ^BcMessage   ^B     Mensaje que aparecera cuando se selecciona.
+    ^BcLabel     ^B     Texto de la etiqueta relacionada.
+    ^BbWhen      ^B     Codeblock de prevalidaci줻.
+    ^BbValid     ^B     Codeblock de postvalidaci줻.
+    ^BacLabelClrs^B     Array con los colores para el la etiqueta.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Redefine^B         Construtor desde recursos.                                  ^B
+'------------------------------------------------------------------------------'
+^U Redefine
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Redefine( cMessage, cLabel, cColor, bWhen, bValid ) -> Self
+
+^B Descripci줻:^B
+    Constructor desde ficheros de recurso. Recibe los siguientes par쟭etros:
+
+    ^BcMessage ^B   Mensaje que aparece cuando se selecciona.
+    ^BcText    ^B   Etiqueta el objeto checkbox.
+    ^BcColor   ^B   Cadena con los colores a usar.
+    ^BbWhen    ^B   Codeblock para prevalidaci줻.
+    ^BbValid   ^B   Codeblock para postvalidaci줻.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Muestra el objeto checkbox.                                 ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci줻:^B
+    Muestra o actualiza el objeto checkbox.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetFocus^B         Cambia el estado de focus.                                  ^B
+'------------------------------------------------------------------------------'
+^U SetFocus
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    SetFocus( lOnOff ) -> NIL
+
+^B Descripci줻:^B
+    Cambia el estado del focus de ^B::oLabel.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

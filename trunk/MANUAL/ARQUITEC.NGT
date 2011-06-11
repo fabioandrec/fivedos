@@ -1,0 +1,27 @@
+^U Arqitectura de FiveDos
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+ La arquitectura de FiveDos est  basada en tres niveles :
+
+    - ^BComandos xBase             <- Alta Productividad.
+    - ^BClases y Objetos           <- Beneficios de la Rusabilidad
+    - ^BFunciones.                 <- Beneficios de la Modularidad.
+
+
+ ^BPrincipales caracter¡sticas de FiveDos:
+
+ * Comandos xBase: r pida asimilaci¢n, uso ya familiar a los programadores
+   de Clipper.
+
+ * Completa Implementacion de OOP: FiveDos incluye nuestro motor OBJECTS
+   para producir nuevas clases compatibles con Clipper, adem s FiveDos
+   entrega un conjunto completo de Classes. Puede crear nuevas clases
+   o heredad de las exixtentes. El motor de clases OBJECTS est  inteegrado
+   en FiveDos
+
+ * Arquitectura Abierta: Entregamos el Fuente Completo de las Clases,
+   ejemplos, y herramientas para que puedan ser explotadas r pidamente
+   las posibilidades de FiveDos.
+
+ * Ejeccuci¢n NO MODAL: Puede tener en curso varias ventanas a un tiempo.
+

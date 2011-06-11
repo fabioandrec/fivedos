@@ -1,0 +1,143 @@
+!short: CLASE ^BTMeter^B                                                                
+'------------------------------------------------------------------------------'
+    Clase heredada desde TControl para soporte de barras de progreso.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:nOrder^B           ClassVar para controlar los caracteres redefinidos.         ^B
+'------------------------------------------------------------------------------'
+    ^BnOrder^B es una ClassVar esto quiere decir que existe s¢lo una variable para
+    todas las instancias de la clase. Se utiliza para utilizarla como contador
+    para el identificativo del caracter que se reserva. Por cada instancia que
+    se cree de la clase se incrementa y se almacena en ::nLocalOrder. Este
+    n£mero es el que se utiliza para identificar el recurso.
+
+    Este car cter que se reserva se utiliza para mostrar los decimales en la
+    barra, redefiniendo el caracter y pintandolo al final a medida que aumenta.
+'------------------------------------------------------------------------------'
+!short:
+!short:bActual^B          Codeblock para leer o asignar el valor del contador.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cMeterChar^B       Caracter reservado para representar los decimales.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cText^B            Texto que aparece en la parte superior del Meter.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lPercent^B         Indica si se quiere que aparezca el porcentaje.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrBar^B          Color de la barra que indica el valor actual.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrNoBar^B        Color de la barra que indica cuanto falta.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nLine^B            Contiene 1 cuando no existe Label y 0 cuando si.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nLocalOrder^B      Identificativo para reservar ^BcMeterChar^B.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nTotal^B           N£mero total sobre el que se calcula el porcentaje.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:Destroy^B          Destructor de la clase.                                     ^B
+'------------------------------------------------------------------------------'
+^U Destroy
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Destroy() -> NIL
+
+^B Descripci¢n:^B
+    Es el destructor de la clase. Se encarga de liberar el caracter reservado
+    ^BcMeterChar.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Constructor de la clase.                                    ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nRow, nCol, bActual, nTotal, oWnd,
+         nWidth, cPrompt, lNoPorcentage, cClrBar ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BnRow         ^B   Fila donde se situa el Meter.
+    ^BnCol         ^B   Columna donde se situa el Meter.
+    ^BbActual      ^B   Codeblock para leer o asignar el valor del contador.
+    ^BnTotal       ^B   N£mero total para calcular el porcentaje.
+    ^BoWnd         ^B   Referencia a la ventana donde se situa el Meter.
+    ^BnWidth       ^B   Ancho que tendr  el Meter.
+    ^BcPrompt      ^B   Cadena de caracteres para la etiqueta.
+    ^BlNoPorcentage^B   Indica si aparece o no el tanto por ciento.
+    ^BcClrBar      ^B   Determina los colores de la barra.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Actualiza la im gen del Meter.                              ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci¢n:^B
+    Actualiza la im gen del Meter.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetActual^B        Asigna el valor actual.                                     ^B
+'------------------------------------------------------------------------------'
+^U SetActual
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetActual( nActual ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna el valor ^BnActual^B al contador actual a trav‚s de evaluar ^B::bActual.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        Asigna los colores a utilizar.                              ^B
+'------------------------------------------------------------------------------'
+^U SetColors
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetColors( cColor ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna los colores a partir de la cadena de caracteres ^BcColor.^B En ‚sta
+    se codifican los dos colores que se utilizan que son:
+
+    1.- Color usado por la barra para representar el valor actual.
+    2.- Color usado para representar el porcentaje que falta.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

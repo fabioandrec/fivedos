@@ -1,0 +1,42 @@
+#include "FiveWin.ch"
+#include "report.ch"
+
+Function Rep09()
+
+     LOCAL oReport, oFont1, oFont2
+
+     DEFINE FONT oFont1 NAME "ARIAL" SIZE 0,-10
+     DEFINE FONT oFont2 NAME "ARIAL" SIZE 0,-10 BOLD
+
+     USE TEST INDEX TEST NEW
+
+     REPORT oReport TITLE  "*** My First Report ***"  ;
+          FONT oFont1, oFont2 ;
+          PREVIEW
+
+     COLUMN TITLE "St"         DATA Test->State
+
+     COLUMN TITLE "First Name", "Last Name" ;
+            DATA  Test->First, Test->Last
+
+     COLUMN TITLE "Street", "City"  ;
+            DATA  Test->Street, Test->City
+
+     COLUMN TITLE "   Salary"  ;
+            DATA  Test->Salary ;
+            TOTAL              ;
+            RIGHT              ;
+            PICTURE "9,999,999";
+            FONT 2             ;
+            SIZE 9
+
+     END REPORT
+
+     ACTIVATE REPORT oReport
+
+     CLOSE TEST
+
+     oFont1:End()
+     oFont2:End()
+
+RETURN oReport

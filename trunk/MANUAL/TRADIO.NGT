@@ -1,0 +1,173 @@
+!short: CLASE ^BTRadio^B                                                                
+'------------------------------------------------------------------------------'
+    Clase derivada de TView para el manejo de los objetos radio del radiomen£.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:cBmp^B             Nombre del fichero BMP usado cuando no est  seleccionado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmp2^B            Nombre del fichero BMP usado cuando est  seleccionado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmpCh^B           Caracteres usados por el bitmap ^B::cBmp^B.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmpCh2^B          Caracteres usados por el bitmap ^B::cBmp2^B.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cText^B            Texto que aparece a la derecha del bitmap de seleccion.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lPressed^B         Indica si est  seleccionado o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrFocus^B        Color usado cuando tiene focus.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrHot^B          Color usado para la tecla r pida.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrUnSel^B        Colur usado cuando no tiene focus.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:Click^B            Maneja las pulsaciones del rat¢n.                           ^B
+'------------------------------------------------------------------------------'
+^U Click
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Click( nMRow, nMCol ) -> NIL
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones del rat¢n. ^BnMRow^B y ^BnMCol^B determina la posici¢n en
+    la que el rat¢n se ha pulsado.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Destroy^B          Es el destructor de la clase.                               ^B
+'------------------------------------------------------------------------------'
+^U Destroy
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Destroy() -> NIL
+
+^B Descripci¢n:^B
+    Es el destructor de la clase. Libera los caracteres usados por ^B::cBmp^B y
+    ^B::cBmp2.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:KeyPressed^B       Maneja las pulsaciones del teclado.                         ^B
+'------------------------------------------------------------------------------'
+^U KeyPressed
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nKey
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones del teclado. Recibe como par metro la tecla que
+    se quiere manejar y devuelve ^B0^B en caso de que se halla menajado y ^BnKey^B
+    en caso de que no.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Es el constructor de la clase.                              ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nRow, nCol, cText, cMessage, cColor,
+         oWnd, bWhen, bValid, cFile, cFile2 ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BnRow    ^B    Fila donde se situa el objeto.
+    ^BnCol    ^B    Columna donde se situa el objeto.
+    ^BcText   ^B    Texto que aparece a la derecha del icono de seleccion.
+    ^BcMessage^B    Mensaje que aparecer  cuando se seleccione el objeto.
+    ^BcColor  ^B    Cadena de caracteres conteniendo los colores.
+    ^BoWnd    ^B    Referencia a la ventana donde se inserta.
+    ^BbWhen   ^B    Codeblock de prevalidaci¢n.
+    ^BbValid  ^B    Codeblock de postvalidaci¢n.
+    ^BcFile   ^B    Fichero con el bitmap a usar cuando no est  seleccionado.
+    ^BcFile2  ^B    Fichero con el bitmap a usar cuando est  seleccionado
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Redefine^B         Constructor desde recursos.                                 ^B
+'------------------------------------------------------------------------------'
+^U Redefine
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Redefine( cText, cMessage, cColor, nHelpId, bWhen, bValid )
+
+^B Descripci¢n:^B
+    Es el constructor desde recursos. Recibe los siguientes par metros:
+
+    ^BcText   ^B    Texto que aparece a la derecha del icono de seleccion.
+    ^BcMessage^B    Mensaje que aparecer  cuando se seleccione el objeto.
+    ^BcColor  ^B    Cadena de caracteres conteniendo los colores.
+    ^BnHelpId ^B    Identificativo de contexto de ayuda.
+    ^BbWhen   ^B    Codeblock de prevalidaci¢n.
+    ^BbValid  ^B    Codeblock de postvalidaci¢n.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Actualiza la im gen del objeto.                             ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci¢n:^B
+    Actualiza la im gen del objeto.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        Asigna los colores.                                         ^B
+'------------------------------------------------------------------------------'
+^U SetColors
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetColors( cColor ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna los colores a partir de la cadena de caracteres ^BcColor.^B En ‚sta
+    se codifican los cuatro colores que se utilizan que son:
+    1.- Color usado cuando el objeto no tiene focus.
+    2.- Color usado para el objeto seleccionado cuando tiene focus.
+    3.- Color usado para la tecla r pida.
+    4.- Color usado para el objeto seleccionado cuando no tiene focus.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

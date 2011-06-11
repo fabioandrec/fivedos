@@ -1,0 +1,59 @@
+^U Sobre lo Nuevo.
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+                              New enhancements
+                              ================
+
+  * 06/10/94:   MsgBox functions bug corrected. Thanks to Micro Consult
+               Netherland.
+
+  * 11/10/94:   New Language module. You can select FiveDos language and
+               expand it, if you want, so.
+
+  * 14/10/94 :  New protected mode memory access module. Full compatible
+               with the most commonly used DOS extenders:
+                    ExoSpace
+                    Blinker 3.xx
+                    CauseWay
+
+                Run fine also under DOS tasks on OS/2 and Windows
+               enhanced mode.
+
+                Use of FiveDos with this extenders is very easy...
+               you only need link one module from FiveDos.lib
+               with REQUEST VEXTENDED command. No separate librarys or
+               object files are needed.
+
+               Warning: Don't forget the REQUEST VEXTENDED command if you
+                        links an extended exe. If you forget it, will get
+                        a pretty system Crack....
+                        Don't link it, if you are linking a normal
+                        DOS exe. If you forget this, will get, also, a
+                        pretty system Crack....
+
+  * 25/10/94 :  New Clausule WHILE PRESSED <uAction> for PushButtons and
+               ButtonBitmaps.
+
+  * 01/11/94 :  Standard @ row, col say .... now works fine with fivedos.ch
+
+  * 01/11/94 :  @ row, col say uValue ... OF oWnd now works fine with any
+                clipper uValue and picture... Bug fixed.
+
+  * 01/11/94 :  MicroSoft Windows menu's feeling.
+
+  * 01/11/94 :  ACTIVATE WINDOW CENTERED bug: now work.
+
+  * 01/11/94 :  WAV sound files support for PC Speaker. See wdemo.prg in
+                samples dir.
+
+  * 01/11/94 :  Added an new version of our old TIniFile Class. See
+                TestIni.prg in samples dir.
+
+  * 01/11/94 :  FiveWin alike ShareWare system instaled.
+
+  * 05/11/94 :  All library recompiled to 80286 code.
+
+  * 07/11/94 :  New default colors module: SysColor.prg
+
+  * 08/11/97 :  Clipper debugger now works properly with FiveDos
+                on 25 or 50 lines.
+

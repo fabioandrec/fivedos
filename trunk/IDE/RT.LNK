@@ -1,0 +1,8 @@
+/NOINCREMENTAL
+
+LIB ..\lib\fivedos
+
+lib \clipper5\lib\clipper
+lib \clipper5\lib\extend
+lib \clipper5\lib\terminal
+lib \clipper5\lib\dbfntx

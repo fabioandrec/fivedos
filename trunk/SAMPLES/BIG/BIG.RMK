@@ -1,0 +1,31 @@
+.PRG.OBJ:
+     C:\CLIPPER5\BIN\CLIPPER $* /n/a/w/l /i..\..\include;c:\clipper5\include
+
+BIG.OBJ          :     BIG.PRG          BIGBIG.PRG
+BIG02.OBJ        :     BIG02.PRG        BIGBIG.PRG
+BIG03.OBJ        :     BIG03.PRG        BIGBIG.PRG
+BIG04.OBJ        :     BIG04.PRG        BIGBIG.PRG
+BIG05.OBJ        :     BIG05.PRG        BIGBIG.PRG
+BIG06.OBJ        :     BIG06.PRG        BIGBIG.PRG
+BIG07.OBJ        :     BIG07.PRG        BIGBIG.PRG
+BIG08.OBJ        :     BIG08.PRG        BIGBIG.PRG
+BIG09.OBJ        :     BIG09.PRG        BIGBIG.PRG
+BIG10.OBJ        :     BIG10.PRG        BIGBIG.PRG
+BIG11.OBJ        :     BIG11.PRG        BIGBIG.PRG
+BIG12.OBJ        :     BIG12.PRG        BIGBIG.PRG
+BIG13.OBJ        :     BIG13.PRG        BIGBIG.PRG
+BIG14.OBJ        :     BIG14.PRG        BIGBIG.PRG
+BIG15.OBJ        :     BIG15.PRG        BIGBIG.PRG
+BIG16.OBJ        :     BIG16.PRG        BIGBIG.PRG
+BIG17.OBJ        :     BIG17.PRG        BIGBIG.PRG
+BIG18.OBJ        :     BIG18.PRG        BIGBIG.PRG
+BIG19.OBJ        :     BIG19.PRG        BIGBIG.PRG
+BIG20.OBJ        :     BIG20.PRG        BIGBIG.PRG
+
+
+big.exe: big.obj BIG02.OBJ BIG03.OBJ BIG04.OBJ BIG05.OBJ \
+        BIG06.OBJ BIG07.OBJ BIG08.OBJ BIG09.OBJ BIG10.OBJ \
+        BIG11.OBJ BIG12.OBJ BIG13.OBJ BIG14.OBJ BIG15.OBJ \
+        BIG16.OBJ BIG17.OBJ BIG18.OBJ BIG19.OBJ BIG20.OBJ
+     SET LIB=..\..\lib;c:\clipper5\lib
+     BLINKER @Big.lnk

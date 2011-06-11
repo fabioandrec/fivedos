@@ -1,0 +1,71 @@
+^U SPIN
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+    ^B#xcommand @ nRow, nCol SPIN [ oSpin VAR ] uVar
+    ^B         [ SIZE nWidth, nHeight ]
+    ^B         [ COLOR cColors ]
+    ^B         [ etiq: LABEL, PROMPT cLabel ]
+    ^B         [ MESSAGE cMessage ]
+    ^B         [ WHEN uWhen ]
+    ^B         [ VALID uValid ]
+    ^B         [ wnd: OF, WINDOW, DIALOG oWnd ]
+    ^B         [ FILE <cBmp> [ , <cBmp2> ] ] ;
+    ^B         [ RANGE <nBottom>, <nTop>] ;
+    ^B         [ STEP <nStep> ];
+    ^B         [ ACTION <bAction,...> ] ;
+    ^B         [ <lEdit: EDITABLE > ];
+
+
+    ^B @ nRow, nCol Spin [ oSpin VAR ] uVar
+        Sit£a un objeto oSpin en la posici¢n nRow, nCol, lo salva en
+        la variable oSpin, editando la variable uVar
+
+    ^B[ SIZE nWidth, nHeight ]
+        S¢lo para compatibilidad con FiveWin.
+
+    ^B[ COLOR cColors ]
+        Determina el patr¢n de colores seg£n el esquema:
+
+             "<Color no Focus>, <Color Focus >, <Color Arrow >"
+
+
+    ^B[ etiq: LABEL, PROMPT cLabel ]
+        Etiqueta que se coloca a la derecha del objeto Spin.
+
+                Nota: Una HotKey en la Etiqueta se indica precediendo el
+                caracter con el simbolo ^B&^N.
+                El color de la etiqueta lo determina la Ventana.
+
+    ^B[ MESSAGE cMessage ]
+        Mensaje que se colocar  en la barra de mensajes de la Ventana.
+
+    ^B[ WHEN uWhen ]
+        Funci¢n de prevalidaci¢n, para permitir el acceso al Spin.
+
+    ^B[ VALID uValid ]
+        Funci¢n de validaci¢n, para validar la salida del Spin.
+
+    ^B[ wnd: OF, WINDOW, DIALOG oWnd ]
+        Determina la Ventana a la que pertenece.
+
+    ^B[ FILE <cBmp> [ , <cBmp2> ] ]
+        Indica los ficheros de icono s que se usar n en el prompt.
+        El primero representa el icono del estado "no focus" y el
+        segundo el estado focus.
+
+   ^B[ RANGE <nBottom>, <nTop>]
+        Valores entre los que se encontrar  el spin
+
+    ^B[ STEP <nStep> ]
+        Paso de actualizaci¢n del Spin
+
+    ^B[ ACTION <bAction,...> ]
+        Acciones a realizar tras cada cambio de valor.
+
+    ^B[ <lEdit: EDITABLE > ]
+        Admite la edici¢n directa del valor.
+
+ ^BEjemplo:^N
+
+    @ 6, 2 Spin cVar PROMPT "&Este Spin" MESSAGE "Esto Es un Spin" OF oWnd2
+

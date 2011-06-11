@@ -1,0 +1,35 @@
+[Columns to view]
+1=1
+2=2
+
+[Columns headers]
+1=NIVEL
+2=CATEGORIA
+
+[Columns pictures]
+1=
+2=
+
+[Columns width]
+1=42
+2=112
+
+[Index files]
+Active index=<None>
+
+[Report]
+Title=
+SubTotal=
+File=
+Exit=1
+Page break=.F.
+
+[Filters]
+Scope=.F.
+Top Scope=
+Bot Scope=
+Filter=.F.
+Filter expression=
+
+[Locate]
+Expression=

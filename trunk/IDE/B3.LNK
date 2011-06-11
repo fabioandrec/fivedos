@@ -1,0 +1,11 @@
+MAP A,S
+BLIN EXEC EXTE #DUAL
+BLIN INCR OFF
+
+SEARCH ..\lib\fivedos
+SEARCH \blinker3\lib\blxclp52
+
+lib \clipper5\lib\clipper
+lib \clipper5\lib\extend
+lib \clipper5\lib\terminal
+lib \clipper5\lib\dbfntx

@@ -1,0 +1,10 @@
+
+
+    Hola Juan. Se nos col¢ un gazapo gordo. Parece ser que las ultimas
+    actualizaciones que hiciste se hicieron con fuentes viejas. Creo que
+    el problema no ha afectado nada mas que a las clases TGET y CtlBrowse.
+    Pero por si las mosacas he restaurado dialog.ch ademas de esas dos
+    clases. Y parece qwue van bien
+
+
+

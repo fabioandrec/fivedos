@@ -1,0 +1,31 @@
+STYLE WS_POPUP | WS_BORDER | WS_SYSMENU
+CAPTION "Nueva Caja de Di logo"
+BEGIN
+   LTEXT  "L&abel",   10,   16,   32,   64,   16, SS_LEFT | WS_GROUP
+   TCHKMENU   20,  128,   80,   72,   64
+END
+
+TWINDOW2 DIALOG   36,   24,  192,  112
+STYLE WS_POPUP | WS_BORDER | WS_SYSMENU
+CAPTION "Editando una caja de Di logo"
+BEGIN
+   CTEXT  "L&abel",   30,  120,   40,   32,    8, SS_CENTER | WS_GROUP
+   LTEXT  "GET",   -1,    0,    0,   16,    8, SS_LEFT | WS_GROUP
+   EDITTEXT   10,   40,   48,   60,    8, ES_LEFT | WS_BORDER | WS_TABSTOP
+   PUSHBUTTON  "&BUTTON",   20,  108,   72,   32,    8, BS_PUSHBUTTON | WS_TABSTOP
+   PUSHBUTTON  " &Button ",   40,   28,   72,   32,    8, BS_PUSHBUTTON | WS_TABSTOP
+END
+
+TWINDOW DIALOG   12,   32,  212,  160
+STYLE WS_POPUP | WS_BORDER | WS_SYSMENU
+CAPTION "Nueva Caja de Di logo"
+BEGIN
+   PUSHBUTTON  " &Button ",   10,   76,   56,   32,    8, BS_PUSHBUTTON | WS_TABSTOP
+   PUSHBUTTON  " &Button ",   20,   52,   96,   32,    8, BS_PUSHBUTTON | WS_TABSTOP
+   PUSHBUTTON  " &Button ",   30,  140,   32,   32,    8, BS_PUSHBUTTON | WS_TABSTOP
+   PUSHBUTTON  " &Button ",   40,  144,   96,   32,    8, BS_PUSHBUTTON | WS_TABSTOP
+   PUSHBUTTON  " &Button ",   50,  152,  120,   32,    8, BS_PUSHBUTTON | WS_TABSTOP
+   PUSHBUTTON  " &Button ",   60,   16,   40,   32,    8, BS_PUSHBUTTON | WS_TABSTOP
+END
+
+

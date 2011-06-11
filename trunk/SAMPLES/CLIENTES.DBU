@@ -1,0 +1,115 @@
+[Columns to view]
+1=1
+2=2
+3=3
+4=4
+5=5
+6=6
+7=1
+8=1
+9=1
+10=1
+11=1
+12=1
+13=1
+14=1
+15=1
+16=1
+17=1
+18=1
+19=1
+20=1
+21=1
+22=1
+
+[Columns headers]
+1=NOMBRE
+2=DIRECCION
+3=TELEFONO
+4=EDAD
+5=PRODUCTOS
+6=NIVEL
+7=NOMBRE
+8=NOMBRE
+9=NOMBRE
+10=NOMBRE
+11=NOMBRE
+12=NOMBRE
+13=NOMBRE
+14=NOMBRE
+15=NOMBRE
+16=NOMBRE
+17=NOMBRE
+18=NOMBRE
+19=NOMBRE
+20=NOMBRE
+21=NOMBRE
+22=NOMBRE
+
+[Columns pictures]
+1=
+2=
+3=
+4=
+5=
+6=
+7=
+8=
+9=
+10=
+11=
+12=
+13=
+14=
+15=
+16=
+17=
+18=
+19=
+20=
+21=
+22=
+
+[Columns width]
+1=193
+2=179
+3=66
+4=21
+5=32
+6=18
+7=287
+8=287
+9=287
+10=287
+11=287
+12=287
+13=287
+14=287
+15=287
+16=287
+17=287
+18=287
+19=287
+20=287
+21=287
+22=287
+
+[Index files]
+Active index=<None>
+
+[Report]
+Title=
+SubTotal=
+File=
+Exit=1
+Page break=.F.
+
+[Filters]
+Scope=.F.
+Top Scope=
+Bot Scope=
+Filter=.F.
+Filter expression=
+
+[Locate]
+Expression=

@@ -1,0 +1,68 @@
+^U DATABASE
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B    DEFINE DATABASE <oDb> ;
+^B        [ FILE <cFile> ] ;
+^B        [ ALIAS <cAlias> ] ;
+^B        [ DRIVER <cDriver> ] ;
+^B        [ <sh: SHARED> ] ;
+^B        [ <ro: READONLY> ] ;
+
+^B    USE DATABASE <oDb> ;
+^B        [ FILE  <(cFile)> ] ;
+^B        [ ALIAS <cAlias> ] ;
+^B        [ DRIVER <cDriver> ] ;
+^B        [ <sh: SHARED> ] ;
+^B        [ <ro: READONLY> ] ;
+^B        [ AREA <nArea> ] ;
+^B        [ INDEX <cIndex,...> ] ;
+                        
+
+^B    <oDb>
+    Variable a la que se le asigna el objeto TDataBase.
+
+^B    [ FILE  <(cFile)> ]
+    Nombre de la base de datos usada por el objeto.
+
+^B    [ ALIAS <cAlias> ]
+    Alias que usar  el objeto.
+
+^B    [ DRIVER <cDriver> ]
+    Driver para usar con la base de datos.
+
+^B    [ <sh: SHARED> ] [ <ro: READONLY> ]
+    Especifica el modo de apertura de la base de datos. 
+
+^B    [ AREA <nArea> ]
+    N£mero de area asociada a la base de datos.
+
+^B    [ INDEX <cIndex,...> ]
+    Nombre de los ficheros de ¡ndice a usar.
+
+^B    CLOSE DATABASE <oDb>
+    Cierra el area usada por el objeto oBd.
+
+
+
+^B    SET INDEX OF <oDb> TO <cIndex,...>
+    Asigna la lista de ¡ndices a un objeto TDataBase.
+
+
+^B    SET INDEX OF <oDb> TO
+    Elimina los ¡ndices de un objeto.
+
+
+^B    SET SCOPE OF <oDb> [TO] [ <nTag> [ IN <(cIndex)> ] ] ;
+^B        [ FOR <uValTop> [ TO <uValBottom> ] ]
+    Asigna un filtro a la base de datos.
+
+
+^B    SET ORDER OF <oDb> TO <xOrder> [ IN <(cIndex)> ]
+    Indica cuales son los ¡ndices del objeto TDatabase oDb.
+
+
+^B    CREATE DATABASE <oDb> WITH <aStruct>
+    Crea un objeto TDatabase <oDb> al que se le asigna una base de datos que se
+    genera a partir de la estructura <aStruct>.
+
+

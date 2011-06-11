@@ -1,0 +1,26 @@
+!Name: FiveDos 1.1 - Agosto 1995
+
+!Credits:
+       ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+       ³            FiveDos 1.1 - Agosto '95             ³Û
+       ³           CA-Clipper for MsDos Library          ³Û
+       ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙÛ
+        ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+!Menu: Referencia
+       Logo                     Logo.ngo
+       Indice                   Index.ngo
+       Introducci¢n             Intro.NGO
+       Comandos xBase           xBase.NGO
+       Clases y Objetos         OopMenu.NGO
+       Funciones                Function.NGO
+
+!Menu: Desarrollo
+       Gu¡a de ejemplos         Tutorial.ngo
+       Ficheros de Cabeceras    Header.NGO
+
+!Menu: Sobre...
+       Desarrolladores          5D.NGO
+       Distribuci¢n             Dist.NGO
+       Registro                 Register.ngo
+       Lo Nuevo                 WhatsNew.NGO

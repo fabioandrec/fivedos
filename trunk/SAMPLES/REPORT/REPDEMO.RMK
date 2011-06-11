@@ -1,0 +1,68 @@
+// RMake file to create MegaReco.exe
+// (c) 1996 - 1995 - 1994 - Juan Rios Olivares
+
+makepath[.obj]="."
+makepath[.ch]="..\..\include;."
+makepath[.prg]="."
+chpath=\clip53\include;..\..\include;.
+
+.prg.obj :
+    clipper $< -n -l -w -q -I$(chpath) -o$@
+
+Extend.obj      : Extend.prg
+    clipper $< -o$@
+
+RepDemo.obj     : RepDemo.Prg
+Rep01.obj       : Rep01.prg
+Rep02.obj       : Rep02.prg
+Rep03.obj       : Rep03.prg
+Rep04.obj       : Rep04.prg
+Rep05.obj       : Rep05.prg
+Rep06.obj       : Rep06.prg
+Rep07.obj       : Rep07.prg
+Rep08.obj       : Rep08.prg
+Rep09.obj       : Rep09.prg
+Rep10.obj       : Rep10.prg
+Rep11.obj       : Rep11.prg
+Rep12.obj       : Rep12.prg
+Rep13.obj       : Rep13.prg
+Rep14.obj       : Rep14.prg
+Rep15.obj       : Rep15.prg
+Rep16.obj       : Rep16.prg
+Rep17.obj       : Rep17.prg
+Rep18.obj       : Rep18.prg
+Rep19.obj       : Rep19.prg
+Rep20.obj       : Rep20.prg
+Rep21.obj       : Rep21.prg
+Rep22.obj       : Rep22.prg
+
+RepDemo.exe     : RepDemo.rmk RepDemo.lnk \
+                  RepDemo.obj \
+                  Rep01.obj \
+                  Rep02.obj \
+                  Rep03.obj \
+                  Rep04.obj \
+                  Rep05.obj \
+                  Rep06.obj \
+                  Rep07.obj \
+                  Rep08.obj \
+                  Rep09.obj \
+                  Rep10.obj \
+                  Rep11.obj \
+                  Rep12.obj \
+                  Rep13.obj \
+                  Rep14.obj \
+                  Rep15.obj \
+                  Rep16.obj \
+                  Rep17.obj \
+                  Rep18.obj \
+                  Rep19.obj \
+                  Rep20.obj \
+                  Rep21.obj \
+                  Rep22.obj \
+                  ..\..\lib\fivedos.lib
+    set lib=..\..\lib;\clip53\lib;c:\clip00\lib
+ Blinker @RepDemo.Lnk @..\..\include\blinker.lnk
+//    RTLink @RepDemo.Lnk @..\..\include\rtlink.lnk
+
+		

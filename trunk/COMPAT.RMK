@@ -1,0 +1,18 @@
+CCompiler=\bc\bin\bcc
+CHPath=.\include;.\internal;\clipper5\include;\bc\include
+
+makepath[.c]   = "internal"
+makepath[.obj] = "obj"
+makepath[.ch]  = $(CHPath) // "internal;include"
+makepath[.h]   = $(CHPath) // "internal;include"
+
+.c.obj:
+   $(CCompiler) -X -B -Tq -c -ml -2 -O2 /I$(CHPath) -o$@ $<
+   Lib lib\501_520 -+ $@,,
+
+cl501.obj   :   cl501.c
+cl520.obj   :   cl520.c
+cl530.obj   :   cl530.c
+tisdrv.obj  :   tisdrv.c
+
+//---------------------------------------------------------------------------//

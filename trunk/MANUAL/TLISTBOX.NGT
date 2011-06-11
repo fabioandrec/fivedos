@@ -1,0 +1,418 @@
+!short: CLASE ^BTListBox^B                                                              
+'------------------------------------------------------------------------------'
+    Clase derivada de TControl para el manejo de selecci¢n de listas.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:acItems^B          Array con los elementos de la lista.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bChanged^B         Codeblock que se evalua cuando se cambia de elemento.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bSelect^B          Codeblock que se evalua cuando se selecciona un elemento.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bSetGet^B          Codeblock para leer y asignar el elmento actual.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrFocus^B        Color usado cuando el ListBox tiene focus.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrNoFocus^B      Color usado cuando el ListBox no tiene focus.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nFirst^B           Indica cual es el primer elemento mostrado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nLabel^B           Contendr  0 si no hay etiqueta y 1 en caso contrario.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nOption^B          Contiene el elemento actual seleccionado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oScrBar^B          Referencia a un objeto ScrollBar.^B
+'------------------------------------------------------------------------------'
+!short:lMultisel^B        Indica si est  activa la Multiseleccion.^B                    ê
+'------------------------------------------------------------------------------'
+!short:aSelected^B        Array de Logicos, Seleccionados.^B                            ê
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:ChangeSize^B       M‚todo usado para cambiar el tama¤o del ListBox.^B            
+'------------------------------------------------------------------------------'
+^U ChangeSize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ChangeSize( nWidth, nHeight ) -> NIL
+
+^B Descripci¢n:^B
+    M‚todo usado para cambiar el tama¤o del ListBox.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Changed^B          Actualiza la variable editada y evalua ^B::bChanged.^B^B          
+'------------------------------------------------------------------------------'
+^U Changed
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Changed() -> NIL
+
+^B Descripci¢n:^B
+    Actualiza la variable que se edita evaluando el codeblock ^B::bSetGet^B
+    y evalua ^B::bChanged.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Click^B            Maneja las pulsaciones del rat¢n.^B                           
+'------------------------------------------------------------------------------'
+^U Click
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Click( nMRow, nMCol, lDblClick ) -> NIL
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones del rat¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:DeHilite^B         Quita el resaltado al elemento actual.^B                      
+'------------------------------------------------------------------------------'
+^U DeHilite
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    DeHilite() -> NIL
+
+^B Descripci¢n:^B
+    Pinta el elemento seleccionado con el color normal.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoBottom^B         Va al £ltimo elemento.^B                                      
+'------------------------------------------------------------------------------'
+^U GoBottom
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoBottom() -> NIL
+
+^B Descripci¢n:^B
+    Va al £ltimo elemento.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoDown^B           Va al siguiente elemento.^B                                   
+'------------------------------------------------------------------------------'
+^U GoDown
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoDown() -> NIL
+
+^B Descripci¢n:^B
+    Resalta el siguiente elemento.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoPgDown^B         Avanza una p gina.^B                                          
+'------------------------------------------------------------------------------'
+^U GoPgDown
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoPgDown() -> NIL
+
+^B Descripci¢n:^B
+    Avanza una p gina.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoPgUp^B           Retrocede una p gina.^B                                       
+'------------------------------------------------------------------------------'
+^U GoPgUp
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoPgUp() -> NIL
+
+^B Descripci¢n:^B
+    Retrocede una p gina.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoTo^B             Va a un elemento determinado.^B                               
+'------------------------------------------------------------------------------'
+^U GoTo
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoTo( nPos ) -> NIL
+
+^B Descripci¢n:^B
+    Va al elemento ^BnPos.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoTop^B            Va al primer elemento de la lista.^B                          
+'------------------------------------------------------------------------------'
+^U GoTop
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoTop() -> NIL
+
+^B Descripci¢n:^B
+    Va al primer elemento de la lista.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoUp^B             Va al anterior elemento.^B                                    
+'------------------------------------------------------------------------------'
+^U GoUp
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoUp() -> NIL
+
+^B Descripci¢n:^B
+    Va al anterior elemento de la lista.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Hilite^B           Resalta el elemento actual.^B                                 
+'------------------------------------------------------------------------------'
+^U Hilite
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    HiLite() -> NIL
+
+^B Descripci¢n:^B
+    Pinta el elemento seleccionado con el color ^B::nClrFocus^B si el ListBox
+    tiene focus y ^B::nClrNoFocus^B si no lo tiene.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:KeyPressed^B       Maneja las pulsaciones del teclado.^B                         
+'------------------------------------------------------------------------------'
+^U KeyPressed
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nKey
+
+^B Descripci¢n:^B
+    Procesa las pulsaciones de tecla, definiendo pues, el comportamiento del
+    objeto en lo que a respuesta a teclas se refiere. Devuelve 0 cuando se ha
+    procesado la tecla y nKey cuando no se ha procesado.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Constructor de la clase.^B                                    
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nRow, nCol, nWidth, nHeight, bSetGet, acItems, cLabel,
+         cMessage, cColor, oWnd, bWhen, bValid, bChanged, bSelect ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BnRow    ^B    Fila donde se situa el listbox.
+    ^BnCol    ^B    Columna donde se situa el listbox.
+    ^BnWidth  ^B    Ancho del listbox.
+    ^BnHeight ^B    Alto del listbox.
+    ^BbSetGet ^B    Codeblock para leer o asignar la variable que se edita.
+    ^BacItems ^B    Array con los elementos a seleccionar.
+    ^BcLabel  ^B    Texto que aparecer  en la parte superior del listbox.
+    ^BcMessage^B    Mensaje que aparece si se selecciona el listbox.
+    ^BcColor  ^B    Cadena de caracteres con los colores a utilizar.
+    ^BoWnd    ^B    Referencia a la ventana en la que se inserta el listbox.
+    ^BbWhen   ^B    Codeblock de prevalidaci¢n.
+    ^BbValid  ^B    Codeblock de postvalidaci¢n.
+    ^BbChanged^B    Codeblock que se evalua cuando se cambia de elemento.
+    ^BbSelect ^B    Codeblock que se evalua cuando se selecciona un elemento.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:ReDefine^B         Constructor desde recursos.^B                                 
+'------------------------------------------------------------------------------'
+^U ReDefine
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ReDefine( cMessage, cColor, nHelpId, bSetGet, acItems,
+              cLabel, bWhen, bValid, bChanged, bSelect ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor desde recursos. Recibe los siguientes par metros:
+
+    ^BcMessage^B    Mensaje que aparece si se selecciona el listbox.
+    ^BcColor  ^B    Cadena de caracteres con los colores a utilizar.
+    ^BnHelpId ^B    Identificativo del contexto de ayuda.
+    ^BbSetGet ^B    Codeblock para leer o asignar la variable que se edita.
+    ^BacItems ^B    Array con los elementos a seleccionar.
+    ^BcLabel  ^B    Texto que aparecer  en la parte superior del listbox.
+    ^BbWhen   ^B    Codeblock de prevalidaci¢n.
+    ^BbValid  ^B    Codeblock de postvalidaci¢n.
+    ^BbChanged^B    Codeblock que se evalua cuando se cambia de elemento.
+    ^BbSelect ^B    Codeblock que se evalua cuando se selecciona un elemento.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Actualiza la im gen del ListBox.^B                            
+'------------------------------------------------------------------------------'
+^U Refresh
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci¢n:^B
+    Actualiza la im gen del listbox.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Reset^B            Inicializa los contadores del ListBox.^B                      
+'------------------------------------------------------------------------------'
+^U Reset
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Reset() -> NIL
+
+^B Descripci¢n:^B
+    Inicializa los contadores del listbox y del scrollbar asociado.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Selected^B         Evalua el CodeBlock ^B::bSelect.^B^B                              
+'------------------------------------------------------------------------------'
+^U Selected
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Selected() -> NIL
+
+^B Descripci¢n:^B
+    Evalua el codeblock ^B::bSelect.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        Asigna los colores a utilizar.^B                              
+'------------------------------------------------------------------------------'
+^U SetColors
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetColors( cColor ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna los colores a partir de la cadena de caracteres ^BcColor.^B En ‚sta
+    se codifican los tres colores que se utilizan que son:
+
+    1.- Color usado por el texto normal.
+    2.- Color usado por el elemento seleccionado cuando tiene focus.
+    3.- Color usado por el elemento seleccionado cuando no tiene focus.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetFocus^B         M‚todo llamado para cambiar el focus.^B                       
+'------------------------------------------------------------------------------'
+^U SetFocus
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetFocus( lOnOff ) -> NIL
+
+^B Descripci¢n:^B
+    Este m‚todo se usa para cambiar el focus del objeto.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:aSeLection^B       M‚todo que devuelve un array de multiseleccion^B             ê
+'------------------------------------------------------------------------------'
+^U aSelection
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    aSelection() -> acSelected
+
+^B Descripci¢n:^B
+    Este m‚todo se usa para recoger el resultado de una multi selecci¢n.
+
+^B Retorno:^B
+    Entrega un array con el resultado de la seleccion, siempre en forma de
+    array de caracteres.
+
+'------------------------------------------------------------------------------'
+!short:aSelNumbers^B      M‚todo que devuelve un array de multiselecci¢n.^B            ê
+'------------------------------------------------------------------------------'
+^U aSelNumbers
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    aSelNumbers() -> anSelected
+
+^B Descripci¢n:^B
+    Este m‚todo se usa para recoger el resultado de una multi selecci¢n.
+
+^B Retorno:^B
+    Entrega un array con el resultado de la selecci¢n, siempre en forma de
+    array num‚rico, que contiene los ¡ndices en el array indicando los
+    seleccionados.
+
+'------------------------------------------------------------------------------'

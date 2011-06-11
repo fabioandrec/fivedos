@@ -1,0 +1,182 @@
+CCompiler=\bc\bin\bcc
+CHPath=.\include;.\internal;\clipper5\include;\bc\include
+
+makepath[.c]   = "source\keyboard;source\strings;source\vars;source\video;source\sonido;source\system;internal"
+makepath[.prg] = "source\classes;source\function;source\keyboard;internal"
+makepath[.obj] = "obj"
+makepath[.ch]  = $(CHPath) // "internal;include"
+makepath[.h]   = $(CHPath) // "internal;include"
+makepath[.tsm] = "internal"
+
+// RunTime Share Protection
+_APPINIT.obj:       _APPINIT.prg
+  CLIPPER $< /A /N /M /L /W /Q /O$@ /I$(CHPath)
+  Lib .\lib\fiveDos.LIB -+$@ , ,
+//  internal\VProt $@
+
+.c.obj:
+   $(CCompiler) -X -B -Tq -c -ml -2 -O2 /I$(CHPath) -o$@ $<
+   Lib lib\FiveDos -+ $@,,
+
+.tsm.obj:
+   TASM -ml -q $< ,$@
+   Lib lib\FiveDos -+ $@,,
+
+.prg.obj:
+   clipper $< /l/a/m/n/q/w/o$@ /i$(CHPath)
+   Lib lib\FiveDos -+ $@,,
+
+//---------------------------------------------------------------------------//
+
+dpmidyn.obj  : dpmidyn.tsm     // Carga din mica del m¢dulo de modo protegido.
+
+//---------------------------------------------------------------------------//
+
+alt2chr.obj  : alt2chr.c
+askico.obj   : askico.c
+beval.obj    : beval.c
+brwstabl.obj : brwstabl.c
+bin2dec.obj  : bin2dec.c
+clrrev.obj   : clrrev.c
+cview.obj    : cview.c     cview.h    // "C" Methods of Class TView
+cwindow.obj  : cwindow.c   cview.h cwindow.h  // "C" Methods of Class TWindow
+dac.obj      : dac.c
+delay.obj    : delay.c
+dpmi.obj     : dpmi.c      // Generic memory access module
+dpmiext.obj  : dpmiext.c   // DPMI 1.0/Blinker/CauseWay/ExoSpace protected mode memory access module
+drive.obj    : drive.c     // Cosas de disquetes...
+eightcol.obj : eightcol.c
+fivefont.obj : fivefont.c  FontDef.h
+fv2font.obj  : fv2font.c   // Set Ega Font
+ftext.obj    : ftext.c
+gethotke.obj : gethotke.c
+getpos.obj   : getpos.c
+hardinfo.obj : hardinfo.c
+iswin.obj    : iswin.c
+keywait.obj  : keywait.c
+labellen.obj : labellen.c
+lfreadst.obj : lfreadst.c
+lmatchwc.obj : lmatchwc.c
+lpt.obj      : lpt.c
+ltypes.obj   : ltypes.c
+memo2str.obj : memo2str.c
+mouse.obj    : mouse.c
+mstext.obj   : mstext.c      FontDef.h
+mscursor.obj : mscursor.c
+nuppkey.obj  : nuppkey.c
+nstrclr.obj  : nstrclr.c
+oemansi.obj  : oemansi.c
+orand.obj    : orand.c
+params.obj   : params.c
+passwstr.obj : passwstr.c
+pcwav.obj    : pcwav.c
+propname.obj : propname.c
+rascan.obj   : rascan.c
+readlib.obj  : readlib.c
+rects.obj    : rects.c
+scrsaver.obj : scrsaver.prg
+setchar.obj  : setchar.c
+sonido.obj   : sonido.c
+strbtw.obj   : strbtw.c
+ttxtfile.obj : ttxtfile.c      // TTxtFile Class 'C' Methods
+timer.obj    : timer.c
+// timersrv.obj : timersrv.c
+valtochr.obj : valtochr.c
+vert.obj     : vert.c
+wport.obj    : wport.c      FontDef.h
+wnddisp.obj  : wnddisp.c    FontDef.h
+i2binary.obj : i2binary.c
+
+//---------------------------------------------------------------------------//
+
+bitmap.obj   : bitmap.prg
+blogical.obj : blogical.prg  // bTrue(), bFalse()
+browse.obj   : browse.prg   SysColor.ch
+// brw.obj      : brw.prg
+btnbmp.obj   : btnbmp.prg   FontDef.h SysColor.ch
+btnbar.obj   : btnbar.prg   FontDef.h SysColor.ch
+button.obj   : button.prg   SysColor.ch
+calc.obj     : calc.prg
+checkbox.obj : checkbox.prg FontDef.h SysColor.ch
+checkmnu.obj : checkmnu.prg SysColor.ch
+combo.obj    : combo.prg    FontDef.h SysColor.ch
+combobrw.obj : combobrw.prg FontDef.h SysColor.ch
+control.obj  : control.prg
+ctrlmenu.obj : ctrlmenu.prg
+ctlbrows.obj : ctlbrows.prg  dialog.ch
+// TDatabase Class ( Use, Seek, Scope, Locate, Skip, Skipper Database Commands )
+database.obj : database.prg  database.ch
+// TDb Class ( Append, Read, Write and Create Database Commands )
+db.obj       : db.prg
+// Diccionary Database Commands
+dbdict.obj   : dbdict.prg    dbdict.ch
+dbfield.obj  : dbfield.prg    // TField Class
+dbindex.obj  : dbindex.prg    // TIndex Class
+devicaps.obj : devicaps.prg
+errsys2.obj  : errsys2.prg   dialog.ch SysStr.ch
+errorlog.obj : errorlog.prg
+file.obj     : file.prg      // TFile Class
+filename.obj : filename.prg
+fontadm.obj  : fontadm.prg
+genrc.obj    : genrc.prg     dialog.ch redefine.ch styles.ch
+getfile.obj  : getfile.prg   dialog.ch SysStr.ch
+icons.obj    : icons.prg     icons.ch
+inifile.obj  : inifile.prg
+Keybuff.obj  : KeyBuff.prg
+label.obj    : label.prg    SysColor.ch
+linklist.obj : linklist.prg
+listbox.obj  : listbox.prg  SysColor.ch
+loadcurs.obj : loadcurs.prg
+menu.obj     : menu.prg     SysColor.ch
+menubld.obj  : menubld.prg
+menubar.obj  : menubar.prg
+menubox.obj  : menubox.prg
+menuitem.obj : menuitem.prg SysColor.ch
+meter.obj    : meter.prg    SysColor.ch
+msgbox.obj   : msgbox.prg   window.ch dialog.ch SysStr.ch icons.ch
+msgend.obj   : msgend.prg   window.ch dialog.ch SysStr.ch
+msgget.obj   : msgget.prg   window.ch dialog.ch SysStr.ch
+msgstack.obj : msgstack.prg window.ch dialog.ch
+memo.obj     : memo.prg     SysColor.ch
+NoteBook.obj : NoteBook.prg
+page.obj     : page.prg
+profstat.obj : profstat.prg
+radio.obj    : radio.prg    FontDef.h SysColor.ch
+radiomnu.obj : radiomnu.prg SysColor.ch
+resource.obj : resource.prg
+say.obj      : say.prg      SysColor.ch
+scrllbar.obj : scrllbar.prg FontDef.h SysColor.ch
+stack.obj    : stack.prg
+sstack.obj   : sstack.prg
+str2arra.obj : str2arra.prg
+styles.obj   : styles.prg   styles.ch
+sysmenu.obj  : sysmenu.prg  FontDef.h SysStr.ch
+sysstr.obj   : sysstr.prg   SysStr.ch
+syscolor.obj : syscolor.prg SysColor.ch
+Tab.obj      : Tab.prg      FontDef.h  SysColor.ch
+TabMenu.obj  : TabMenu.prg  SysColor.ch
+TGet.obj     : TGet.prg     SysColor.ch
+TFile.obj    : TFile.prg
+tnil.obj     : tnil.prg
+treeitem.obj : treeitem.prg
+trees.obj    : trees.prg
+tspin.obj    : tspin.prg    FontDef.h SysColor.ch
+vallen.obj   : vallen.prg
+view.obj     : view.prg     FontDef.h
+wildcard.obj : wildcard.prg
+window.obj   : window.prg   SysColor.ch wndstyls.h
+workarea.obj : workarea.prg
+
+printer.obj  : printer.prg
+odevice.obj  : odevice.prg
+odcprint.obj : odcprint.prg
+getprint.obj : getprint.prg
+report.obj   : report.prg
+rpreview.obj : rpreview.prg dialog.ch sysstr.ch fontdef.h
+pdreport.obj : pdreport.prg
+rcolumn.obj  : rcolumn.prg
+rfile.obj    : rfile.prg
+rline.obj    : rline.prg
+rgroup.obj   : rgroup.prg
+font.obj     : font.prg
+pen.obj      : pen.prg

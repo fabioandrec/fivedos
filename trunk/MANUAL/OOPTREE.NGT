@@ -1,0 +1,74 @@
+!short:^U Jerarqu¡a de Clases.
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:    ^BTFile^B                                                                    
+!file: TFile.ngo
+!short:
+!short:    ^BTIniFile^B                                                                 
+!file: TIniFile.ngo
+!short:
+!short:    ^BTView^B                                                                    
+!file: TView.ngo
+!short:     ÃÄÄ^BTBitMap^B                                                              
+!file: TBitMap.ngo
+!short:     ÃÄÄ^BTBtnBar^B                                                              
+!file: TBtnBar.ngo
+!short:     ÃÄÄ^BTBtnBmp^B                                                              
+!file: TBtnBmp.ngo
+!short:     ÃÄÄ^BTCheckBox^B                                                            
+!file: TCheckBo.ngo
+!short:     ÃÄÄ^BTControl^B                                                             
+!file: TControl.ngo
+!short:     ³   ÃÄÄ^BTButton^B                                                          
+!file: TButton.ngo
+!short:     ³   ÃÄÄ^BTCtrBrowse^B                                                       
+!file: TCtrBrow.ngo
+!short:     ³   ÃÄÄ^BTCtrlMenu^B                                                        
+!file: TCtrlMen.ngo
+!short:     ³   ³   ÃÄÄ^BTChkMenu^B                                                     
+!file: TChkMenu.ngo
+!short:     ³   ³   ÃÄÄ^BTTabMenu^B                                                     
+!file: TTabMenu.ngo
+!short:     ³   ³   ÀÄÄ^BTRadMenu^B                                                     
+!file: TRadMenu.ngo
+!short:     ³   ÃÄÄ^BTGet^B                                                             
+!file: TGet.ngo
+!short:     ³   ³   ÃÄÄ^BTComboBox^B                                                    
+!file: TComboBo.ngo
+!short:     ³   ³   ÀÄÄ^BTSpin    ^B                                                    
+!file: TSpin.ngo
+!short:     ³   ÃÄÄ^BTMeter^B                                                           
+!file: TMeter.ngo
+!short:     ³   ÀÄÄ^BTListBox^B                                                         
+!file: TListBox.ngo
+'!short:     ³       ÀÄÄ^BTMemo^B                                                       
+'!file: TMemo.ngo
+!short:     ÃÄÄ^BTLabel^B                                                               
+!file: TLabel.ngo
+!short:     ³   ÀÄÄ^BTSay^B                                                             
+!file: TSay.ngo
+!short:     ÃÄÄ^BTMenu^B                                                                
+!file: TMenu.ngo
+!short:     ³   ÃÄÄ^BTMenuBar^B                                                         
+!file: TMenuBar.ngo
+!short:     ³   ÀÄÄ^BTMenuBox^B                                                         
+!file: TMenuBox.ngo
+!short:     ÃÄÄ^BTMenuItem^B                                                            
+!file: TMenuIte.ngo
+!short:     ÃÄÄ^BTNBook^B                                                               
+!file: TNoteBoo.ngo
+!short:     ÃÄÄ^BTPage^B                                                                
+!file: TPage.ngo
+!short:     ÃÄÄ^BTRadio^B                                                               
+!file: TRadio.ngo
+!short:     ÃÄÄ^BTScrollBar^B                                                           
+!file: TScrollB.ngo
+!short:     ÃÄÄ^BTTab^B                                                                 
+!file: TTab.ngo
+!short:     ÀÄÄ^BTWindow^B                                                              
+!file: TWindow.ngo
+!short:
+!short:    ^BTWorkArea^B                                                                
+!file: TWorkAre.ngo
+!short:     ÀÄÄ^BTDataBase^B                                                            
+!file: TDataBas.ngo

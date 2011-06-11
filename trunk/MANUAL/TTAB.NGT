@@ -1,0 +1,81 @@
+!short: CLASE ^BTTab^B
+'------------------------------------------------------------------------------'
+    Clase derivada de TView para soporte de pesta쨒tas.
+'------------------------------------------------------------------------------'
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short: DATOS
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:cText^B            Texto que aparece en la la pesta쨒ta.^B
+!short:nClrFocus^B        Color usado para el texto cuando tiene focus.^B
+!short:nClrHot^B          Color de la letra aceleradora cuando no tiene focus.^B
+!short:nClrHotFocus^B     Color de la tecla aceleradora cuando tiene focus.^B
+!short:nClrTab^B          Color de los bordes de la pesta쨅 cuando tiene focus.^B
+!short:nClrTabFocus^B     Color de los bordes de la pesta쨅 cuando no tiene focus.^B
+!short:lPressed^B         Indica si esta pulsada o no la pesta쨒ta.^B
+!short:
+!short: METODOS
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:New^B              Es el constructor de la clase.                              ^B
+'------------------------------------------------------------------------------'
+^U New
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    New( nRow, nCol, cText, cColor, oWnd, bWhen, bValid ) -> Self
+
+^B Descripci줻:^B
+    Es el constructor de la clase. Recibe los siguientes par쟭etros:
+
+    ^BnRow      ^B  Fila donde se situa la pesta쨒ta.
+    ^BnCol      ^B  Columna donde se situa la pesta쨒ta.
+    ^BcText     ^B  Texto que aparece en la pesta쨒ta.
+    ^BcColor    ^B  Cadena de caracteres con los colores.
+    ^BoWnd      ^B  Referencia a la ventana a la que pertenece.
+    ^BbWhen     ^B  Codeblock de prevalidaci줻.
+    ^BbValid    ^B  Codeblock de postvalidaci줻.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Actualiza la im쟥en de la pesta쨒ta.                        ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci줻:^B
+    Actualiza la im쟥en de la pesta쨒ta.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        Para asignar los colores.                                   ^B
+'------------------------------------------------------------------------------'
+^U SetColors
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    SetColors( cColor ) -> NIL
+
+^B Descripci줻:^B
+    Asigna los colores a partir de la cadena de caracteres ^BcColor.^B En 굎ta
+    se codifican los seis colores que se utilizan que son:
+
+    1.- Color usado por el texto normal.
+    2.- Color usado por el texto cuando tiene focus.
+    3.- Color usado por la letra r쟰ida.
+    4.- Color usado por la letra r쟰ida cuando tiene focus.
+    5.- Color usado por el borde de la pesta쨒ta.
+    6.- Color usado por el borde de la pesta쨒ta cuando tiene focus.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

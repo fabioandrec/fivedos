@@ -1,0 +1,1023 @@
+!short: CLASE ^BTView^B                                                                 
+'------------------------------------------------------------------------------'
+    Es una de las clases m s b sicas de FiveDos y de la que derivan casi
+    todas las dem s. Todo objeto que necesite representarse en la pantalla
+    deriva de TView y por lo tanto tiene sus car cteristicas.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:Cargo^B            Variable para uso del usuario.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:aChilds^B          Array de objetos hijos.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bClick^B           Codeblock que se ejecuta cuando se produce un click.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bPaint^B           Codeblock que se ejecuta cada vez que se pinta el objeto.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bValid^B           Codeblock que se evalua para validar la vista.                 ^B
+'------------------------------------------------------------------------------'
+    Este codeblock debe de devolver un valor l¢gico verdadero cuando la vista
+    puede perder focus y falso cuando no.
+'------------------------------------------------------------------------------'
+!short:bWhen^B            Codeblock que se evalua para obtener focus.                    ^B
+'------------------------------------------------------------------------------'
+    Este codeblock debe devolver un valor l¢gico verdadero cuando la vista
+    puede obtener focus y falso cuando no.
+'------------------------------------------------------------------------------'
+!short:cChar^B            Caracter usado para el pintado de la vista.                    ^B
+'------------------------------------------------------------------------------'
+    Este caracter es usado para pintar la vista. Por defecto se usa el
+    caracter de espacio ' '.
+'------------------------------------------------------------------------------'
+!short:nHotKey^B          Tecla r pida del objeto.                                       ^B
+'------------------------------------------------------------------------------'
+    Esta variable es usada por las clases hijas para asignar la tecla r pida
+    del objeto.
+'------------------------------------------------------------------------------'
+!short:cMessage^B         Mensaje mostrado cuando el objeto tiene el focus.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cVPort^B           Contiene la im gen del objeto y otros datos de uso interno.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cVarName^B         Nombre de la clase a la que pertenece el objeto.               ^B
+'------------------------------------------------------------------------------'
+    Es usado por el Dise¤ador del IDE para identificar de que clase es el
+    objeto.
+'------------------------------------------------------------------------------'
+!short:lDesign^B          Indica si est  en modo dise¤o o no.                            ^B
+'------------------------------------------------------------------------------'
+    Es usado por el Dise¤ador del IDE.
+'------------------------------------------------------------------------------'
+!short:lFocussed^B        Indica si el objeto tiene el focus o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lPainted^B         Indica si se ha pintado el objeto o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lVisible^B         Indica si el objeto est  visible o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClipRect^B        Contiene la posici¢n y el tama¤o del objeto.                   ^B
+'------------------------------------------------------------------------------'
+    Su uso es interno. Para obtener los datos de posici¢n y tama¤o se debe
+    usar l metodos adecuados ( ::nTop(), ::nLeft(), ... ).
+'------------------------------------------------------------------------------'
+!short:nColor^B           Valor num‚rico del color usado por el objeto.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nFocussed^B        Valor para el control que tiene focus actual.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nHelpId^B          Identificativo de contexto de ayuda.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nID^B              Identificativo del objeto ( Para uso con recursos ).^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nPaintCount^B      Contador de pintados para control de BeginPaint EndPaint.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oFocussed^B        Referencia al objeto seleccionado actual.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oWnd^B             Referencia al objeto que lo contiene. ( Cuando es contenido ^B)
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:AddChild^B         A¤ade un control hijo.                                      ^B
+'------------------------------------------------------------------------------'
+^U AddChild
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    AddChild( oCtrl ) -> NIL
+
+^B Descripci¢n:^B
+    A¤ade un objeto hijo ( usualmente un control ) al array de objetos hijos.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:BeginPaint^B       Inicia la salida a pantalla con buffer.                     ^B
+'------------------------------------------------------------------------------'
+^U BeginPaint
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    BeginPaint() -> NIL
+
+^B Descripci¢n:^B
+    Inicia la salida a pantalla a trav‚s de buffer. Para volver el buffer en
+    video se debe usar EndPaint(). LLamadas sucesivas a esta funci¢n necesita
+    tambi‚n llamadas sucesivas a la funci¢n EndPaint() para actualizar la
+    pantalla.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Box^B              Dibuja una caja.                                            ^B
+'------------------------------------------------------------------------------'
+^U Box
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Box( nTop, nLeft, nBottom, nRight, cBox, nClr ) -> NIL
+
+^B Descripci¢n:^B
+    Dibuja una caja. Hay que tener en cuenta que las coordenadas son con
+    respecto al origen del objeto donde se pinta.
+    ^BnTop^B, ^BnLeft^B, ^BnBottom^B y ^BnRight^B representan las coordenadas usadas para
+    pintar la caja. ^BcBox^B son los caracteres usados para pintar el marco y ^BnClr^B
+    es el color a utilizar.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Box3D^B            Dibuja una caja simulando 3D.                               ^B
+'------------------------------------------------------------------------------'
+^U Box3D
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Box3D( nTop, nLeft, nBottom, nRight, nLeftClr, nRightClr ) -> NIL
+
+^B Descripci¢n:^B
+    Dibuja una caja simulando 3D. Hay que tener en cuenta que las coordenadas
+    son con respecto al origen del objeto donde se pinta.
+    ^BnTop^B, ^BnLeft^B, ^BnBottom^B y ^BnRight^B representan las coordenadas usadas para
+    pintar la caja. ^BnLeftClr^B es el color usado por el borde superior y el
+    izquierdo de la caja mientras que ^BnRightClr^B es el color usado por el
+    borde inferior y el derecho.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ChangeFocus^B      Cambia el objeto seleccionado.                              ^B
+'------------------------------------------------------------------------------'
+^U ChangeFocus
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ChangeFocus( nCtrl ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia el focus al objeto hijo ^BnCtrl^B siendo ^BnCtrl^B la posici¢n que
+    ocupa el objeto en el array de hijos.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ChangeSize^B       Cambia el tama¤o del objeto.                                ^B
+'------------------------------------------------------------------------------'
+^U ChangeSize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ChangeSize( nWidth, nHeight ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia el tama¤o del objeto a ^BnWidth^B de ancho y ^BnHeight^B de alto.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Clear^B            Limpia el objeto.                                           ^B
+'------------------------------------------------------------------------------'
+^U Clear
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Clear( cChar, nColor ) -> NIL
+
+^B Descripci¢n:^B
+    Limpia el area de pantalla que ocupa el objeto y sus hijos usando el
+    caracter ^BcChar^B y el color ^BnColor.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Click^B            Procesa las pulsaciones del rat¢n.                          ^B
+'------------------------------------------------------------------------------'
+^U Click
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Click( nMRow, nMCol, lDblClick ) -> NIL
+
+^B Descripci¢n:^B
+    Procesa las pulsaciones del rat¢n. Recibe como parametros las coordenadas
+    ^BnMRow^B y ^BnMCol^B donde se ha pulsado el rat¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Close^B            Metodo virtual. Se define en las clases hijas.              ^B
+'------------------------------------------------------------------------------'
+^U Close
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Close() VIRTUAL
+
+^B Descripci¢n:^B
+    Es un m‚todo virtual, por lo tanto no est  definida en esta clase. Su
+    funcionalidad ser  definida en las clases hijas.
+
+^B Retorno:^B
+
+
+'------------------------------------------------------------------------------'
+!short:Destroy^B          Destruye todos los objetos hijos.                           ^B
+'------------------------------------------------------------------------------'
+^U Destroy
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Destroy() -> NIL
+
+^B Descripci¢n:^B
+    Destruye todos los objetos hijos del objeto.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:DispBegin^B        Aumenta el contador de control de salida a pantalla.        ^B
+'------------------------------------------------------------------------------'
+^U DispBegin
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    DispBegin() -> nDispCount
+
+^B Descripci¢n:^B
+    Este metodo aumenta en uno el contador de control de salida a pantalla
+    de manera que hasta que no llegue de nuevo a 0 mediante llamadas al m‚todo
+    ^BDispEnd^B todas las operaciones de pintado no se volcar n a la pantalla.
+
+^B Retorno:^B
+    Devuelve el valor actual del contador.
+
+'------------------------------------------------------------------------------'
+!short:DispEnd^B          Decrementa el contador de control de salida a pantalla.     ^B
+'------------------------------------------------------------------------------'
+^U DispEnd
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    DispEnd() -> NIL
+
+^B Descripci¢n:^B
+    Decrementa el contador de control de salida ^B::nDispCount.^B Cuando llega
+    a cero se refresca la vista.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Display^B          Muestra el objeto en la pantalla.                           ^B
+'------------------------------------------------------------------------------'
+^U Display
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Display() -> NIL
+
+^B Descripci¢n:^B
+    Muestra el objeto y hace ^B::lVisible^B a verdadero.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:DragOver^B         Para mover el objeto con el rat¢n.                          ^B
+'------------------------------------------------------------------------------'
+^U DragOver
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    DragOver() -> NIL
+
+^B Descripci¢n:^B
+    Se usa para mover el objeto con el rat¢n por la pantalla.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:EndPaint^B         Ternima la salida a pantalla con buffer.                    ^B
+'------------------------------------------------------------------------------'
+^U EndPaint
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    EndPaint() -> NIL
+
+^B Descripci¢n:^B
+    Termina la salida a pantalla a trav‚s de buffer.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Flash^B            Pinta el objeto.                                            ^B
+'------------------------------------------------------------------------------'
+^U Flash
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Flash( cVTargetPort ) -> cVTargetPort
+
+^B Descripci¢n:^B
+    Pinta el objeto en la im gen pasada ^BcVTargetPort.^B No debe llamarse
+    directamente, si se quiere pintar la ventan se debe usar ^BDisplay.^B
+
+^B Retorno:^B
+    Devuelve una referencia al par metro pasado.
+
+'------------------------------------------------------------------------------'
+!short:GetNext^B          Devuelve el siguiente objeto que puede tener focus.         ^B
+'------------------------------------------------------------------------------'
+^U GetNext
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GetNext() -> nNext
+
+^B Descripci¢n:^B
+    Se usa para obtener el siguiente objeto que pueda obtener focus. Primero
+    ha de ser verdadera la evaluaci¢n del codeblock ^BbValid.^B Si se encuentra
+    se devuelve el ¡ndice dentro del array de objetos hijos.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico con el ¡ndice del objeto.
+
+'------------------------------------------------------------------------------'
+!short:GetPrevius^B       Devuelve el anterior objeto que pueda tener focus.          ^B
+'------------------------------------------------------------------------------'
+^U GetPrevius
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GetPrevius() -> NIL
+
+^B Descripci¢n:^B
+    Se usa para obtener el anterior objeto que pueda obtener focus. Primero
+    ha de ser verdadera la evaluaci¢n del codeblock ^BbValid.^B Si se encuentra
+    se devuelve el ¡ndice dentro del array de objetos hijos.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico con el ¡ndice del objeto.
+
+'------------------------------------------------------------------------------'
+!short:GoNext^B           Cambia el focus al siguiente objeto.                        ^B
+'------------------------------------------------------------------------------'
+^U GoNext
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoNext( nKey ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia el focus al siguiente objeto. Con ^BnKey^B le indicamos al m‚todo
+    que tecla ha provocado la llamada y sigue cambiando el focus hasta que
+    se halla dejado de pulsar esa tecla.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoPrevius^B        Cambia el focus al anterior objeto.                         ^B
+'------------------------------------------------------------------------------'
+^U GoPrevius
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoPrevius( nKey ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia el focus al anterior objeto. Con ^BnKey^B le indicamos al m‚todo
+    que tecla ha provocado la llamada y sigue cambiando el focus hasta
+    que se halla dejado de pulsar esa tecla.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Hide^B             Oculta un objeto.                                           ^B
+'------------------------------------------------------------------------------'
+^U Hide
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Hide() -> NIL
+
+^B Descripci¢n:^B
+    Oculta el objeto haciendo ^B::lVisible^B a Falso y refrescando la vista
+    a la que pertenece el objeto llamando a ^B::UpdateOwner().^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:IsHotKey^B         Indica si el caracter pasado es su letra aceleradora.       ^B
+'------------------------------------------------------------------------------'
+^U IsHotKey
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    IsHotKey( nChar ) -> lIsHotKey
+
+^B Descripci¢n:^B
+    Determina si el caracter ^BnChar^B es la letra aceleradora.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:KeyPressed^B       Procesa las pulsaciones de teclas.                          ^B
+'------------------------------------------------------------------------------'
+^U KeyPressed
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nValor
+
+^B Descripci¢n:^B
+    Procesa las pulsaciones de tecla, definiendo pues, el comportamiento del
+    objeto en lo que a respuesta a teclas se refiere. Devuelve ^B0^B cuando se ha
+    procesado la tecla y ^BnKey^B cuando no se ha procesado.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:MouseMove^B        Procesa los movimientos del rat¢n.                          ^B
+'------------------------------------------------------------------------------'
+^U MouseMove
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MouseMove( nRow, nCol ) -> NIL
+
+^B Descripci¢n:^B
+    Procesa los movimientos del rat¢n cambiando su forma y actualizando los
+    mensajes si fuera necesario.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Constructor de la clase.                                    ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nTop, nLeft, nWidth, nHeight, cColor,
+         cChar, oWnd, cMessage, bWhen, bValid ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Se llamar  para obtener una nueva instancia
+    de la clase.
+
+    ^BnTop^B, ^BnLeft^B      Son las coordenadas donde est  situado el objeto.
+    ^BnWidth^B, ^BnHeight^B  Definen el tama¤o del objeto.
+    ^BcColo^B              Color del objeto.
+    ^BcChar^B              Caracter que se usa para rellenar el objeto.
+    ^BoWnd^B               Referencia al objeto que lo contiene.
+    ^BcMessage^B           Mensaje que aparecer  cuando se seleccina.
+    ^BbWhen^B              Codeblock que se llamar  antes de cojer focus.
+    ^BbValid^B             Codeblock que se llamar  para dejar de tener focus.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Paint^B            Pinta el objeto en la pantalla.                             ^B
+'------------------------------------------------------------------------------'
+^U Paint
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Paint( cVPTgt, nClipRect ) -> cVPTgT
+
+^B Descripci¢n:^B
+    Pinta el objeto en la estructura pasada ^BcVPTgt^B usando el tama¤o pasado en
+    ^BnClipRect^B o si no se especifica se usa el tama¤o propio. No se debe llamar
+    a este m‚todo directamente. Si se quiere actualizar la imagen del objeto se
+    debe usar el m‚todo^BRefresh.^B
+
+^B Retorno:^B
+    Devuelve una referencia al argumento cVPTgT.
+
+'------------------------------------------------------------------------------'
+!short:Redefine^B         Es un m‚todo VIRTUAL.                                       ^B
+'------------------------------------------------------------------------------'
+^U Redefine
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Redefine()
+
+^B Descripci¢n:^B
+    Al ser virtual, se debe definir su comportamiento en las clases herederas.
+
+^B Retorno:^B
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Refresca la im gen del objeto en la pantalla.               ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci¢n:^B
+    Se debe de llamar para actualizar un objeto despu‚s de haber cambiado
+    cualquier cosa que afecte a su im gen. Actualiza la im gen de todos
+    los objetos hijos del objeto.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Resize^B           Cambia el tama¤o del objeto.                                ^B
+'------------------------------------------------------------------------------'
+^U Resize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Resize( nMinWidth, nMinHeight ) -> NIL
+
+^B Descripci¢n:^B
+    Se usa cuando se cambia el tama¤o del objeto con el raton. Los par metros
+    pasados ^BnMinWidth^B y ^BnMinHeight^B definen el tama¤o m¡nimo del
+    objeto.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Say^B              Pintar una cadena en el objeto.                             ^B
+'------------------------------------------------------------------------------'
+^U Say
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Say( nRow, nCol, cText, nClr ) -> NIL
+
+^B Descripci¢n:^B
+    Pinta la cadena ^BcText^B en la posici¢n del objeto ^BnRow^B, ^BnCol^B usando el
+    color ^BnClr.^B Hay que tener en cuenta que la pocici¢n ^BnRow^B, ^BnCol^B es
+    con respecto al origen del objeto y que ^BnClr^B es el valor num‚rico del
+    atributo a usar. Este atributo se puede obtener usando la funci¢n ^BnColorToN.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SayHot^B           Pinta una cadena con Hotkey delimitado por el caracter &.   ^B
+'------------------------------------------------------------------------------'
+^U SayHot
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SayHot( nRow, nCol, cText, nClr, nClrHot ) -> NIL
+
+^B Descripci¢n:^B
+    Pinta la cadena ^BcText^B en la pocici¢n del objeto ^BnRow^B, ^BnCol^B usando el
+    color ^BnClr^B para todos los caracteres excepto los que siguen al caracter
+    '&' que se usa como indicador de HotKey y que no se pinta. Estos se
+    pintan usando el color ^BnClrHot.^B Hay que tener en cuenta que la
+    pocici¢n ^BnRow^B, ^BnCol^B es con respecto al origen del objeto y que
+    tanto ^BnClr^B como ^BnClrHot^B son valores num‚ricos que se pueden
+    obtener usando la funci¢n ^BnColorToN.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        M‚todo Virtual para cambiar el color.                       ^B
+'------------------------------------------------------------------------------'
+^U SetColors
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetColor( nColor )
+
+^B Descripci¢n:^B
+    Es un m‚todo virtual y por lo tando se debe de definir en las clases
+    herederas. Su misi¢n es la de cambiar el color de los objetos.
+
+^B Retorno:^B
+
+
+'------------------------------------------------------------------------------'
+!short:SetCursor^B        Cambiar el estado del cursor.                               ^B
+'------------------------------------------------------------------------------'
+^U SetCursor
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetCursor( nCursor ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia el estado del cursor a nCursor. ^BnCursor^B es similar al par metro
+    que recibe la funci¢n SetCursor de Clipper.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetDesign^B        Cambia el estado del flag ^B::lDesign.^B                        ^B
+'------------------------------------------------------------------------------'
+^U SetDesign
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetDesign( lDesign ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia el valor del flag ^B::lDesign.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetFocus^B         Cambia el estado de focus.                                  ^B
+'------------------------------------------------------------------------------'
+^U SetFocus
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetFocus( lOnOff ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia el estado del focus del objeto.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetMessage^B       Asigna el mensaje a la variable ^BcMessage.^B                   ^B
+'------------------------------------------------------------------------------'
+^U SetMessage
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetMessage( cMsg ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna el mensaje ^BcMsg^B al objeto padre ^BoWnd.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetPos^B           Cambia la posici¢n del objeto en la pantalla.               ^B
+'------------------------------------------------------------------------------'
+^U SetPos
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetPos( nRow, nCol ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia la posici¢n del objeto en la pantalla. Hay que tener en cuenta que
+    ^BnRow^B y ^BnCol^B son coordenadas con respecto al objeto que lo contiene.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Update^B           Para actualizar la im gen de un objeto hijo.                ^B
+'------------------------------------------------------------------------------'
+^U Update
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Update( oChild ) -> NIL
+
+^B Descripci¢n:^B
+    Actualiza la im gen del objeto hijo ^BoChild^B en la suya. No debe llamarse
+    directamente, para actualizar la im gen de un objeto se debe de usar el
+    m‚todo ^BRefresh.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:UpdateOwner^B      Actualiza la im gen del objeto en la de su padre.           ^B
+'------------------------------------------------------------------------------'
+^U UpdateOwner
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    UpdateOwner() -> NIL
+
+^B Descripci¢n:^B
+    Actualiza la im gen del objeto en la de su padre. No debe llamarse
+    directamente, para actualizar la im gen del objeto se debe de usar el
+    m‚todo ^BRefresh.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:lIsOver^B          Nos indica si est  sobre el objeto.                         ^B
+'------------------------------------------------------------------------------'
+^U lIsOver
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lIsOver( nMRow, nMCol ) -> lRetVal
+
+^B Descripci¢n:^B
+    ^BlRetVal^B ser  verdadero si la pocici¢n de ^BnMRow^B, ^BnMCol^B est  sobre el
+    objeto.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:lIsOverResize^B    Nos indica si est  sobre la zona de redimensionar.          ^B
+'------------------------------------------------------------------------------'
+^U lIsOverResize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lIsOverResize( nMRow, nMCol ) -> lRetVal
+
+^B Descripci¢n:^B
+    ^BlRetVal^B ser  verdadero si la posici¢n de ^BnMRow^B, ^BnMCol^B est  sobre la zona
+    de redimensionar.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:lValid^B           Usado para validar el objeto antes de perder focus.         ^B
+'------------------------------------------------------------------------------'
+^U lValid
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lValid() -> lValid
+
+^B Descripci¢n:^B
+    Este m‚todo es llamado para validar la vista cuando va a perder focus.
+    Devuelve un valor l¢gico que determina si se permite que pierda focus o
+    no.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:lWhen^B            Usado para validar el objeto antes de cojer focus.          ^B
+'------------------------------------------------------------------------------'
+^U lWhen
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lWhen() -> lWhen
+
+^B Descripci¢n:^B
+    Determina si el objeto puede cojer focus evaluando el codeblock bWhen.
+
+^B Retorno:^B
+    Devuelve una valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:nAtOver^B          Devuelve sobre que elemento se encuentra.                   ^B
+'------------------------------------------------------------------------------'
+^U nAtOver
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nAtOver( nMRow, nMCol ) -> nElem
+
+^B Descripci¢n:^B
+    Devuelve sobre que elemento se encuentra la posici¢n ^BnMRow^B, ^BnMCol.^B
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nBottom^B          Devuelve la fila final del objeto.                          ^B
+'------------------------------------------------------------------------------'
+^U nBottom
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nBottom() -> nRow
+
+^B Descripci¢n:^B
+    Devuelve la fila final del objeto.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nGetId^B           Devuelve el identificativo del objeto.                      ^B
+'------------------------------------------------------------------------------'
+^U nGetId
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nGetID( nID ) -> nValor
+
+^B Descripci¢n:^B
+    Devuelve el identificativo del objeto y si no lo tiene lo crea llamando a
+    ^BnGetNewId.^B Se usa para los archivos de recursos.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nGetNewId^B        Crea un nuevo identificativo de objeto.                     ^B
+'------------------------------------------------------------------------------'
+^U nGetNewId
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nGetNewId( nId ) -> nId
+
+^B Descripci¢n:^B
+    Crea un identificativo de objeto. Se usa para los archivos de recursos.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nHeight^B          Devuelve el alto del objeto.                                ^B
+'------------------------------------------------------------------------------'
+^U nHeight
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nHeight() -> nHeight
+
+^B Descripci¢n:^B
+    Nos da el alto del objeto.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nHotAt^B           Busca un Hotkey en los objetos hijos.                       ^B
+'------------------------------------------------------------------------------'
+^U nHotAt
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nHotAt( nHotKey ) -> nChild
+
+^B Descripci¢n:^B
+    Busca el ^BnHotKey^B entre los hijos del objeto devolviendolo en ^BnChild.^B
+    La busqueda se realiza invocando el m‚todo ^BIsHotKey()^B a cada hijo.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nLeft^B            Nos da la columna izquierda del objeto.                     ^B
+'------------------------------------------------------------------------------'
+^U nLeft
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nLeft() -> nLeft
+
+^B Descripci¢n:^B
+    Nos da la coordenada izquierda del objeto.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nMCol^B            Nos da la columna actual del rat¢n.                         ^B
+'------------------------------------------------------------------------------'
+^U nMCol
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nMCol() -> nCol
+
+^B Descripci¢n:^B
+    Nos da la columna del rat¢n.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nMRow^B            Nos da la fila actual del rat¢n.                            ^B
+'------------------------------------------------------------------------------'
+^U nMRow
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nMRow() -> nMRow
+
+^B Descripci¢n:^B
+    Nos da la fila actual del rat¢n.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nOrgLeft^B         Devuelve la columna con respecto a la pantalla.             ^B
+'------------------------------------------------------------------------------'
+^U nOrgLeft
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nOrgLeft() -> nOrgLeft
+
+^B Descripci¢n:^B
+    Es para obtener la columna del objeto con respecto a la pantalla.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nOrgTop^B          Devuelve la fila con respecto a la pantalla.                ^B
+'------------------------------------------------------------------------------'
+^U nOrgTop
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nOrgTop() -> nOrgTop
+
+^B Descripci¢n:^B
+    Es para obtener la fila del objeto con respecto a la pantalla.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nRight^B           Nos da la columna derecha del objeto.                       ^B
+'------------------------------------------------------------------------------'
+^U nRight
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nRight() -> nRight
+
+^B Descripci¢n:^B
+    Nos da la columna derecha del objeto.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nTop^B             Nos da la fila superior del objeto.                         ^B
+'------------------------------------------------------------------------------'
+^U nTop
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nTop() -> nTop
+
+^B Descripci¢n:^B
+    Nos da la fila superior del objeto.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nWidth^B           Nos da el ancho del objeto.                                 ^B
+'------------------------------------------------------------------------------'
+^U nWidth
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nWidth() -> nWidth
+
+^B Descripci¢n:^B
+    Nos da el ancho del objeto.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'

@@ -1,0 +1,15 @@
+
+.c.obj   :
+    bcc -c -ml -O2 -I..\..\include $<
+
+.prg.obj :
+    clipper $< -n -b -w /I..\..\include;\clipper5\include
+
+TestMemo.obj    : TestMemo.prg
+Memo2Str.obj    : Memo2Str.c
+
+TestMemo.exe    : TestMemo.obj Memo2Str.obj \
+                  TestMemo.rmk
+    set LIB=..\..\LIB;C:\clipper5\lib
+    RTLink Fi TestMemo, Memo2Str Lib FiveDos
+
