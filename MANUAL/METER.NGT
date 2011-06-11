@@ -1,0 +1,49 @@
+^U METER
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B    @ <nRow>, <nCol> METER [ <oMeter> VAR ] <nActual> ;
+^B        [ TOTAL <nTotal> ] ;
+^B        [ SIZE <nWidth> ];
+^B        [ OF <oWnd> ] ;
+^B        [ <update: UPDATE > ] ;
+^B        [ <lPixel: PIXEL > ] ;
+^B        [ FONT <oFont> ] ;
+^B        [ PROMPT <cPrompt> ] ;
+^B        [ <lNoPorcentage: NOPORCENTAGE > ] ;
+^B        [ <color: COLOR, COLORS> <nClrPane> [, <nClrText> ] ] ;
+^B        [ BARCOLOR <cClrBar> [, <nClrBText> ] ] ;
+
+^B    <nRow>, <nCol> METER [ <oMeter> VAR ] <nActual>
+        Situa un objeto TMETER en nRow, nCol, lo salva en oMeter y
+        toma el contador de progreso de nActual.
+
+^B    [ TOTAL <nTotal> ]
+        Determina el valor m ximo del Meter.
+
+^B    [ SIZE <nWidth> ]
+        Determina el ancho que tendr  el Meter.
+
+^B    [ OF <oWnd> ]
+        Ventana a la que pertenece el objeto.
+
+^B    [ <update: UPDATE > ]
+        S¢lo para compatibilidad con FiveWin.
+
+^B    [ <lPixel: PIXEL > ]
+        S¢lo para compatibilidad con FiveWin.
+
+^B    [ FONT <oFont> ]
+        S¢lo para compatibilidad con FiveWin.
+
+^B    [ PROMPT <cPrompt> ]
+        Determina el texto que aparecer  en la cabecera del Meter.
+
+^B    [ <lNoPorcentage: NOPORCENTAGE > ]
+        Determina si aparece el porcentaje actual o no.
+
+^B    [ <color: COLOR, COLORS> <nClrPane> [, <nClrText> ] ]
+        S¢lo para compatibilidad con FiveWin.
+
+^B    [ BARCOLOR <cClrBar> [, <nClrBText> ] ]
+        Determina el color de la barra.
+

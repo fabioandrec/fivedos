@@ -1,0 +1,219 @@
+!short: CLASE ^BTGet^B                                                                  
+'------------------------------------------------------------------------------'
+    Clase heredada de TControl para soporte de objetos Get.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:bSetGet^B          Codeblock para leer o asignar el valor de la variable.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmp^B             Fichero Bitmap usado cuando no tiene focus.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmp2^B            Fichero Bitmap usao cuando tiene focus.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmpChars^B        Car cteres leidos del bitmap cBmp.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmpChars2^B       Car cteres leidos del bitmap cBmp2.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cText1^B           Texto a representar cuando el objeto no tiene focus.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cText2^B           Texto a representar cuando el objeto tiene focus.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrFocus^B        Color a usar cuando tiene focus.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nGetPos^B          Posici¢n de comienzo del get con respecto al origen.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oGet^B             Objeto contenido de la clase estandard de clipper.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lPassword^B        Flag de la visualizaci¢n en modo PASSWORD.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nPasswordChar^B    Caracter que se usa para editar en modo Password.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:Click^B            Maneja las pulsaciones del rat¢n.                           ^B
+'------------------------------------------------------------------------------'
+^U Click
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Click( nMRow, nMCol ) -> NIL
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones del rat¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:KeyPressed^B       Maneja las pulsaciones del teclado.                         ^B
+'------------------------------------------------------------------------------'
+^U KeyPressed
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nKey
+
+^B Descripci¢n:^B
+    Procesa las pulsaciones de tecla, definiendo pues, el comportamiento del
+    objeto en lo que a respuesta a teclas se refiere. Devuelve 0 cuando se ha
+    procesado la tecla y nKey cuando no se ha procesado.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Constructor de la clase.                                    ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nRow, nCol, bSetGet, cColor, cLabel, cMessage,
+         cPicture, oWnd, bWhen, bValid, cBmp, cBmp2 ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BnRow    ^B    Fila donde se situa el get.
+    ^BnCol    ^B    Columna donde se situa el get.
+    ^BbSetGet ^B    Codeblock para leer o asignar la variable a editar.
+    ^BcColor  ^B    Cadena de caracteres con los colores.
+    ^BcLabel  ^B    Texto para la etiqueta.
+    ^BcMessage^B    Mensaje que se muestra al seleccionar el get.
+    ^BcPicture^B    Indica como formatear y editar el objeto.
+    ^BoWnd    ^B    Referencia a la ventana a la que pertenece.
+    ^BbWhen   ^B    Codeblock de prevalidaci¢n.
+    ^BbValid  ^B    Codeblock de postvalidaci¢n.
+    ^BcBmp    ^B    Fichero Bitmap usado cuando el objeto no est  seleccionado.
+    ^BcBmp2   ^B    Fichero Bitmap usado cuando el objeto esta seleccionado.
+
+^B Retorno:^B
+    Devuelve la referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:ReDefine^B         Constructor desde recursos.                                 ^B
+'------------------------------------------------------------------------------'
+^U ReDefine
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ReDefine( cMessage, cColor, nHelpId, bSetGet,
+              cPicture, cLabel, bWhen, bValid ) -> Self
+
+^B Descripci¢n:^B
+    Constructor desde ficheros de recurso. Recibe los siguientes par metros:
+
+    ^BcMessage^B    Mensaje que se muestra al seleccionar el get.
+    ^BcColor  ^B    Cadena de caracteres con los colores.
+    ^BnHelpId ^B    Identificativo de contexto de ayuda.
+    ^BbSetGet ^B    Codeblock para leer o asignar la variable a editar.
+    ^BcPicture^B    Indica como formatear y editar el objeto.
+    ^BcLabel  ^B    Texto para la etiqueta.
+    ^BbWhen   ^B    Codeblock de prevalidaci¢n.
+    ^BbValid  ^B    Codeblock de postvalidaci¢n.
+
+^B Retorno:^B
+    Devuelve la referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Actualiza la im gen del objeto en la ventana.               ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci¢n:^B
+    Actualiza la im gen del objeto get en la ventana a la que pertenece.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        Asigna los colores a utilizar.                              ^B
+'------------------------------------------------------------------------------'
+^U SetColors
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetColors( cColor ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna los colores a partir de la cadena de caracteres ^BcColor.^B En ‚sta
+    se codifican los dos colores que se utilizan que son:
+
+    1.- Color usado por el texto normal.
+    2.- Color usado por el texto cuando tiene focus.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetFocus^B         M‚todo llamado para cambiar el focus.                       ^B
+'------------------------------------------------------------------------------'
+^U SetFocus
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetFocus( lOnOff ) -> NIL
+
+^B Descripci¢n:^B
+    Este m‚todo se usa para cambiar el focus del objeto.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:cText^B            M‚todo para leer o asignar la variable de edici¢n.          ^B
+'------------------------------------------------------------------------------'
+^U cText
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    cText( uVal ) -> uVal
+
+^B Descripci¢n:^B
+    Este m‚todo se usa para asignar o leer el contenido de la variable que se
+    est  editando. Si se le pasa el par metro ^BuVal^B entonces se le asigna
+    al buffer de edici¢n y en caso de que no se le pase se lee el contenido
+    de la variable de edici¢n.
+
+^B Retorno:^B
+    Devuelve la variable que se edita.
+
+'------------------------------------------------------------------------------'
+!short:lValid^B           Usado para validar el objeto antes de perder focus.         ^B
+'------------------------------------------------------------------------------'
+^U lValid
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lValid() -> lValid
+
+^B Descripci¢n:^B
+    Este m‚todo es llamado para validar el get cuando va a perder focus.
+    Devuelve un valor l¢gico que determina si se permite que pierda focus o
+    no.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'

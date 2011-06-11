@@ -1,0 +1,26 @@
+IncPath=..\include;\clipper5\include;\FIVEWIN.17\INCLUDE
+
+// rem path to where you want place obj files.
+makepath[.obj]=.\OBJ
+
+// rem paths for your sources
+makepath[.prg]=.\SOURCE
+
+.prg.obj:
+    CLIPPER $< /A /N /M /W /Q /D_DEMO_ /I$(IncPath) /O$@
+    LibMan ..\lib\Report.lib -+$@ , ,
+
+dc.obj : dc.PRG             
+device.obj : device.PRG             
+font.obj : font.PRG
+pdreport.obj : pdreport.PRG             
+pen.obj : pen.PRG             
+printer.obj : printer.PRG             
+rcolumn.obj : rcolumn.PRG             
+report.obj : report.PRG             
+rfile.obj : rfile.PRG             
+rgroup.obj : rgroup.PRG             
+rline.obj : rline.PRG
+// rpreview.obj : rpreview.PRG
+xreport.obj : xreport.PRG
+                               

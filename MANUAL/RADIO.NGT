@@ -1,0 +1,54 @@
+^U RADIOBUTTON
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+
+^B    @ nRow, nCol RADIO [ oRadMenu VAR ] nVar ;
+^B        [ ITEMS cItems,... ] [ LIST uList,... ] [ ARRAY aList ] ;
+^B        [ OF, WINDOW, DIALOG oWnd ] ;
+^B        [ HELPID, HELP ID nHelpId ] ;
+^B        [ ON CLICK, ON CHANGE uChange ] ;
+^B        [ COLOR cColor ] ;
+^B        [ LABEL, PROMPT cLabel ] ;
+^B        [ MESSAGE cMsg ] ;
+^B        [ UPDATE ]
+
+
+
+^B    @ nRow, nCol RADIO [ oRadMenu VAR ] nVar
+        Define un Radio, llo salva en la variable oRadMenu, editando la
+    variable nVar.
+
+^B    [ ITEMS cItems,... ] [ LIST uList,... ] [ ARRAY aList ]
+        Define la enumeraci¢n cItems, la lista uList, o el array aList
+    como fuente de los items del Radio Button.
+
+^B    [ OF, WINDOW, DIALOG oWnd ]
+        Determina la la pertenencia a una ventana.
+
+^B    [ HELPID, HELP ID nHelpId ]
+        S¢lo por compatibilidad con FiveWin
+
+^B    [ ON CLICK, ON CHANGE uChange ]
+        Acci¢n a realizar aal cambiar el item activo.
+
+^B    [ COLOR cColor ]
+        Patr¢n de colores a utilizar.
+
+^B    [ LABEL, PROMPT cLabel ]
+        Etiqueta que nominar  el Radio Button
+
+    ^A1CNota^N: Una HotKey en la Etiqueta se indica precediendo el caracter
+    con el s¡mbolo ^B&^B.
+
+^B    [ MESSAGE cMsg ]
+        Mensaje que aparecer  en la barra.
+
+^B    [ UPDATE ]
+        S¢lo por compatibilidad con FiveWin
+
+^B    ^BEjemplo:
+
+        @  4,  9 RADIO oWK:Nivel PROMPT "&Inicial", "A&vanzado", "&Experto" ;
+            OF oDlg
+
+

@@ -1,0 +1,42 @@
+; Figure 1  Timing Sub-55ms Events with Channel 2
+ 
+        in      al,61h                  ;Disable the timer by
+        and     al,0FEh                 ;clearing bit 0 of I/O
+        out     61h,al                  ;port 61h
+        mov     port,al                 ;Save the input value
+
+
+        mov     al,0B0h                 ;Program channel 2 for
+        out     43h,al                  ;mode 0 operation
+
+        mov     al,0FFh                 ;Set the counter to
+        out     42h,al                  ;0FFFFh by writing the
+        jmp     short $+2               ;LSB followd by the MSB
+        out     42h,al
+
+
+        cli                             ;Interrupts off
+        mov     al,port                 ;Start the timer by
+        or      al,01h                  ;setting bit 0 of I/O
+        out     61h,al                  ;port 61h
+
+        ;*********************************
+        ; Execute event to be timed here ;
+        ;*********************************
+
+        mov     al,port                 ;Stop the timer
+        out     61h,al
+
+        sti                             ;Interrupts on
+
+        mov     al,80h                  ;Latch the timer count
+        out     43h,al
+
+        in      al,42h                  ;Read the count into AX
+        mov     ah,al
+        in      al,42h
+        xchg    ah,al
+
+        mov     bx,0FFFFh               ;Compute duration
+        sub     bx,ax                   ;Number of clocks in BX
+

@@ -1,0 +1,88 @@
+^U COMBOBOX
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+   ^B @ nRow, nCol COMBOBOX [ oCbx VAR ] cVar
+    ^B         [ SIZE nWidth, nHeight ]
+    ^B         [ ITEMS cItems,... ] [ LIST uList,... ] [ ARRAY aList ]
+    ^B         [ OF, WINDOW, DIALOG oWnd ]
+    ^B         [ VALID uValid ]
+    ^B         [ WHEN uWhen ]
+    ^B         [ PICTURE cPicture ]
+    ^B         [ LABEL, PROMPT cLabel ]
+    ^B         [ COLOR cColors ]
+    ^B         [ MESSAGE cMsg ]
+    ^B         [ HELPID, HELP ID nHelpId ]
+    ^B         [ ON CHANGE uChange ]
+    ^B         [ PIXEL ]
+    ^B         [ FONT oFont ]
+    ^B         [ UPDATE ]
+
+
+    ^B@ nRow, nCol COMBOBOX [ oCbx VAR ] cVar
+        Genera un ComboBox en la posici줻 nRow, nCol, lo salva en la
+        variable oCbx, asignando el resultado a la variable cVar.
+
+    ^B[ SIZE nWidth, nHeight ]
+        Define el tama쨚 de la persiana de selecci줻.
+
+    ^B[ ITEMS cItems,... ] [ LIST uList,... ] [ ARRAY aList ]
+        Genera la lista de  selecci줻 a partir de la enumeraci줻
+        cItems, de la lista uList, o de la matriz aList.
+
+    ^B[ wnd: OF, WINDOW, DIALOG oWnd ]
+        Determina a que ventana perteneze ( a de existir previamente ).
+
+    ^B[ VALID uValid ]
+        Funci줻 de usuario para validad el contrio ( similar al valid de
+        la clase GET de Clipper ).
+
+    ^B[ WHEN uWhen ]
+        Prevalida el acceso al control
+
+    ^B[ PICTURE cPicture ]
+        Cla즧ula de formato de edici줻.
+
+    ^B[ LABEL | PROMPT cLabel ]
+        Etiqueta que puede preceder al Combo.
+
+                Nota: Una HotKey en la Etiqueta se indica precediendo el
+                caracter con el simbolo ^B&^N.
+
+    ^B[ COLOR cColors ]
+        Determina el color, siendo una cadena de caracteres de descripci줻
+        de colores cl쟳ica en xbase. Con la estructura:
+
+        "<Color Normal>,<Color Focus>, <Color Flecha>"
+
+
+    ^B[ MESSAGE cMsg ]
+        Mensaje que aparecer죂 en la Barra de estado.
+
+    ^B[ help: HELPID, HELP ID nHelpId ]
+        S줹o para la compatibilidad con FiveWin
+
+    ^B[ ON CHANGE uChange ]
+        S줹o para la compatibilidad con FiveWin
+
+    ^B[ pixel: PIXEL ]
+        S줹o para la compatibilidad con FiveWin
+
+    ^B[ FONT oFont ]
+        S줹o para la compatibilidad con FiveWin
+
+    ^B[ update: UPDATE ]
+        S줹o para la compatibilidad con FiveWin
+
+
+ ^BEjemplo^N
+
+    @ 2, 25 COMBOBOX cCombo ;
+            LABEL "&Select Day" ;
+                    ITEMS   "Lunes", "Martes", "Miercoles", "Jueves", ;
+                            "Viernes", "Sabado" ,"Domingo";
+                    SIZE 15, 5 ;
+            VALID MsgYesNo( "VALID" ) ;
+            WHEN  MsgYesNo( "WHEN" ) ;
+                    OF oWnd3
+
+

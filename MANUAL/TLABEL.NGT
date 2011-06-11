@@ -1,0 +1,160 @@
+!short: CLASE ^BTLabel^B                                                                
+'------------------------------------------------------------------------------'
+    Clase derivada de TView para soporte de etiquetas.
+'------------------------------------------------------------------------------'
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short: DATOS
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:aColors^B          Array que contiene los colores.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cText^B            Texto de la etiqueta.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nJustify^B         Forma en que se muestra la etiqueta.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:ChangeSize^B       Cambia el tama쨚 de la etiqueta.                            ^B
+'------------------------------------------------------------------------------'
+^U ChangeSize
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    ChangeSize( nWidth, nHeight ) -> NIL
+
+^B Descripci줻:^B
+    Cambia el tama쨚 de la etiqueta.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Constructor de la clase.                                    ^B
+'------------------------------------------------------------------------------'
+^U New
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    New( nTop, nLeft, cText, cColor, nWidth,
+         nHeight, oWnd, cMessage, nJustify ) -> Self
+
+^B Descripci줻:^B
+    Es el constructor de la clase. Recibe los siguientes par쟭etros:
+
+    ^BnTop    ^B    Fila donde se situa la etiqueta.
+    ^BnLeft   ^B    Columna donde se situa la etiqueta.
+    ^BcText   ^B    Texto que se muestra. El caracter ^B';'^B se considera como
+                un salto de l죒ea.
+    ^BcColor  ^B    Cadena de caracteres con los colores.
+    ^BnWidth  ^B    Ancho de la etiqueta.
+    ^BnHeight ^B    Alto de la etiqueta.
+    ^BoWnd    ^B    Referencia al objeto ventana en la que se situa la etiqueta.
+    ^BcMessage^B    Mensaje que aparece cuando se selecciona la etiqueta.
+    ^BnJustify^B    Determina la forma en que se pinta el texto. Se Puede dar
+                tres casos:
+                ^BIgual a   0 ^B: El texto aparece centrado.
+                ^BMayor que 0 ^B: El texto se justifica a la derecha.
+                ^BMenor que 0 ^B: El texto se justifica a la izquierda.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:ReDefine^B         Constructor desde recursos.                                 ^B
+'------------------------------------------------------------------------------'
+^U ReDefine
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Redefine( cText, cMessage, cColor, nHelpId, nJustify ) -> Self
+
+^B Descripci줻:^B
+    Constructor desde recursos. Recibe los siguientes par쟭etros:
+
+    ^BcText   ^B    Texto que se muestra. El caracter ^B';'^B se considera como
+                un salto de l죒ea.
+    ^BcMessage^B    Mensaje que aparece cuando se selecciona la etiqueta.
+    ^BcColor  ^B    Cadena de caracteres con los colores.
+    ^BnHelpId ^B    Identificativo del contexto de ayuda.
+    ^BnJustify^B    Determina la forma en que se pinta el texto. Se Puede dar
+                tres casos:
+                ^BIgual a   0 ^B: El texto aparece centrado.
+                ^BMayor que 0 ^B: El texto se justifica a la derecha.
+                ^BMenor que 0 ^B: El texto se justifica a la izquierda.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Actualiza la im쟥en de la etiqueta.                         ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci줻:^B
+    Actualiza la im쟥en de l etiqueta.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        Asigna los colores.                                         ^B
+'------------------------------------------------------------------------------'
+^U SetColors
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    SetColors( cColor ) -> NIL
+
+^B Descripci줻:^B
+    Asigna los colores a partir de la cadena de caracteres ^BcColor.^B En 굎ta
+    se codifican los cuatro colores que se utilizan que son:
+
+    1.- Color usado por la etiqueta cuando no tiene focus.
+    2.- Color usado por la etiqueta cuando tiene focus.
+    3.- Color usado por la letra resaltada cuando no tiene focus.
+    4.- Color usado por la letra resaltada cuando tiene focus.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetFocus^B         M굏odo llamado para cambiar el focus.                       ^B
+'------------------------------------------------------------------------------'
+^U SetFocus
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    SetFocus( lOnOff ) -> NIL
+
+^B Descripci줻:^B
+    Este m굏odo se usa para cambiar el focus del objeto.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetText^B          Ajusta el texto al tama쨚 del label y lo pinta.             ^B
+'------------------------------------------------------------------------------'
+^U SetText
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    SetText() -> NIL
+
+^B Descripci줻:^B
+    Ajusta el texto al tama쨚 del label y lo pinta.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

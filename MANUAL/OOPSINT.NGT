@@ -1,0 +1,474 @@
+!Short: ^A1F            ^A10‹                    ‹‹^A40ﬂﬂﬂ^A10‹‹               ‹‹‹^A20ﬂﬂﬂﬂ^A10‹‹‹           ^A1F
+!Short: ^A1F  ^A10        ‹^A50ﬂ€ﬂ^A10‹              ‹‹^A40ﬂﬂ^A14€€€€€€€^A40ﬂﬂ^A10‹‹        ‹^A20ﬂﬂ ^A12€€€€€€€€^A22 ^A20ﬂﬂ^A10‹        ^A1F
+!Short: ^A1F  ^A10      ‹^A50ﬂ^A15€€^A50€ﬂ‹ﬂ^A10‹          €^A40ﬂ‹‹^A14€€€€€€€€^A44   ^A40‹‹€^A10€     ^A20€  ^A12€€€€€€€€€€^A22 ^A20ﬂ‹ﬂ€^A10‹         ^A1F
+!Short: ^A1F  ^A10    ‹^A50ﬂ^A15€€€€^A50€ﬂ‹ﬂ‹ﬂ^A10‹        €^A14€€€^A40ﬂﬂ‹‹^A14€^A44  ^A40‹‹€ﬂ‹ﬂ‹^A10€    ^A20€  ^A12€€^A1F€€^A12€€€€€€€€^A22 ^A20‹ﬂ‹^A10€         ^A1F
+!Short: ^A1F  ^A10  ‹^A50ﬂ^A15€€€€€€^A50€ﬂ‹ﬂ‹ﬂ‹ﬂ^A10‹      €^A14€€€€€^A44 ^A14€^A40ﬂﬂ€‹ﬂ‹ﬂ‹ﬂ‹^A10€    ^A20€ ^A12€€€€€€€€€€€€^A22 ^A20ﬂ‹ﬂ‹^A10€
+!Short: ^A10  ‹^A50ﬂ^A15€€€€€€€€^A55 ^A50€‹ﬂ‹ﬂ‹ﬂ‹ﬂ^A10‹    €^A14€€€€€€€€€^A40€‹ﬂ‹ﬂ‹ﬂ‹^A10€    ^A20€ ^A12€€€€€€€€€€€^A22 ^A20‹ﬂ‹ﬂ‹^A10€
+!Short: ^A10  €^A15€€€€€€€€€^A55 ^A50€‹ﬂ‹ﬂ‹ﬂ‹€^A10ﬂ‹   €^A14€€€€€^A44 ^A14€€€^A40€‹ﬂ‹ﬂ‹ﬂ‹^A10ﬂ‹ ‹ ‹^A20€  ^A12€€€€€€€€€€^A20‹ﬂ‹ﬂ‹^A10€
+!Short: ^A10   ﬂﬂ^A50‹‹^A15€€€€€^A55 ^A50€‹ﬂ‹ﬂ‹€^A10ﬂ‹ﬂ‹ﬂ‹ ﬂﬂ^A40‹‹^A14€€€€€€^A40€‹ﬂ‹ﬂ‹^A10ﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ€^A20‹^A12€€€^A22 ^A12€€€^A22 ^A20‹ﬂ‹ﬂ‹€^A10ﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ‹
+!Short: ^A10       ﬂﬂ^A50‹‹^A15€€^A50€‹ﬂ‹^A10€ﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ‹   ﬂﬂ^A40‹‹^A14€€^A40€‹ﬂ‹^A10ﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ€^A20‹‹ ^A12€€^A22 ^A20ﬂ‹€‹^A10€ﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ‹
+!Short: ^A10           ﬂﬂﬂﬂﬂﬂ ﬂ ﬂ ﬂ ﬂ ﬂ        ﬂﬂﬂﬂﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ     ﬂﬂﬂﬂﬂﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ‹
+!Short: ^A10              ^A1E                                               ^A10   ﬂ ﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ‹ﬂ
+!Short: ^A10              ^A1E  ^A10
+!Short: ^A10        ^A1E    ^A1Fﬂﬂﬂﬂﬂ^A1E   ^A1Fﬂﬂﬂﬂﬂﬂ^A1E  ^A10     ^A1Fﬂﬂ^A10 ^A1Fﬂﬂﬂﬂﬂﬂﬂ^A10   ^A1Fﬂﬂﬂﬂﬂ^A1E  ^A1Fﬂﬂﬂﬂﬂﬂﬂﬂ^A1E  ^A1Fﬂﬂﬂﬂﬂ^A1E    ^A1F      ^A10
+!Short: ^A10  ^A1F      ^A1E   ^A1Fﬂﬂ^A1E   ^A1Fﬂﬂ^A1E  ^A1Fﬂﬂ^A1E   ^A1Fﬂﬂ^A1E      ^A1Fﬂﬂ^A1E ^A1Fﬂﬂ^A1E       ^A1Fﬂﬂ^A1E   ^A1Fﬂﬂ^A1E    ^A1Fﬂﬂ^A1E    ^A1Fﬂﬂ^A1E       ^A10
+!Short: ^A10          ^A1Fﬂﬂﬂ^A10   ^A1Fﬂﬂﬂ^A10 ^A1Fﬂﬂﬂﬂﬂﬂ^A10       ^A1Fﬂﬂ^A10 ^A1Fﬂﬂﬂﬂﬂ^A10   ^A1Fﬂﬂﬂ^A10         ^A1Fﬂﬂ^A10     ^A1Fﬂﬂﬂﬂﬂ^A10
+!Short: ^A10           ^A1Fﬂﬂ^A10   ^A1Fﬂﬂ^A10  ^A1Fﬂﬂ^A10   ^A1Fﬂﬂ^A10 ^A1Fﬂﬂ^A10   ^A1Fﬂﬂ^A10 ^A1Fﬂﬂ^A10       ^A1Fﬂﬂ^A10   ^A1Fﬂﬂ^A10    ^A1Fﬂﬂ^A10         ^A1Fﬂﬂ^A10
+!Short: ^A10            ^A1Fﬂﬂﬂﬂﬂ^A10   ^A1Fﬂﬂﬂﬂﬂﬂ^A10   ^A1Fﬂﬂﬂﬂﬂ^A10  ^A1Fﬂﬂﬂﬂﬂﬂﬂ^A10   ^A1Fﬂﬂﬂﬂﬂ^A10     ^A1Fﬂﬂ^A10    ^A1Fﬂﬂﬂﬂﬂﬂ^A10
+!Short: ^A1F  ^A10                          ^A1EProfessional Edition^A10
+!Short: ^A10                          ^A1E                             ^A10
+!Short: ^A10                          ^A1EOOPS Engine for Clipper 5^A10                        ^A1E
+!Short: ^A10                         ^A1E(C) F.Pulp¢n, A.Linares 1993^A10 ^A1E ^A10
+!Short:
+!Short:
+!Short: Cabecera de declaraci¢n de clase.    [ ^BCREATE^N ] ^BCLASS^N <cClassName>
+
+    * La Cabecera puede tener cualquiera de estas sintaxis:
+
+      [ ^BCREATE^N ] ^BCLASS^N <cClassName> [ ^BINHERIT FROM^N <cSuperClass> ]
+
+      [ ^BCREATE^N ] ^BCLASS^N <cClassName> [ ^BINHERIT^N <cSuperClass> ]
+
+      [ ^BCREATE^N ] ^BCLASS^N <cClassName> [ ^BFROM^N <cSuperClass> ]
+
+      [ ^BCREATE^N ] ^BCLASS^N <cClassName> [ ^BOF^N <cSuperClass> ]
+
+      La palabra ^BCREATE^N es opcional.
+^N
+!Short: Declaraciones de Variables.          ^BEXPORT VAR^N nCount ^BAS^N NUMERIC
+
+    Sintaxis General:
+
+    [ PreAmbito ] <VarType> [ ^BAS^N <lista de Tipos> ] [ PostAmbito ]
+
+    PreAmbito puede ser:   ^BEXPORT
+                           ^BPROTECT
+                           ^BHIDE
+
+    <VarType> Puede ser :
+
+                       - Variables de ^UInstancia^N:
+                                                  ^BVAR
+                                                  ^BINSTVAR
+                                                  ^BDATA
+                       - Variables de ^UClase^N:
+                                                  ^BCLASSVAR
+                                                  ^BCLASSDATA
+
+     Los tipos de ^U<lista de tipos>^N pueden ser:
+
+                                ^BALL
+                                ^BNIL
+                                ^BUNDE^NFINED
+                                ^BCHAR^NACTER
+                                ^BLOGI^NCAL
+                                ^BBLOC^NK
+                                ^BDATE
+                                ^BARRA^NY
+                                ^BOBJE^NCT
+
+
+     PostAmbito puede ser:   ^BLOCAL
+                             ^BHIDDEN
+                             ^BPROTECTED
+                             ^BREADONLY
+                             ^BPUBLIC
+                             ^BEXPORT
+
+        Todas las declaraciones que no tengan PreAmbito ni PostAmbito
+     asumir^CA0n el valor de ^CA0mbito por defecto.
+
+        PreAmbito y PostAmbito son excluyentes: si se pone uno no se
+     puede poner el otro. No cambian el Ambito por defecto. Solo
+     afectan al ^CA0mbito de las Variables ^CA2 m^C82todos de la declaraci^CA2n
+     en la que se incluyan.
+
+        Si se omite ^U AS <Lista de tipos>^N se asigna por defecto el
+     tipo ^BALL^N.
+
+        Ejemplos.:
+
+          ^BPROTECTED:^N    // Pone ^CA0mbito de acceso actual:
+                        // Protegido/SoloLectura
+
+          ^BEXPORT DATA ^NcVar1, cVar2,... // a^CA4ade InstVars con ^CA0mbito de
+                                       // acceso p^CA3blico.
+
+          ^BCLASSDATA^N cVarN    // A^CA4ade ClassVars de ambito de acceso
+                             // por defecto. ( En este caso ser^CA1a
+                             // Protegido/SoloLectura ).
+
+      No es obligatorio definir variables de ningun tipo para definir
+    una Clase. El c^CA2digo del ejemplo ^UStack.prg^N es una prueba de ello.
+^N
+!SeeAlso: "Variables" "Ambito" "ClassVars" 
+!Short: ClassVars                            ^BHIDE CLASSVAR^N nCount ^BAS^N NUMERIC
+
+      Objects 3.0 implementa las ClassVars, del mismo modo que lo hace
+    C++ : como un miembro "static". Cuando se declara una ClassVar
+    para una Clase, solo hay una instancia de esa variable para todos
+    los objetos de esa clase y los de clases que hereden de ella. Las
+    Clases hijas de ^C82sta, pueden sobrescribir esta ClassVar con una
+    propia y pueden acceder a la del padre ahora con "Super", del
+    mismo modo que pueden hacer con los m^C82todos normales.
+
+      Cuando una clase hereda de otra que tiene definida una classvar,
+    hereda m^C82todos para acceder a la classvar de su padre direcctamente.
+    Si, en vez de esto, la segunda clase sobrescribe esta classvar con
+    otra propia, podr^CA0 acceder a la del padre v^CA1a :Super:.
+
+      Puede verse un caso como este en los ejemplos screenar.prg y
+    boxedare.prg
+^N
+!SeeAlso: "Variables" "Ambito" 
+!Short: Ambito de acceso por defecto.        ^BEXPORT:^N , ^BPROTECTED:^N, ^BHIDDEN:^N
+
+ -  Declaraciones de ^U^CA0mbito de acceso por defecto.
+
+        Son las declaraciones que ponen un nuevo valor de ^CA0mbito
+     por defecto para las siguientes declaraciones de variables de
+     instancia, de variables de clase y de m^C82todos, que no incluyan
+     PreAmbito ^CA2 PostAmbito en s^CA1 mismas.
+
+   * Tres tipos de declaraci^CA2n de ^CA0mbito por defecto:
+
+     ^BEXPORT:^N ^CA2 ^BPUBLIC:^N
+
+           Es el ^UValor de ^CA0mbito de acceso^N por defecto al declarar una
+         clase; permite leer/escribir variables de InstVar ^CA2 ClassVar ^CA2
+         llamar a un m^C82todo desde cualquier funci^CA2n/procedimiento que
+         tenga referencia de cualquier instancia de la clase que estamos
+         declarando.
+
+     ^BPROTECTED:^N ^CA2 ^BREADONLY:^N
+
+           Permite lectura desde cualquier funci^CA2n/procedimiento pero
+         la escritura solo est^CA0 permitida hacerla desde los m^C82todos de
+         la clase. Para los m^C82todos declarados con este valor de
+         ^CA0mbito por defecto el resultado ser^CA0 el mismo que el de una
+         declaraci^CA2n EXPORT:
+
+     ^BLOCAL:^N  ^CA2 ^BHIDDEN:^N
+
+           Los accesos de qualquier tipo ( a var ^CA2 metodo ) s^CA2lo est^CA0n
+         permitidos dentro del ^CA0mbito de la Clase: ( Sus m^C82todos y los
+         de sus clases Padre ).
+^N
+!SeeAlso: "Variables" 
+!Short: Variables con proteci¢n de "Type".   ^BHIDE DATA^N cName, cTitle ^BAS ^UCHARACTER^N
+
+ - Declaraciones de variables con ^Uprotecci^CA2n de tipo:
+
+      Sintaxis:
+
+        [PreAmbito] <VarType> ^BAS <Lista de Tipos>^N [PostAmbito]
+
+
+    * Los tipos de <lista de tipos> pueden ser:
+
+                 ^BALL^N                permite asignar ^UTodos^N los tipos.
+                 ^BNIL^N                  "        "    tipos      ^UNil^N.
+                 ^BUNDE^NFINED            "        "      "        ^UNil^N.
+                 ^BNUME^NRIC              "        "      "    ^UNumeric^N.
+                 ^BCHAR^NACTER            "        "      "  ^UCharacter^N.
+                 ^BLOGI^NCAL              "        "      "    ^ULogical^N.
+                 ^BBLOC^NK                "        "      "  ^UCodeBlock^N.
+                 ^BDATE^N                 "        "      "       ^UDate^N.
+                 ^BARRA^NY                "        "      "      ^UArray^N.
+                 ^BOBJE^NCT               "        "      "     ^UObject^N.
+
+
+    * La Lista de tipos define los "tipos" que queremos que admitan
+      las Vars de la lista de la declaraci^CA2n de variable:
+
+      Ej.: Para que las instVar declaradas en una Declaraci^CA2n ^BVAR^N
+           s^CA2lo admitan tipos "caracter" y tipos "Numeric", se
+           construye la declaraci^CA2n as^CA1:
+
+              PROTECT VAR cnVar1, cnVar2 ^BAS ^UCharacter^N, ^UNumeric^N
+
+           Y las siguientes expresiones producir^CA0n un "Warning" #4. en
+           tiempo de ejecuci^CA2n:
+
+              ::cnVar1 = array( 8 )
+              ::cnVar2 = NIL
+
+      Adem^CA0s de proporcionar la protecci^CA2n de tipos en asignaci^CA2n, Objects
+      iniciar^CA0 autom^CA0ticamente la Instvar o ClassVar declarada, seg^CA3n el
+      primer tipo de la lista. Salvo para las variables referencia, ( Arrays,
+      Objetos y CodeBlocks ) que ser^CA0n inicialmente nil y deber^CA0 iniciarlas
+      siempre el usuario de la clase.
+
+                 ^BALL^N                Se inicia con:  nil
+                 ^BNIL^N                  "        " :  nil
+                 ^BUNDE^NFINED            "        " :  nil
+                 ^BNUME^NRIC              "        " :  0
+                 ^BCHAR^NACTER            "        " :  ""
+                 ^BLOGI^NCAL              "        " :  .F.
+                 ^BBLOC^NK                "        " :  nil
+                 ^BDATE^N                 "        " :  ctod( "  /  /  " )
+                 ^BARRA^NY                "        " :  nil
+                 ^BOBJE^NCT               "        " :  nil
+^N
+!Short: Declaraciones de mÇtodos.            ^BMETHOD^N ReSet ^BHIDDEN^N
+
+ - Declaraciones de M^C82todos. Sintaxis general:
+
+              [ PreAmbito ] ^BMETHOD  ^U<Lista de descripciones>^N ;
+                                       [ PostAmbito ] [ CONSTRUCTOR ]
+
+         ^CA2
+
+              [ PreAmbito ] ^BMESSAGE ^U<Lista de descripciones>^N
+                                       [ PostAmbito ] [ CONSTRUCTOR ]
+
+
+             PreScope puede ser:   ^BEXPORT
+                                   ^BHIDE
+
+             PostAmbito puede ser:   ^BLOCAL
+                                     ^BHIDDEN
+                                     ^BPUBLIC
+                                     ^BEXPORT
+
+       PreAmbito y PostAmbito son excluyentes: si se pone uno no se
+     puede poner el otro. No cambian el Ambito por defecto. Solo
+     afectan al ^CA0mbito de las Variables ^CA2 m^C82todos de la declaraci^CA2n
+     en la que se incluyan.
+
+       La Clausula ^BCONSTRUCTOR^N hace que todos los m^C82todos de la
+     lista devuelvan ^USELF^N. Tenga en cuenta que si en el c^CA2digo del
+     m^C82todo usted pone RETURN <anyValue>, ObjectsP sobreescribe este
+     valor de retorno anotando SELF como valor de retorno del m^C82todo.
+
+
+       Las descripciones de la lista pueden tener diversas formas
+     segun sus necesidades y gustos:
+
+            ^UDescripci^CA2n simple^N:
+                                        <cMethodName>
+
+            ^UDescripci^CA2n simple prototipada^N:
+
+                                        <cMethodName>( [<parms,...>] )
+
+       La funci^CA2n asociada ( C^CA2digo del m^C82todo ) debe llamarse igual
+     que el mensaje ( <cMethodName> ) y debe estar en el mismo m^CA2dulo
+     que la declaraci^CA2n de CLASE.
+
+
+            ^UDescripci^CA2n con renombrado^N:
+
+                                        <cMethodName> = <cUdfName>
+
+            ^UDescripciones con renombrado prototipadas^N:
+
+                     <cMethodName>( [<parms,...>] ) ^B=^N <cUdfName>
+
+                     <cMethodName> ^B=^N <cUdfName>( [<parms,...>] )
+
+                     <cMethodName>([<parms,...>]) ^B=^N <cUdf>([<parms,...>])
+
+         La funci^CA2n asociada ( C^CA2digo del M^C82todo ) se llamar^CA0 <cUdfName>.
+
+      Descripciones Especiales:
+
+            M^C82todo virtual:
+                            <cMethodName>:VIRTUAL
+
+            M^C82todo prototipado virtual:
+
+                            <cMethodName>( [<parms,...>] ):VIRTUAL
+
+         No existe funci^CA2n asociada al mensaje <cMethodName> si se
+      manda ese mensaje Objects simplemente no har^CA0 nada devolviendo
+      NIL.
+
+
+            M^C82todo SetGet:
+                            <cMethoName>:SETGET
+
+            M^C82todo prototipado SetGet:
+
+                            <cMethodName>( [<parms,...>] ):SETGET
+
+
+         Declara el m^C82todo <cMethodName> como SETGET. Esto signigfica
+      que puede ser usado como si fuera una variable, recibir^CA0 un
+      par^CA0metro cuando se asigne y no recibir^CA0 nada cuando no se
+      asigne. En cualquier caso este metodo debe devolver alg^CA3n valor.
+      Recuerde que si aplica la clausula ^BCONSTRUCTOR^N, ^C82sta invalida
+      los valores de retorno de los metodos de la lista.
+
+         Ej.:
+
+              // Declaraci^CA2nes en el cuerpo de Clase.
+
+              HIDE VAR cTitle
+
+              METHOD  Title:SETGET
+
+              // C^CA2digo del m^C82todo
+
+              METHOD FUNCTION Title( cTit ) CLASS  Window
+
+                  if valtype( cTit ) == "C"
+                     ::cTitle = padc( cTit, ::nTitLen )
+                  endif
+
+              Return ::cTitle
+
+
+              // y se puede usar como una variable de instancia ^CA2
+              // de clase mas.
+
+              cTit := oWin:Title := "Mi ventana"
+
+              nLenTit = len( oWin:Title )
+
+
+        Si solo hay un una descripci^CA2n que no sea <Method>:SETGET ni
+      <Method>:VIRTUAL, en la lista de descripciones, se admiten las
+      siguientes declaraciones:
+
+      [ PreAmbito ] ^BMethod/Message^N <cMethodDesc> [ ^BVIRTUAL^N ] [ PostAmbito ]
+      [ PreAmbito ] ^BMethod/Message^N <cMethodDesc> [ ^BSETGET^N ]  [ PostAmbito ]
+
+
+        Por ^CA3ltimo y aunque sin clausulas SETGET ni VIRTUAL se admite esta
+      sintaxis por compatibilidad con algunos sistemas:
+
+      [PreAmbito] ^BMESSAGE^N <cMess>[(params)] ^BMETHOD^N <cUdf>[(params)]     ;
+                       [, <cMessN>[(params)] ^BMETHOD^N <cUdfN>[(params)] ] ;
+                   [PostAmbito] [ CONSTRUCTOR ]
+
+        Para sistemas profesionales, cuando sea necesario codificar
+      m^C82todos en lenguaje "C" ^CA2 ensamblador, se debe usar la sintaxis
+      siguiente para declarar los m^C82todos en el cuerpo de clase:
+
+      [PreAmbito] ^BMethod/Message^N <cMess>[(params)]             ;
+                  ^BEXTERN/FUNCTION/CMETHOD^N <cUdf>[(params)]     ;
+                  [PostAmbito]
+
+      Ej.: PROTECT METHOD Show FUNCTION _BaseShow
+
+
+        Como habr^CA0 podido observar puede describir en su declaraci^CA2n
+      de m^C82todo el tipo y n^CA3mero de par^CA0metros que este va a recibir.
+      No es de ninguna utilidad para Objects, pero si lo ser^CA0 para
+      usted que tendr^CA0 una idea m^CA0s completa de como es su clase con
+      s^CA2lo ver la parte declarativa de ^C82sta; sin tener que buscar en
+      su prg el c^CA2digo de todos los m^C82todos para ver la estructura de
+      los par^CA0metros de sus m^C82todos. Esto se conoce como "Prototipo"
+      de m^C82todo.
+^N
+!Short: C¢digo en l°nea:                     ^BMETHOD^N New( nRow ) ^BINLINE^N ::nRow := nRow
+
+        Objects 3.00 admite c^CA2digo en linea, de modo semejante al de los
+      compiladores de C++. Sintaxis:
+
+        [PreAmbito] ^BMESSAGE/METHOD^N <cMess>[(params)] ^BINLINE^N ;
+                     <Code>[ , <MoreCode> [PostAmbito]
+
+        Por compatibilidad con versiones anteriores de Objects se
+      admite tambien la sintaxis BLOCK:
+
+        [PreAmbito] ^BMESSAGE/METHOD^N <cMess>[(params)] ^BBLOCK^N ;
+                     { | Self [params] | <BlockCode> } [PostAmbito]
+
+        Ej.: PROTECT METHOD Add( oCtl ) INLINE ;
+                                       aadd( ::aControls, oCtl ), oCtl
+
+             Equivale a la Clausula BLOCK siguiente:
+
+             PROTECT METHOD Add( oCtl ) BLOCK ;
+                      { | Self, oCtl | aadd( ::aControls, oCtl ), oCtl }
+
+        El c^CA2digo en linea permite aliviar el tama^CA4o de la tabla de
+      simbolos de los ejecutables. Aunque su velocidad es menor que la
+      de los m^C82todos normales. En resumen su uso es recomendable para
+      m^C82todos simples y de uso no exaustivo.
+^N
+!SeeAlso: "Cabecera" "Cierre" 
+!Short: Cierre de la Clase.                  ^BENDCLASS^N
+
+    * La declaraci^CA2n de Cierre ^CA2 fin de Declaraci^CA2n de Clase puede
+      ser cualquiera de estas dos:
+
+           ^BENDCLASS^N
+             ^CA2
+           ^BEND CLASS^N
+
+      RECUERDA: Cerrar la Clase es obligatorio.
+
+       Puedes tener varias clases en el mismo fichero, siempre y
+     cuando no haya conflicto entre los nombres de las funciones y
+     antes de cada declaracion de clase se ponga un:
+
+          ^U#include "ObjectsP.ch"^N
+^N
+!Short: El c¢digo de los mÇtodos.            ^BMETHOD FUNCTION^N New( nOwner )
+
+ - Declaraciones de funciones asociadas a los m^C82todos. ( C^CA2digo del
+   M^C82todo ). Hay cuatro estilos. En general todas tienen esta forma:
+
+         ^BMETHOD <Estilo>^N
+
+             La funci^CA2n ser^CA0 p^CA3blica ( Metodo externo ), si se declara
+           antes que ninguna declaraci^CA2n de clase en el mismo fichero
+           prg . Si la declaraci^CA2n de C^CA2digo de m^C82todo se hace despu^C82s
+           de una declaraci^CA2n de clase, la funci^CA2n siempre ser^CA0
+           static.
+
+    * Estilo General
+
+        ^BMETHOD [ FUNCTION/PROCEDURE ]^N <MethodName>[ ( <uParms,...> ) ] ;
+                                                [ ^BCLASS^N <ClassName> ]
+
+    * Estilo ASPEN
+
+        ^BMETHOD^N <MethodName>[ ( <uParms,...> ) ] [ ^BCLASS^N <ClassName> ]
+
+    * Estilo C++
+
+        ^BMETHOD^N <ClassName>^B::^N<MethodName>[ ( <uParms,...> ) ]
+
+    * Estilo dBase
+
+        ^BMETHOD^N <ClassName>^B.^N<MethodName>[ ( <uParms,...> ) ]
+
+^N
+!Short: Acceso a mÇtodos de Clases Paternas. ^B:Super:New^N( nRow, nCol, cName )
+
+ - Llamadas a M^C82todos de clases Paternas:
+
+      De la Clase Paterna Principal:
+
+           :^B:Super:^Nmethod( params,... )
+
+      De cualquier otra clase paterna:
+
+           :^B:Parent( ParentName ):^Nmethod( params,... )
+
+      Desde fuera de las clases siempre se debe usar esta sintaxis:
+
+           ^Bobj:Super( ParentName ):^Nmethod( params,... )
+
+
+      Puede usar los terminos ^B:Super^N ^CA2 ^B:Parent^N indistintamente ya que son
+      totalmente equivalentes. Adem^CA0s se admite la sintaxis "Super"
+      de Objects 2.0 ( solo dentro del c^CA2digo de un m^C82todo ) :
+
+           ^BSuper:^Nmethod( params,... )
+
+      Es inutil intentar acceder a las InstVars a traves de llamadas a
+      ":Parent()" ya que hemos heredado directamente todas las
+      definiciones de estas. Adem^CA0s, al hacerlo, generaremos un error
+      irrecuperable # 9.
+
+      Sin embargo, s^CA1 es posible acceder a las ClassVars a traves de
+      "Super".
+^N
+
+
+

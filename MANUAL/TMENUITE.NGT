@@ -1,0 +1,218 @@
+!short: CLASE ^BTMenuItem^B                                                             
+'------------------------------------------------------------------------------'
+    Clase derivada de TView para soporte de los elementos de Men£.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:aColors^B          Array de colores.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bAction^B          Codeblock con la acci¢n a ejecutar del menuitem.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cItem^B            Texto que aparece en el menuitem.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lActive^B          Indica si se puede seleccionar o no un menuitem.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lChecked^B         Indica si es un menuitem tipo checked o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lMenuBar^B         Indica si el meuitem pertenece a un menubar.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lOpened^B          Cuando tiene SubMenu Indica si esta abierto o no su ventana.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nShortCut^B        Valor de la tecla r pida para el menuitem.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oSubMenu^B         Cuando tiene SubMenu tiene una referencia a este.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:Action^B           Ejecuta el codeblock ^B::bAction.^B                             ^B
+'------------------------------------------------------------------------------'
+^U Action
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Action() -> NIL
+
+^B Descripci¢n:^B
+    Ejecuta el codeblock ^B::bAction^B cuando el menuitem no tiene submenu.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Click^B            Maneja las pulsaciones del rat¢n.                           ^B
+'------------------------------------------------------------------------------'
+^U Click
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Click( nMRow, nMCol ) -> NIL
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones del rat¢n. ^BnMRow^B y ^BnMCol^B indica la posici¢n de la
+    pulsaci¢n del rat¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Close^B            Cierra la ventana del submenu asociado.                     ^B
+'------------------------------------------------------------------------------'
+^U Close
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Close() -> NIL
+
+^B Descripci¢n:^B
+    Cierra la ventana del submenu asociado ^B::oSubMenu^B y todas las dem s que
+    se hayan abierto despu‚s.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Disable^B          Hace que no se se pueda seleccionar.                        ^B
+'------------------------------------------------------------------------------'
+^U Disable
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Disable() -> NIL
+
+^B Descripci¢n:^B
+    Hace que no se pueda seleccionar un menuitem.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Enable^B           Habilita que se pueda seleccionar.                          ^B
+'------------------------------------------------------------------------------'
+^U Enable
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Enable() -> NIL
+
+^B Descripci¢n:^B
+    Habilita que se pueda seleccionar un menuitem.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:KeyPressed^B       Maneja las pulsaciones de teclas.                           ^B
+'------------------------------------------------------------------------------'
+^U KeyPressed
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nKey
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones de teclas. Recibe como par metro la tecla a
+    procesar y devuelve 0 en caso de que se haya procesado y nKey si no.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Constructor de la clase.                                    ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nRow, nCol, cItem, cMsg, bAction,
+               lActive, lChecked, nShortCut ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BnRow     ^B       Fila donde se situa el menuitem.
+    ^BnCol     ^B       Columna donde se situa el menuitem.
+    ^BcItem    ^B       Texto del menuitem.
+    ^BcMsg     ^B       Mensaje que aparecer  cuando se selccione el menuitem.
+    ^BbAction  ^B       Codeblock que se evaluar  cuando se elija el menuitem.
+    ^BlActive  ^B       Indica si se puede seleccionar o no el menuitem.
+    ^BlChecked ^B       Indica si es del tipo checked.
+    ^BnShortCut^B       Tecla r pida del menuitem.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Open^B             Abre la ventana del submenu asociado.                       ^B
+'------------------------------------------------------------------------------'
+^U Open
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Open() -> NIL
+
+^B Descripci¢n:^B
+    Abre la ventana del submenu asociado ::oSubMenu.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Actualiza la im gen del menuitem.                           ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci¢n:^B
+    Actualiza la im gen del menuitem.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetMenu^B          Asocia un submenu al menuitem.                              ^B
+'------------------------------------------------------------------------------'
+^U SetMenu
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetMenu( oSubMenu ) -> NIL
+
+^B Descripci¢n:^B
+    Asocia el submenu ^BoSubMenu^B al menuitem.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:lIsOver^B          Indica si una posici¢n est  sobre el menuitem.              ^B
+'------------------------------------------------------------------------------'
+^U lIsOver
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lIsOver( nMRow, nMCol ) -> lIsOver
+
+^B Descripci¢n:^B
+    Indica si la posici¢n determinada por ^BnMRow^B, ^BnMCol^B est  sobre el menuitem.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'

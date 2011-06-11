@@ -1,0 +1,26 @@
+chpath=..\include;\Clip53\include;..\lib;c:.
+makepath[.ch] = $(chpath)
+
+Linker=Blinker // Blinker, RTLink ¢ ExoSpace
+
+extend.obj   : extend.prg
+    clipper extend /L
+.c.obj:
+   bcc -B -c -ml -2 -O2 /I$(chpath) $<
+
+.prg.obj:
+    clipper $< /w/m/l/a/n/I$(chpath)
+
+ide.exe: ide.obj icondef.obj idesign.obj gencode.obj textbrow.obj \
+         palette.obj lib.obj extend.obj ..\lib\fivedos.lib
+    SET LIB=..\lib;c:\Clip53\lib;c:\Clip00\lib
+    $(Linker) @ide.lnk @..\include\$(Linker)
+    SET LIB=
+
+ide.obj      : ide.prg     dialog.ch dbfedit.prg dbfdel.prg dbfmove.prg
+icondef.obj  : icondef.prg dialog.ch
+idesign.obj  : idesign.prg dialog.ch redefine.ch
+gencode.obj  : gencode.prg
+palette.obj  : palette.prg
+textbrow.obj : textbrow.prg
+lib.obj      : lib.prg

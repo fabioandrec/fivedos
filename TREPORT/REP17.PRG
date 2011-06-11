@@ -1,0 +1,75 @@
+#include "FiveWin.ch"
+#include "report.ch"
+
+#define RPT_LEFT     1
+#define RPT_RIGHT    2
+#define RPT_CENTER   3
+#define RPT_TOP      4
+#define RPT_BOTTOM   5
+
+#define INCHES   1
+#define CMETERS  2
+
+
+STATIC oReport
+
+Function Rep17()
+
+     USE TEST INDEX TEST NEW
+
+     REPORT oReport ;
+          TITLE  "*** Fivewin Report ***"  ;
+          PREVIEW
+
+     COLUMN TITLE "St" DATA Test->State
+
+     COLUMN TITLE "First Name", "Last Name" ;
+            DATA  Test->First, Test->Last
+
+     COLUMN TITLE "Street", "City"  ;
+            DATA  Test->Street, Test->City
+
+     COLUMN TITLE "   Salary"  ;
+            DATA  Test->Salary ;
+            TOTAL
+
+     END REPORT
+
+     /*
+     In Spanish
+     */
+
+     oReport:lSpanish := .T.
+
+     /*
+     Descriptions for page total and grand total
+     */
+
+     oReport:cPageTotal := "Page Total..."
+     oReport:cGrandTotal := "Grand Total..."
+
+     /*
+     No Up line on column titles
+     */
+
+     oReport:cTitleUpChr := ""
+
+     /*
+     @ for total lines
+     */
+
+     oReport:cTotalChr := "@"
+
+     /*
+     Left margin at 1 inch
+     */
+
+     oReport:Margin(1, RPT_LEFT, INCHES)
+
+     ACTIVATE REPORT oReport
+
+     CLOSE TEST
+
+RETURN NIL
+
+

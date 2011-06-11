@@ -1,0 +1,218 @@
+#line 1 "c:\clipper5\include\error.ch"
+#line 9 "ERRSYS2.PRG"
+#line 1 "c:\Fivedos\include\FiveDos.ch"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+external nMRow, nMCol
+#line 1 "c:\Fivedos\include\Objects.ch"
+#line 32 "FiveDos.ch"
+#line 1 "c:\clipper5\include\InKey.ch"
+#line 33 "FiveDos.ch"
+#line 1 "c:\Fivedos\include\Window.ch"
+#line 34 "FiveDos.ch"
+#line 1 "c:\Fivedos\include\MenuBld.ch"
+#line 35 "FiveDos.ch"
+#line 1 "c:\Fivedos\include\Browse.ch"
+#line 36 "FiveDos.ch"
+#line 1 "c:\Fivedos\include\Dialog.ch"
+#line 37 "FiveDos.ch"
+#line 1 "c:\Fivedos\include\database.ch"
+#line 1 "c:\Fivedos\include\fivedos.ch"
+#line 3 "database.ch"
+#line 38 "FiveDos.ch"
+#line 1 "c:\Fivedos\include\inits.ch"
+#line 39 "FiveDos.ch"
+#line 1 "c:\Fivedos\include\Redefine.ch"
+#line 40 "FiveDos.ch"
+#line 10 "ERRSYS2.PRG"
+#line 1 "c:\Fivedos\include\SysStr.ch"
+#line 13 "ERRSYS2.PRG"
+
+
+
+
+
+
+
+proc ErrorSys()
+    ErrorBlock( { | e | ErrorDialog( e ) } )
+return
+
+
+
+
+
+function ErrorDialog( e )                  
+
+    local oDlg
+    local lRet                                    
+    local i, cMessage, aStack := {}
+    local nButtons := 1
+    local lLog := .F., cTemp, nFile
+
+    local aSysMsg := aSysStr()
+
+
+    if ( e:genCode == 5 )
+        return (0)
+    end
+
+
+
+    if ( e:genCode == 21 .AND. e:osCode == 32 .AND. e:canDefault )
+
+        NetErr(.T.)
+        return .F.                                 
+
+    end
+
+
+
+    if ( e:genCode == 40 .AND. e:canDefault )
+
+        NetErr(.T.)
+        return .F.                                 
+
+    endif
+
+    if e:canRetry
+        nButtons++
+    endif
+
+    if e:canDefault
+        nButtons++
+    endif
+
+
+
+    cMessage := ErrorMessage(e)
+
+
+    i := 2
+    while ( i < 74 )
+
+        if !Empty(ProcName(i))
+
+            AAdd( aStack, "Called from " + Trim(ProcName(i)) +  "(" + ( LTrim(Str(ProcLine(i))) ) + ")" )
+        endif
+
+        i++
+    end
+
+
+    oDlg := TWindow():New( nil, nil,,, 67, 17, ( "FiveDos 1.0" + " Error dialog box" ),, .F., .F., .T., .T., .T. , .F., .F., , .F.,,,, )
+
+    TSay():New( 1, 2, {|| cMessage}, "gr+/bg", oDlg, if( .F., 0, -1 ),,, )
+
+    i = aStack[ 1 ]
+
+
+
+
+    TListBox():New( 3, 2, 45, 9, { | uVal | If( Empty( PCount() ), i, i := uVal ) }, aStack, "&Pila de Llamadas",,, oDlg,,,, )
+
+    TCheckBox():New( 13, 11, '&Generar "Error.log"',,, oDlg, {}, {}, { | uVal | If( Empty( PCount() ), lLog, lLog := uVal ) } , ] )
+
+
+
+
+    TButton():New( if( nButtons > 1, 4, 7 ), 50, "&Quit",, 12, 3, oDlg, {|| oDlg:Close()},,,,,, )
+
+    if e:canRetry
+
+
+
+        TButton():New( if( nButtons == 2, 10, 9 ), 50, "&Retry",, 12, 1, oDlg, {|| ( lRet := .T., oDlg:Close() )},,,,,, )
+    endif
+
+    if e:canDefault
+
+
+
+        TButton():New( 12, 50, "De&fault",, 12, 1, oDlg, {|| ( lRet := .F., oDlg:Close() )},,,,,, )
+
+    endif
+
+    oDlg:Activate( "", .F.,,,,,,,,,,, .F.,, )
+
+    if lLog
+
+        if ( nFile := FOpen( "Error.log", 2 ) ) < 0
+            FCreate( "error.log", 0 )
+            nFile = FOpen( "Error.log", 2 )
+        else
+            FSeek( nFile, 0, 2 )            
+        endif
+
+        cTemp    = "------>" + dtoc( date() ) + "  " + time() + Chr( 13 ) + Chr( 10 )
+        cMessage = "------>" + cMessage + Chr( 13 ) + Chr( 10 )
+        FWrite( nFile, cTemp, len( cTemp ) )
+        FWrite( nFile, @cMessage )
+
+
+
+
+
+
+
+
+        cTemp = cErrorLog( 2 )
+        FWrite( nFile, cTemp, len( cTemp ) )
+
+        FClose( nFile )
+
+    endif
+
+    if lRet == nil
+        ErrorLevel( 1 )
+        __Quit()                                
+    endif
+
+return lRet
+
+
+
+
+
+
+static func ErrorMessage(e)
+
+
+
+
+    local cMessage := if( empty( e:osCode ),  if( e:severity > 1, "Error ", "Warning " ), "(Error DOS " + ( LTrim(Str(e:osCode)) ) + ") " )
+
+
+
+
+    cMessage += if( ValType( e:subsystem ) == "C", e:subsystem()                , "???" )
+
+
+
+
+    cMessage += if( ValType( e:subCode ) == "N", "/" + ( LTrim(Str(e:subCode)) )   , "/???" )
+
+    if ( ValType(e:description) == "C" )
+        cMessage += "  " + e:description
+    end
+
+
+
+
+
+
+    cMessage += if( !Empty( e:filename ), ": " + e:filename   , if( !Empty( e:operation ), ": " + e:operation   , "" ) )
+return cMessage

@@ -1,0 +1,1269 @@
+!short: CLASE ^BTWindow^B                                                               
+'------------------------------------------------------------------------------'
+    Esta clase da soporte para el manejo y creaci¢n de la ventanas.
+!SeeAlso: Window.ngo:Window.CH
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:aClrLabel^B        Array de colores para los label de los controles.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:aPopMenus^B        Array de objetos menus abiertos de la ventana.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:aViews^B           Array de ventanas hijas visibles por orden de visualizaci¢n.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:aWindows^B         Array de ventanas hijas.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bClosed^B          Codeblock que se evalua cuando la ventana es cerrada.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bMoved^B           Codeblock que se evalua cuando la ventana es movida.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bSized^B           Codeblock que se evalua cuando cambia de tama¤o la ventana.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cDftMsg^B          Mensaje por defecto de la ventana.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cTitle^B           Titulo de la ventana.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lDrag^B            Indica si se permite mover o no la ventana.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lEnd^B             Ser  verdadero cuando la ventana se quiera cerrar.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lMaximized^B       Indica si la ventana est  maximizada o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lMinimized^B       Indica si la ventana est  minimizada o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lModal^B           Indica si la ventana es modal o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lMsgChanged^B      Indica si se ha cambiado el mensaje o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrHiBox^B        Color del borde superior e izquierdo de las ventanas de menu.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrHiTitle^B      Atributo del t¡tulo de la ventana cuando est  activa.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrLoBox^B        Color del borde inferior y derecho de las ventanas de menu.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrLoTitle^B      Atributo del t¡tulo de la ventana cuando no est  activa.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrNormal^B       Atributo de la ventana.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nCursor^B          Tipo del cursor de la ventana.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nNode^B            N£mero de ventana hija seleccionada.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nOldWndRect^B      Contiene la posici¢n y tama¤o de la ventana.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nStyle^B           Determina las caracter¡sticas de la ventana.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nViewPos^B         Es el n£mero de la ventana actualmente seleccionada.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nWndIcon^B         Contiene el tama¤o y posici¢n de la ventana cuando se iconiza.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oBar^B             Referencia a la Barra de botones.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oClient^B          Referencia al objeto interior de la ventana.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oHScroll^B         Referencia a la barra de scroll horizontal.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oMenu^B            Referencia al menu de la ventana.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oParent^B          Referencia al objeto al que pertenece la ventana.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oSysMenu^B         Referencia al menu de sistema.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oVScroll^B         Referencia al la barra de scroll vertical.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nResult^B          Contiene el resultado de la ejecuci¢n de la ventana.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:Activate^B         Ejecuta una ventana.                                        ^B
+'------------------------------------------------------------------------------'
+^U Activate
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Activate( cShow, lNoWait, bWhen, bValid, bClick, bMoved, bPaint,
+              bSized, bScrollUp, bScrollDown, bScrollLeft, bScrollRight,
+              lCenter, bInit, bClosed ) -> NIL
+
+^B Descripci¢n:^B
+    Ejecuta una ventana.
+
+    ^BcShow^B        Determina la forma que ser  mostrada la ventana. Admite
+                     los siguientes valores:
+
+                     þ "NORMAL"    La ventana se mostrar  tal y como se defini¢.
+
+                     þ "ICONIZED"  La ventana se muestra iconizada.
+
+                     þ "MAXIMIZED" La ventana ocupar  toda la pantalla.
+
+    ^BlNoWait^B      Indica si la ventana es modal o no. Ser  verdadero si
+                     la ventana es amodal y falso si la ventana es modal.
+
+    ^BbWhen^B        Codeblock que informar  si la ventana puede cojer focus.
+
+    ^BbValid^B       Codeblock para validar la ventana.
+
+    ^BbClick^B       Codeblock que se ejecutar  cada vez que se haga click con
+                     el rat¢n.
+
+    ^BbMoved^B       Codeblock que se ejecutar  cuando la ventana sea movida.
+
+    ^BbPaint^B       Codeblock que se ejecutar  cada vez que se pinte la ventana.
+
+    ^BbSized^B       Codeblock que se ejecutar  cuando la ventana cambie de
+                     tama¤o.
+
+    ^BbScrollUp^B    Codeblock que se ejecutar  cuando se haga scroll de la
+                     ventana hacia arriba.
+
+    ^BbScrollDown^B  Codeblock que se ejecutar  cuando se haga scroll de la
+                     ventana hacia abajo.
+
+    ^BbScrollLeft^B  Codeblock que se ejecutar  cuando se haga scroll de la
+                     ventana hacia la izquierda.
+
+    ^BbScrollRight^B Codeblock que se ejecutar  cuando se haga scroll de la
+                     ventana hacia la derecha.
+
+    ^BlCenter^B      Indica si se quiere centrar la ventana.
+
+    ^BbInit^B        Codeblock que se ejecutar  cuando se abra la ventana.
+
+    ^BbClosed^B      Codeblock que se ejecutar  cuando se cierra la ventana.
+
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:AddChild^B         A¤ade una ventana hija.                                     ^B
+'------------------------------------------------------------------------------'
+^U AddChild
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    AddChild( oWnd ) -> NIL
+
+^B Descripci¢n:^B
+    A¤ade una ventana en el array de ventanas hijas ^B::aWindows^B y pone la
+    referencia del objeto ^BoWnd:oParent^B a ^BSelf.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:AddControl^B       A¤ade un control a la ventana.                              ^B
+'------------------------------------------------------------------------------'
+^U AddControl
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    AddControl( oCtrl ) -> NIL
+
+^B Descripci¢n:^B
+    A¤ade un control ^BoCtrl^B al cliente de la ventana.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:AddPopUp^B         A¤ade un menu a la ventana.                                 ^B
+'------------------------------------------------------------------------------'
+^U AddPopUp
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    AddPopUp( oPopUp ) -> NIL
+
+^B Descripci¢n:^B
+    A¤ade un menu a la ventana a¤adiendolo al array ^B::aPopMenus.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Box^B              Dibuja una caja en la ventana.                              ^B
+'------------------------------------------------------------------------------'
+^U Box
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Box( nTop, nLeft, nBottom, nRight, cBox, nColor )
+
+^B Descripci¢n:^B
+    Dibuja una caja desde la pocici¢n ^BnTop^B, ^BnLeft^B y hasta la posici¢n
+    ^BnBottom^B, ^BnRigh^B usando los caracteres ^BcBox^B y el color ^BnColor.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Box3D^B            Dibuja una caja simulando 3D.                               ^B
+'------------------------------------------------------------------------------'
+^U Box3D
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Box3D( nTop, nLeft, nBottom, nRight [, nLeftClr, nRightClr ] ) -> NIL
+
+^B Descripci¢n:^B
+    Dibuja una caja simulando 3D. Hay que tener en cuenta que las coordenadas
+    son con respecto al origen del objeto donde se pinta.
+    ^BnTop^B, ^BnLeft^B, ^BnBottom^B y ^BnRight^B representan las coordenadas usadas para
+    pintar la caja. ^BnLeftClr^B es el color usado por el borde superior y el
+    izquierdo de la caja mientras que ^BnRightClr^B es el color usado por el
+    borde inferior y el derecho.
+    Por defecto se toma para ^BnLeftClr^B el color ^BnClrHiBox^B y para ^BnRightClr^B el
+    color ^BnClrNormal.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ChangeFocus^B      Cambia la ventana activa.                                   ^B
+'------------------------------------------------------------------------------'
+^U ChangeFocus
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ChangeFocus( oView ) -> NIL
+
+^B Descripci¢n:^B
+    Hace que la ventana activa sea ^BoView.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ChangeOrg^B        Cambia el origen del cliente de la ventana.                 ^B
+'------------------------------------------------------------------------------'
+^U ChangeOrg
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ChangeOrg( nRows, nCols ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia el origen del objeto cliente. Se le pasa las filas y columnas que
+    se debe desplazar siendo los valores negativos desplazamientos hacia atr s.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ChangePos^B        Cambia la posici¢n de la ventana.                           ^B
+'------------------------------------------------------------------------------'
+^U ChangePos
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ChangePos( nRows, nCols ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia la posici¢n de la ventana. Recibe las filas y las columnas que se
+    desplazar , siendo valores negativos desplazamientos hacia arriba en caso
+    de las filas y hacia la izquierda en caso de las columnas.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ChangeSize^B       Cambia el tama¤o de la ventana.                             ^B
+'------------------------------------------------------------------------------'
+^U ChangeSize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ChangeSize( nWidth, nHeight ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia el tama¤o de la ventana. Siendo el nuevo ancho ¤o determinado por
+    el par metro ^BnWidth^B y el nuevo alto por ^BnHeight.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Click^B            Maneja las pulsaciones del rat¢n.                           ^B
+'------------------------------------------------------------------------------'
+^U Click
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Click( nMRow, nMCol, lDblClick ) -> NIL
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones del rat¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ClientDown^B       Desplaza el origen del cliente una fila hacia abajo.        ^B
+'------------------------------------------------------------------------------'
+^U ClientDown
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ClientDown() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza hacia abajo el origen del cliente ^B::oClient^B una fila.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ClientEnd^B        Desplaza el origen del cliente hasta el final.              ^B
+'------------------------------------------------------------------------------'
+^U ClientEnd
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ClientEnd() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza hasta el final el origen del cliente ^B::oClient.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ClientHome^B       Desplaza el origen del cliente hasta el principio.          ^B
+'------------------------------------------------------------------------------'
+^U ClientHome
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ClientHome() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza hasta el principio el origen del cliente ^B::oClient.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ClientLeft^B       Desplaza el origen del cliente una columna a la izquierda.  ^B
+'------------------------------------------------------------------------------'
+^U ClientLeft
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ClientLeft() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el origen del cliente una columna a la izquierda.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ClientPgDown^B     Desplaza el origen del cliente una p gina hacia abajo.      ^B
+'------------------------------------------------------------------------------'
+^U ClientPgDown
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ClientPgDown() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el origen del cliente una p gina hacia abajo.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ClientPgLeft^B     Desplaza el origen del cliente una p gina a la izquierda.   ^B
+'------------------------------------------------------------------------------'
+^U ClientPgLeft
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ClientPgLeft() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el origen del cliente una p gina a la izquierda.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ClientPgRight^B    Desplaza el origen del cliente una p gina a la derecha.     ^B
+'------------------------------------------------------------------------------'
+^U ClientPgRight
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ClientPgRight() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el origen del cliente una p gina a la derecha.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ClientPgUp^B       Desplaza el origen del cliente una p gina hacia arriba.     ^B
+'------------------------------------------------------------------------------'
+^U ClientPgUp
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ClientPgUp() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el origen del cliente una p gina hacia arriba.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ClientRight^B      Desplaza el origen del cliente una columa a la derecha.     ^B
+'------------------------------------------------------------------------------'
+^U ClientRight
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ClientRight() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el origen del cliente una columna a la derecha.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ClientUp^B         Desplaza el origen del cliente una fila hacia arriba.       ^B
+'------------------------------------------------------------------------------'
+^U ClientUp
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ClientUp() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el origen del cliente una fila hacia arriba.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Close^B            Cierra la ventana.                                          ^B
+'------------------------------------------------------------------------------'
+^U Close
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Close( nResult ) -> lClosed.
+
+^B Descripci¢n:^B
+    Cierra la ventana y asigna a la variable de instancia ^BnResult^N el resultado de la
+    ejecuci¢n de la ventana.
+    Por defecto ser  0 cuando se cierra con Alt-F4 o con doble click en la
+    esquina superior izquierda; y ser  -1 cuando se termine con ESC.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:DelAllPop^B        Cierra todos los menus abiertos.                            ^B
+'------------------------------------------------------------------------------'
+^U DelAllPop
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    DelAllPop() ->  NIL
+
+^B Descripci¢n:^B
+    Cierra todos los menus.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:DelChild^B         Borra una ventana hija.                                     ^B
+'------------------------------------------------------------------------------'
+^U DelChild
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    DelChild( oChl ) -> NIL
+
+^B Descripci¢n:^B
+    Borra una ventana del array de ventanas hijas ^B::aWindows^B y pone la
+    referencia del objeto ^BoChl:oParent^B a ^Bnil^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:DelPopUp^B         Elimina el £ltimo menu del array ^B::aPopMenu.^B                ^B
+'------------------------------------------------------------------------------'
+^U DelPopUp
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    DelPopUp() -> NIL
+
+^B Descripci¢n:^B
+    Borra el £ltimo menu del array ^B::aPopMenu.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Destroy^B          Destructor de la clase.                                     ^B
+'------------------------------------------------------------------------------'
+^U Destroy
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Destroy() -> NIL
+
+^B Descripci¢n:^B
+    Es el destructor de la clase. Generalmente libera caracteres redefinidos
+    por la ventana a alguno de sus controles.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:DispBegin^B        Aumenta el contador de salida a pantalla.                   ^B
+'------------------------------------------------------------------------------'
+^U DispBegin
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    DispBegin() -> nDispCount
+
+^B Descripci¢n:^B
+    Este metodo aumenta en uno el contador de control de salida a pantalla
+    de manera que hasta que no llegue de nuevo a 0 mediante llamadas al m‚todo
+    DispEnd todas las operaciones de pintado no se volcar n a la pantalla.
+
+^B Retorno:^B
+    Devuelve el valor actual del contador.
+
+'------------------------------------------------------------------------------'
+!short:DispEnd^B          Decrementa el contador de control de salida a pantalla.     ^B
+'------------------------------------------------------------------------------'
+^U DispEnd
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    DispEnd() -> NIL
+
+^B Descripci¢n:^B
+    Decrementa el contador de control de salida ^B::nDispCount.^B Cuando llega
+    a cero se refresca la vista hasta ese momento todas las operaciones se
+    hacen sobre buffer.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Display^B          Muestra la ventana en la pantalla.                          ^B
+'------------------------------------------------------------------------------'
+^U Display
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Display( lWait ) -> NIL
+
+^B Descripci¢n:^B
+    Muestra la ventana en la pantalla. ^BlWait^B indica si la ventana es modal
+    o si no lo es.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:End^B              Cierra la ventana. Igual que ^BClose.^B                         ^B
+'------------------------------------------------------------------------------'
+^U End
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    End( nResult ) -> lClosed
+
+^B Descripci¢n:^B
+    Este m‚todo existe por compatibilidad con FiveWin es igual que Close().
+
+^B Retorno:^B
+    Devuelve lClosed.
+
+'------------------------------------------------------------------------------'
+!short:Hide^B             Oculta la ventana.                                          ^B
+'------------------------------------------------------------------------------'
+^U Hide
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Hide() -> NIL
+
+^B Descripci¢n:^B
+    Oculta una ventana.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:KeyMove^B          Mueve la ventana con el teclado.                            ^B
+'------------------------------------------------------------------------------'
+^U KeyMove
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeyMove() -> NIL
+
+^B Descripci¢n:^B
+    Mueve la ventana con los cursores. La operaci¢n termina con Enter, Escape o
+    pulsando el boton del rat¢n. Cuando finaliza se ejecuta el codeblock ^BbMoved.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:KeyPressed^B       Maneja las pulsaciones del teclado.                         ^B
+'------------------------------------------------------------------------------'
+^U KeyPressed
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nKey
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones del teclado. Devuelve 0 cuando se ha manejado la
+    tecla y el valor pasado cuando no se ha manejado.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:KeySize^B          Cambia el tama¤o de la ventana con el teclado.              ^B
+'------------------------------------------------------------------------------'
+^U KeySize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeySize() -> NIL
+
+^B Descripci¢n:^B
+    Cambia el tama¤o de la ventana con el teclado. Se termina la operaci¢n con
+    Enter, Escape o pulsando el boton del rat¢n. Una vez finalizado se ejecuta
+    el codeblock ^BbSized.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Maximize^B         Maximiza la ventana.                                        ^B
+'------------------------------------------------------------------------------'
+^U Maximize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Maximize() -> NIL
+
+^B Descripci¢n:^B
+    Hace que la ventana ocupe toda la pantalla. Vea tambi‚n ^B::nStyle^B para
+    saber como impedir que se puede maximizar o minimizar.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Minimize^B         Iconiza la ventana.                                         ^B
+'------------------------------------------------------------------------------'
+^U Minimize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Minimize() -> NIL
+
+^B Descripci¢n:^B
+    Iconiza la ventana y la posiciona en la parte inferior izquierda de la
+    pantalla. Vea tambi‚n ^B::nStyle^B para saber como impedir que se pueda
+    minimizar o maximizar.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:MouseMove^B        Para actualizar el cursor del rat¢n.                        ^B
+'------------------------------------------------------------------------------'
+^U MouseMove
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MouseMove( nMRow, nMCol ) -> NIL
+
+^B Descripci¢n:^B
+    Siempre que se ha movido el rat¢n o la ventana se llama a este m‚todo para
+    actualizar el cursor del rat¢n y los mensajes si los hubiere.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Move^B             Mueve la ventana con el rat¢n.                              ^B
+'------------------------------------------------------------------------------'
+^U Move
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Move() -> NIL
+
+^B Descripci¢n:^B
+    Se usa para mover la ventana usando el rat¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Constructor de la clase.                                    ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nTop, nLeft, nBottom, nRight, nWidth, nHeight,
+         cTitle, cColor, lNoSysMenu, lNoDrag, lNoResize,
+         lNoIconize, lNoMaximize, lVScroll, lHScroll, oMenu,
+         lNoShadow, oWnd, nStyle, cBrush, cLabelColors ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Se usar  para obtener una nueva instancia
+    de la clase. Recibe los par metros:
+
+    ^BnTop^B            Fila superior.
+    ^BnLeft^B           Columna izquierda.
+    ^BnBottom^B         Fila inferior.
+    ^BnRight^B          Columna derecha.
+    ^BnWidth^B          Ancho de la ventana.
+    ^BnHeight^B         Alto de la ventana.
+    ^BcTitle^B          T¡tulo de la ventana.
+    ^BcColor^B          Cadena con el color.
+    ^BlNoSysMenu^B      Indica si tiene menu de sistema o no.
+    ^BlNoDrag^B         Indica si se puede mover la ventana o no.
+    ^BlNoResize^B       Indica si se puede redimensionar o no.
+    ^BlNoIconize^B      Indica si se puede minimizar o no.
+    ^BlNoMaximize^B     Indica si se puede maximizar o no.
+    ^BlVScroll^B        Indica si tiene barra de scroll vertical.
+    ^BlHScroll^B        Indica si tiene barra de scroll horizontal.
+    ^BoMenu^B           Referencia al objeto menu de la ventana.
+    ^BlNoShadow^B       Indica si tiene sombra o no.
+    ^BoWnd^B            Referencia al objeto que contiene a la ventana.
+    ^BnStyle^B          Estilo de la ventana.
+    ^BcBrush^B          Caracter usado por el cliente de la ventana.
+    ^BcLabelColors^B    Color para los label de los controles.
+
+^B Retorno:^B
+    Devuelve una referencia a la instancia creada de la clase.
+
+'------------------------------------------------------------------------------'
+!short:Normal^B           Restaura el tama¤o de la ventana.                           ^B
+'------------------------------------------------------------------------------'
+^U Normal
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Normal() -> NIL
+
+^B Descripci¢n:^B
+    Despu‚s de maximizar o minimizar la ventana con este m‚todo la devolvemos
+    a su tama¤o ^Bnormal.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Paint^B            Pinta la ventana.                                           ^B
+'------------------------------------------------------------------------------'
+^U Paint
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Paint( cVPTgt ) -> NIL
+
+^B Descripci¢n:^B
+    Pinta la ventana en el la estrucura pasada ^BcVPTgt.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Refresca la imagen de la ventana.                           ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci¢n:^B
+    Actualiza la im gen de la ventana.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Resize^B           Cambia el tama¤o de la ventana con el rat¢n.                ^B
+'------------------------------------------------------------------------------'
+^U Resize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Resize( nSelect ) -> NIL
+
+^B Descripci¢n:^B
+    Redimensiona la ventana con el rat¢n. ^BnSelect^B determina la direcci¢n en
+    que se redimensiona. Si es NIL se redimensiona en ambos sentidos, si es
+    IDC_SIZENS se puede dimensiona en vertical y si se IDC_SIZEWE se dimensiona
+    en horizontal.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Run^B              Ejecuta la ventana.                                         ^B
+'------------------------------------------------------------------------------'
+^U Run
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Run() -> NIL
+
+^B Descripci¢n:^B
+    Ejecuta la ventana es decir, captura los eventos que se produzcan y los
+    maneja o los envia a quien corresponda para que sean manejados. Es
+    invocado por ^BActivate.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Say^B              Pone un texto en la ventana.                                ^B
+'------------------------------------------------------------------------------'
+^U Say
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Say( nRow, nCol, cText, cColor ) -> NIL
+
+^B Descripci¢n:^B
+    Dibuja el texto ^BcText^B en la ventana en la posicion definida por ^BnRow^B,
+    ^BnCol^B y usando el color especificado por ^BcColor^B o si no se especifica
+    ^B::nClrNormal.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ScrFlash^B         Refresca todas las vistas de la pantalla.                   ^B
+'------------------------------------------------------------------------------'
+^U ScrFlash
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ScrFlash() -> NIL
+
+^B Descripci¢n:^B
+    Actualiza todas las vistas de la pantalla.
+
+^B Retorno:^B
+    Return NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetBar^B           Inserta una barra de botones en la ventana.                 ^B
+'------------------------------------------------------------------------------'
+^U SetBar
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetBar( oBar ) -> NIL
+
+^B Descripci¢n:^B
+    Inserta la barra de botones ^BoBar^B en la ventana y se la asigna a la
+    variable ^B::oBar.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        Asigna los colores a usar por la ventana.                   ^B
+'------------------------------------------------------------------------------'
+^U SetColors
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetColors( cColor, cLabelColors ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna los colores a usar por la ventana. En ^BcColor^B se especifica
+    los colores para la ventana y en ^BcLabelColors^B los colores para los
+    controles. Ambos deben ser de tipo cadena separados por comas.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetCurrent^B       Selecciona la ventana.                                      ^B
+'------------------------------------------------------------------------------'
+^U SetCurrent
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetCurrent() -> NIL
+
+^B Descripci¢n:^B
+    Hace que la ventana sea la activa.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetCursor^B        Cambia el tipo del cursor de la ventana.                    ^B
+'------------------------------------------------------------------------------'
+^U SetCursor
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetCursor( nCursor ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia el cursor de la ventana. ^BnCursor^B puede ser cualquier tipo de los
+    estandard de clipper.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetFocus^B         Activa o desactiva el focus de la ventana.                  ^B
+'------------------------------------------------------------------------------'
+^U SetFocus
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetFocus( lOnOff ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia el estado del focus de la ventana.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetMessage^B       Asigna el mensaje de la ventana.                            ^B
+'------------------------------------------------------------------------------'
+^U SetMessage
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetMessage( cMsg ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia el mensaje que aparecera en la fila inferior de la ventana.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetPos^B           Cambia la posici¢n de la ventana.                           ^B
+'------------------------------------------------------------------------------'
+^U SetPos
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetPos( nNewRow, nNewCol ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia la posici¢n de la ventana.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:UpdateOwner^B      Actualiza la im gen de la ventana en la ventana padre.      ^B
+'------------------------------------------------------------------------------'
+^U UpdateOwner
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    UpdateOwner() -> NIL
+
+^B Descripci¢n:^B
+    Si la ventana es un objeto hijo se actualiza la im gen del padre con la
+    de la ventana, si no, se actualiza la pantalla.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:lIsOverBar^B       Indica si est  sobre la barra de botones.                   ^B
+'------------------------------------------------------------------------------'
+^U lIsOverBar
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lIsOverBar( nMRow, nMCol ) -> lIsOver
+
+^B Descripci¢n:^B
+    Indica si la pocici¢n ^BnMRow^B, ^BnMCol^B est  sobre la barra de botones.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:lIsOverClient^B    Indica si est  sobre el objeto cliente.                     ^B
+'------------------------------------------------------------------------------'
+^U lIsOverClient
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lIsOverClient( nMRow, nMCol ) -> lIsOver
+
+^B Descripci¢n:^B
+    Indica si la posici¢n ^BnMRow, ^BnMCol est  sobre el objeto ^B::oClient.^B
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:lIsOverClose^B     Indica si est  sobre el icono de cerrado.                   ^B
+'------------------------------------------------------------------------------'
+^U lIsOverClose
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lIsOverClose( nMRow, nMCol ) -> lIsOver
+
+^B Descripci¢n:^B
+    Indica si la posici¢n de ^BnMRow^B, ^BnMCol^B est  sobre el icono de cerrado
+    de la ventana.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:lIsOverMaximize^B  Indica si est  sobre el icono de maximizar.                 ^B
+'------------------------------------------------------------------------------'
+^U lIsOverMaximize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lIsOverMaximize( nMRow, nMCol ) -> lIsOver
+
+^B Descripci¢n:^B
+    Indica si la posici¢n ^BnMRow^B, ^BnMCol^B est  sobre el icono de maximizar.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:lIsOverMenu^B      Indica si est  sobre el menu.                               ^B
+'------------------------------------------------------------------------------'
+^U lIsOverMenu
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lIsOverMenu( nMRow, nMCol ) -> lIsOver
+
+^B Descripci¢n:^B
+    Indica si la posici¢n ^BnMRow^B, ^BnMCol^B est  sobre el menu.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:lIsOverMinimize^B  Indica si est  sobre el icono de minimizar.                 ^B
+'------------------------------------------------------------------------------'
+^U lIsOverMinimize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lIsOverMinimize( nMRow, nMCol ) -> lIsOver
+
+^B Descripci¢n:^B
+    Indica si la posici¢n ^BnMRow^B, ^BnMCol^B est  sobre el icono de minimizar.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:lIsOverResize^B    Indica si est  sobre la zona de redimensionar.              ^B
+'------------------------------------------------------------------------------'
+^U lIsOverResize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lIsOverResize( nMRow, nMCol ) -> lIsOver
+
+^B Descripci¢n:^B
+
+^B Retorno:^B
+    Indica si la posici¢n ^BnMRow^B, ^BnMCol^B est  sobre la zona de redimensionar.
+
+'------------------------------------------------------------------------------'
+!short:lIsOverTitle^B     Indica si est  sobre el t¡tulo.                             ^B
+'------------------------------------------------------------------------------'
+^U lIsOverTitle
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lIsOverTitle( nMRow, nMCol ) -> lIsOver
+
+^B Descripci¢n:^B
+    Indica si la posici¢n ^BnMRow^B, ^BnMCol^B est  sobre el t¡tulo de la ventana.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:nBottom^B          Da la fila final de la ventana.                             ^B
+'------------------------------------------------------------------------------'
+^U nBottom
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nBottom() -> nBottom
+
+^B Descripci¢n:^B
+    Da la fila final de la ventana.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nHeight^B          Da la altura de la ventana.                                 ^B
+'------------------------------------------------------------------------------'
+^U nHeight
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nHeight() -> nHeight
+
+^B Descripci¢n:^B
+    Da la altura de la ventana.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nLeft^B            Da la columna izquierda de la ventana.                      ^B
+'------------------------------------------------------------------------------'
+^U nLeft
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nLeft() -> nLeft
+
+^B Descripci¢n:^B
+    Da la columna izquierda de la ventana.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nRight^B           Da la columna derecha de la ventana.                        ^B
+'------------------------------------------------------------------------------'
+^U nRight
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nRight() -> nRight
+
+^B Descripci¢n:^B
+    Da la columna derecha de la ventana.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nTop^B             Da la fila inicial de la ventana.                           ^B
+'------------------------------------------------------------------------------'
+^U nTop
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nTop() -> nTop
+
+^B Descripci¢n:^B
+    Da la fila inicial de la ventana.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:nWidth^B           Da el ancho de la ventana.                                  ^B
+'------------------------------------------------------------------------------'
+^U nWidth
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nWidth() -> nWidth
+
+^B Descripci¢n:^B
+    Da el ancho de la ventana.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:oGetId^B           Busca el objeto por su identificativo.                      ^B
+'------------------------------------------------------------------------------'
+^U oGetId
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    oGetId( nId ) -> oChild
+
+^B Descripci¢n:^B
+    Nos busca el objeto hijo que tiene el identificativo nId. Si lo encuentra
+    devuelve una referencia al objeto hijo, si no, devuelve NIL.
+
+^B Retorno:^B
+    Devuelve una referencia a un objeto o NIL.
+
+'------------------------------------------------------------------------------'

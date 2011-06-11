@@ -1,0 +1,13 @@
+!Short:^U Introducci줻.
+!Short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!Short:
+!short:^B � Que es FiveDos ?.^B                                                         
+!file: WhatIsFd.ngo
+!short:^B Arquitectura de FiveDos.^B                                                    
+!file: Arquitec.ngo
+!short:^B Instalaci줻 y configuraci줻.^B                                                
+!file: Install.ngo
+!short:^B Compilaci줻^B                                                                 
+!file: Compilac.ngo
+!short:^B Enlazado^B                                                                    
+!file: Enlazado.ngo

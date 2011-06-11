@@ -1,0 +1,46 @@
+^U Definiendo Multip ginas y sus elementos.
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B    @ <nTop>, <nLeft> TO <nBottom>, <nRight> NOTEBOOK <oBook> OF <oWnd> ;
+^B        [ COLOR <cColors> ]
+
+^B    DEFINE NOTEBOOK <oBook> ;
+^B        FROM <nTop>, <nLeft> TO <nBottom>, <nRight> ;
+^B        OF <oWnd> [ COLOR <cColors> ] ;
+
+    Define una multip gina en la posici¢n determinada por las coordenadas
+    ^B<nTop>^B, ^B<nLeft>^B, ^B<nBottom>^B y ^B<nRight>^B que se asigna a la variable
+    ^B<oBook>^B. ^B<oWnd>^B es la ventana a la que pertenece la multip gina y
+    ^B<cColors>^B los colores a utilizar.
+
+
+^B    BEGIN PAGE [ <oPage> ] OF <oBook> ;
+^B        [ ON PAINT <bPaint> ] ;
+^B        [ COLOR    <cColor> ] ;
+
+    A¤ade la p gina ^B<oPage>^B al objeto TNBook ^B<oBook>^B.
+    ^B<bPaint>^B es un codeblock que se ejecuta al pintar la p gina.
+    ^B<cColor>^B es el color usado por la p gina.
+
+
+^B    @ <nRow>, <nCol> TABMENU [ <oTabMenu> VAR ] <nVar> ;
+^B             [ ITEMS <cItems,...> ] [ LIST <uList,...> ] [ ARRAY <aList> ] ;
+^B             [ <wnd: OF, WINDOW, DIALOG> <oWnd> ] ;
+^B             [ <help:HELPID, HELP ID> <nHelpId> ] ;
+^B             [ <change: ON CLICK, ON CHANGE> <uChange,...> ] ;
+^B             [ <color: COLOR, > <cColors> ] ;
+^B             [ WHEN <uWhen,...> ] ;
+^B             [ VALID <uValid,...> ] ;
+^B             [ <lAtBottom: AT BOTTOM> ] ;
+
+    Crea un objeto TTabMenu asignable a la variable ^B<oTabMenu>^B asignando el
+    elemento actual seleccionado a la variable ^B<nVar>^B.
+    Los elementos del menu se obtienen a partir de ^B<cItems>^B, ^B<uList>^B o
+    ^B<aList>^B.
+    ^B<oWnd>^B es la ventana a la que pertenece el menu.
+    ^B<nHelpId>^B es el identificativo de ayuda del menu.
+    ^B<uChange>^B es un codeblock que se ejecutar  cuando se cambie de elemento.
+    ^B<uWhen>^B es el codeblock de prevalidaci¢n.
+    ^B<uValid>^B es el codeblock de postvalidaci¢n.
+    ^B<lAtBottom>^B indica el TabMenu est  en la parte inferior.
+

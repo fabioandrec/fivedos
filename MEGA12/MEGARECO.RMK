@@ -1,0 +1,50 @@
+// RMake file to create MegaReco.exe
+// (c) 1996 - 1995 - 1994 - Juan Rios Olivares
+
+makepath[.obj]="obj"
+makepath[.ch]="..\include;."
+makepath[.c]="source"
+makepath[.prg]="source"
+chpath=\clip53\include;..\include;.
+
+.c.obj :
+    \borlandc\bin\bcc -X -Tq -c -B -O2 -2 -ml -I$(chpath) -o$@ $<
+
+.prg.obj :
+    clipper $< -n -l -w -q -I$(chpath) -o$@
+
+Extend.obj      : Extend.prg
+    clipper $< -o$@
+
+MegaReco.obj    : MegaReco.prg Megareco.ch
+Clientes.obj    : Clientes.prg Megareco.ch
+Proveedo.obj    : Proveedo.prg Megareco.ch
+Almacen.obj     : Almacen.prg  Megareco.ch
+Facturac.obj    : Facturac.prg Megareco.ch
+Images.obj      : Images.prg
+Calc.obj        : Calc.prg
+Calend.obj      : Calend.prg
+Clock.obj       : Clock.prg
+Indices.obj     : Indices.prg
+Misce.obj       : Misce.prg
+TFactura.obj    : TFactura.prg
+Array2F.obj     : Array2F.prg
+//Msgs.obj        : Msgs.prg
+//CantPan.obj     : CantPan.prg
+// TDigit.obj      : TDigit.prg
+// TDisplay.obj    : TDisplay.prg
+
+// VgaOnOff.obj    : VgaOnOff.c
+
+Mega.exe        : MegaReco.rmk MegaReco.lnk \
+                  MegaReco.obj Clientes.obj Proveedo.obj Misce.obj \
+                  Almacen.obj Clock.obj Calc.obj Calend.obj \
+                  Facturac.obj TFactura.obj Indices.obj images.obj
+    set lib=..\lib;\clip53\lib;c:\clip00\lib
+    set obj=.\obj
+    Blinker @MegaFile.Lnk @..\include\blinker.lnk
+    // RTLink @MegaFile.Lnk @MegaReco.lnk
+
+//# eof makefile
+//                   TDigit.obj TDisplay.obj
+

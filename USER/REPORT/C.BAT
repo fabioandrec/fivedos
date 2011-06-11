@@ -1,0 +1,3 @@
+rmake lis
+pause
+lista

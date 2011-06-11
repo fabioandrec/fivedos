@@ -1,0 +1,178 @@
+!short: CLASE ^BTCheckBox^B                                                             
+'------------------------------------------------------------------------------'
+    Clase derivada de TView para los checkbox. Un checkbox es una forma de
+    editar una variable del tipo l¢gico. Se representa en la pantalla como:
+    ^B[X] cLabel^B donde ^BcLabel^B es la etiqueta y ^BX^B representa que est 
+    seleccionado o que la variable que se edita est  activa.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:cText^B            Texto que aparece junto al campo de edici¢n.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrFocus^B        Color cuando est  seleccionado el objeto.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrHot^B          Color de la letra de acceso r pido.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrUnSel^B        Color cuando no tiene focus.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bSetGet^B          Codeblock para obtener y asignar la variable que se edita.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmpCh^B           Caracteres a usar cuando el checkbox est  seleccionado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmp^B             Bitmap a usar cuando el checkbox est  seleccionado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmpCh2^B          Caracteres a usar cuando el checkbox no est  seleccionado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmp2^B            Bitmap a usar cuando el checkbox no est  seleccionado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:Click^B            Maneja las pulsaciones del rat¢n.                           ^B
+'------------------------------------------------------------------------------'
+^U Click
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Click( nMRow, nMCol ) -> NIL
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones del rat¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Destroy^B          Es el destructor de la clase.                               ^B
+'------------------------------------------------------------------------------'
+^U Destroy
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Destroy() -> NIL
+
+^B Descripci¢n:^B
+    Es el destructor de la clase. Libera los caracteres reservados que se
+    hayan usado.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:KeyPressed^B       Es el manejador de pulsaciones del teclado.                 ^B
+'------------------------------------------------------------------------------'
+^U KeyPressed
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nKey
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones del teclado. Devuelve 0 si no se ha manejado la
+    tecla, si se ha manejado devuelve nKey.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Es el constructor de la clase.                              ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nRow, nCol, cText, cMsg, cColor, oWnd,
+         bWhen, bValid, bSetGet, cBmpFile, cBmpFile2 ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BnRow     ^B   Fila donde se situa el checkbox.
+    ^BnCol     ^B   Columna donde se situa el checkbox.
+    ^BcText    ^B   Etiqueta el objeto checkbox.
+    ^BcMsg     ^B   Mensaje que aparece cuando se selecciona.
+    ^BcColor   ^B   Cadena con los colores a usar.
+    ^BoWnd     ^B   Referencia de la ventana a la que pertenece.
+    ^BbWhen    ^B   Codeblock para prevalidaci¢n.
+    ^BbValid   ^B   Codeblock para postvalidaci¢n.
+    ^BbSetGet  ^B   Codeblock para la edici¢n de la variable.
+    ^BcBmpFile ^B   Fichero bitmap a usar cuando la variable sea .T.
+    ^BcBmpFile2^B   Fichero bitmap a usar cuando la variable sea .F.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto reci‚n creado.
+
+'------------------------------------------------------------------------------'
+!short:Redefine^B         Constructor desde recursos.                                 ^B
+'------------------------------------------------------------------------------'
+^U Redefine
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Redefine( cText, cMessage, cColor, nHelpId,
+                       bSetGet, bWhen, bValid ) -> Self
+
+^B Descripci¢n:^B
+    Constructor desde ficheros de recurso. Recibe los siguientes par metros:
+
+    ^BcText    ^B   Etiqueta el objeto checkbox.
+    ^BcMessage ^B   Mensaje que aparece cuando se selecciona.
+    ^BcColor   ^B   Cadena con los colores a usar.
+    ^BnHelpId  ^B   Identificativo de contexto de ayuda.
+    ^BbSetGet  ^B   Codeblock para la edici¢n de la variable.
+    ^BbWhen    ^B   Codeblock para prevalidaci¢n.
+    ^BbValid   ^B   Codeblock para postvalidaci¢n.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Muestra el objeto checkbox.                                 ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci¢n:^B
+    Muestra o actualiza el objeto checkbox.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        Para asignar los colores.                                   ^B
+'------------------------------------------------------------------------------'
+^U SetColors
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetColors( cColor ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna los colores a partir de la cadena de caracteres ^BcColor.^B En ‚sta
+    se codifican los cuatro colores que se utilizan que son:
+
+    1.- Color usado por el texto normal.
+    2.- Color usado por el texto cuando tiene focus.
+    3.- Color usado por la letra resaltada.
+    4.- Color usado por la texto cuando no tiene focus.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

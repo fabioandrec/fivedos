@@ -1,0 +1,47 @@
+!short:^U Lista de comandos xBase.
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:^BBAR              ^BDefiniendo Barras de Botones                                
+!file: Bar.ngo
+!short:^BBITMAP           ^BDefinici줻 de BitMaps                                       
+!file: BitMap.ngo
+!short:^BBROWSE           ^BDefiniendo Controles Browse                                 
+!file: Browse.ngo
+!short:^BBUTTON           ^BDefiniendo Botones                                          
+!file: Button.ngo
+!short:^BBUTTONBAR        ^BDefinici줻 de Barra de Botones                              
+!file: ButtonBa.ngo
+!short:^BBROWSE           ^BDefinici줻 de Listbox Browse y Field                        
+!file: Browse.ngo
+!short:^BCHECKBOX         ^BGenerando CheckBox                                          
+!file: CheckBox.ngo
+!short:^BCOMBOBOX         ^BGenerando ComboBox                                          
+!file: Combo.ngo
+!short:^BCOLUMN           ^BDefinir colunmas                                            
+!file: Column.ngo
+!short:^BDATABASE         ^BMenejo de Bases de Datos                                    
+!file: Database.ngo
+!short:^BGET              ^BDefiniendo Objetos Say                                      
+!file:gets.ngo
+!short:^BLABEL            ^BDefinici줻 de Labels                                        
+!file: Label.ngo
+!short:^BLISTBOX          ^BDefinici줻 de LISTBOX de array                              
+!file: Listbox.ngo
+!short:^BMENU             ^BDefiniendo y Activando Men즧                                
+!file: Menu.ngo
+!short:^BMETER            ^BDefinici줻 de barras de estado                              
+!file: Meter.ngo
+!short:^BNOTEBOOK         ^BDefiniendo multi p쟥inas                                    
+!file: NoteBook.ngo
+!short:^BRADIOBUTTON      ^BRadioButton Commands                                        
+!file: Radio.ngo
+!short:^BSAY              ^BDefiniendo Objetos Say                                      
+!file: Say.ngo
+!short:^BSCROLLBAR        ^BScrollBar controls                                          
+!file: Scrollba.ngo
+!short:^BSPIN             ^BControles Spin                                              
+!file: Spin.ngo
+!short:^BTIMER            ^BDefiniendo timers                                           
+!file: Timer.ngo
+!short:^BWINDOWS          ^BDefiniendo y activando ventanas                             
+!file: Window.ngo

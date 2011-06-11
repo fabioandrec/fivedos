@@ -1,0 +1,89 @@
+^U ¨ Que es FiveDos ?
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+   Suponemos que, como nosotros, est s "enganchado" al Clipper 5, por lo que
+   esperamos vas a usar FiveDos.
+
+   CA-Clipper hace f cil la creaci¢n de complejas aplicaciones en poco tiempo
+   y con poco esfuerzo.
+
+   La versi¢n 5 de CA-Clipper, nos ha entregado un conjunto de nuevas
+   posibilidades, si bien, la m s importante de ellas es la de aplicar las
+   T‚cnicas de Programaci¢n Orientada al Objeto ( POO, ¢ OOP en ingl‚s ).
+   Para ello necesitas la incorporaci¢n de una librer¡a, nuestro OBJECTS,
+   claro que FiveDos lo incorpora en su estructura.
+
+   FiveWin a roto barreras en la migraci¢n de Clipper hacia el entorno
+   Windows, creando una forma f cil y c¢moda para realizar aplicaciones
+   100% Window, con la ya cl sica productividad de Clipper.
+
+   Pero ... no todo el monte es or‚gano, ... ni todas las aplicaciones han
+   de marchar en windows, ni todos los posibles usuarios de estas lo tienen
+   instalado ( o lo pueden instalar) o ....
+
+   As¡ nace el primer "descendiente de FiveWin", FiveDos, para comenzar la
+   trilog¡a ( FiveWin, FiveDos y FiveOs2 ) con la que pretendemos crear
+   nuestra "programaci¢n en Clipper independiente del Sistema Operativo".
+   Si, ya estamos pensado en "FiveUnix", pero el tiempo dir  ...
+
+   De este modo nuestro compromiso es generar un producto que bajo la misma
+   sintaxis permita la generaci¢n de aplicaciones en DOS, con la misma
+   funcionalidad que en Windows, y lo que es m s importante: CON EL MISMO
+   CODIGO.
+
+   Nuestro sue¤o es llegar a la portabilidad total:
+                                                       Windows
+                                                     /
+                Un Fuente -- >> tres programas   ---<  Dos
+                                                     \
+                                                       OS/2
+
+   Es esta revisi¢n se incororan la mayor¡a de las funcionalidades de
+   FiveWin, excepto la MultiMedia ( es l¢gico no?? ), el MDI y alg£n
+   que otro detalle.
+
+   As¡ quisi‚ramos decir que
+
+        ^BFivedos es Windows sin Windows^B
+
+
+   Otra via de considerar el producto es verlo de forma aislada, es decir,
+   como un sistema de producci¢n independiente. De este modo se enfoca como
+   un sistema de interface con el usuario y herramienta de productividad
+   enfocada, principalmente, a darle al programador muchas ventajas:
+
+                - Rapidez      : ya est  el interface hecho.
+                - Consistencia : todo funciona igual ...
+                - Rentabilidad : reduccion de desarrollo.
+
+   Por otro lado se han aunado en un producto la funcionalidad del
+   ejecutable terminado con la sencillez de producci¢n. La uni¢n de
+   las t‚cnicas OOP, el Clipper y la sintaxis al puro estilo xBase
+   permiten una curva de asimilaci¢n muy r pida, en una palabra,
+   es la conbinaci¢n perfecta.
+
+   Nos hemos divertido escribiendo, FiveDos, nos hemos "enfadado" con
+   ‚l, pero aqu¡ est . El OOP nos ha ayudado de manera invaluable a la
+   consecuci¢n del projecto, sin estas t‚cnicas no hubiera sido posible.
+
+   Si no ha programado usando OOP, no espere m s. Obtenga su Objects con
+   su manual y ejemplos para, a partir de ‚l, comprender el funcionamiento
+   interno de FiveDos. El camino de la programaci¢n hoy en d¡a va tras los
+   pasos de las T‚cnicas OOP. No se quede atr s.
+
+   Esperamos la respuestas de nuestros usuarios en relaci¢n con FiveDos,
+   seguimos desarrollando, pero sois vosotros los que marcan el camino a
+   seguir. El contacto con los usuarios es lo que hace que un producto
+   realmente sirva para algo. Si escribes alguna utilidad, o quieres
+   hacernos llegar tus comentarios puedes hacerlo por correo, BBS, FidoNet
+   o  CompuServe. Las utilidades que nos envieis acompa¤ar n pr¢ximas
+   revisiones de  FiveDos. Queremos que se satisfagan las necesidades de
+   los "FiveAdictos".
+
+   Esperamos que nuestra pasi¢n por Five sea contagiosa,
+
+                        Saludos
+
+   FiveTeam
+   Octubre, 1995-4.
+

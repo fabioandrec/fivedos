@@ -1,0 +1,70 @@
+^U SCROLLBAR
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B    @ <nRow>, <nCol> SCROLLBAR [ <oSbr> ] ;
+^B        [ <horizontal:HORIZONTAL> ] [ <vertical:VERTICAL> ] ;
+^B        [ RANGE <nRANGE> ] ;
+^B        [ PAGESTEP <nPgStep> ] ;
+^B        [ SIZE <nLen> ] ;
+^B        [ ON UP <uUp> ] ;
+^B        [ ON DOWN <uDown> ] ;
+^B        [ ON PAGEUP <uPgUp> ] ;
+^B        [ ON PAGEDOWN <uPgDown> ] ;
+^B        [ ON THUMBPOS <uThumbPos> ] ;
+^B        [ WHEN    <uWhen> ]  ;
+^B        [ VALID   <uValid> ] ;
+^B        [ MESSAGE  <cMsg> ]  ;
+^B        [ <color: COLOR, COLORS> <cColors> ] ;
+^B        [ <wnd: OF, WINDOW, DIALOG> <oWnd> ] ;
+
+^B    <nRow>, <nCol>
+        Localizaci¢n donde se colocar  el objeto.
+
+^B    <oSbr>
+        Variable donde se almacenar  el objeto ScrollBar.
+
+^B    [ <horizontal:HORIZONTAL> ] [ <vertical:VERTICAL> ]
+        determina si la barra es horizontal o si es vertical.
+
+^B    [ RANGE <nRANGE> ]
+        Rango de valores a representar por el ScrollBar.
+
+^B    [ PAGESTEP <nPgStep> ]
+        Tama¤o de la p gina.
+
+^B    [ SIZE <nLen> ]
+        Alto o Ancho del objeto dependiendo de si es Vertical o Horizontal.
+
+^B    [ ON UP <uUp> ]
+        CodeBlock que se ejecutar  cuando se va al elemento anterior.
+
+^B    [ ON DOWN <uDown> ]
+        CodeBlock que se ejecutar  cuando se va al elemento posterior.
+
+^B    [ ON PAGEUP <uPgUp> ]
+        CodeBlock que se ejecutar  cuando se va a la pag¡na anterior.
+
+^B    [ ON PAGEDOWN <uPgDown> ]
+        CodeBlock que se ejecutar  cuando se va a la pag¡na posterior.
+
+^B    [ ON THUMBPOS <uThumbPos> ]
+        CodeBlock que se ejecuta cuando se mueve el puntero del scrollbar
+        con el rat¢n pulsando en el y arrastrandolo.
+
+^B    [ WHEN    <uWhen> ]
+        Determina si el objeto se puede seleccionar cuando va a recibir el
+        focus.
+
+^B    [ VALID   <uValid> ]
+        Determina si puede dejar de tener focus el objeto.
+
+^B    [ MESSAGE  <cMsg> ]
+        Determina el mensaje que aparecera siempre que se seleccione el
+        objeto.
+
+^B    [ <color: COLOR, COLORS> <cColors> ]
+        Colores con los que se pintar  el objeto.
+
+^B    [ <wnd: OF, WINDOW, DIALOG> <oWnd> ]
+        Indica a que ventana pertenece.
+

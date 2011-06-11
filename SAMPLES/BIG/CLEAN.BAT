@@ -1,0 +1,14 @@
+del *.bif
+del *.bak
+del *.map
+del *.obj
+del *.ppo
+del *.~*
+del *.~rc
+del *.res
+del *.rws
+del *.ntx
+del *.exe
+del *.log
+del *.ncd
+del *.ms

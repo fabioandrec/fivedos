@@ -1,0 +1,320 @@
+!short: CLASE ^BTMenu^B                                                                 
+'------------------------------------------------------------------------------'
+    Clase derivada de TView para soporte de menus.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:aColors^B          Array con los colores a utilizar.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lOpen^B            Indica si la ventana del men£ est  abierta o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lOrganized^B       Indica si se ha organizado el men£ o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oParent^B          Referencia al objeto padre.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oWindow^B          Referencia a la ventana a la que pertenece el men£.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:Add^B              A¤ade un nuevo elemento al men£.                            ^B
+'------------------------------------------------------------------------------'
+^U Add
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Add( oItem ) -> oItem
+
+^B Descripci¢n:^B
+    A¤ade el elemento ^BoItem^B al men£.
+
+^B Retorno:^B
+    Devuelve una referencia al elemento a¤adido.
+
+'------------------------------------------------------------------------------'
+!short:AddPopUp^B         A¤ade un nuevo Men£ a la ventana.                           ^B
+'------------------------------------------------------------------------------'
+^U AddPopUp
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    AddPopUp( oPopUp ) -> NIL
+
+^B Descripci¢n:^B
+    A¤ade el nuevo elemento de Men£ ^BoPopUp^B a la ventana asociada al men£
+    ^B::oWindow.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ChangeFocus^B      Cambia el objeto seleccionado.                              ^B
+'------------------------------------------------------------------------------'
+^U ChangeFocus
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ChangeFocus( nCtrl ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia el focus al objeto hijo ^BnCtrl^B siendo ^BnCtrl^B la posici¢n que
+    ocupa el objeto en el array de hijos.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Click^B            Maneja las pulaciones del rat¢n.                            ^B
+'------------------------------------------------------------------------------'
+^U Click
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Click( nMRow, nMCol ) -> NIL
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones del rat¢n. ^BnMRow^B y ^BnMCol^B determina la posici¢n
+    en la que se ha pulsado el rat¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Close^B            Cambia el estado del flag ^B::lOpen^B a Falso.                  ^B
+'------------------------------------------------------------------------------'
+^U Close
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Close() -> NIL
+
+^B Descripci¢n:^B
+    Cambia el estado del flag ^B::lOpen^B a Falso.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:DelPopUp^B         Borra el £ltimo men£ de la ventana.                         ^B
+'------------------------------------------------------------------------------'
+^U DelPopUp
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    DelPopUp() -> NIL
+
+^B Descripci¢n:^B
+    Borra el £ltimo elemento de men£ insertado en la ventana asociada
+    ^B::oWindow.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GetNext^B          Devuelve el siguiente elemento de men£ seleccionable.       ^B
+'------------------------------------------------------------------------------'
+^U GetNext
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GetNext() -> nNext
+
+^B Descripci¢n:^B
+    Devuelve el ¡ndice del siguiente elemento de men£ seleccionable.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:GetPrevius^B       Devuelve el anterior elemento de men£ seleccionable.        ^B
+'------------------------------------------------------------------------------'
+^U GetPrevius
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GetPrevius() -> nPrev
+
+^B Descripci¢n:^B
+    Devuelve el anterior elemento de men£ seleccionable.
+
+^B Retorno:^B
+    Devuelve un valor unm‚rico.
+
+'------------------------------------------------------------------------------'
+!short:KeyPressed^B       Maneja las pulsaciones del teclado.                         ^B
+'------------------------------------------------------------------------------'
+^U KeyPressed
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nKey
+
+^B Descripci¢n:^B
+    Procesa las pulsaciones de tecla, definiendo pues, el comportamiento del
+    objeto en lo que a respuesta a teclas se refiere. Devuelve 0 cuando se ha
+    procesado la tecla y nKey cuando no se ha procesado.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Constructor de la clase.                                    ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nTop, nLeft, nWidth, nHeight, cColor, oWnd ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BnTop   ^B     Fila donde se situa el men£.
+    ^BnLeft  ^B     Columna donde se situa el men£.
+    ^BnWidth ^B     Ancho del men£.
+    ^BnHeight^B     Alto del men£.
+    ^BcColor ^B     Cadena de caracteres con los colores.
+    ^BoWnd   ^B     Referencia a la ventana donde se inserta el men£.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Open^B             Cambia el estado del flag ^B::lOpen^B a Verdadero.              ^B
+'------------------------------------------------------------------------------'
+^U Open
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Open() -> NIL
+
+^B Descripci¢n:^B
+    Cambia el estado del flag ^B::lOpen^B a Verdadero.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Organize^B         Recoloca los elementos del men£.                            ^B
+'------------------------------------------------------------------------------'
+^U Organize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Organize() -> NIL
+
+^B Descripci¢n:^B
+    Recoloca los elementos del men£ y activa el flag ^B::lOrganized.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetAction^B        Asigna la acci¢n que se ejecutar  cuando se cierre el men£. ^B
+'------------------------------------------------------------------------------'
+^U SetAction
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetAction( bAction ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna la acci¢n que se ejecutar  cuando se cierre el men£.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        Asigna los colores.                                         ^B
+'------------------------------------------------------------------------------'
+^U SetColors
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetColors( cColor ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna los colores a partir de la cadena de caracteres ^BcColor.^B En ‚sta
+    se codifican los siete colores que se utilizan que son:
+    1.- Color usado por el elemento no seleccionado.
+    2.- Color usado por el elemento seleccionado.
+    3.- Color usado por la tecla r pida del elemento no seleccionado.
+    4.- Color usado por la tecla r pida del elemento seleccionado.
+    5.- Color usado por el elemento no seleccionable.
+    6.- Color usado por el borde izquierdo de los elementos del men£.
+    7.- Color usado por el borde derecho de los elementos del men£.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetMessage^B       Asigna el mensaje que aparece cuando se selecciona el men£. ^B
+'------------------------------------------------------------------------------'
+^U SetMessage
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetMessage( cMsg ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna el mensaje que aparece cuando se selecciona el men£.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetWindow^B        Cambia la referencia ^B::oWindow^B de los los elementos.        ^B
+'------------------------------------------------------------------------------'
+^U SetWindow
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetWindow( oWindow ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia la referencia ^B::oWindow^B de todos los elementos del men£.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:lIsOver^B          Indica si est  sobre el men£.                               ^B
+'------------------------------------------------------------------------------'
+^U lIsOver
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    lIsOver( nMRow, nMCol ) -> lIsOver
+
+^B Descripci¢n:^B
+    Indica si la posici¢n ^BnMRow^B, ^BnMCol^B est  sobre el men£ o no.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:nHotAt^B           Busca una tecla r pida entre los elementos del men£.        ^B
+'------------------------------------------------------------------------------'
+^U nHotAt
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    nHotAt( nHotKey ) -> nItem
+
+^B Descripci¢n:^B
+    Devuelve el elemento del men£ cuya tecla r pida coincide con ^BnHotkey^B o
+    ^B0^B si no se encuentra.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'

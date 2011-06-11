@@ -1,0 +1,21 @@
+Fi  MegaReco
+Fi  Clientes
+Fi  Proveedo
+Fi  Almacen
+Fi  Facturac
+Fi  Calc
+Fi  Calend
+Fi  Misce
+Fi  Clock
+Fi  Indices
+Fi  Array2F
+Fi  Images
+#Fi  Msgs
+Fi  TFactura
+Fi  VgaOnOff
+#Fi  CantPan
+# Fi  TDigit
+#Fi  TDisplay
+
+output Mega.exe
+

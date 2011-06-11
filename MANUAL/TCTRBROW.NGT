@@ -1,0 +1,414 @@
+!short: CLASE ^BTCtrBrowse^B                                                            
+'------------------------------------------------------------------------------'
+    Clase derivada de TControl para el manejo de Browses.
+'------------------------------------------------------------------------------'
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short: DATOS
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:hGTW^B             Handle de una estructura para uso interno.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oBrowse^B          Referencia a un objeto Browse contenido.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oVScroll^B         Referencia a una barra de scroll vertical.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:oHScroll^B         Referencia a una barra de scroll horizontal.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bLogicLen^B        Codeblock para obtener la longitud del browse.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bChanged^B         Codeblock que se evalua cuando se ha cambiado de posici줻.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bDblClick^B        Codeblock que se evalua cuando se hace doble click.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:BrwCol^B           Devuelve la columna del cursor del browse interno.          ^B
+'------------------------------------------------------------------------------'
+^U BrwCol
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    BrwCol() -> nCol
+
+^B Descripci줻:^B
+    Devuelve la columna del cursor del browse interno.
+
+^B Retorno:^B
+    Devuelve un valor num굍ico.
+
+'------------------------------------------------------------------------------'
+!short:BrwDisplay^B       Obtiene la im쟥en interna del browse y la actualiza.        ^B
+'------------------------------------------------------------------------------'
+^U BrwDisplay
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    BrwDisplay() -> NIL
+
+^B Descripci줻:^B
+    Obtiene la im쟥en interna del browse y la actualiza.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:BrwHide^B          Inicia el proceso para poder obtener la im쟥en del browse.  ^B
+'------------------------------------------------------------------------------'
+^U BrwHide
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    BrwHide() -> NIL
+
+^B Descripci줻:^B
+    Inicia el proceso para poder objetenr la im쟥en del browse de clipper.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:BrwRow^B           Devuelve la fila del cursor del browse interno.             ^B
+'------------------------------------------------------------------------------'
+^U BrwRow
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    BrwRow() -> nRow
+
+^B Descripci줻:^B
+    Devuelve la fila del cursor del browse interno.
+
+^B Retorno:^B
+    Devuelve un valor num굍ico.
+
+'------------------------------------------------------------------------------'
+!short:Click^B            Maneja las pulsaciones del rat줻.                           ^B
+'------------------------------------------------------------------------------'
+^U Click
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Click( nMRow, nMCol, lDblClick ) -> NIL
+
+^B Descripci줻:^B
+    Controla las pulsaciones del rat줻.
+
+^B Retorno:^B
+    Return NIL.
+
+'------------------------------------------------------------------------------'
+!short:Destroy^B          Es el destructor de la clase.                               ^B
+'------------------------------------------------------------------------------'
+^U Destroy
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Destroy() -> NIL
+
+^B Descripci줻:^B
+    Es el destructor de la clase. Destruye la estructura para uso interno
+    ^B::hGTW^B y la inicializa a 0.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoBottom^B         Posiciona el cursor del browse en el 즠timo elemento.       ^B
+'------------------------------------------------------------------------------'
+^U GoBottom
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    GoBottom() -> NIL
+
+^B Descripci줻:^B
+    Posiciona el cursor del browse en el 즠timo elemento.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoDown^B           Mueve el cursor del browse una fila hacia abajo.            ^B
+'------------------------------------------------------------------------------'
+^U GoDown
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    GoDown() -> NIL
+
+^B Descripci줻:^B
+    Mueve el cursor del browse una fila hacia abajo.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoLeft^B           Mueve el cursor del browse una columna a la izquierda.      ^B
+'------------------------------------------------------------------------------'
+^U GoLeft
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    GoLeft() -> NIL
+
+^B Descripci줻:^B
+    Mueve el cursor del browse una columna a la izquierda.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoPgDown^B         Mueve el cursor del browse una pantalla hacia abajo.        ^B
+'------------------------------------------------------------------------------'
+^U GoPgDown
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    GoPgDown() -> NIL
+
+^B Descripci줻:^B
+    Mueve el cursor del browse una pantalla hacia abajo.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoPgLeft^B         Mueve el cursor del browse una pantalla hacia la izquierda. ^B
+'------------------------------------------------------------------------------'
+^U GoPgLeft
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    GoPgLeft() -> NIL
+
+^B Descripci줻:^B
+    Mueve el cursor del browse una pantalla hacia la izquierda.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoPgRight^B        Mueve el cursor del browse una pantalla hacia la derecha.   ^B
+'------------------------------------------------------------------------------'
+^U GoPgRight
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    GoPantRight() -> NIL
+
+^B Descripci줻:^B
+    Mueve el cursor del browse una pantalla hacia la derecha.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoPgUp^B           Mueve el cursor del browse una pantalla hacia arriba.       ^B
+'------------------------------------------------------------------------------'
+^U GoPgUp
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    GoPgUp() -> NIL
+
+^B Descripci줻:^B
+    Mueve el cursor del browse una pantalla hacia arriba.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoRight^B          Mueve el cursor del browse una columna a la derecha.        ^B
+'------------------------------------------------------------------------------'
+^U GoRight
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    GoRight() -> NIL
+
+^B Descripci줻:^B
+    Mueve el cursor del browse una columna a la derecha.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoTop^B            Mueve el cursor del browse al primer elemento.              ^B
+'------------------------------------------------------------------------------'
+^U GoTop
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    GoTop() -> NIL
+
+^B Descripci줻:^B
+    Mueve el cursor del browse al primer elemento.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoUp^B             Mueve el cursor del browse una fila hacia arriba.           ^B
+'------------------------------------------------------------------------------'
+^U GoUp
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    GoUp() -> NIL
+
+^B Descripci줻:^B
+    Mueve el cursor del browse una fila hacia arriba.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Jump^B             Mueve el cursor del browse a un elemento determinado.       ^B
+'------------------------------------------------------------------------------'
+^U Jump
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Jump( nSet ) -> NIL
+
+^B Descripci줻:^B
+    Mueve el cursor del browse al elemento determinado por ^BnSet.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:KeyPressed^B       Maneja las pulsaciones del teclado.                         ^B
+'------------------------------------------------------------------------------'
+^U KeyPressed
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nValor
+
+^B Descripci줻:^B
+    Procesa las pulsaciones de tecla. Devuelve ^B0^B cuando se ha procesado la
+    tecla y ^BnKey^B cuando no se ha procesado.
+
+^B Retorno:^B
+    Devuelve un valor num굍ico.
+
+'------------------------------------------------------------------------------'
+!short:lEditCol^B         Edita una celda del browse.                                 ^B
+'------------------------------------------------------------------------------'
+^U lEditCol
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    lEditCol( nCol, uVar, cPicture, bValid, cClr ) -> lOk
+
+^B Descripci줻:^B
+    Edita una celda el browse.
+
+^B Retorno:^B
+
+'------------------------------------------------------------------------------'
+!short:New^B              Constructor de la clase.                                    ^B
+'------------------------------------------------------------------------------'
+^U New
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    New( nRow, nCol, nWidth, nHeight, oBrowse, cLabel, cMsg, cColors,
+         oWnd, bLogicLen, bChanged, bDblClick, bWhen, bValid ) -> Self
+
+^B Descripci줻:^B
+    Es el constructor de la clase. Recibe los siguientes par쟭etros:
+
+    ^BnRow     ^B   Fila donde se situa el objeto.
+    ^BnCol     ^B   Columna donde se situa el objeto.
+    ^BnWidth   ^B   Ancho del objeto.
+    ^BnHeight  ^B   Alto del objeto.
+    ^BoBrowse  ^B   Referencia al objeto TBrowse relacionado.
+    ^BcLabel   ^B   Etiqueta que se muestra en la parte superior.
+    ^BcMsg     ^B   Mensaje que se muestra cuando se selecciona.
+    ^BcColors  ^B   Cadena de caracteres con los colores a utilizar.
+    ^BoWnd     ^B   Referencia a la ventana a la que pertenece.
+    ^BbLogicLen^B   Codeblock que nos devuelve el n즡ero de elementos.
+    ^BbChanged ^B   Codeblock que se evalua cuando se ha cambiado de posici줻.
+    ^BbDblClick^B   Codeblock que se evalua cuando se hace doble click.
+    ^BbWhen    ^B   Codeblock de prevalidaci줻.
+    ^BbValid   ^B   Codeblock de postvalidaci줻.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:PanJump^B          Desplaza el cursor del browse un n즡ero de columnas.        ^B
+'------------------------------------------------------------------------------'
+^U PanJump
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    PanJump( nColumns ) -> NIL
+
+^B Descripci줻:^B
+    Desplaza el cursor del browse ^BnColumns^B columnas. Si nColumns es
+    mayor que 0 entonces el desplazamiento es hacia la derecha, si e menor,
+    el desplazamiento es hacia la izquierda.
+
+^B Retorno:^B
+    Devueve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Actualiza la im쟥en del objeto.                             ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci줻:^B
+    Actualiza la im쟥en del objeto.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Reset^B            Inicializa el objeto.                                       ^B
+'------------------------------------------------------------------------------'
+^U Reset
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Reset() -> NIL
+
+^B Descripci줻:^B
+    Inicializa el objeto, las barras de scroll y situa el cursor del browse
+    en la primera fila.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetFocus^B         Cambia el estado del focus.                                 ^B
+'------------------------------------------------------------------------------'
+^U SetFocus
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    SetFocus( lOnOff ) -> NIL
+
+^B Descripci줻:^B
+    Cambia el estado del focus del browse y de las barras de scroll.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

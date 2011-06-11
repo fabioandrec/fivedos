@@ -1,0 +1,24 @@
+.prg.obj :
+  CLIPPER $* /m/n/w
+
+.obj.lib :
+  IF NOT ERRORLEVEL 1 LIB report -+trptgen -+ trptcol -+trcol -+trbrw -+TMerge;
+  IF NOT ERRORLEVEL 1 LIB report -+TForm -+TData -+TextBrow -+file -+.\obj\TFile;
+
+.obj.exe :
+  blinker fi $* li report, FiveDos, 501_520, blxclp53 bli exe ext
+
+Lista.obj    : Lista.prg
+TRptGen.obj  : TRptGen.prg
+TRptCol.obj  : TRptCol.prg
+TRCol.obj    : TRCol.prg
+TRBrw.obj    : TRBrw.prg
+TMerge.obj    : TMerge.prg
+TForm.obj    : TForm.prg
+TData.obj    : TData.prg
+TextBrow.obj : TextBrow.prg
+file.obj     : file.prg
+
+report.lib : TRptGen.obj TRptCol.obj TRCol.obj TRBrw.obj TMerge.obj TForm.obj TData.obj TextBrow.obj file.obj .\obj\TFile.obj
+
+Lista.exe     : Lista.obj   report.lib

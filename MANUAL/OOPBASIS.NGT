@@ -1,0 +1,114 @@
+^U Programaci¢n Orientada a Objetos en FiveDos.
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+    Tanto si est  comenzando a programar usando t‚nicas de Programaci¢n
+    Orientada al Objeto ( OOP ) c¢mo si ya es un usuario avanzado de
+    estas t‚cnicas, suponemos querr  conocer la estructura de clases de
+    FiveDos. FiveDos est  basado en Cuatro niveles:
+
+        ^B1. Comandos xBase
+        ^B2. Clases y Objetos
+        ^B3. Funciones y estructuras de Datos
+        ^B4. Interface con la M quina y Clipper.
+
+     Los comandos xBase constituyen el mayor nivel de abstracci¢n, de
+     forma que se trabaja "pensando en las acciones", no en c¢mo se han
+     de llevar a cabo.
+
+     Los comandos xBase se desarrollaron inicialmente para el dBase,
+     pero se han ido extendiendo y ampliando hacia un standard
+     conceptual denominado xBase. En FiveDos estos comandos operan sobre
+     objetos. Estos objetos y sus clases forman el segundo nivel de
+     abstracci¢n de FiveDos.
+
+     Para utilizar Objetos y Clases es necesario disponer de una
+     herramieta. FiveDos utiliza nuestro motor de clases ^BOBJECTS^N
+     para proveernos del acceso a las posibilidades de gesti¢n de
+     classes de CA-Clipper.  Puede ponerse en contacto con nosotros para
+     obtener la £ltima versi¢n comercial de OBJECTS - por un precio
+     realmente bajo -, junto la documentaci¢n y ejemplos necesarios
+     para utilizar la increible tecnolog¡a OOP.
+
+     OBJECTS utiliza m‚todos ( funciones ) y datos. Este es el £ltimo
+     nivel de abstracci¢n. Puede abandonar aqu¡ este documento si no
+     desea m s detalles sobre la estructura de FiveDos.
+
+     Finalmente est  el conjunto de funciones que interrelacionan
+     FiveDos con CA-Clipper y el Hardware de su ordenador.
+
+     El mayor nivel de productividad se encuentra en el escal¢n de
+     xBase. Si bien el mayor nivel de control se encuentra en el estad¡o
+     de funciones de control del hardware, si bien la productibidad a
+     este nivel es muy baja. Es obvio que para un programados de
+     Aplicaciones el nivel ¢ptimo est  entre la m xima productividad sin
+     perder el control.
+
+     En xbase se utiliza una simple sistaxis para la manipulaci¢n de
+     objetos, esto es:
+
+        ^BDEFINE <Clase> <Objeto> <cl£sulas>
+
+     Es de resaltar que nosotros utilizamos esta nomenclatura para crear
+     objetos, por lo que se define una sintaxis standard y c¢moda.
+     Recomendamos usar esta sintaxis para la creaci¢n de objetos
+     siempre.
+
+     Para lanzar un objeto usamos:
+
+        ^BACTIVATE <Clase> <Objeto> <Cla£sulas>
+
+     Y, finalmente, si bien esto no es necesario en CA-Clipper, para
+     destruir un objeto usar¡amos:
+
+        ^BRELEASE <CLase> <Objeto>
+
+     Estos comandos generar¡an las siguientes lllamadas a funci¢n:
+
+     DEFINE WINDOW oWnd ===> generar¡a ===> oWnd := TWindow():New( ... )
+
+     Se puede pensar que esta es una de las metas del OOP, pero nosotros
+     pensamos que el ‚xito realmente est  en un £nico interface.
+
+     En FiveDos se incluye la £ltima versi¢n de OBJECTS que puede usar
+     para generar nuevas clases o heredar de las ya existentes. Revise
+     el  c¢digo y las estructura de clases de FiveDos para comprender y
+     usar en profundidad el sistema OOP y expandir la estructura de
+     clases de FiveDos.
+
+     En FiveDos se ha desarrollado un sistema "mixto", es decir, se ha
+     desarrollado una extensa gerarqu¡a de clases al tiempo que se ha
+     cado cabida a la expasibilidad que d  el uso de "punteros",
+     CODEBLOCKS en Clipper.
+
+     Existe en estos momentos una discusi¢n internacional acerca de este
+     tema. Estas elucubraciones no han llegado a un fin, por lo que
+     decidimos crear nuestro sistema basado en una estrategia mixta, lo
+     que nos ha dado una gran flexibilidad.
+
+     En el caso de que se necesite modificar un comportamiento, o
+     asociar una acci¢n a un evento no habitual utilizamos punteros,
+     codeblocks. La raz¢n de esto es que suponemos que este
+     comportamiento no va a ser homogeneo, no va a seguir siendo igual a
+     lo largo del uso de ese elemento.
+
+     Podemos ver:
+
+        ^BACTIVATE WINDOW oWnd ;
+        ^B      ON PAINT .....
+
+     En este caso la ventana realizar  una accion al pintarse. Est 
+     implementado con codeblocks, esto es l¢gico, por que esta acci¢n es
+     exclusiva de esta ventana, y no tiene por que reutilizarse en
+     otras, en consecuencia, no es un comportamiento standard de la
+     ventana, es descartable y ocasional, es un codeblock.
+
+     Utilizando el sistema OOP tradicional deber¡amos haber implementado
+     una nueva clase derivada de la clase TWindow, para este caso en
+     particular reescribiendo el m‚todo de pintado. Esto llevar¡a
+     mucho trabajo y a un sobrecargado de clases.
+
+     Estamos convencidos que el modelo de sistema mixto, OOP con
+     extensiones de codeblocs es mucho m s flexible y poderoso que
+     cualquiera de los dos metodos por separado. Es sencillamente
+     maravilloso, f cil de trabajar y con evoluci¢n constante conforme
+     se descubren sus inmensas posibilidades.

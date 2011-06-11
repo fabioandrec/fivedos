@@ -1,0 +1,62 @@
+ARREGLOS 12-11-95      retoques despues de montar lo recibido en esta fecha.
+-----------------
+ScrollBar.prg
+ * Ajustes de sintasix. sin importancia. 
+
+Window.prg
+ * Ajustes de sintasix. sin importancia. 
+ * Se quita TNil().
+
+CtlBrowse.prg
+ * Modificaciones y arreglos varios.
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+CtlBrowse.prg
+ * Se le quitan las opciones de Marcado y browseado de items y se le ponen como
+   funciones en Browse.prg
+ * Se posiciona el Browse seg£n tengamos o no label y se retocan todos los
+   controles afectados por ello. Funcionando OK!!.
+ * Se evaluan los codeblock, mandando Self como 1er par metro.
+
+Browse.ch
+ * Se anade el an logo, DEFINE BROWSE.
+ 
+Browse.prg
+ * Se a¤aden las funciones para controlar un objeto TREE desde un Browse.
+ * Se dan unos retoques.
+
+Combo.prg
+ * Si la variable del bSetGet se manda Empty(), se le asigna la mayor long. del
+   acItems.
+ * Se desplaza la flechita de apertura del combo, un caracter a la derecha, para
+   que no se quede pegada al get.
+
+ComboBrw.prg
+  * Se crea para utilizar un get con un browse.
+
+Dialog.ch
+ * Se le quitan a Listbox browse el MultiSelect.
+ * Se redefine LISTBOX TREE.
+ * Se a¤ade LISTBOX MULTISELECT
+ * Se cambia MULTISEL por MULTISELECT
+
+TControl.prg
+  * Se definen _LABELROW_, _LABELCOL_
+  * Si cLabel == Empty() entonces el label lo mandamos al limbo.
+  
+TListBox.prg
+  * Se definen _LABELROW_, _LABELCOL_
+  * Se le quitan variables locales que sobran.
+
+Database.prg
+  * Se compatibiliza Scope con anteriores versiones.
+  * Se retocan algunas cosas mas.
+
+Stack.prg y SStack.prg
+  * Se crean las classes stack y superStack ( para > 4096 elementos )
+
+TutorLbx.prg
+  * Se actualiza para mostrar la Multiselecci¢n y el oTree.

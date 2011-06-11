@@ -1,0 +1,246 @@
+^U WINDOWS
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+  ^BDEFINE WINDOW oWnd
+  ^B           [ FROM nTop, nLeft TO nBottom, nRight ]
+  ^B           [ AT nTop, nLeft ]
+  ^B           [ SIZE nWidth, nHeight ]
+  ^B           [ TITLE cTitle ]
+  ^B           [ COLOR cColorSpec ]
+  ^B           [ OF oParent ]
+  ^B           [ BRUSH cBrush ]
+  ^B           [ CURSOR oCursor ]
+  ^B           [ ICON  oIcon ]
+  ^B           [ MENU oMenu ]
+  ^B           [ BORDER border: NONE, SINGLE ]
+  ^B           [ STYLE nStyle ]
+  ^B           [ NOSYSMENU, NO SYSMENU ]
+  ^B           [ NOCAPTION, NO CAPTION, NO TITLE ]
+  ^B           [ NOICONIZE, NOMINIMIZE ]
+  ^B           [ NOZOOM, NO ZOOM, NOMAXIMIZE, NO MAXIMIZE ]
+  ^B           [ NORESIZE ]
+  ^B           [ NODRAG, NOMOVE ]
+  ^B           [ NOSHADOW ]
+  ^B           [ VSCROLL, VERTICAL SCROLL ]
+  ^B           [ HSCROLL, HORIZONTAL SCROLL ]
+  ^B           [ LABEL COLORS cColorLabels ]
+  ^B
+
+
+
+  ^B DEFINE DIALOG oWnd
+  ^B           [ FROM nTop, nLeft TO nBottom, nRight ]
+  ^B           [ AT nTop, nLeft ]
+  ^B           [ SIZE nWidth, nHeight ]
+  ^B           [ TITLE cTitle ]
+  ^B           [ COLOR cColorSpec ]
+  ^B           [ NOSYSMENU, NO SYSMENU ]
+  ^B           [ NOSHADOW ]
+  ^B           [ NODRAG, NOMOVE ]
+  ^B           [ OF oParent ]
+  ^B           [ BRUSH cBrush ]
+  ^B           [ STYLE nStyle ]
+  ^B           [ LABEL COLORS cColorLabels ]
+  ^B
+
+
+  ^B ACTIVATE WINDOW|DIALOG oWnd
+  ^B           [ ICONIZED, NORMAL, MAXIMIZED ]
+  ^B           [ CENTERED ]
+  ^B           [ WHEN uWhen ]
+  ^B           [ VALID uValid ]
+  ^B           [ ON [ LEFT ] CLICK uClick ]
+  ^B           [ ON RIGHT CLICK uRClick ]
+  ^B           [ ON DBLCLICK uDblClick ]
+  ^B           [ ON MOVE uMove ]
+  ^B           [ ON PAINT uPaint ]
+  ^B           [ ON RESIZE uResize ]
+  ^B           [ ON KEYDOWN uKeyDown ]
+  ^B           [ ON INIT uInit ]
+  ^B           [ ON CLOSE uClose ]
+  ^B           [ ON UP uUp ]
+  ^B           [ ON DOWN uDown ]
+  ^B           [ ON PAGEUP uPgUp ]
+  ^B           [ ON PAGEDOWN uPgDn ]
+  ^B           [ ON LEFT uLeft ]
+  ^B           [ ON RIGHT uRight ]
+  ^B           [ ON PAGELEFT uPgLeft ]
+  ^B           [ ON PAGERIGHT uPgRight ]
+  ^B           [ ON SCROLL UP    uScrollUp ]
+  ^B           [ ON SCROLL DOWN  uScrollDown ]
+  ^B           [ ON SCROLL LEFT  uScrollLeft ]
+  ^B           [ ON SCROLL RIGHT uScrollRight ]
+  ^B           [ NOWAIT ]
+
+
+
+
+  ^BDEFINE WINDOW oWnd
+        Determina la creaci¢n de una ventana, y esta se asigna a la variable
+        oWnd
+
+
+  ^B[ FROM nTop, nLeft TO nBottom, nRight ]
+       Determina la posici¢n y el tama¤o, dando las coordenadas ( respecto
+       a la ventana que la contiene si existe, y si n¢ en coordenadas de
+       pantalla ), de la ventana.
+
+
+  ^B[ AT nTop, nLeft SIZE nWidth, nHeight ]
+        Situa una Ventana en una posici¢n, y establece su tama¤o.
+
+  ^B[ SIZE nWidth, nHeight ]
+        Establece el tama¤o de una ventana, pero la posici¢n se establece
+        centrada en pantalla ( o ventana padre ).
+        si se indica size al tiempo que se usa la Cla£sula From ... to
+        se indica el tama¤o virtual de la ventana.
+
+  ^B[ TITLE cTitle ]
+        Determina el titulo de la ventana
+
+  ^B[ COLOR cColorSpec ]
+        Proporciona los colores de la Ventana. Es una cadena de caracteres
+        seg£n el estilo xbase.
+
+  ^B[ OF oParent ]
+        Ventana de la que es hija.
+
+  ^B[ BRUSH cBrush ]
+        Caracter de relleno.
+
+  ^B[ CURSOR oCursor ]
+        Para compatibilidad con FiveWin
+
+  ^B[ ICON  oIcon ]
+        Para compatibilidad con FiveWin
+
+  ^B[ MENU oMenu ]
+        Establece el menu oMenu como menu de la ventana
+
+  ^B[ BORDER border: NONE, SINGLE ]
+        Para compatibilidad con FiveWin
+
+  ^B[ STYLE nStyle ]
+        Para compatibilidad con FiveWin
+
+  ^B[ NOSYSMENU, NO SYSMENU ]
+        Elimina el menu del sistema.
+
+  ^B[ NOCAPTION, NO CAPTION, NO TITLE ]
+        Elimina la presentaci¢n de t¡tulos.
+
+  ^B[ NOICONIZE, NOMINIMIZE ]
+        No permite la operaci¢n de minimizado.
+
+  ^B[ NOZOOM, NO ZOOM, NOMAXIMIZE, NO MAXIMIZE ]
+        No permite la operaci¢n de maximizado.
+
+  ^B[ NORESIZE ]
+        No permie cambio de tama¤o alguno.
+
+  ^B[ NODRAG, NOMOVE ]
+        No permite el cambio de posici¢n.
+
+  ^B[ NOSHADOW ]
+        Elimina la Sombra
+
+  ^B[ VSCROLL, VERTICAL SCROLL ]
+        Pendiente de Implementar
+
+  ^B[ HSCROLL, HORIZONTAL SCROLL ]
+        Pendiente de implementar.
+
+  ^B[ LABEL COLORS cColorLabels ]
+        Establece el color de las etiquetas de los controles, SOLO EL PRIMER
+        PLANO, el fondo lo determina el color del fondo de la ventana.
+
+
+
+  ^B DEFINE DIALOG oWnd ......
+        Es igual que una ventana, excepto que se establecen por defecto que
+        no se permite el desplazamiento ni cambios de tama¤o.
+
+
+
+  ^B ACTIVATE WINDOW|DIALOG oWnd
+      Activa la ventana almacenada en oWnd
+
+  ^B[ ICONIZED, NORMAL, MAXIMIZED ]
+        Modo en el que arranca la ventana: Iconizada, normal ( por defecto )
+        o maximizada
+
+  ^B[ CENTERED ]
+        Inicia la ventana centrada.
+
+  ^B[ WHEN uWhen ]
+        Indica la expresi¢n que determinar  la prevalidaci¢n.
+
+  ^B[ VALID uValid ]
+        Indica la Expresi¢n de Validaci¢n.
+
+  ^B[ ON [ LEFT ] CLICK uClick ]
+        Se ejecutar  si se hace click fuera de cualquier control.
+
+  ^B[ ON RIGHT CLICK uRClick ]
+        Para compatibilidad con FiveWin
+
+  ^B[ ON DBLCLICK uDblClick ]
+        Para compatibilidad con FiveWin
+
+  ^B[ ON MOVE uMove ]
+        Se ejecuta al cambiar de sitio la ventana.
+
+  ^B[ ON PAINT uPaint ]
+        Se ejecuta al repintat o pintar por primera vez la ventana.
+
+  ^B[ ON RESIZE uResize ]
+        Se ejecuta al cambiar el tama¤o de la ventana.
+
+  ^B[ ON KEYDOWN uKeyDown ]
+        Para compatibilidad con FiveWin
+
+  ^B[ ON INIT uInit ]
+        Codigo a ejecutar al iniciarse una ventana...
+
+  ^B[ ON CLOSE uClose ]
+        Codigo a ejecutar al cerrarse una ventana.
+
+  ^B[ ON UP uUp ]
+        Para compatibilidad con FiveWin
+
+  ^B[ ON DOWN uDown ]
+        Para compatibilidad con FiveWin
+
+  ^B[ ON PAGEUP uPgUp ]
+        Para compatibilidad con FiveWin
+
+  ^B[ ON PAGEDOWN uPgDn ]
+        Para compatibilidad con FiveWin
+
+  ^B[ ON LEFT uLeft ]
+        Para compatibilidad con FiveWin
+
+  ^B[ ON RIGHT uRight ]
+        Para compatibilidad con FiveWin
+
+  ^B[ ON PAGELEFT uPgLeft ]
+        Para compatibilidad con FiveWin
+
+  ^B[ ON PAGERIGHT uPgRight ]
+        Para compatibilidad con FiveWin
+
+  ^B[ ON SCROLL UP    uScrollUp ]
+        Para compatibilidad con FiveWin
+
+  ^B[ ON SCROLL DOWN  uScrollDown ]
+        Para compatibilidad con FiveWin
+
+  ^B[ ON SCROLL LEFT  uScrollLeft ]
+        Para compatibilidad con FiveWin
+
+  ^B[ ON SCROLL RIGHT uScrollRight ]
+        Para compatibilidad con FiveWin
+
+  ^B[ NOWAIT ]
+        Determina si una ventana es modal o no.
+

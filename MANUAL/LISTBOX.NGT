@@ -1,0 +1,92 @@
+^U LISTBOX
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+    En el Concepto del listbox entran tanto el listbox basado en array
+    como el listbox basado en browse. Este segundo caso se contempla en
+    ^BBROWSE^B.
+
+    ^B LISTBOX [ oLbx VAR ] nVar
+    ^B         [ ITEMS cItems,... ] [ LIST uList,... ] [ ARRAY aList ]
+    ^B         [ SIZE nWidth, nHeight ]
+    ^B         [ COLOR, COLORS cColors ]
+    ^B         [ OF, WINDOW, DIALOG oWnd ]
+    ^B         [ LABEL, PROMPT cLabel ]
+    ^B         [ MESSAGE cMsg ]
+    ^B         [ ON CLICK, ON CHANGE uChange ]
+    ^B         [ ON [ LEFT ] DBLCLICK uLDblClick ]
+    ^B         [ ON RIGHT CLICK uRClick ]
+    ^B         [ WHEN uWhen ]
+    ^B         [ VALID uValid ]
+    ^B         [ PIXEL ]
+    ^B         [ DESIGN ]
+    ^B         [ FONT oFont ]
+    ^B         [ UPDATE ] ^B
+    ^B         [ MULTISEL ] ^B
+
+    Detalle de la sintaxis
+
+    ^B LISTBOX [ oLbx VAR ] nVar
+        La variable oLbx recibe la referencia al objeto creado
+        La variable nVar recibe la posici¢n en el listbox
+
+    ^B [ ITEMS cItems,... ] [ LIST uList,... ] [ ARRAY aList ]
+        cItems es un lista de elementos, separados por comas que formaran
+        los items del listbox
+
+        uList es una lista de elementos ( de cualquier tipo ^A incluidos^A
+        ^Acodeblocks^A ) que formar n los items del Listbox.
+
+        aLIst es un array que formar  los elementos del listbox
+
+        Estas tres opciones son incompatibles entre si.
+
+    ^B [ SIZE nWidth, nHeight ]
+        nWidth y nHeight determinan el ancho y alto del listbox
+
+    ^B [ COLOR, COLORS cColors ]
+        Cadena de colores del Listbox:
+                Color de LIstbox, color del Item seleccionado con focus,
+                color del item seleccionado sin focus.
+
+    ^B [ OF, WINDOW, DIALOG oWnd ]
+        oWnd representa la referencia a la ventana que lo contiene
+
+    ^B [ LABEL, PROMPT cLabel ]
+        cLabel es el t¡tulo del listbox
+
+    ^B [ MESSAGE cMsg ]
+        cMsg contiene el mensaje a presentar al pie de la ventana.
+
+    ^B [ ON CLICK, ON CHANGE uChange ]
+        Accion a realizar al seleccionar un item con el rat¢n o el teclado.
+
+    ^B [ ON [ LEFT ] DBLCLICK uLDblClick ]
+        Accion a realizar al hacer un doble click con el raton sobre
+        un item, o al pulsar [ENTER] con un item seleccionado.
+
+    ^B  [ ON RIGHT CLICK uRClick ]
+        Accion a realizar al hacer un click con el rat¢n usando el bot¢n
+        derecho ( equivale a la variable ::bRight, ver ^BTVIEW^B)
+
+    ^B  [ WHEN uWhen ]
+        Codigo de prevalidaci¢n del LIstbox
+
+    ^B  [ VALID uValid ]
+        Codigo de postvalidaci¢n del listbox
+
+    ^B  [ PIXEL ]
+        Para compatibilidad con FiveWin
+
+    ^B  [ DESIGN ]
+        Usado en modo dise¤o, vease IDE.PRG
+
+    ^B  [ FONT oFont ]
+        Para Compatibilidad con FiveWin
+
+    ^B  [ UPDATE ] ^B
+        Para Compatibilidad con FiveWin
+
+     ^B [ MULTISEL ] ^B
+        Permite una multiseleccci¢n
+
+!seealso: browse.ngo:BROWSE

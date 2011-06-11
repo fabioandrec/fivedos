@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------+
+                  FICHA DE HERMANOS DE LA HERMANDAD DEL PILAR
+-------------------------------------------------------------------------------+
+N£mero: {Hnos->NumHno} Nombre: {Hnos->NOMBREHNO} {Hnos->APELLIDO1} {Hnos->APELLIDO2}
+Naci¢ con fecha: {Hnos->FNAC}
+Vive en la Calle: {calle->NOMBRE} con N£mero: {Hnos->NumCalle}
+Poblaci¢n: {if(Empty(Hnos->POBLACION),"ESTA CIUDAD NUESTRA", Hnos->POBLACION)}
+Provincia: {if(Empty(Hnos->PROVINCIA),"SEVILA", PROVINCIA)}
+Tel‚fono: {Hnos->TELEFONO}
+
+            --oOo--  Hoy es: {date()}       Hora: {Time()}
+
+   N£mero de Hermano {if( Val( Hnos->NumHno ) % 2 == 0,"PAR", "IMPAR" )}
+
+Deuda contraida con la Hermandad: {Hnos->DEUDA} pts.
+-------------------------------------------------------------------------------+

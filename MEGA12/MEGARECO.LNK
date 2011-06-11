@@ -1,0 +1,10 @@
+#/NOINCREMENTAL
+#/STACK:8192
+
+lib FiveDos
+
+lib clipper
+lib extend
+lib terminal
+lib dbfntx
+

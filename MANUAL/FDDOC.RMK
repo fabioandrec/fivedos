@@ -1,0 +1,178 @@
+makepath[.ch]="..\include"
+makepath[.prg]="..\samples"
+makepath[.txt]="..\"
+makepath[.ngo]=".\obj"
+makepath[.ngh]=".\obj"
+makepath[.ngp]=".\obj"
+PathObj=.\obj
+// PathComp=e:\eh\\
+PathComp=C:\util\guias\\
+
+.ch.ngh:
+   $(PathComp)ngc $<
+   ren ..\include\$*.ngo $*.ngh
+   move ..\include\$*.ngh $(PathObj)
+
+.prg.ngp:
+    $(PathComp)ngc $<
+    ren ..\samples\$*.ngo $*.ngp
+    move ..\samples\$*.ngp $(PathObj)
+
+.txt.ngo:
+    $(PathComp)ngc $<
+    move ..\$*.ngo $(PathObj)
+
+.ngt.ngo:
+   $(PathComp)ngc $<
+   move $*.ngo $(PathObj)
+
+Browse.ngh   : Browse.ch
+Database.ngh : Database.ch
+Dbm.ngh      : Dbm.ch
+Dbms.ngh     : Dbms.ch
+Dialog.ngh   : Dialog.ch
+Fivedos.ngh  : Fivedos.ch
+Icons.ngh    : Icons.ch
+Menubld.ngh  : Menubld.ch
+Obendcls.ngh : Obendcls.ch
+Objects.ngh  : Objects.ch
+Redefine.ngh : Redefine.ch
+Syscolor.ngh : SysColor.ch
+Sysstr.ngh   : Sysstr.ch
+Tree.ngh     : Tree.ch
+Window.ngh   : Window.ch
+Eval.ngh     : Eval.ch
+Notebook.ngh : NoteBook.ch
+
+5d.ngo       : 5d.ngt
+Arquitec.ngo : Arquitec.ngt
+BitMap.ngo   : BitMap.ngt
+Column.ngo   : Column.ngt
+Compilac.ngo : Compilac.ngt
+Database.ngo : Database.ngt
+Enlazado.ngo : Enlazado.ngt
+Function.ngo : Function.ngt
+Intro.ngo    : Intro.ngt
+Label.ngo    : Label.ngt
+ListBox.ngo  : ListBox.ngt
+Meter.ngo    : Meter.ngt
+Register.ngo : Register.ngt
+ScrollBa.ngo : ScrollBa.ngt
+Spin.ngo     : Spin.ngt
+
+TBitMap.ngo  : TBitmap.ngt
+TBmp.ngo     : TBmp.ngt
+TBtnBar.ngo  : TBtnBar.ngt
+TBtnBmp.ngo  : TBtnBmp.ngt
+TButton.ngo  : TButton.ngt
+TCheckbo.ngo : TCheckbo.ngt
+TChkmenu.ngo : TChkmenu.ngt
+TCombobo.ngo : TCombobo.ngt
+TControl.ngo : TControl.ngt
+TCtrbrow.ngo : TCtrbrow.ngt
+TCtrlmen.ngo : TCtrlmen.ngt
+TDatabas.ngo : TDatabas.ngt
+TFile.ngo    : TFile.ngt
+TGet.ngo     : TGet.ngt
+TImer.ngo    : TImer.ngt
+TInifile.ngo : TInifile.ngt
+TLabel.ngo   : TLabel.ngt
+TListbox.ngo : TListbox.ngt
+TMemo.ngo    : TMemo.ngt
+TMenu.ngo    : TMenu.ngt
+TMenuIte.ngo : TMenuIte.ngt
+TMenubar.ngo : TMenubar.ngt
+TMenubox.ngo : TMenubox.ngt
+TMeter.ngo   : TMeter.ngt
+TRadio.ngo   : TRadio.ngt
+TRadmenu.ngo : TRadmenu.ngt
+TSay.ngo     : TSay.ngt
+TScrollb.ngo : TScrollb.ngt
+TSpin.ngo    : TSpin.ngt
+TView.ngo    : TView.ngt
+TWindow.ngo  : TWindow.ngt
+TWorkAre.ngo : TWorkAre.ngt
+TTab.ngo     : TTab.ngt
+TTabMenu.ngo : TTabMenu.ngt
+TPage.ngo    : TPage.ngt
+TNoteBoo.ngo : TNoteBoo.ngt
+
+Timer.ngo    : Timer.ngt
+Tutorial.ngo : Tutorial.ngt
+WhatIsFd.ngo : WhatIsFd.ngt
+Whatsnew.ngo : WhatsNew.txt
+Window.ngo   : Window.ngt
+bar.ngo      : Bar.ngt
+browse.ngo   : Browse.ngt
+button.ngo   : Button.ngt
+buttonba.ngo : Buttonba.ngt
+checkbox.ngo : Checkbox.ngt
+combo.ngo    : Combo.ngt
+dist.ngo     : Dist.ngt
+gets.ngo     : Gets.ngt
+header.ngo   : Header.ngt
+index.ngo    : Index.ngt
+install.ngo  : Install.ngt
+logo.ngo     : logo.ngt
+menu.ngo     : Menu.ngt
+notebook.ngo : notebook.ngt
+oopbasis.ngo : Oopbasis.ngt
+oopmenu.ngo  : Oopmenu.ngt
+oopsint.ngo  : Oopsint.ngt
+ooptree.ngo  : Ooptree.ngt
+radio.ngo    : Radio.ngt
+say.ngo      : Say.ngt
+xBaseCmd.ngo : xBaseCmd.ngt
+xbase.ngo    : Xbase.ngt
+xbasesin.ngo : Xbasesin.ngt
+
+Tutor01.ngp  : Tutor01.prg
+Tutor02.ngp  : Tutor02.prg
+Tutor03.ngp  : Tutor03.prg
+Tutor04.ngp  : Tutor04.prg
+Tutor05.ngp  : Tutor05.prg
+Tutor06.ngp  : Tutor06.prg
+Tutor07.ngp  : Tutor07.prg
+Tutor08.ngp  : Tutor08.prg
+Tutor09.ngp  : Tutor09.prg
+Tutor10.ngp  : Tutor10.prg
+Tutor11.ngp  : Tutor11.prg
+Tutor12.ngp  : Tutor12.prg
+Tutor13.ngp  : Tutor13.prg
+Tutor14.ngp  : Tutor14.prg
+Tutor15.ngp  : Tutor15.prg
+Tutor16.ngp  : Tutor16.prg
+Tutor17.ngp  : Tutor17.prg
+Tutor18.ngp  : Tutor18.prg
+Tutor_rc.ngp : Tutor_rc.prg
+Tutordb.ngp  : Tutordb.prg
+
+fd.ng : Intro.ngo 5d.ngo xbase.ngo bar.ngo button.ngo browse.ngo \
+        browse.ngh database.ngh dbm.ngh dbms.ngh dialog.ngh \
+        fivedos.ngh icons.ngh menubld.ngh obendcls.ngh \
+        redefine.ngh sysstr.ngh syscolor.ngh tree.ngh window.ngh header.ngo\
+        checkbox.ngo combo.ngo gets.ngo buttonba.ngo menu.ngo \
+        radio.ngo say.ngo dist.ngo Timer.ngo Window.ngo \
+        install.ngo index.ngo xbasesin.ngo oopmenu.ngo \
+        oopbasis.ngo oopsint.ngo fd.mnu ooptree.ngo Eval.ngh \
+        WhatIsFd.ngo Arquitec.ngo Compilac.ngo Enlazado.ngo \
+        xBaseCmd.ngo Function.ngo Tutorial.ngo BitMap.ngo \
+        Column.ngo Database.ngo Label.ngo TView.ngo TTab.ngo \
+        Meter.ngo ScrollBa.ngo TWindow.ngo TBmp.ngo TNoteBoo.ngo \
+        TBitMap.ngo TBtnBar.ngo TBtnBmp.ngo TButton.ngo TTabMenu.ngo \
+        TCheckbo.ngo TChkmenu.ngo TCombobo.ngo TControl.ngo \
+        TCtrbrow.ngo TCtrlmen.ngo TDatabas.ngo TPage.ngo \
+        TFile.ngo TGet.ngo TImer.ngo TInifile.ngo TLabel.ngo \
+        TListbox.ngo TMemo.ngo TMenu.ngo TMenubar.ngo TMenubox.ngo \
+        TMenuIte.ngo TMeter.ngo TRadio.ngo TRadmenu.ngo TSay.ngo \
+        TScrollb.ngo logo.ngo TWorkAre.ngo Register.ngo \
+        tutor10.ngp tutor11.ngp tutor01.ngp NoteBook.ngh \
+        tutor18.ngp tutor07.ngp tutor13.ngp tutor14.ngp \
+        tutor16.ngp tutor02.ngp tutor03.ngp tutor04.ngp \
+        tutor05.ngp tutor06.ngp tutor_rc.ngp tutor08.ngp \
+        tutor09.ngp tutor15.ngp tutor17.ngp tutordb.ngp \
+        tutor12.ngp Whatsnew.ngo NoteBook.ngo ListBox.ngt \
+        Spin.ngo TSpin.ngo
+   cd $(PathObj)
+   $(PathComp)ngml ..\Fd.mnu
+   cd ..

@@ -1,0 +1,34 @@
+.PRG.OBJ:
+     C:\CLIPPER5\BIN\CLIPPER $* /n/w /i..\include;c:\clipper5\include
+
+REPDEMO.OBJ      :     REPDEMO.PRG
+REP02.OBJ        :     REP02.PRG
+REP03.OBJ        :     REP03.PRG
+REP12.OBJ        :     REP12.PRG
+REP05.OBJ        :     REP05.PRG
+REP04.OBJ        :     REP04.PRG
+REP09.OBJ        :     REP09.PRG
+REP07.OBJ        :     REP07.PRG
+REP15.OBJ        :     REP15.PRG
+REP08.OBJ        :     REP08.PRG
+REP06.OBJ        :     REP06.PRG
+REP10.OBJ        :     REP10.PRG
+REP13.OBJ        :     REP13.PRG
+REP11.OBJ        :     REP11.PRG
+REP21.OBJ        :     REP21.PRG
+REP20.OBJ        :     REP20.PRG
+REP16.OBJ        :     REP16.PRG
+REP19.OBJ        :     REP19.PRG
+REP17.OBJ        :     REP17.PRG
+REP14.OBJ        :     REP14.PRG
+REP18.OBJ        :     REP18.PRG
+REP01.OBJ        :     REP01.PRG
+
+REPDEMO.EXE: REPDEMO.OBJ REP02.OBJ REP03.OBJ REP12.OBJ \
+     REP05.OBJ REP04.OBJ REP09.OBJ REP07.OBJ REP15.OBJ \
+     REP08.OBJ REP06.OBJ REP10.OBJ REP13.OBJ REP11.OBJ \
+     REP21.OBJ REP20.OBJ REP16.OBJ REP19.OBJ REP17.OBJ \
+     REP14.OBJ REP18.OBJ REP01.OBJ
+     SET LIB=..\..\lib;c:\clipper5\lib
+     BLINKER @RepDemo.lnk
+     RC -K REPDEMO

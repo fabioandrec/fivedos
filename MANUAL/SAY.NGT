@@ -1,0 +1,51 @@
+^U SAY
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+    ^B @ nRow, nCol SAY [ oSay  PROMPT, LABEL, VAR ] bText
+    ^B         [ PICTURE cPict ]
+    ^B         [ OF, WINDOW, DIALOG oWnd ]
+    ^B         [ FONT oFont ]
+    ^B         [ SIZE nWidth, nHeight ]
+    ^B         [ CENTERED  ]
+    ^B         [ BORDER ]
+    ^B         [ PIXEL, PIXELS ]
+    ^B         [ COLOR cColors ]
+    ^B         [ DESIGN ]
+
+
+    ^B @ nRow, nCol SAY [ oSay  PROMPT, LABEL, VAR ] bText
+        Situa un objeto SAY en nRow, nCol, lo salva en oSay
+        conteniendo del texto bText
+
+    ^B[ PICTURE cPict ]
+        M쟳cara de visualizaci줻.
+
+    ^B[ OF, WINDOW, DIALOG oWnd ]
+        Determina la ventana a la que pertenece
+
+    ^B[ FONT oFont ]
+        S줹o para compatibilidad con FiveWin
+
+    ^B[ SIZE nWidth, nHeight ]
+        TAma쨚 , ancho por alto.
+
+    ^B[ CENTERED  ]
+        Centrado en el tama쨚 asignado.
+
+    ^B[ BORDER ]
+        S줹o para compatibilidad con FiveWin
+
+    ^B[ PIXEL, PIXELS ]
+        S줹o para compatibilidad con FiveWin
+
+    ^B[ COLOR cColors ]
+        Patron de colores a utilizar.
+
+    ^B[ DESIGN ]
+        S줹o para compatibilidad con FiveWin
+
+
+ ^BEjemplo^N
+
+    @ 10,10 SAY oSay PROMPT 'Domicilio" of oWnd
+

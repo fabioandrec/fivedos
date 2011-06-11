@@ -1,0 +1,9 @@
+BLIN INCR OFF
+# MAP A,S
+# comment next lines if you don't want an extended executable
+BLIN EXEC EXTE
+BLINKER SEGMENT THRESHOLD 16384
+file extend
+# READONLY
+# ннн Remember !!! -> use the apropiate blinker patch library
+search \fivetech\fivedos\lib\fivedos, \fivetech\fivedos\lib\501_520, blxclp53

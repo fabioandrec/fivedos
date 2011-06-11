@@ -1,0 +1,155 @@
+!short: CLASE ^BTBtnBmp^B                                                               
+'------------------------------------------------------------------------------'
+    Clase que deriva de TView para el manejo de botones de barra.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:bAction^B          Codeblock que se ejecuta cuando se selecciona el bot¢n.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bWhilePressed^B    Codeblock que se ejecuta mientras se presiona el bot¢n.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cChars^B           Caracteres usados por el bot¢n cuando no est  pulsado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmpCh^B           Contenido del bitmap para cuando el bot¢n no est  pulsado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmp^B             Fichero bitmap para cuando el bot¢n no est  pulsado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cChars2^B          Caracteres usados por el bot¢n cuando est  pulsado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmpCh2^B          Contenido del bitmap para cuando el bot¢n est  pulsado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cBmp2^B            Fichero bitmap para cuando el bot¢n est  pulsado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lGroup^B           Indica si es un nuevo grupo de botones para dejar separador.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lPressed^B         Indica si el bot¢n est  pulsado o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrLeft^B         Color usado por el borde izquierdo.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrRight^B        Color usado por el borde derecho.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:Click^B            Maneja las pulsaciones del rat¢n.                           ^B
+'------------------------------------------------------------------------------'
+^U Click
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Click( nMRow, nMCol ) -> NIL
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones del rat¢n sobre el bot¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Destroy^B          Es el destructor de la clase.                               ^B
+'------------------------------------------------------------------------------'
+^U Destroy
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Destroy() -> NIL
+
+^B Descripci¢n:^B
+    Es el destructor de la clase. Libera los caracteres reservados que se
+    hayan usado.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Es el constructor de la clase.                              ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( oBar, cBmpFile, cBmpFile2, cCars, bAction,
+         lGroup, cColor, cMsg, bWhilePressed ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BoBar         ^B   Es la barra de botones a la que pertenece el bot¢n.
+    ^BcBmpFile     ^B   Fichero con la im gen del bot¢n cuando no est  pulsado.
+    ^BcBmpFile2    ^B   Fichero con la im gen del bot¢n cuando est  pulsado.
+    ^BcCars        ^B   Cadena de caracteres que puede aparecer en el bot¢n.
+    ^BbAction      ^B   Acci¢n a realizar cuando el bot¢n es seleccionado.
+    ^BlGroup       ^B   Indica si pertenece a un nuevo grupo.
+    ^BcColor       ^B   Cadena de caracteres con los colores.
+    ^BcMsg         ^B   Mensaje que aparecer  cuando se seleccione el bot¢n.
+    ^BbWhilePressed^B   Acci¢n a efectuar mientras se pulse el bot¢n.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:MouseMove^B        Este m‚todo es llamado cuando se mueve el rat¢n.            ^B
+'------------------------------------------------------------------------------'
+^U MouseMove
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    MouseMove( nMRow, nMCol ) -> NIL
+
+^B Descripci¢n:^B
+    Este m‚todo es llamado cuando se mueve el rat¢n para actualizar la forma
+    del puntero del rat¢n y el mensaje del objeto al que apunta.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Dibuja el bot¢n en la barra a la que pertenece.             ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci¢n:^B
+    Dibuja el bot¢n en la barra a la que pertenece.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        Para seleccionar los colores a partir de la cadena pasada.  ^B
+'------------------------------------------------------------------------------'
+^U SetColors
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetColors( cColor ) -> NIL
+
+^B Descripci¢n:^B
+    Selecciona los colores a partir de la cadena ^BcColor.^B En esta cadena se
+    representa tres colores separados por comas siendo el primero el color
+    del texto, el segundo el color del borde de la izquierda y el tercero el
+    del borde de la derecha.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

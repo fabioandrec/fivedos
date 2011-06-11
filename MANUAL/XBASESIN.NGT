@@ -1,0 +1,88 @@
+^U Elementos Comunes de la sintaxis xBase.
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+    Se ha prestado especial atenci줻 a la formulaci줻 de una sintaxis
+    coherente y de estructura fija para todo el conjunto de sentencias
+    incorporadas en FiveDos.
+
+    Intentamos que de esta forma se suavice la curva de apredizaje,
+    estableciendo una constante entre todas las sentencias pretendemos
+    que el aprendizaje sea mucho m쟳 llevadero.
+
+
+
+^UDEFINE
+
+    Esta cla즧ula se utiliza para la creaci줻 de elementos contenedores
+    Los elementos contenedores son auqellos que pueden contener en su
+    interior otros elementos, como controles, items, etc.
+
+    En algunos casos puede ser empleado para iniciar elementos independientes.
+
+    Por Ejemplo:
+
+        ^BDEFINE WINDOW oWnd
+        ^BDEFINE BUTTONBAR OF oWnd
+
+
+
+^UOF
+
+    Establece una relaci줻 de pertenencia, de esta manera se indican que
+    elementos pertenecen a un determinado di쟫ogo o elemento.
+
+        Por Ejemplo:
+
+            ^B@ 12,10 BUTTOM ' OK ' OF oWnd
+            ^BDEFINE BUTTON ' SALIR ' OF oBar
+
+
+
+^UACTIVATE
+
+    Con esta cla즧ula se lanzan los elementos, prinicipalmente las ventanas
+    y dialogos.
+
+        Por Ejemplo:
+
+            ^BACTIVATE DIALOG oWnd
+
+
+
+^URESOURCE  RESNAME  NAME
+
+    Determina el nombre del fichero de recursos desde el que se extraeran
+    los elementos.
+
+        Por ejemplo:
+
+            ( Pendiente de implementar ... )
+
+
+
+^U:END()
+    Mensaje que termina con cualguier objeto ( realmente es :CLOSE(), pero
+    se admite :END() cono sin줻imo por compatibilidad con FiveWin ).
+
+
+
+^UFILENAME  FILE  DISK
+
+    Establece el uso de un fichero como fuente de un elemento, un bitmap
+    o cualquier otro.
+
+        Por Ejemplo:
+
+            ^BDEFINE BUTTON FILE "boton.bmp" OF oBar
+
+
+
+^USIZE
+    En cualquier caso se utiliza para indicar el tama쨚 de un elemento,
+    en formato SIZE <ancho>,<alto>.
+
+        Por ejemplo:
+
+            ^B@ 12,3  LISTBOX oLbx ARRAY aElements SIZE 5,20 of oWnd
+
+

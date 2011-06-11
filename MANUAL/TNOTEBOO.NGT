@@ -1,0 +1,136 @@
+!short: CLASE ^BTNBook^B
+'------------------------------------------------------------------------------'
+    Clase derivada de TView para soporte de colecciones de p ginas.
+    Cada p gina corresponder¡a con un objeto de la clase TPage.
+!SeeAlso: NoteBook.ngo:NoteBook.ch
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:aoPages^B          Array de objetos TPage.^B
+!short:aLabelClr^B        Array con los colores para las etiquetas.^B
+!short:nIndex^B           N£mero de objeto TPage seleccionada.^B
+!short:nParentIndex^B     N£mero de hijo dentro de la ventana a la que pertenece.^B
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:New^B              Es el constructor de la clase.                              ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nTop, nLeft, nBottom, nRight, oWnd, cColor ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BnTop      ^B  Coordenada superior de la zona que ocupar .
+    ^BnLeft     ^B  Coordenada izquierda de la zona que ocupar 
+    ^BnBottom   ^B  Coordenada inferior de la zona que ocupar .
+    ^BnRight    ^B  Coordenada derecha de la zona que ocupar .
+    ^BoWnd      ^B  Referencia a la ventana a la que pertenece.
+    ^BcColor    ^B  Cadena de caracteres con los colores.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:AddChild^B         A¤ade una nueva p gina.                                     ^B
+'------------------------------------------------------------------------------'
+^U AddChild
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    AddChild( oPage ) -> NIL
+
+^B Descripci¢n:^B
+    A¤ade una p gina al array de objetos TPage ^B::aoPages.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:AddControl^B       A¤ade un control a la £ltima p gina a¤adida.                ^B
+'------------------------------------------------------------------------------'
+^U AddControl
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    AddControl( oCtrl ) -> NIL
+
+^B Descripci¢n:^B
+    A¤ade un control a la £ltima p gina a¤adida.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetPage^B          Indica que p gina es la activa.                             ^B
+'------------------------------------------------------------------------------'
+^U SetPage
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetPage( nPage, lFocus ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna la p gina activa a la p gina n£mero ^BnPage.^B ^BlFocus^B indica que se ha
+    de cambiar el focus de la ventana a la que pertenece.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:aClrLabel^B        Para obtener el array de colores del libro.                 ^B
+'------------------------------------------------------------------------------'
+^U aClrLabel
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    aClrLabel() -> aClrLabel
+
+^B Descripci¢n:^B
+    Devuelve una referencia del array de colores de etiquetas de la p gina
+    activa o en su defecto de su propio array ^B::aLabelClr.^B
+
+^B Retorno:^B
+    Devuelve una referencia al array de colores.
+
+'------------------------------------------------------------------------------'
+!short:IsHotKey^B         Indica si el caracter pasado es su letra aceleradora.       ^B
+'------------------------------------------------------------------------------'
+^U IsHotKey
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    IsHotKey( nChar ) -> lIsHotKey
+
+^B Descripci¢n:^B
+    Determina si el caracter ^BnChar^B es la letra aceleradora de alguna de las
+    p ginas.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:KeyPressed^B       Procesa las pulsaciones de teclas.                          ^B
+'------------------------------------------------------------------------------'
+^U KeyPressed
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nValor
+
+^B Descripci¢n:^B
+    Procesa las pulsaciones de tecla, definiendo pues, el comportamiento del
+    objeto en lo que a respuesta a teclas se refiere. Devuelve ^B0^B cuando se ha
+    procesado la tecla y ^BnKey^B cuando no se ha procesado.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'

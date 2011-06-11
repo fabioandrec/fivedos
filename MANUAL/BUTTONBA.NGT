@@ -1,0 +1,46 @@
+^U BUTTON
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+    ^BDEFINE BUTTON [ oBtn ]
+    ^B     [ OF, BUTTONBAR  oBar ]
+    ^B     [ NAME, RESNAME, RESOURCE cResName [,cResName2] ]
+    ^B     [ FILE, FILENAME, DISK cBmpFile [,cBmpFile2] ]
+    ^B     [ ACTION, EXEC uAction ]
+    ^B     [ GROUP  ]
+    ^B     [ COLOR cColors ]
+    ^B     [ LABEL, PROMPT cCars ]
+    ^B     [ MESSAGE cMsg ]
+    ^B     [ ADJUST  ]
+
+
+    ^BDEFINE BUTTON [ oBtn ]
+        Crea un  boton, almacen ndolo en oBtn
+
+    ^B[ OF, BUTTONBAR  oBar ]
+        Asigna el bot¢n a la barra, esta debe existir
+
+    ^B[ NAME, RESNAME, RESOURCE cResName [,cResName2] ]
+        S¢lo para compatibilidad con FiveWin.
+
+    ^B[ FILE, FILENAME, DISK cBmpFile ]
+        Carga un BitMap como parte del bot¢n
+
+    ^B[ ACTION, EXEC uAction ]
+        Acci¢n asociada al bot¢n
+
+    ^B[ GROUP  ]
+        Determina la generaci¢n de una nueva agrupaci¢n.
+
+    ^B[ COLOR cColors ]
+        Definici¢n del grupo de botones.
+
+    ^B[ LABEL, PROMPT cCars ]
+        Texto que contendr  el Bot¢n. En caso de contener tambi‚n un
+        BitMap este se situar  a la izquierda.
+
+    ^B[ MESSAGE cMsg ]
+        Texto que aparecer  en la barra de Mensajes.
+
+    ^B[ ADJUST  ]
+        S¢lo para compatibilidad con FiveWin.
+!seeAlso: Bar.ngo:BUTTONBAR

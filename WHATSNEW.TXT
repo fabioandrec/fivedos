@@ -1,0 +1,161 @@
+
+
+                              New enhancements
+                              ================
+
+  * 06/10/94:   MsgBox functions bug corrected. Thanks to Micro Consult
+               Netherland.
+
+  * 11/10/94:   New Language module. You can select FiveDos language and
+               expand it, if you want, so.
+
+  * 14/10/94 :  New protected mode memory access module. Full compatible
+               with the most commonly used DOS extenders:
+                    ExoSpace
+                    Blinker 3.xx
+                    CauseWay
+
+                Run fine also under DOS tasks on OS/2 and Windows
+               enhanced mode.
+
+                Use of FiveDos with this extenders is very easy...
+               you only need link one module from FiveDos.lib
+               with REQUEST VEXTENDED command. No separate librarys or
+               object files are needed.
+
+               Warning: Don't forget the REQUEST VEXTENDED command if you
+                        links an extended exe. If you forget it, will get
+                        a pretty system Crack....
+                        Don't link it, if you are linking a normal
+                        DOS exe. If you forget this, will get, also, a
+                        pretty system Crack....
+
+  * 25/10/94 :  New Clausule WHILE PRESSED <uAction> for PushButtons and
+               ButtonBitmaps.
+
+  * 01/11/94 :  Standard @ row, col say .... now works fine with fivedos.ch
+
+  * 01/11/94 :  @ row, col say uValue ... OF oWnd now works fine with any
+                clipper uValue and picture... Bug fixed.
+
+  * 01/11/94 :  MicroSoft Windows menu's feeling.
+
+  * 01/11/94 :  ACTIVATE WINDOW CENTERED bug: now work.
+
+  * 01/11/94 :  WAV sound files support for PC Speaker. See wdemo.prg in
+                samples dir.
+
+  * 01/11/94 :  Added an new version of our old TIniFile Class. See
+                TestIni.prg in samples dir.
+
+  * 01/11/94 :  FiveWin alike ShareWare system instaled.
+
+  * 05/11/94 :  All library recompiled to 80286 code.
+
+  * 07/11/94 :  New default colors module: SysColor.prg
+
+  * 08/11/94 :  Clipper debugger now works properly with FiveDos
+                on 25 or 50 lines.
+
+
+  Version 1.1
+
+  * 06/05/95 : New lEditCol() Method in CtrlBrowse class like same method
+               in fivewin TWBrowse class.
+
+  * 06/05/95 : Sample BrwEdit.prg. Sample about lEditCol() method.
+
+  * ??/06/95 : Improve speed in varius process
+               Added class Tabs and TabMenu
+               Added class Notebook and Page
+
+  * 27/07/95 : Any litle bug's corrected in Listbox
+               bPrecode and bPostControl added a tGet
+               Method SetGetPOs added to tGet
+
+    --------------------------------------------------------------
+    ----------------- Version 1.2 Agosto '95 ---------------------
+
+
+  *  A¤adidos bPrekey y bPostKey a Tget, para controlar
+        las tecla y buffer
+  *  Corregidos muchos peque¤os bugs
+
+  *  Busqueda en listbox de array con la primers letra de cada item
+
+  *  Reforma de las clases VIew y Window casi en su totalidad.
+
+  *  Nuevas clases tTab y tTabMenu, como apoyo a Notebook, presentan tabs
+     de forma aut¢noma.
+
+  *  Nuevas clases tNotebook y tPage, forman di logos multinivel, junto con
+     la clase tab y tabmenu forman un FOLDER al estilo FiveWin.
+     La principal ddiferencia es que NoteBook se puede controlar no s¢lo
+     desde un TabMenu, sino desde cualquier control.
+     Ver TestTabs.prg y TestPage.prg en .\SAMPLES
+
+  *  A¤adida clausula action al tPage
+
+  *  Incluida nueva versi¢n de OBJECTS, V4.0
+        M s velocidad, M s flexibilidad, M s Potencia. M s... M s ...
+        Importante:
+                Vea OBJECTS.NG en .\MANUAL
+
+  *  TODOS los controles disponen del codeblock :bRight
+     bRight se evalua con el bot¢n derecho del rat¢n.
+        Ver Bot¢n 'Hojer Fichero' en Wdemo1.prg en .\SAMPLES
+
+  *   Por fin!! Disponibles los ToolTips en la clase tBtnBmp
+        Ver Wdemo1.prg y Wdemo.prg en .\SAMPLES
+
+  *   A¤adida instacia nMouseCursor a tView.
+        Se puede alterar el cursor del rat¢n al pasar sobre cualquier
+        control, de forma din mica.
+
+  *   La clase tButton toma IDC_HAND como cursor por defecto.
+        Cursor en forma de mano.
+
+
+    --------------------------------------------------------------
+    ----------------- Version 1.3 xxxxxxx'95 ---------------------
+
+  *   Alineacion de controles: Los controles, ahora, saben ajustarse
+      solos a las diferentes zonas de su contenedor gracias al dato
+      'nAlign' de TView.
+
+      'nAlign' puede tomar estos valores:
+
+            ALIGN_TOP
+            ALIGN_RIGHT
+            ALIGN_BOTTOM
+            ALIGN_LEFT
+            ALIGN_CLIENT
+
+  *   Por fin funcionan, y bien, las claususlas VSCROLL y HSCROLL
+      de DEFINE WINDOW....
+
+  *   Ahora ademas de los cursores predefinidos se puden crear cursores de
+      usuario. La funci¢n cLoadCursor() es capaz de cargar una esctructura
+      de cursor de FiveDos apartir de un archivo especial. Ver TestCurs
+      en el direcrio SAMPLES.
+
+  *   La funcci¢n captora de eventos ahora recibe los siguientes parametros:
+      ( nTimeOut, bTimeOut ) // ambos opcionales.
+
+  *   La funci¢n de calibrado de bucles basada en la int 15 servicio 83h no
+      funciona bajo Windows95: es sustituida por otra basada en la Int 8.
+
+  *   Nueva clausula  PASSWORD para los GET. Se pueden hacer gets con
+      ocultacion visual de la captura de datos.
+
+  *   Nueva variable de instancia nResult en TWindow. Contiene el resultado
+      de la ejecuci¢n de una ventana. Normalmente 0 cuando se cierra con
+      Alt-F4 o con doble click en la esquina sup-izq; y ser  -1 cuando se
+      termine con ESC.
+------------
+  *   A¤adida a todos los controles la clausula UPDATE y el m‚todo Update
+      a las clases DIALOG y WINDOW, con lo que se pueden realizar
+      actualizaciones selectivas de controles.
+
+  *   A¥adido m‚todo Settext a la Clase tButton
+

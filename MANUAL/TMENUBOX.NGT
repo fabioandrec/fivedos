@@ -1,0 +1,138 @@
+!short: CLASE ^BTMenuBox^B                                                              
+'------------------------------------------------------------------------------'
+    Clase derivada de TMenu para menus de ventana.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:Display^B          Hace visible el men£ de ventana.                            ^B
+'------------------------------------------------------------------------------'
+^U Display
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Display() -> NIL
+
+^B Descripci¢n:^B
+    Hace visible el men£ de ventana y lo a¤ade a la ventana propietaria del
+    men£ llamando a AddPopUp( Self ).
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Hide^B             Oculta el menu de ventana.                                  ^B
+'------------------------------------------------------------------------------'
+^U Hide
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Hide() -> NIL
+
+^B Descripci¢n:^B
+    Oculta el men£ de ventana y lo elimina de la ventana propietaria del men£
+    llamando a DelPopUp().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Es el constructor de la clase.                              ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nTop, nLeft, nWidth, nHeight, cColors ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BnTop   ^B     Fila donde se situa el men£.
+    ^BnLeft  ^B     Columna donde se situa el men£.
+    ^BnWidth ^B     Ancho del men£.
+    ^BnHeight^B     Alto del men£.
+    ^BcColors^B     Cadena de caracteres con los colores.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Organize^B         Reajusta tama¤o y ancho seg£n los elementos del men£.       ^B
+'------------------------------------------------------------------------------'
+^U Organize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Organize() -> NIL
+
+^B Descripci¢n:^B
+    Reajusta el tama¤o y el ancho seg£n los elementos del men£ y activa el
+    flag ::lOrganized a verdadero.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Paint^B            Define la forma de pintarse el men£.                        ^B
+'------------------------------------------------------------------------------'
+^U Paint
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Paint( cVPTgt ) -> cVPTgt
+
+^B Descripci¢n:^B
+    Define la forma de pintarse el men£.
+
+^B Retorno:^B
+    Devuelve una referencia a la estructura pasada.
+
+'------------------------------------------------------------------------------'
+!short:SetPos^B           Cambia la posici¢n que ocupa el men£.                       ^B
+'------------------------------------------------------------------------------'
+^U SetPos
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetPos( nNewRow, nNewCol ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia la posici¢n que ocupa el men£.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Update^B           Actualiza la im gen de un elemento del men£.                ^B
+'------------------------------------------------------------------------------'
+^U Update
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Update( oChild ) -> NIL
+
+^B Descripci¢n:^B
+    Actualiza la im gen del elemento oChild.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:UpdateOwner^B      Actualiza la im gen de la ventana a la que pertenece.       ^B
+'------------------------------------------------------------------------------'
+^U UpdateOwner
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    UpdateOwner() -> NIL
+
+^B Descripci¢n:^B
+    Actualiza la im gen de la ventana a la que pertenece.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

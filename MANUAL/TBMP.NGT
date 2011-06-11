@@ -1,0 +1,165 @@
+!short: CLASE ^BTBmp^B                                                                  
+'------------------------------------------------------------------------------'
+    Esta clase se encarga del manejo de bitmaps y redefiniciones de caracteres.
+!SeeAlso: BitMap.ngo:Comandos
+'------------------------------------------------------------------------------'
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short: DATOS
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:aRecurses^B        Array que contiene los recursos que se han creado.          ^B
+'------------------------------------------------------------------------------'
+    Este array contiene una array con informaci줻 de los recursos creados.
+    Esta informaci줻 se almacena el forma de array y consta de identificativo,
+    caracteres reservados y contador de reservas. Cuando un recurso se crea
+    por primera vez se a쨅de al array de recursos, pero cuando ya existia lo
+    que se hace es incrementar el contador de reservas de manera que cuando se
+    libera lo que se hace es decrementar el contador y si llega a cero entonces
+    se liberan los caracteres reservados.
+'------------------------------------------------------------------------------'
+!short:cTable^B           Cadena que se usa para controlar los caracteres usados.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cChar^B            Cadena con los caracteres que usa el recurso.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cId^B              Identificativo que se usa para identificar el recurso.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short:
+!short: METODOS
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:AllocChars^B       Reserva caracteres para un recurso.                         ^B
+'------------------------------------------------------------------------------'
+^B Prototipo:^B
+    AllocChars( cRecurseID, nCars ) -> cCars
+
+^B Descripci줻:^B
+    Crea el recurso con identificativo ^BcRecurseID^B y reserva ^BnCars^B caracteres.
+    Devuelve los caracteres reservados.
+
+^B Retorno:^B
+    Devuelve una cadena de caracteres.
+
+'------------------------------------------------------------------------------'
+!short:CarRoom^B          Busca caracteres libres para reservar.                      ^B
+'------------------------------------------------------------------------------'
+^B Prototipo:^B
+    CarRoom( nCars ) -> cCars
+
+^B Descripci줻:^B
+    Busca ^BnCars^B caracteres que no se hayan reservado y los marca como usados.
+
+^B Retorno:^B
+    Devuelve una cadena de caracteres.
+
+'------------------------------------------------------------------------------'
+!short:Destroy^B          Destructor de la clase.                                     ^B
+'------------------------------------------------------------------------------'
+^B Prototipo:^B
+    Destroy() -> NIL
+
+^B Descripci줻:^B
+    Es el destructor de la clase. Lo que hace es invocar al m굏odo ^BReleaseChars.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:FreeCar^B          Libera caracteres usados.                                   ^B
+'------------------------------------------------------------------------------'
+^B Prototipo:^B
+    FreeCar( cCars ) -> NIL
+
+^B Descripci줻:^B
+    Libera los caracteres pasados en ^BcCars^B para permitir que se puedan ser
+    usados por otro recurso.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Get^B              Devuelve los caracteres usados.                             ^B
+'------------------------------------------------------------------------------'
+^B Prototipo:^B
+    Get() -> cCars
+
+^B Descripci줻:^B
+    Devuelve los caracteres usados o sea ^B::cChar.^B
+
+^B Retorno:^B
+    Devuelve una cadena de caracteres.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Es el contructor de la clase.                               ^B
+'------------------------------------------------------------------------------'
+^B Prototipo:^B
+    New( cFile, aDef ) -> Self
+
+^B Descripci줻:^B
+    Es el constructor de la clase. El par쟭etro ^BcFile^B es el fichero que
+    contiene el bitmap a representrar y ^BaDef^B es un arrray de definici줻
+    de caracteres con un subarray por caracter. Es necesario recibir
+    almenos uno de estos par쟭etros y siempre tiene prioridad ^BcFile^B
+    sobre ^BaDef.^B
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:ReadBitmap^B       Lee el archivo y redefine los caracteres.                   ^B
+'------------------------------------------------------------------------------'
+^B Prototipo:^B
+    ReadBitMap( cBmpFile ) -> cChars
+
+^B Descripci줻:^B
+    Lee el archivo ^BcBmpFile^B que contiene la im쟥en del bitmap, redefine los
+    caracteres necesarios para representarlo y los devuelve.
+
+^B Retorno:^B
+    Devuelve una cadena de caracteres.
+
+'------------------------------------------------------------------------------'
+!short:ReleaseChars^B     Libera los caracteres usados por un recurso.                ^B
+'------------------------------------------------------------------------------'
+^B Prototipo:^B
+    ReleaseChars( cRecurseID ) -> NIL
+
+^B Descripci줻:^B
+    Si encuentra el recurso ^BcRecurseID^B decrementa el contador de reservas del
+    recurso y si es el 즠timo libera los caracteres usados por el recurso
+    llamando a ^BFreeCar.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:ReserveCar^B       Reserva caracteres para que no sean redefinidos.            ^B
+'------------------------------------------------------------------------------'
+^B Prototipo:^B
+    ReserveCar( cnCarBeg, cnCarEnd ) -> NIL
+
+^B Descripci줻:^B
+    Reserva caracteres para que no sean redefinidos empezando por ^BcnCarBeg^B y
+    hasta ^BcnCarEnd.^B Ambos par쟭etros pueden ser tanto el valor num굍ico del
+    car쟠ter como su c줰igo ASCII.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetDef^B           Modifica la definici줻 de un recurso.                       ^B
+'------------------------------------------------------------------------------'
+^B Prototipo:^B
+    SetDef( aDef ) -> NIL
+
+^B Descripci줻:^B
+    Modifica la definici줻 de caracteres de un recurso con la definici줻 ^BaDef.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

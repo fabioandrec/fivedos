@@ -1,0 +1,182 @@
+
+ษอออออออออออออออออ FiveWin 1.8 - April 95 ฏ About ฏ Developers ออออออออออออออออป
+บ   Expand    Search...    Options    Reference    Programming    About        บ
+วฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤถ
+บIMPORTANT NOTICE:                                                             
+บ                                                                              ฐ
+บ Read the following terms and conditions before using the software.           ฐ
+บ By using the software, you show your agreement to the terms of               ฐ
+บ this license agreement. If you do not agree with the terms and               ฐ
+บ conditions of this agreement, as specified below, promptly return the        ฐ
+บ unused disk package and all other items (including any written materials)    ฒ
+บ for a full refund.                                                           ฐ
+บ                                                                              ฐ
+บ The enclosed computer software package is licensed to you by the authors,    ฐ
+บ it is not sold to you. You may use it only under the terms of this           ฐ
+บ agreement and the authors reserve any rights not expressly granted to you    ฐ
+บ herein.                                                                      ฐ
+บ                                                                              ฐ
+บ You may use the enclosed software only in machine readable form.             ฐ
+บ                                                                              ฐ
+บ In consideration of the right to a refund of the license fee for any reason, ฐ
+บ including any terms of this agreement which are unacceptable or are          ฐ
+บ unenforceable by reason of law or regulation applicable to you, within a 30  ฐ
+บ day period provided.  You expressly agree to waive all redress other than as ฐ
+บ provided by these terms and to return the package unused for such refund     
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+
+ษอออออออออออออออออ FiveWin 1.8 - April 95 ฏ About ฏ Developers ออออออออออออออออป
+บ   Expand    Search...    Options    Reference    Programming    About        บ
+วฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤถ
+บ provided by these terms and to return the package unused for such refund     
+บ within this 30 day period.                                                   ฐ
+บ                                                                              ฐ
+บ  Disclaimers: The authors make no warranties as to the contents of this      ฐ
+บ document or the software contained herein, and specifically  disclaims any   ฐ
+บ warranties of merchantability or fitness for any  particular purpose. We     ฐ
+บ will not be liable for indirect, special, consequential or other damages     ฐ
+บ resulting from the use of this product. The authors reserve the right        ฐ
+บ to make changes to the specifications of this software product and contents  ฐ
+บ of its documentation -electronically or printed- without obligation to       ฒ
+บ notify any person or organization of such changes.                           ฐ
+บ                                                                              ฐ
+บ NOTE:  Distributors are not responsible for any claims against this          ฐ
+บ software product.  Distributors will only be responsible for replacing       ฐ
+บ defective media. All other claims must be made to the authors of this        ฐ
+บ product.  Your use of this product constitutes your acceptance of these      ฐ
+บ terms.                                                                       ฐ
+บ                                                                              ฐ
+บI.   GRANT OF LICENSE:   A.Linares & F.Pulpขn (LICENSORs) give you            ฐ
+บ     (LICENSEE) the right to use one (1) copy of this software                ฐ
+บ     product (PROGRAM) on a single computer system.  This does not grant      
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+
+ษอออออออออออออออออ FiveWin 1.8 - April 95 ฏ About ฏ Developers ออออออออออออออออป
+บ   Expand    Search...    Options    Reference    Programming    About        บ
+วฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤถ
+บI.   GRANT OF LICENSE:   A.Linares & F.Pulpขn (LICENSORs) give you            
+บ     (LICENSEE) the right to use one (1) copy of this software                ฐ
+บ     product (PROGRAM) on a single computer system.  This does not grant      ฐ
+บ     you the right to use the software on a network by multiple users or on   ฐ
+บ     more than one computer at a time.                                        ฐ
+บ                                                                              ฐ
+บII.  COPYRIGHT.  The software is owned by  A.Linares & F.Pulpขn and           ฐ
+บ     is protected under the Copyright Laws of Spain and the United States     ฐ
+บ     of America and international treaty provisions.  LICENSEE must treat the ฐ
+บ     software like any other copyrighted material (books, records, tapes,     ฐ
+บ     etc.) except LICENSEE may make additional copies of the distribution     ฐ
+บ     diskette for archival purposes.  The LICENSEE agrees not to copy the     ฐ
+บ     documentation and to take all necessary precautions to ensure the        ฒ
+บ     archival copies of the software are not distributed to or acquired by    ฐ
+บ     other parties except as provided for in paragraph VI below.  LICENSEE    ฐ
+บ     may not copy any of the written materials provided with the software.    ฐ
+บ     LICENSEE must retain possession of the original distribution diskette    ฐ
+บ     for Registered software at all times.                                    ฐ
+บ                                                                              ฐ
+บIII. OTHER RESTRICTIONS.  LICENSEE may not rent or lease the software but     ฐ
+บ     has the right to transfer the software license to another party          
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+
+ษอออออออออออออออออ FiveWin 1.8 - April 95 ฏ About ฏ Developers ออออออออออออออออป
+บ   Expand    Search...    Options    Reference    Programming    About        บ
+วฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤถ
+บIII. OTHER RESTRICTIONS.  LICENSEE may not rent or lease the software but     
+บ     has the right to transfer the software license to another party          ฐ
+บ     provided LICENSEE retains no copies of the software, documentation or    ฐ
+บ     other written materials.  Transfer of license must be approved by        ฐ
+บ     LICENSOR and must be submitted in writing to the address listed herein.  ฐ
+บ                                                                              ฐ
+บIV.  LANGUAGE SOFTWARE.  The software is considered to be a language          ฐ
+บ     software product if the software either creates executable files or      ฐ
+บ     attaches itself to other language products as an enhancement.  If the    ฐ
+บ     software is a language software product, LICENSEE has the royalty-free   ฐ
+บ     right to incorporate it into software applications developed by          ฐ
+บ     LICENSEE and distribute those applications, privately or commercially,   ฐ
+บ     provided that LICENSEE: (a) ensures it is only in machine readable       ฐ
+บ     form; (b) agrees to indemnify, hold harmless, and defend  LICENSORs      ฐ
+บ     and their agents and distributors from and against any claims or         ฐ
+บ     lawsuits, including attorney's fees, that arise or result from the       ฒ
+บ     use or distribution of same.                                             ฐ
+บ                                                                              ฐ
+บV.   REVERSE ENGINEERING.  You may NOT alter, decompile, disassemble,         ฐ
+บ     or reverse engineer the software.  However, you are free to make         ฐ
+บ     modifications for your own use to that source code which is provided     
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+
+ษอออออออออออออออออ FiveWin 1.8 - April 95 ฏ About ฏ Developers ออออออออออออออออป
+บ   Expand    Search...    Options    Reference    Programming    About        บ
+วฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤถ
+บV.   REVERSE ENGINEERING.  You may NOT alter, decompile, disassemble,         
+บ     or reverse engineer the software.  However, you are free to make         ฐ
+บ     modifications for your own use to that source code which is provided     ฐ
+บ     with the package.  You may use any portion of the example source code    ฐ
+บ     included in the examples or samples subdirectories in your applications  ฐ
+บ     but, you may not use any portion of the product to create a competing    ฐ
+บ     product.                                                                 ฐ
+บ                                                                              ฐ
+บ                                                                              ฐ
+บVI.  EVALUATION EDITION.  UNREGISTERED EVALUATION EDITION versions of         ฐ
+บ     this software may be freely copied and distributed via disk or           ฐ
+บ     electronic medium and may be shared freely with others.  In fact we      ฐ
+บ     encourage you to do so.  Unregistered Evaluation editions are those      ฐ
+บ     which are marked as Evaluation Editions, have not been registered        ฐ
+บ     with the author or the distributor and have not been "unlocked" with     ฐ
+บ     the registration code granted by the authors or distributors at the      ฐ
+บ     time of purchase.  You may only distribute copies of the Evaluation      ฐ
+บ     Edition that are unaltered and are identical in every way to the         ฐ
+บ     files sent out by the distributors.   There are files included           ฒ
+บ     with the REGISTERED versions which do not appear in the Evaluation       ฐ
+บ     Edition and these files may NOT be distributed by you.                   
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+
+ษอออออออออออออออออ FiveWin 1.8 - April 95 ฏ About ฏ Developers ออออออออออออออออป
+บ   Expand    Search...    Options    Reference    Programming    About        บ
+วฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤถ
+บ     with the package.  You may use any portion of the example source code    
+บ     included in the examples or samples subdirectories in your applications  ฐ
+บ     but, you may not use any portion of the product to create a competing    ฐ
+บ     product.                                                                 ฐ
+บ                                                                              ฐ
+บ                                                                              ฐ
+บVI.  EVALUATION EDITION.  UNREGISTERED EVALUATION EDITION versions of         ฐ
+บ     this software may be freely copied and distributed via disk or           ฐ
+บ     electronic medium and may be shared freely with others.  In fact we      ฐ
+บ     encourage you to do so.  Unregistered Evaluation editions are those      ฐ
+บ     which are marked as Evaluation Editions, have not been registered        ฐ
+บ     with the author or the distributor and have not been "unlocked" with     ฐ
+บ     the registration code granted by the authors or distributors at the      ฐ
+บ     time of purchase.  You may only distribute copies of the Evaluation      ฐ
+บ     Edition that are unaltered and are identical in every way to the         ฐ
+บ     files sent out by the distributors.   There are files included           ฐ
+บ     with the REGISTERED versions which do not appear in the Evaluation       ฐ
+บ     Edition and these files may NOT be distributed by you.                   ฐ
+บ                                                                              ฐ
+บ     This agreement is governed by the laws of SPAIN and the United States    ฒ
+บ     Of America.                                                              
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+
+ษอออออออออออออออออ FiveWin 1.8 - April 95 ฏ About ฏ Developers ออออออออออออออออป
+บ   Expand    Search...    Options    Reference    Programming    About        บ
+วฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤถ
+บ             (c) Antonio Linares & Francisco Pulpขn, 1993-1995                
+บ                                                                              ฐ
+บ                         All rights reserved WorldWide                        ฐ
+บ                                                                              ฐ
+บ           CA-Clipper is Copyright (c) Computer Associates Inc.               ฒ
+บ         Microsoft Windows is Copyright (c) Microsoft corporation             ฐ
+บ       All other products mentioned are for informational purposes            ฐ
+บ    only, and are copyright or Trademarks of their respective owners          ฐ
+บ                                                                              ฐ
+บ                                                                              ฐ
+บIMPORTANT NOTICE:                                                             ฐ
+บ                                                                              ฐ
+บ Read the following terms and conditions before using the software.           ฐ
+บ By using the software, you show your agreement to the terms of               ฐ
+บ this license agreement. If you do not agree with the terms and               ฐ
+บ conditions of this agreement, as specified below, promptly return the        ฐ
+บ unused disk package and all other items (including any written materials)    ฐ
+บ for a full refund.                                                           ฐ
+บ                                                                              ฐ
+บ The enclosed computer software package is licensed to you by the authors,    ฐ
+บ it is not sold to you. You may use it only under the terms of this           
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ

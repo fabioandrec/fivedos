@@ -1,0 +1,114 @@
+!short: CLASE ^BTBtnBar^B                                                               
+'------------------------------------------------------------------------------'
+    Clase que deriva de TView para el manejo de la barra de botones.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:nFirst^B           Indica cual es el primer boton representado en la barra.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrHot^B          Color para los indicadores de los extremos de la barra.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:AddControl^B       A¤ade un boton a la barra.                                  ^B
+'------------------------------------------------------------------------------'
+^U AddControl
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    AddControl( oChild ) -> NIL
+
+^B Descripci¢n:^B
+    A¤ade el boton oChild a la barra.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Click^B            Procesa las pulsaciones del rat¢n.                          ^B
+'------------------------------------------------------------------------------'
+^U Click
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Click( nMRow, nMCol ) -> NIL
+
+^B Descripci¢n:^B
+    Procesa las pulsaciones del rat¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Flash^B            Pinta el objeto.                                            ^B
+'------------------------------------------------------------------------------'
+^U Flash
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Flash( cVPTgt ) -> cVPTgt
+
+^B Descripci¢n:^B
+    Pinta el objeto en la estructura pasada.
+
+^B Retorno:^B
+    Devuelve una referencia al par metro pasado.
+
+'------------------------------------------------------------------------------'
+!short:Justify^B          Reajusta los botones que aparecen en la barra.              ^B
+'------------------------------------------------------------------------------'
+^U Justify
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Justify( oWnd, nWidth, nTop ) -> NIL
+
+^B Descripci¢n:^B
+    Reajusta los botones que aparecen en la barra de acuerdo con el tama¤o de
+    la ventana. Tanto ^BnWidth^B como ^BnTop^B son opcionales y se les da por defecto
+    el valor de ^BoWnd:nWidth()^B y ^B::nTop()^B respectivamente.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Constructor de la clase.                                    ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( oWnd ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Si se pasa el par metro ^BoWnd^B se invoca el
+    m‚todo ^BoWnd:SetBar^B para insertar en oWnd la barra de botones.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Organize^B         Asigna el espacio que ocupa la barra y organiza los iconos. ^B
+'------------------------------------------------------------------------------'
+^U Organize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Organize( oWnd, nWidth, nTop ) -> NIL
+
+^B Descripci¢n:^B
+    Cambia ^B::nClipRect^B seg£n ^BnWidth^B y ^BnTop^B, luego calcula el primer bot¢n
+    que aparecer  asign ndoselo a ^B::nFirst^B y reajusta los botones llamando
+    a ^BJustify.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

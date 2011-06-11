@@ -1,0 +1,40 @@
+^U LABEL
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B    @ <nRow>, <nCol> LABEL [ <oLabel> PROMPT ] <cText> ;
+^B        [ SIZE <nWidth>, <nHeight> ] ;
+^B        [ <wnd: OF, WINDOW, DIALOG> <oWnd> ] ;
+^B        [ <color: COLOR, COLORS> <cColors> ] ;
+^B        [ <lCenter: CENTERED > ]  ;
+^B        [ FONT <oFont> ] ;
+^B        [ <help: HELPID, HELP ID> <nHelpId> ] ;
+^B        [ MESSAGE <cMsg> ] ;
+
+^B    @ <nRow>, <nCol>
+        En la fila nRow y la columna nCol situa el objeto.
+
+^B    [ <oLabel> PROMPT ] <cText>
+        Si oLabel es especificado el objeto se asigna a esta variable y en
+        cualquier caso, se muestra el texto cText.
+
+^B    [ SIZE <nWidth>, <nHeight> ]
+        Especifica el ancho y el alto de la etiqueta.
+
+^B    [ <wnd: OF, WINDOW, DIALOG> <oWnd> ]
+        Define la ventana a la que pertenece el objeto TLabel.
+
+^B    [ <color: COLOR, COLORS> <cColors> ]
+        Determina los colores con los que se pintar .
+
+^B    [ <lCenter: CENTERED > ]
+        Determina si se centrar  la etiqueta o no.
+
+^B    [ FONT <oFont> ]
+        S¢lo para compatibilidad con FiveWin.
+
+^B    [ <help: HELPID, HELP ID> <nHelpId> ]
+        S¢lo para compatibilidad con FiveWin.
+
+^B    [ MESSAGE <cMsg> ]
+        Determina el mensaje que se mostrar  cuando se seleccione la etiqueta.
+

@@ -1,0 +1,82 @@
+!short: CLASE ^BTBitMap^B                                                               
+'------------------------------------------------------------------------------'
+    Clase que deriva de TView para el manejo de los mapas de Bits.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:cBinFile^B         Nombre del fichero que contiene la im gen.                  ^B
+'------------------------------------------------------------------------------'
+    Nombre del fichero de datos del que se tomar  la imagen cuando se pinte.
+'------------------------------------------------------------------------------'
+!short:bResource^B        Codeblock que se ejecuta para obtener la im gen.            ^B
+'------------------------------------------------------------------------------'
+    CodeBlock que se ejecutar  para obtener la imagen si no se especifica
+    el nombre del fichero.
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:New^B              Constructor de la clase.                                    ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nRow, nCol, nWidth, nHeight, bResource, cBinFile, oWnd ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BnRow^B        Fila en la que se situa el bitmap.
+    ^BnCol^B        Columna en la que se situa el bitmap.
+    ^BnWidth^B      Ancho que tendr  el bitmap.
+    ^BnHeigth^B     Alto que tendr  el bitmap.
+    ^BbResource^B   Codeblock que se ejecutar  para obtener la im gen del bitmap.
+    ^BcBinFile^B    Nombre del fichero que contiene la imag‚n del bitmap.
+    ^BoWnd^B        Referencia al objeto padre donde est  el bitmap.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+^B Ejemplo:^B
+
+    Function oNewWnd()
+        Local oWnd
+        Local oBitMap
+
+        CREATE WINDOW oWnd ;
+            FROM 5, 5 TO 25, 40 ;
+            TITLE "Ejemplo de ventana"
+
+        SET MESSAGE OF oWnd F2VERSION + FDCOPYRIGHT
+
+        oBitMap := TBitMap():New(  5,  5, 10, 20,, "INFO.BMP", oWnd )
+
+
+    [...]
+
+!SeeAlso: BitMap.ngo:Comandos
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Actualiza la im gen del bitmap.                             ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci¢n:^B
+    Actualiza la im gen del BitMap en el objeto al que pertenece.
+
+^B Retorno:^B
+    No devuelve nada.
+
+^B Ejemplo:^B
+
+    oBitMap:Refresh()
+
+'------------------------------------------------------------------------------'

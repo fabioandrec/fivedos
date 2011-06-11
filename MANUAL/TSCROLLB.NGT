@@ -1,0 +1,299 @@
+!short: CLASE ^BTScrollBar^B                                                            
+'------------------------------------------------------------------------------'
+    Clase derivada de TView para soporte de las barras de desplazamiento.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:bDown^B            Codeblock que se evalua cuando va al siguiente elemento.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bPgDown^B          Codeblock que se evalua cuando avanzamos una p gina.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bPgUp^B            Codeblock que se evalua cuando retrocedemos una p gina.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bThumbPos^B        Codeblock para asignar el elemento seleccionao actual.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bUP^B              Codeblock que se evalua cuando va al anterior elemento.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lHorizontal^B      Indica si la barra es horiziontal o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrArrows^B       Color para pintar las flechas de la barra.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nClrFocus^B        Color para pintar el puntero que define la posici¢n.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nLen^B             Longitud de la barra de scroll.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nOldOption^B       Almacena el £ltimo valor del elemento actual.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nOption^B          Almacena el valor del elemento actual.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nPage^B            Contiene el valor para los desplazamientos de p ginas.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nPos^B             Posici¢n donde se pintar  el marcador de desplazamiento.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nRange^B           Indica cual es el valor m ximo de ^B::nOption^B.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nThumbStep^B       Cantidad que representa cada elemento de la barra.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:Click^B            Maneja las pulsaciones del rat¢n.                           ^B
+'------------------------------------------------------------------------------'
+^U Click
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Click( nMRow, nMCol ) -> NIL
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones del rat¢n.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoDown^B           Desplaza el puntero una posici¢n hacia abajo.               ^B
+'------------------------------------------------------------------------------'
+^U GoDown
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoDown() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el puntero de la barra una posici¢n hacia abajo. Evalua el
+    codeblock ^B::bDown^B y si no ha cambiado ^B::nOption^B entonces lo cambia.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoPgDown^B         Desplaza el puntero ^B::nPage^B posiciones hacia abajo.         ^B
+'------------------------------------------------------------------------------'
+^U GoPgDown
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoPgDown() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el puntero de la barra ^B::nPage^B posiciones hacia abajo. Evalua el
+    codeblock ^B::bPgDown^B y si no ha cambiado ^B::nOption^B entonces lo cambia.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoPgUp^B           Desplaza el puntero ^B::nPage^B posiciones hacia arriba.        ^B
+'------------------------------------------------------------------------------'
+^U GoPgUp
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoPgUp() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el puntero de la barra ^B::nPage^B posiciones hacia arriba. Evalua el
+    codeblock ^B::bPgUp^B y si no ha cambiado ^B::nOption^B entonces lo cambia.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoUp^B             Desplaza el puntero una posici¢n hacia arriba.              ^B
+'------------------------------------------------------------------------------'
+^U GoUp
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoUp() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el puntero de la barra una posici¢n hacia arriba. Evalua el
+    codeblock ^B::bUp^B y si no ha cambiado ^B::nOption^B entonces lo cambia.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:KeyPressed^B       Maneja las pulsaciones de teclado.                          ^B
+'------------------------------------------------------------------------------'
+^U KeyPressed
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nKey
+
+^B Descripci¢n:^B
+    Maneja las pulsaciones de teclas. Recibe como par metro la tecla a
+    procesar ^BnKey^B y devuelve ^B0^B si la ha procesado o la tecla recibida
+    ^BnKey^B si no se ha manejado.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Constructor de la clase.                                    ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( nRow, nCol, lHorizontal, nLen, nRange, nPage, bUp,
+         bDown, bPgUp, bPgDown, bThumbPos, bValid, bWhen,
+         cColor, cMessage, oWnd ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor de la clase. Recibe los siguientes par metros:
+
+    ^BnRow       ^B     Fila donde se situa la barra.
+    ^BnCol       ^B     Columna donde se situa la barra.
+    ^BlHorizontal^B     Indica si la barra es horizontal.
+    ^BnLen       ^B     Longitud de la barra.
+    ^BnRange     ^B     Valor m ximo para el campo ::nOption.
+    ^BnPage      ^B     Valor sumado o restado para los movimientos de p gina.
+    ^BbUp        ^B     Codeblock que se evalua para ir al anterior elemento.
+    ^BbDown      ^B     Codeblock que se evalua para ir al siguiente elemento.
+    ^BbPgUp      ^B     Codeblock que se evalua para ir a la p gina anterior.
+    ^BbPgDown    ^B     Codeblock que se evalua para ir a la p gina siguiente.
+    ^BbThumbPos  ^B     Codeblock usado para asignar el valor de ::nOption.
+    ^BbValid     ^B     Codeblock de postvalidaci¢n.
+    ^BbWhen      ^B     Codeblock de prevalidaci¢n.
+    ^BcColor     ^B     Cadena de caracteres con los colores.
+    ^BcMessage   ^B     Mensaje que aparecer  cuando se seleccione el objeto.
+    ^BoWnd       ^B     Referencia a la ventana a la que pertenece la barra.
+
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Organize^B         Reajusta el tama¤o de la barra.                             ^B
+'------------------------------------------------------------------------------'
+^U Organize
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+
+^B Descripci¢n:^B
+
+^B Retorno:^B
+
+'------------------------------------------------------------------------------'
+!short:ReDefine^B         Constructor desde recursos.                                 ^B
+'------------------------------------------------------------------------------'
+^U ReDefine
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ReDefine( cMessage, cColor, nLen, nRange, nPage, bUp, bDown,
+              bPgUp, bPgDown, bThumbPos, bWhen, bValid ) -> Self
+
+^B Descripci¢n:^B
+    Es el constructor desde recursos. Recibe los siguientes par metros:
+
+    ^BcMessage   ^B     Mensaje que aparecer  cuando se seleccione el objeto.
+    ^BcColor     ^B     Cadena de caracteres con los colores.
+    ^BnLen       ^B     Longitud de la barra.
+    ^BnRange     ^B     Valor m ximo para el campo ::nOption.
+    ^BnPage      ^B     Valor sumado o restado para los movimientos de p gina.
+    ^BbUp        ^B     Codeblock que se evalua para ir al anterior elemento.
+    ^BbDown      ^B     Codeblock que se evalua para ir al siguiente elemento.
+    ^BbPgUp      ^B     Codeblock que se evalua para ir a la p gina anterior.
+    ^BbPgDown    ^B     Codeblock que se evalua para ir a la p gina siguiente.
+    ^BbThumbPos  ^B     Codeblock usado para asignar el valor de ::nOption.
+    ^BbWhen      ^B     Codeblock de prevalidaci¢n.
+    ^BbValid     ^B     Codeblock de postvalidaci¢n.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Actualiza la im gen de la barra.                            ^B
+'------------------------------------------------------------------------------'
+^U Refresh
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci¢n:^B
+    Actualiza la im gen de la barra.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetColors^B        Asigna los colores a utilizar.                              ^B
+'------------------------------------------------------------------------------'
+^U SetColors
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetColors( cColor ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna los colores a partir de la cadena de caracteres ^BcColor.^B En ‚sta
+    se codifican los tres colores que se utilizan que son:
+
+    1.- Color usado por los caracteres de relleno de la barra.
+    2.- Color usado por las flechas y el puntero de posici¢n cuando no
+        tiene focus.
+    3.- Color usado por las flechas y el puntero de posici¢n cuando
+        tiene focus.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetOption^B        Asigna el valor actual del puntero.                         ^B
+'------------------------------------------------------------------------------'
+^U SetOption
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetOption( nNewVal ) -> NIL
+
+^B Descripci¢n:^B
+    Asigna el valor de ^B::nOption^B con el valor pasado ^BnNewVal^B y actualiza la
+    barra llamando a ::Refresh().
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetRange^B         Asigna el valor m ximo de la barra.                         ^B
+'------------------------------------------------------------------------------'
+^U SetRange
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    SetRange( nRange ) -> nOld
+
+^B Descripci¢n:^B
+    Asigna el valor m ximo de la barra a ^BnRange^B y se calcula ^B::nThumbStep^B
+    deacuedo con el nuevo valor. Devuelve el valor anterior de ^B::nRange.^B
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'

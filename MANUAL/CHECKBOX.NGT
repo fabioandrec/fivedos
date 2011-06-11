@@ -1,0 +1,77 @@
+^U CHECKBOX CHECKMENU
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+ Formato:
+
+
+     ^B@ nRow, nCol CHECKMENU [ oChkMenu VAR ] nVar
+     ^B        [ ITEMS cItems,... ] [ LIST uList,... ] [ ARRAY aList ]
+     ^B        [ OF, WINDOW, DIALOG oWnd ]
+     ^B        [ HELPID, HELP ID nHelpId ]
+     ^B        [ ON CLICK, ON CHANGE uChange ]
+     ^B        [ COLOR cColor ]
+     ^B        [ LABEL, PROMPT cLabel ]
+     ^B        [ MESSAGE cMsg ]
+     ^B        [ UPDATE ]
+
+     Genera un menu de Checkbox a partir de la lista cItems, uList o
+     el array aList.
+
+     ^B@ nRow, nCol CHECKBOX [ oCbx VAR ] lVar
+     ^B        [ LABEL, PROMPT cLabel ]
+     ^B        [ MESSAGE cMsg ]
+     ^B        [ COLOR cColors ]
+     ^B        [ OF, WINDOW, DIALOG oWnd ]
+     ^B        [ VALID uValid ]
+     ^B        [ SIZE nWidth, nHeight ]
+     ^B        [ HELPID, HELP ID nHelpId ]
+     ^B        [ FONT oFont ]
+     ^B        [ ON CLICK uClick ]
+     ^B        [ DESIGN ]
+     ^B        [ PIXEL ]
+     ^B        [ UPDATE ]
+
+     Genera un 즢ico CheckBox
+
+     ^B[ LABEL, PROMPT cLabel ]
+         Etiqueta del Chechbox
+
+     ^B[ MESSAGE cMsg ]
+        Mensaje a mostrar en la barra de mensajes de la ventana.
+
+     ^B[ COLOR cColors ]
+        Patr줻 de colores a utilizar, cadena de colores ( caracter )
+        seg즢 la denominaci줻 cl쟳ica en xbase, determinando :
+
+       "<Color Normal>,<Color Focus>,<Color HotKey>,<Color No Select>"
+
+        El color de la Etiqueta lo determina la ventana.
+
+
+     ^B[ OF, WINDOW, DIALOG oWnd ]
+        Ventana a la que pertenece
+
+     ^B[ VALID uValid ]
+        Funci줻 de Validaci줻.
+
+     ^B[ SIZE nWidth, nHeight ]
+        S줹o para compatibilidad con FieWin
+
+     ^B[ HELPID, HELP ID nHelpId ]
+        S줹o para compatibilidad con FieWin
+
+     ^B[ FONT oFont ]
+        S줹o para compatibilidad con FieWin
+
+     ^B[ ON CLICK uClick ]
+        S줹o para compatibilidad con FieWin
+
+     ^B[ DESIGN ]
+        S줹o para uso con el dise쨅dor.
+
+     ^B[ PIXEL ]
+        S줹o para compatibilidad con FieWin
+
+     ^B[ UPDATE ]
+        S줹o para compatibilidad con FieWin
+

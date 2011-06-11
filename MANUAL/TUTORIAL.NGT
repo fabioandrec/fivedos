@@ -1,0 +1,43 @@
+!short:^U Tutorial de FiveDos.
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:^BTutor01     ^BEl primer programa con FiveDos.                                  
+!file: Tutor01.ngp
+!short:^BTutor02     ^BNuestra primera ventana con FiveDos.                             
+!file: Tutor02.ngp
+!short:^BTutor03     ^BA쨅dimos control de eventos y barra de mensajes.                 
+!file: Tutor03.ngp
+!short:^BTutor04     ^BA쨅dimos un Menu de Persiana.                                    
+!file: Tutor04.ngp
+!short:^BTutor05     ^BEspecificaci줻 de mensajes en los elementos del Menu.            
+!file: Tutor05.ngp
+!short:^BTutor06     ^BEjecutamos una Caja de Di쟫ogo desde el menu principal.          
+!file: Tutor06.ngp
+!short:^BTutor07     ^BA쨅dimos algunos controles a la caja de di쟫ogo.                 
+!file: Tutor07.ngp
+!short:^BTutor08     ^BEjemplo de BROWSE.                                               
+!file: Tutor08.ngp
+!short:^BTutor09     ^BEjemplo de LISTBOX BROWSE.                                       
+!file: Tutor09.ngp
+!short:^BTutor10     ^BEjemplo de LISTBOX FIELDS.                                       
+!file: Tutor10.ngp
+!short:^BTutor11     ^BEjemplo de LISTBOX FIELDS con SCOPE.                             
+!file: Tutor11.ngp
+!short:^BTutor12     ^BEjemplo de LISTBOX ARRAY.                                        
+!file: Tutor12.ngp
+!short:^BTutor13     ^BEjemplo de LISTBOX ARRAY.                                        
+!file: Tutor13.ngp
+!short:^BTutor14     ^BEjemplo de LISTBOX BROWSE de Array.                              
+!file: Tutor14.ngp
+!short:^BTutor15     ^BEjemplo de LISTBOX BROWSE de Array MultiDimensional.             
+!file: Tutor15.ngp
+!short:^BTutor16     ^BEjemplo de LISTBOX FIELDS.                                       
+!file: Tutor16.ngp
+!short:^BTutor17     ^BEjemplo de LISTBOX BROWSE con Filtro.                            
+!file: Tutor17.ngp
+!short:^BTutor18     ^BEjemplo de LISTBOX ITEMS.                                        
+!file: Tutor18.ngp
+!short:^BTutorDB     ^BEjemplo de TDataBase.                                            
+!file: TutorDB.ngp
+!short:^BTutor_RC    ^BEjemplo de Uso de ficheros .RC.                                  
+!file: Tutor_RC.ngp

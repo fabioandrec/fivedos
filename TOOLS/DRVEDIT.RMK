@@ -1,0 +1,10 @@
+
+drvedit.obj : drvedit.prg
+        clipper drvedit.prg /n /i..\include;\clipper5\include
+
+drvedit.exe : drvedit.obj
+        set oldlib=%lib%
+        set lib=..\lib;\clipper5\lib
+        blinker fi drvedit lib fivedos
+        set lib=%oldlib%
+        set oldlib=

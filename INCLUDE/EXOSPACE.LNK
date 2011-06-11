@@ -1,0 +1,11 @@
+
+# use this line only with Clipper 5.2 and below versions
+#EXOSPACE PACKAGE INT10,MOUSE
+
+# use this line with  Clipper 5.3
+EXOSPACE PACKAGE INT10
+
+
+file extend
+lib fivedos, clipper, 501_520
+MOD objtb from fivedos.lib

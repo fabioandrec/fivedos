@@ -1,0 +1,346 @@
+!short: CLASE ^BTDataBase^B                                                             
+'------------------------------------------------------------------------------'
+    Clase derivada de TWorkArea para el manejo de bases de datos.
+'------------------------------------------------------------------------------'
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short: DATOS
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:bBof^B             Codeblock evaluado cuando se llega al principio del fichero.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bEof^B             Codeblock evaluado cuando se llega al final del fichero.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bWhile^B           Codeblock para determinar la condici줻 del filtro si la hay.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cAlias^B           Cadena de caracteres que identifica el alias.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cDriver^B          Controlador de base de datos utilizado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cFile^B            Nombre del fichero de la base de datos.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lBof^B             Indicador de principio de fichero.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lEof^B             Indicador de final de fichero.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lReadOnly^B        Indica si se ha habierto en modo s줹o lectura o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lScope^B           Indica si se utiliza filtro o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:lShared^B          Indica si se ha habierto en modo compartido o no.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nIndex^B           N즡ero de 죒dice activo.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:uValBottom^B       Dato usado para localizar el primer registro del filtro.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:uValTop^B          Dato usado para localizar el 즠timo registro del filtro.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:AddIndex^B         A쨅de un nuevo 죒dice.                                      ^B
+'------------------------------------------------------------------------------'
+^U AddIndex
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    AddIndex( xIndex, cTag )
+
+^B Descripci줻:^B
+    A쨅de 죒dices a la lista de 죒dices. ^BxIndex^B es el nombre del fichero del
+    죒dice o un array conteniendo nombre de 죒dices y ^BcTag^B es el nombre del
+    orden que se a쨅de a la lista de 죒dices.
+
+    Si no se especifica ^BcTag^B se a쨅den todos los 죒dices que contiene el
+    fichero especificado.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Bof^B              Indica si se ha llegado o no al principio de la base.       ^B
+'------------------------------------------------------------------------------'
+^U Bof
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Bof() -> lBof
+
+^B Descripci줻:^B
+    Indica si se ha llegado o no al principio de la base de datos.
+
+^B Retorno:^B
+    Devuelve un valor l줳ico.
+
+'------------------------------------------------------------------------------'
+!short:Create^B           Crea un nuevo fichero de base de datos.                     ^B
+'------------------------------------------------------------------------------'
+^U Create
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Create( aStruct ) -> NIL
+
+^B Descripci줻:^B
+    Crea un nuevo fichero de base de datos con nombre ^B::cFile^B a partir de la
+    estructura ^BaStruct.^B ^B::cDriver^B especifica el controlador de bases de datos
+    que se va a utilizar.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Eof^B              Determina cuando se alcanza el final de la base de datos.   ^B
+'------------------------------------------------------------------------------'
+^U Eof
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Eof() -> lEof
+
+^B Descripci줻:^B
+    Determina cuando se alcanza el final de la base de datos.
+
+^B Retorno:^B
+    Devuelve un valor l줳ico.
+
+'------------------------------------------------------------------------------'
+!short:GoBottom^B         Desplaza el puntero de la base de datos al 즠timo registro. ^B
+'------------------------------------------------------------------------------'
+^U GoBottom
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    GoBottom() -> NIL
+
+^B Descripci줻:^B
+    Desplaza el puntero de la base de datos al 즠timo registro de la base de
+    datos. Si hay un filtro activo, entonces se desplaza al 즠timo registro
+    que cumpla el filtro. Se evalua el codeblock ^B::bEof.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoTo^B             Mueve el puntero de la base de datos al registro pasado.    ^B
+'------------------------------------------------------------------------------'
+^U GoTo
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Goto( nRec ) -> NIL
+
+^B Descripci줻:^B
+    Desplaza el puntero de la base de datos al registro ^BnRec.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoTop^B            Desplaza el puntero de la base de datos al primer registro. ^B
+'------------------------------------------------------------------------------'
+^U GoTop
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    GoTop() -> NIL
+
+^B Descripci줻:^B
+    Desplaza el puntero de la base de datos al primer registro de la base de
+    datos. Si hay un filtro activo, se desplaza al primer registro que cumpla
+    la condici줻 del filtro.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:KeyCount^B         Indica cuantos registros cumplen el filtro actual.          ^B
+'------------------------------------------------------------------------------'
+^U KeyCount
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    KeyCount() -> nRegs
+
+^B Descripci줻:^B
+    Indica cuantos registros cumplen la condici줻 del filtro actual o el
+    n즡ero l줳ico de registros de la base de datos.
+
+^B Retorno:^B
+    Devuenve un valor num굍ico.
+
+'------------------------------------------------------------------------------'
+!short:KeyGoto^B          Mueve el puntero al registro l줳ico indicado.               ^B
+'------------------------------------------------------------------------------'
+^U KeyGoto
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    KeyGoto( nKey ) -> NIL
+
+^B Descripci줻:^B
+    Mueve el puntero al registro ^BnKey^B, si hay filtro activo se mueve el
+    puntero dentro de los registros que cumpla el filtro.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:KeyNum^B           Indica el n즡ero de registro l줳ico.                        ^B
+'------------------------------------------------------------------------------'
+^U KeyNum
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    KeyNum() -> nReg
+
+^B Descripci줻:^B
+    Indica el n즡ero de registro l줳ico de la base de datos.
+
+^B Retorno:^B
+    Devuelve un valor num굍ico.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Constructor de la clase.                                    ^B
+'------------------------------------------------------------------------------'
+^U New
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    New( nArea, cDriver, cFile, cAlias, lShared, lReadOnly ) -> Self
+
+^B Descripci줻:^B
+    Es el constructor de la clase. Recibe los siguientes par쟭etros:
+
+    ^BnArea    ^B   N즡ero de 쟲ea a utilizar.
+    ^BcDriver  ^B   Controlador de base de datos a usar.
+    ^BcFile    ^B   Nombre de la base de datos.
+    ^BcAlias   ^B   Alias que se desea utilizar.
+    ^BlShared  ^B   Indica el modo de apertura de la base de datos.
+    ^BlReadOnly^B   Indica si se abre en solo lectura o no.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:RecCount^B         Determina el n즡ero de registros del fichero actual.        ^B
+'------------------------------------------------------------------------------'
+^U RecCount
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    RecCount() -> nRecs
+
+^B Descripci줻:^B
+    Determina el n즡ero total de registros de la base de datos actual. Si hay
+    un filtro activo se devuelve el n즡ero de registros l줳icos.
+
+^B Retorno:^B
+    Devuelve un valor num굍ico.
+
+'------------------------------------------------------------------------------'
+!short:Seek^B             Busca una expresi줻 en la base de datos.                    ^B
+'------------------------------------------------------------------------------'
+^U Seek
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Seek( uExp, lSoft ) -> lFound
+
+^B Descripci줻:^B
+    Busca la expresi줻 ^BuExp^B en la base de datos. ^BlSoft^B indica si la b즧queda
+    es aproximada o no. En caso de que sea .T. y no se encuentre la
+    expresi줻, el puntero de la base de datos se queda en el registro que m쟳
+    se aproxime a ^BuExp^B y en caso de que sea .F. se va al final de la base de
+    datos. Si se encuentra devuelve .T. y .F. en caso de que no.
+
+^B Retorno:^B
+    Devuelve un valor l줳ico.
+
+'------------------------------------------------------------------------------'
+!short:SetScope^B         Pone una condici줻 de filtro.                               ^B
+'------------------------------------------------------------------------------'
+^U SetScope
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    SetScope( uValTop, uValBottom, nIndex ) -> NIL
+
+^B Descripci줻:^B
+    Pone una condici줻 del filtro. ^BuValTop^B es el valor para desplazar el
+    puntero al primer registro, o sea, es el valor menor y ^BuValBottom^B es
+    el valor para desplazar el puntero al 즠timo registro o el valor mayor.
+    ^BnIndex^B es el n즡ero de 죒dice a utilizar y su valor por defecto es el
+    indice actualmente usado.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Skip^B             Salta un n즡ero determinado de registros.                   ^B
+'------------------------------------------------------------------------------'
+^U Skip
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Skip( nRecords ) -> NIL
+
+^B Descripci줻:^B
+    Desplaza el puntero de la base de datos respecto al registro actual
+    ^BnRecords^B registros. Un valor positivo implica saltos hacia delante
+    mientras que un valor negativo implica saltos hacia atras. El valor por
+    defecto de nRecords es 1.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Skipper^B          Salta un n즡ero de registros devolviendo cuantos ha saltado.^B
+'------------------------------------------------------------------------------'
+^U Skipper
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Skipper( nSkip ) -> nSkipped
+
+^B Descripci줻:^B
+    Salta nSkip registros y devuelve en nSkipped el n즡ero real de registros
+    saltados.
+
+^B Retorno:^B
+    Devuelve un valor num굍ico.
+
+'------------------------------------------------------------------------------'
+!short:Use^B              Abre una base de datos.                                     ^B
+'------------------------------------------------------------------------------'
+^U Use
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+   Use( nArea, cDriver, cFile, cAlias, lShared, lReadOnly ) -> Self
+
+^B Descripci줻:^B
+    Abre una base de datos con nombre ^BcFile^B en el area ^BnArea^B usando el
+    controlador de bases de datos ^BcDriver^B y denominando el area con el
+    alias ^BcAlias.^B ^BlShared^B indica si se abre en modo compartido o exclusivo
+    y ^BlReadOnly^B si es de s줹o lectura o si se permiten modificaciones.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto.
+
+'------------------------------------------------------------------------------'

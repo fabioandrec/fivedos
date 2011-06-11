@@ -1,0 +1,99 @@
+ ^UProceso de Registro de FiveDos
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+ Para completar el proceso de registro y hacerse usuario registrado de
+ FiveDos es necesario seguir estos pasos:
+
+ ^B*^B La siguiente caja de di logo aparecer  en tus aplicaciones mientras
+ uses una libreria sin registrar para poder registrarla.
+
+     ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+     ³              FiveDos X.X - Product Registration Process           ³
+     ³                                                                   ³
+     ³        User Name: ____________________________________________    ³
+     ³ FiveDos LIB Path: ____________________________________________    ³
+     ³      Register N§: ____________________   User Id: UNIQUEID        ³
+     ³                                                                   ³
+     ³      ÚÄÄÄÄÄÄÄÄÄÄÄÄ¿     ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿      ÚÄÄÄÄÄÄÄÄÄÄÄÄ¿     ³
+     ³      ³  Registro  ³     ³  Informaci¢n  ³      ³ Continuar  ³     ³
+     ³      ÀÄÄÄÄÄÄÄÄÄÄÄÄÙ     ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ      ÀÄÄÄÄÄÄÄÄÄÄÄÄÙ     ³
+     ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+ ^B*^N Llama a tu distribuidor m s cercano y suministrale tu identificaci¢n de
+   usuario UNIQEID y tu nombre. Tu distribuidor, despu‚s de confirmar tu pago,
+   te proveer  tu n§ de registro FiveDos.
+
+ ^B*^N La siguiente vez que te salga la caja de di logo teclea seg£n:
+
+                          User Name: Tu nombre
+                   FiveDos LIB Path: FIVEDOS_PATH\FIVEDOS.LIB
+                        Register N§: Tu n§ de registro
+
+
+   Debes especificar el path de FiveDos.lib y el nombre del fichero de la
+   libreria FIVEDOS.LIB y nosotros la registramos, manipulando a bajo nivel
+   el fichero especificado.
+
+
+   Entonces Presiona el Bot¢n Registro:
+
+   Si no hubiera problema este mensaje aparecer ,
+
+                         ^RFichero correctamente registrado.^N
+
+   Si hubiera alg£n problema el mensaje que aparecer¡a ser¡a:
+
+                        ^RPasswrd equivocado o fichero err¢neo.^N
+
+   Esto indica que nuestra funci¢n a bajo nivel no puede encontrar o leer el
+   fichero FiveDos.lib, o el n§ de registro es incorrecto, o que hay
+   informaci¢n desaparecida. Intenta introducir la informaci¢n otra vez.
+
+ ^B*^N Ahora, reconstruye el EXE que fue examinado, y notar s que la caja de
+   di logo de registro no aparece m s.
+
+   ^UNo pierdas el N£mero de Registro.^N Lo necesitar s para futuras versiones
+   superiores -Nosotros dejamos nuevas versiones de FiveDos en todas partes:
+   BBSs, CdRoms, Magazines, Grupos de Usuarios Clipper,...- o s¢lo contacta
+   con tu distribuidor para obtenerlos.
+
+   Cuando obtengas versiones superiores de FiveDos, repetir s el proceso de
+   registro, pero no tendr s que llamar para un nuevo n§ de registro. Usa el
+   que te fue suministrado previamente.
+
+   Cuando salga una versi¢n mejorada -versi¢n 2.0 por ejemplo- si nos mandas
+   tu n§ de registro, s¢lo paragar s una cantidad por la actualizaci¢n.
+
+ ^B*^N Una vez te hayas registrado, Tu distribuidor te dar  soporte t‚cnico.
+   Tambi‚n te proporcionar  soporte t‚cnico. Por favor, no dudes en preguntar,
+   participa con ideas y su c¢digo fuente, etc. Para ayudarnos a ampliar
+   FiveDos.
+
+ ^B*^N Cuando prepares un fichero EXE de FiveDos para un cliente o si quieres
+   correrlo en otro ordenador, dicho fichero debe ser liberado (desprotegido).
+
+   Esto significa que tienes que llamar a una funci¢n dentro de FiveDos.LIB
+   llamada:
+
+                               ^BRegisterEXE()^B
+
+   Cuando quieras liberar (desproteger) un fichero EXE de FiveDos desde
+   tu ordenador, correr s el mismo y te saldr  una caja de di logo, similar
+   a la que sale cuando se registra el producto, que solicita le introduzcas
+   el PATH y el NOMBRE del fichero EXE a desproteger. (Nota: hay un fichero
+   llamado Register.prg en el directorio de ejemplos que puedes usar para
+   este prop¢sito.)
+
+   Complete el PATH y el NOMBRE de tu EXE y tu NUMERO DE REGISTRO en los
+   lugares apropiados de la caja de di logo. Entoncer pulsa 'Register' y tu
+   EXE estar  preparado para ser usado en otros ordenadores.
+
+   Recuerda, que para liberar tu EXE tienes que llamar a la funci¢n
+   RegisterEXE(), esto lo hace al ejecutar el programa REGISTER.EXE que ya
+   est  registrado
+
+   En el caso de que te olvides de 'liberar' el EXE, cuando se corra en otro
+   ordenador diferente, un mensaje aparecer  diciendo que no ha sido instalado
+   correctamente y la ejecuci¢n se terminar .
+
+   Es un sistema muy f cil. Te agradecemos tu cooperaci¢n.

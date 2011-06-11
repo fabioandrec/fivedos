@@ -1,0 +1,335 @@
+!short: CLASE ^BTFile^B                                                                 
+'------------------------------------------------------------------------------'
+    Clase para manejo de ficheros de texto como una base de datos.
+'------------------------------------------------------------------------------'
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short: DATOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:cName^B            Nombre del fichero relacionado.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:cStruct^B          Estructura con datos del fichero para uso interno.^B
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+!short:
+!short:Append^B           A¤ade l¡neas al fichero.                                    ^B
+'------------------------------------------------------------------------------'
+^U Append
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Append( nLines ) -> NIL
+
+^B Descripci¢n:^B
+    Este m‚todo a¤ade nLines al fichero relacionado.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Bof^B              Indica si est  al principio del archivo.                    ^B
+'------------------------------------------------------------------------------'
+^U Bof
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Bof() -> lBof
+
+^B Descripci¢n:^B
+    Indica si el puntero del archivo est  al principio del archivo.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:Close^B            Cierra el archivo relacionado.                              ^B
+'------------------------------------------------------------------------------'
+^U Close
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Close() -> lClose
+
+^B Descripci¢n:^B
+    Este m‚todo cierra el archivo relacionado y nos informa si se ha cerrado
+    en lClose.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:Create^B           Crea un archivo.                                            ^B
+'------------------------------------------------------------------------------'
+^U Create
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Create( nCreateMode ) -> nHandle
+
+^B Descripci¢n:^B
+    Crea un archivo nuevo usando el modo ^BnCreateMode.^B Para saber m s sobre
+    el modo, ver el fichero de cabecera de clipper FileIo.ch que se encuentra
+    en el subdirectorio INCLUDE.
+    ^BnHandle^B ser  el manejador del archivo o 0 en caso de que no se haya podido
+    crear.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:Delete^B           Borra l¡neas del archivo.                                   ^B
+'------------------------------------------------------------------------------'
+^U Delete
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Delete( nLines ) -> NIL
+
+^B Descripci¢n:^B
+    Borra ^BnLines^B del archivo asociado empezando por la l¡nea actual.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Eof^B              Indica si est  al final del archivo asociado.               ^B
+'------------------------------------------------------------------------------'
+^U Eof
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Eof() -> lEof
+
+^B Descripci¢n:^B
+    Indica si el puntero del archivo est  al final.
+
+^B Retorno:^B
+    Devuelve un valor l¢gico.
+
+'------------------------------------------------------------------------------'
+!short:GoBottom^B         Desplaza el puntero del archivo al final.                   ^B
+'------------------------------------------------------------------------------'
+^U GoBottom
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoBottom() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el puntero del archivo al final.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoTo^B             Desplaza el puntero del fichero a una l¡nea determinada.    ^B
+'------------------------------------------------------------------------------'
+^U GoTo
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoTop( nLine ) -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el puntero del archivo a la l¡nea ^BnLine.^B
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:GoTop^B            Desplaza el puntero del archivo al principio.               ^B
+'------------------------------------------------------------------------------'
+^U GoTop
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    GoTop() -> NIL
+
+^B Descripci¢n:^B
+    Desplaza el puntero del archivo al principio.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Insert^B           Inserta l¡neas en al archivo de texto.                      ^B
+'------------------------------------------------------------------------------'
+^U Insert
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Insert( nLines ) -> NIL
+
+^B Descripci¢n:^B
+    Inserta nLines en el archivo asociado en la posici¢n actual.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:LastRec^B          Devuelve cual es el £ltimo registro.                        ^B
+'------------------------------------------------------------------------------'
+^U LastRec
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    LastRec() -> nLastRec
+
+^B Descripci¢n:^B
+    Devuelve la £ltima l¡nea del archivo.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Constructor de la clase.                                    ^B
+'------------------------------------------------------------------------------'
+^U New
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    New( cFileName ) -> Self
+
+^B Descripci¢n:^B
+    Crea una instancia de la clase. El par metro ^BcFileName^B es el nombre del
+    fichero asociado que se almacenar  en ^B::cName.^B
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Open^B             Abre el archivo asociado.                                   ^B
+'------------------------------------------------------------------------------'
+^U Open
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Open( nOpenMode ) -> nHandle
+
+^B Descripci¢n:^B
+    Abre el archivo ^B::cName^B usando el modo ^BnOpenMode.^B Para saber m s
+    sobre los modos de apertura ver el fichero de cabecera FileIo.ch que se
+    encuentra en el subdirectorio INCLUDE.
+    nHandle es el manejador del archivo.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:ReadLN^B           Devuelve la linea leida e incrementa el puntero del archivo.^B
+'------------------------------------------------------------------------------'
+^U ReadLN
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    ReadLN( nTabExpand ) -> cLine
+
+^B Descripci¢n:^B
+    Lee la l¡nea del fichero en la posici¢n actual e inclementa el puntero
+    una posici¢n. Con ^BnTabExpand^B indicamos con cuantos espacios se debe
+    representar los tabuladores en la cadena devuelta.
+
+^B Retorno:^B
+    Devuelve una cadena de caracteres.
+
+'------------------------------------------------------------------------------'
+!short:RecCount^B         Devuelve el n£mero de l¡neas del archivo asociado.          ^B
+'------------------------------------------------------------------------------'
+^U RecCount
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    RecCount() -> nRecCount
+
+^B Descripci¢n:^B
+    Devuelve el n£mero de l¡neas del archivo.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:RecNo^B            Indica cu l es la l¡nea actual del archivo.                 ^B
+'------------------------------------------------------------------------------'
+^U RecNo
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    RecNo() -> nRecNo
+
+^B Descrip1ci¢n:^B
+    Indica cual es la l¡nea actual en el archivo.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:Seek^B             Busca cadenas en el archivo.                                ^B
+'------------------------------------------------------------------------------'
+^U Seek
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Seek( cText, nOffSet ) -> nOffset
+
+^B Descripci¢n:^B
+    Busca la cadena ^BcText^B en el archivo asociado a partir de la l¡nea actual
+    y a partir  de  la posici¢n ^BnOffset^B en la primera l¡nea. Si se encuentra
+    el texto buscado, se saltar  a la posici¢n donde  se  ha encontrado y se
+    devuelve la posici¢n donde se ha encontrado dentro de la l¡nea.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:Skip^B             Salta l¡neas en el archivo asociado.                        ^B
+'------------------------------------------------------------------------------'
+^U Skip
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Skip( nLines ) -> NIL
+
+^B Descripci¢n:^B
+    Salta ^BnLines^B l¡neas en el archivo asociado. Si es un valor negativo el
+    salto ser  hacia atr s.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Skipper^B          Igual que ^BSkip^B pero devuelve cuantas l¡neas ha saltado.     ^B
+'------------------------------------------------------------------------------'
+^U Skipper
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    Skipper( nLines ) -> nLinesSkiped
+
+^B Descripci¢n:^B
+    Salta nLines devolviendo las l¡neas que ha saltado.
+
+^B Retorno:^B
+    Devuelve un valor num‚rico.
+
+'------------------------------------------------------------------------------'
+!short:WriteLN^B          Escribe cadenas en el archivo de texto.                     ^B
+'------------------------------------------------------------------------------'
+^U WriteLN
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B Prototipo:^B
+    WriteLN( cCadena, lInsertMode ) -> NIL
+
+^B Descripci¢n:^B
+    Escribe la cadena ^BcCadena^B en el archivo asociado en la posici¢n actual.
+    ^BlInsertMode^B indica si se inserta o si se sobreescribe la cadena.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'

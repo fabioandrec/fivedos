@@ -1,0 +1,40 @@
+^U MENU
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+     ^BMENU [ oMenu ] [ COLOR cColors ]
+        Genera un menu y lo asocia a oMenu, con la definici¢n de colores
+        cColors. Si no se especicifica oMenu, se genera un nuevo subnivel
+        del men£ en curso.
+
+     ^BMENUITEM [ oMenuItem etiq: PROMPT, LABEL ] [ cItem ]
+     ^B             [ SHORTCUT nKey ]
+     ^B             [ MESSAGE cMsg ]
+     ^B             [ ACTION uAction ]
+     ^B             [ check:CHECKED ]
+     ^B             [ disable:DISABLED ]
+
+     ^BMENUITEM [ oMenuItem PROMPT, LABEL ] [ cItem ]
+        A¤ade un item, asign ndolo a oMenuItem, con etiqueta cItem
+
+     ^B[ SHORTCUT nKey ]
+        Tecla de acceso r pido nKey
+
+     ^B[ MESSAGE cMsg ]
+        Mensaje que aparecer  en la barra de botones.
+
+     ^B[ ACTION uAction ]
+        Acci¢n que desencadenar .
+
+     ^B[ CHECKED ]
+        El item mantiene un Check Status.
+
+     ^B[ DISABLED ]
+        Estado inicial: deshabilitado.
+
+     ^BSEPARATOR
+        Incluye un item nulo o separador
+
+     ^BENDMENU
+        Cierra el nivel actual, o el men£, si no hay m s disponibles
+
+!seealso: MenuBld.ngh:Menu.ch

@@ -1,0 +1,237 @@
+
+
+La clase TDataBase
+------------------------------------------------------------------------------
+
+  * Introducci¢n.-
+
+          La gesti¢n de bases de datos es, si cabe, la tarea m s
+  importante que realiza Clipper, por eso en los productos FIVE se ha
+  hecho un especial incapi‚ en cuidarla e incluso, en muchos de los casos,
+  mejorarla. Para ello se ha creado esta clase. Casi en su totalidad est 
+  desarrollada a bajo nivel con lo que se consigue una mayor velocidad de
+  acceso y respuesta.
+
+          Se ha respetado al m ximo la nomenclatura, las posibilidades y
+  la sencillez de nuestro Clipper, aument ndolas donde ‚ste no daba la
+  talla e incluso, creando nuevas donde ni si quiera llegaba.
+
+          Para facilitar el manejo de esta nueva clase hemos creado unos
+  comandos vali‚ndonos del potente preprocesador de Clipper, aunque, si
+  as¡ lo deseais, se pueden utilizar los M‚todos de la clase directamente
+  con lo que se consigue un mayor control de la base de datos y los
+  procesos que realicemos.
+
+          La clase TDataBase est  derivada de la clase abstracta TWorkArea
+  escrita en su tolidad en lenguaje C y ensamblador y est  ampliamente
+  probada en los desarrollos de aplicaciones de gesti¢n para FiveWin,
+  FiveDOS y FiveOS2, realizadas por usuarios y BetaTester, por lo que los
+  nuevos usuario no deben temer comportamientos an¢malos e indeseados.
+
+          Un punto muy importante es con esta clase podemos utilizar a
+          toda potencia la sitaxis OOP olvid ndonos de la tradicional.
+
+  Ejemplo:
+    Antes:
+
+       CLIENTES->cCodigo := "52.200.350Y"  // Para iniciar campo
+                                 ¢
+       if( CLIENTES->( DbSeek( "AB23457" ) ), .... ) // Invocar una funci¢n
+
+     Ahora:
+
+       oClientes:cCodigo := "52.2000.350Y" // Inicia campo ( Dato de la clase )
+                                  ¢
+       if( oClientes:Seek( "AB23457" ), .... ) // Invoca un M‚todo de la clase
+
+
+          Vamos a intentar en todos los casos hacer un paralelismo entre
+          la sint xis tradicional y la nueva que propone Five Technologic.
+
+  -------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------
+
+  * M‚todos de las clases TWorkArea Y TDataBase
+    -------------------------------------------
+
+  New( nArea, cDriver, cFile, cAlias, lShared, lReadOnly )
+  Crea un objeto de clase TDataBase.
+  -------------------------------------------------------------------------------
+
+  Argumentos:
+  ===========
+
+  <nArea> n£mero de  rea ocupada.
+
+  <cDriver> declaraci¢n del gestor de DBF que se est‚ utlizando: "DBFNTX",
+            "DBFCDX", etc.
+
+  <cFile> nombre del fichero externo que contiene nuestra DBF.
+
+  <lShered> indica si la DBF se abre en modo compartida o no.
+
+  <lReadOnly> determina si es s¢lo de lectura o no.
+
+  Devuelve:
+  =========
+
+          Este m‚todo devuelve un objeto inicializado de la clase.
+
+  Descripci¢n:
+  ============
+
+          Abre una DBF asoci ndola a un area de trabajo adem  de crear un
+  objeto oDbf cuyos datos ( DATA ) m s importates son los propios campos
+  del registro y buffer donde se guarda la informaci¢n de este para evitar
+  la utilizaci¢n de variables de memoria temporales.
+
+  Su utilizaci¢n es muy parecia la funci¢n DbUseArea() de Clipper por lo
+  que recomendamos lea en sumanual lo que se indica de esta funci¢n.
+
+  Ejemplo:
+  ========
+
+       oDbf:= TDataBase():New( "DbfCdx", "cFile", "cAlias", .T., .T. )
+
+    Lo mismo pero con comandos ser¡a:
+
+         DEFINE DATABASE oDbf    ;
+              FILE "cFile"     ;
+              ALIAS "cAlias"   ;
+              DRIVER "DbfCdx"  ;
+              SHARED READONLY
+
+
+
+  Ver tambi‚n: DEFINE DATABASE..., USE DATABASE ...
+
+
+
+  Blank( )
+  Llena el buffer con valores vacios teniendo en cuenta el tipo de campo.
+  -------------------------------------------------------------------------------
+
+  Argumentos:
+  ===========
+
+          No tiene.
+
+
+  Devuelve:
+  =========
+
+          No devuelve nada.
+
+  Descripci¢n:
+  ============
+
+          Con este m‚todo se consigue que el buffer intermedio se vac¡e
+          para tratarlo posteriormente, evitando as¡ temer que tener
+          variable de memoria e inicializarlas, con el consiguiente ahorro
+          de memoria.
+
+          No hay nada similar en clipper de utilizaci¢n directa.
+
+  Ejemplo:
+  ========
+
+          DEFINE DATABASE oDbf    ;
+              FILE "cFile"     ;
+              ALIAS "cAlias"   ;
+              DRIVER "DbfCdx"  ;
+              SHARED READONLY
+
+          oDbf:Blank()
+
+          @ 10, 10 GET oGet VAR oDbf:Campo OF oWnd
+
+  Ver tambi‚n: Load(), Save()
+
+
+
+  Load( )
+  Llena el buffer con valores del registro en el que se encuentre el puntero.
+  -------------------------------------------------------------------------------
+
+  Argumentos:
+  ===========
+
+          No tiene.
+
+
+  Devuelve:
+  =========
+
+          No devuelve nada.
+
+  Descripci¢n:
+  ============
+
+          Con este m‚todo se consigue que el buffer intermedio se llene
+          con los valores del registro actual. Normalmente lo utilizaremos
+          para consultas y/¢ modificaciones.-
+
+          No hay nada similar en clipper de utilizaci¢n directa.
+
+  Ejemplo:
+  ========
+
+          DEFINE DATABASE oDbf    ;
+              FILE "cFile"     ;
+              ALIAS "cAlias"   ;
+              DRIVER "DbfCdx"  ;
+              SHARED READONLY
+
+              ....
+
+
+          oDbf:Load()
+
+          @ 10, 10 GET oGet VAR oDbf:Campo OF oWnd
+
+  Ver tambi‚n: Save(), Blank()
+
+
+
+  Save( )
+  Salva a la base de datos el contenido del buffer.
+  -------------------------------------------------------------------------------
+
+  Argumentos:
+  ===========
+
+          No tiene.
+
+
+  Devuelve:
+  =========
+
+          No devuelve nada.
+
+  Descripci¢n:
+  ============
+
+          Con este m‚todo se consigue que el buffer intermedio se salve en
+          la base de datos.
+
+  Ejemplo:
+  ========
+
+          DEFINE DATABASE oDbf    ;
+              FILE "cFile"     ;
+              ALIAS "cAlias"   ;
+              DRIVER "DbfCdx"  ;
+              SHARED READONLY
+
+              ....
+
+
+          oDbf:Load()
+
+          @ 10, 10 GET oGet VAR oDbf:Campo OF oWnd
+
+          oDbf:Save()
+
+  Ver tambi‚n: Save(), Blank
+
+

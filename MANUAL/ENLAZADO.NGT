@@ -1,0 +1,26 @@
+^U Enlazado.
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+
+        ^A9FIMPORTANTE :^N
+
+        ^B        Esta librer¡a est  optimizada para el procesador 80286, por
+        ^Blo que su uso en procesadores inferiores ser¡a imposible.
+
+
+        Para realizar un enladado para modo ^BReal^N no es necesario proceso
+        alguno, m s que a¤adir la librer¡a:
+
+                        ^BFiveDos.Lib^N
+
+        Para el enlazado en modo ^BProtegido^N basta con hacer referencia al
+        m¢dulo ^BVEXTENDED^N, incluyendo en un fichero .prg la sentencia:
+
+                        ^BREQUEST VEXTENDED^N
+
+        O simplemente compilando y enlazando el fichero:
+
+                        ^BEXTEND.PRG^N
+
+        que se puede encontrar en el directorio SAMPLES.
+

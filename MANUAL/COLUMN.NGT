@@ -1,0 +1,59 @@
+^U COLUMN
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+^B    COLUMN [ <oCol> ] ;
+^B        [ <show: SHOW, DATA> <uData> ] ;
+^B        [ SHOWBLOCK <bData> ] ;
+^B        [ <tit: TITLE, HEAD, HEADER> <cTitle> ] ;
+^B        [ FOOTER <cFooter> ] ;
+^B        [ COLOR <anColors> ] ;
+^B        [ COLORSEL <bColor> ] ;
+^B        [ FOOTSEP <cFootSep> ] ;
+^B        [ WIDTH <nWidth> ] ;
+^B        [ PICTURE <cPicture> ] ;
+^B        [ FONT    <oFont> ] ;
+^B        [ SIZE <nWidth>, <nHeight> ] ;
+^B        [ <style: BITMAP> ] ;
+
+^B    [ <oCol> ]
+        Variable en la que se almacenar  el objeto TColumn.
+
+^B    [ <show: SHOW, DATA> <uData> ]
+        Especifica que dato aparecer  en la columna.
+
+^B    [ SHOWBLOCK <bData> ]
+        Codeblock que nos proporciona datos a mostrar en la columna.
+
+^B    [ <tit: TITLE, HEAD, HEADER> <cTitle> ]
+        T¡tulo que aparecer  en la cabecera de la columna.
+
+^B    [ FOOTER <cFooter> ]
+        Caracteres usados para dibujar el pie de la columna.
+
+^B    [ COLOR <anColors> ]
+        Array de colores a usar por la columna.
+
+^B    [ COLORSEL <bColor> ]
+        CodeBlock usado para seleccionar el color. Ver ClassVar de TBColumn
+        colorblock.
+
+^B    [ FOOTSEP <cFootSep> ]
+        Cadena de caracteres usado como separador de pie de p gina para esta
+        columna.
+
+^B    [ WIDTH <nWidth> ]
+        Anchura de la columna.
+
+^B    [ PICTURE <cPicture> ]
+        S¢lo para compatibilidad con FiveWin.
+
+^B    [ FONT    <oFont> ]
+        S¢lo para compatibilidad con FiveWin.
+
+^B    [ SIZE <nWidth>, <nHeight> ]
+        S¢lo para compatibilidad con FiveWin.
+
+^B    [ <style: BITMAP> ]
+        S¢lo para compatibilidad con FiveWin.
+
+!seealso: Browse.ngo:BROWSE Browse.ngh:Browse.ch

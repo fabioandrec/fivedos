@@ -1,0 +1,70 @@
+^U GET
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+    ^B#xcommand @ nRow, nCol GET [ oGet VAR ] uVar
+    ^B         [ SIZE nWidth, nHeight ]
+    ^B         [ COLOR cColors ]
+    ^B         [ etiq: LABEL, PROMPT cLabel ]
+    ^B         [ MESSAGE cMessage ]
+    ^B         [ memo: MULTILINE, MEMO, TEXT ]
+    ^B         [ WHEN uWhen ]
+    ^B         [ VALID uValid ]
+    ^B         [ wnd: OF, WINDOW, DIALOG oWnd ]
+    ^B         [ FILE <cBmp> [ , <cBmp2> ] ] ;
+    ^B         [ <lEdit: NOEDIT > ];
+    ^B         [ <lPassword: PASSWORD > ];
+
+
+    ^B#xcommand @ nRow, nCol GET [ oGet VAR ] uVar
+        Sit£a un objeto FiveDos-Get en la posici¢n nRow, nCol, lo salva en
+        la variable oGet, editando la variable uVar
+
+    ^B[ SIZE nWidth, nHeight ]
+        S¢lo para compatibilidad con FiveWin.
+
+    ^B[ COLOR cColors ]
+        Determina el patr¢n de colores seg£n el esquema:
+
+             "<Color no Focus>, <Color Focus >"
+
+
+    ^B[ etiq: LABEL, PROMPT cLabel ]
+        Etiqueta que se coloca a la derecha del objeto GET.
+
+                Nota: Una HotKey en la Etiqueta se indica precediendo el
+                caracter con el simbolo ^B&^N.
+                El color de la etiqueta lo determina la Ventana.
+
+    ^B[ MESSAGE cMessage ]
+        Mensaje que se colocar  en la barra de mensajes de la Ventana.
+
+    ^B[ memo: MULTILINE, MEMO, TEXT ]
+        Pendiente de implementar :-((
+
+    ^B[ WHEN uWhen ]
+        Funci¢n de prevalidaci¢n, para permitir el acceso al GET.
+
+    ^B[ VALID uValid ]
+        Funci¢n de validaci¢n, para validar la salida del GET.
+
+    ^B[ wnd: OF, WINDOW, DIALOG oWnd ]
+        Determina la Ventana a la que pertenece.
+
+    ^B[ FILE <cBmp> [ , <cBmp2> ] ]
+        Indica los ficheros de icono s que se usar n en el prompt.
+        El primero representa el icono del estado "no focus" y el
+        segundo el estado focus.
+
+    ^B[ <lEdit: NOEDIT > ]
+        Obliga a la no entrada de las teclas al get, pero si se evaluan
+        las clausulas Wen y Valid, as¡ como cos codebloc's de control de
+        telcas.
+
+    ^B[ <lPassword: PASSWORD > ]
+        Provoca que se visualice un ^B*^N como respuesta a la entrada de
+        cualquier caracter diferente de un espacio.
+
+ ^BEjemplo:^N
+
+    @ 6, 2 GET cVar PROMPT "&Este Get" MESSAGE "Esto Es un Get" OF oWnd2
+

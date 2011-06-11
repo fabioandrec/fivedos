@@ -1,0 +1,169 @@
+!short: CLASE ^BTSpin^B                                                                 
+'------------------------------------------------------------------------------'
+    Clase heredada de TGet para soporte de objeto TSpin.
+
+'------------------------------------------------------------------------------'
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short: DATOS
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:nRangeTop^B        Valor Mayor alcanzable.
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nRangeBotton^B     Menor valor alcanzable.
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:nColorArrow^B      Color asignado a las flechas de cambio de valor.
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:bAction^B          Acci줻 a realizar en cada cambio de valor.
+'------------------------------------------------------------------------------'
+'------------------------------------------------------------------------------'
+!short:
+!short: METODOS
+!short:컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+!short:
+!short:Click^B            Maneja las pulsaciones del rat줻.^B                           
+'------------------------------------------------------------------------------'
+^U Click
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Click( nMRow, nMCol ) -> NIL
+
+^B Descripci줻:^B
+    Maneja las pulsaciones del rat줻.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:KeyPressed^B       Maneja las pulsaciones del teclado.^B                         
+'------------------------------------------------------------------------------'
+^U KeyPressed
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    KeyPressed( nKey ) -> nKey
+
+^B Descripci줻:^B
+    Procesa las pulsaciones de tecla, definiendo pues, el comportamiento del
+    objeto en lo que a respuesta a teclas se refiere. Devuelve 0 cuando se ha
+    procesado la tecla y nKey cuando no se ha procesado.
+
+^B Retorno:^B
+    Devuelve un valor num굍ico.
+
+'------------------------------------------------------------------------------'
+!short:New^B              Es el constructor de la clase.^B                              
+'------------------------------------------------------------------------------'
+^U New
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    New( nRow, nCol, bSetGet, cColor, cLabel, cMessage, cPicture, ;
+            oWnd, bWhen, bValid, cBmp, cBmp2 , nRangeTop, nRangeBottom,;
+             nStep, bAction, lEdit  ) -> Self
+
+^B Descripci줻:^B
+    Es el constructor de la clase. Recibe los siguientes par쟭etros:
+
+    ^BnRow    ^B    Fila donde se situa el objeto.
+    ^BnCol    ^B    Columna donde se situa el objeto.
+    ^BnWidth  ^B    Ancho que tiene el objeto.
+    ^BnHeight ^B    Alto que tiene el objeto.
+    ^BbSetGet ^B    Codeblock para leer o asignar la variable de edici줻.
+    ^BcLabel  ^B    Texto para la etiqueta que aparece a la izquierda del get.
+    ^BcMessage^B    Mensaje que aparecera cuando se selecciona el objeto.
+    ^BcColor  ^B    Cadena de caracteres con los colores a usar.
+    ^BcPicture^B    Indica como formatear y editar el objeto.
+    ^BoWnd    ^B    Referencia a la ventana donde se inserta.
+    ^BbWhen   ^B    Codeblock de prevalidaci줻.
+    ^BbValid  ^B    Codeblock de postvalidaci줻.
+    ^BcBmp,cBmp2^B  Bitmap para el label.
+    ^BnRangeTop^B   Mayor valor alcanzable.
+    ^BnRangeBottom^BMenor valor alcanzable.
+    ^BbAction^B     A evaluar en cada cambio.
+    ^BlEdit^B       Permite o no la edici줻.
+
+^B Retorno:^B
+    Devuelve una referencia al objeto creado.
+
+'------------------------------------------------------------------------------'
+!short:Refresh^B          Actualiza la im쟥en del objeto.^B                             
+'------------------------------------------------------------------------------'
+^U Refresh
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Refresh() -> NIL
+
+^B Descripci줻:^B
+    Actualiza la im쟥en del objeto.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:SetFocus^B         M굏odo llamado para cambiar el focus.^B                       
+'------------------------------------------------------------------------------'
+^U SetFocus
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    SetFocus( lOnOff ) -> NIL
+
+^B Descripci줻:^B
+    Este m굏odo se usa para cambiar el focus del objeto.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Up      ^B         M굏odo llamado para Decrementar el valor.^B                   
+'------------------------------------------------------------------------------'
+^U Up
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Up() -> NIL
+
+^B Descripci줻:^B
+    Este m굏odo se usa para cambiar el valor del spin decrement쟮dolo.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:Down    ^B         M굏odo llamado para Incrementar el valor.^B                   
+'------------------------------------------------------------------------------'
+^U Down
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    Down() -> NIL
+
+^B Descripci줻:^B
+    Este m굏odo se usa para cambiar el valor del spin increment쟮dolo.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
+!short:cText   ^B         M굏odo llamado para cambiar el valor.^B                       
+'------------------------------------------------------------------------------'
+^U cText
+컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴컴
+
+^B Prototipo:^B
+    cText( uVal ) -> NIL
+
+^B Descripci줻:^B
+    Este m굏odo se usa para cambiar el valor del spin, actualizando su im쟥en.
+    Sobreescribe al de la clase TGet.
+
+^B Retorno:^B
+    Devuelve NIL.
+
+'------------------------------------------------------------------------------'
