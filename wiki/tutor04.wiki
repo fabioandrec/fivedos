@@ -2,6 +2,8 @@ tutor04
 
 http://img848.imageshack.us/img848/1382/capturezcy.png
 
+http://img137.imageshack.us/img137/3886/captureqc.png
+
 {{{
 #include "FiveDos.ch"
 #include "SysStr.ch"  // Usa SysLanguage()
