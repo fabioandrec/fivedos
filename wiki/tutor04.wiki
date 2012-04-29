@@ -4,6 +4,8 @@ http://img848.imageshack.us/img848/1382/capturezcy.png
 
 http://img137.imageshack.us/img137/3886/captureqc.png
 
+http://img17.imageshack.us/img17/6113/capturetbn.png
+
 {{{
 #include "FiveDos.ch"
 #include "SysStr.ch"  // Usa SysLanguage()
